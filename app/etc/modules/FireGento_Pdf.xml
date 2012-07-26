@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FireGento_Pdf>
+            <active>true</active>
+            <codePool>community</codePool>
+        </FireGento_Pdf>
+    </modules>
+</config>

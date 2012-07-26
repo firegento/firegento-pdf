@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FireGento_Pdf>
+            <version>0.1.0</version>
+        </FireGento_Pdf>
+    </modules>
+    <global>
+        <helpers>
+            <firegento_pdf>
+                <class>FireGento_Pdf_Helper</class>
+            </firegento_pdf>
+        </helpers>
+        <models>
+            <sales>
+                <rewrite>
+                    <order_pdf_invoice>FireGento_Pdf_Model_Invoice</order_pdf_invoice>
+                    <order_pdf_items_invoice_default>FireGento_Pdf_Model_Items_Default</order_pdf_items_invoice_default>
+                    <order_pdf_shipment>FireGento_Pdf_Model_Shipment</order_pdf_shipment>
+                    <order_pdf_items_shipment_default>FireGento_Pdf_Model_Items_Shipment_Default</order_pdf_items_shipment_default>
+                </rewrite>
+            </sales>
+        </models>
+    </global>
+</config>
