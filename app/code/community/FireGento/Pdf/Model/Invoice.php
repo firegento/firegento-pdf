@@ -522,7 +522,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                 }
 
                 $position['x1'] = $startLogoAt;
-                $position['y1'] = 742;
+                $position['y1'] = 720;
                 $position['x2'] = $position['x1'] + $width;
                 $position['y2'] = $position['y1'] + $height;
 
