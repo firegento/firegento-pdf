@@ -22,4 +22,15 @@
             </sales>
         </models>
     </global>
+    <frontend>
+        <routers>
+            <sales>
+                <args>
+                    <modules>
+                        <firegento_pdf before="Mage_Sales">FireGento_Pdf_Sales</firegento_pdf>
+                    </modules>
+                </args>
+            </sales>
+        </routers>
+    </frontend>
 </config>
