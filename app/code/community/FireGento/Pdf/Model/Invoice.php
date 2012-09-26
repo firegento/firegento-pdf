@@ -92,6 +92,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
 
             /* add billing address */
             $this->y = 692;
+			$this->insertSenderAddessBar($page);
             $this->insertBillingAddress($page, $order);
 
             /* add sender address */
@@ -103,14 +104,16 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
             $this->insertHeader($page, $order, $invoice);
 
             /* add footer if GermanSetup is installed */
-            if ($this->imprint) {
+            if ($this->imprint && Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1) {
+				
                 $this->y = 110;
                 $this->insertFooter($page, $invoice);
+				
+				/* add page counter */
+				$this->y = 110;
+            	$this->insertPageCounter($page);
+				
             }
-
-            /* add page counter */
-            $this->y = 110;
-            $this->insertPageCounter($page);
 
             /* add table header */
             $this->_setFontRegular($page, 9);
@@ -133,6 +136,9 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                 $position++;
                 $page = $this->_drawItem($item, $page, $order, $position);
             }
+			
+			/* add line after items */
+			$page->drawLine($this->margin['left'], $this->y + 5, $this->margin['right'], $this->y + 5);
 
             /* add totals */
             $this->insertTotals($page, $invoice);
@@ -227,10 +233,10 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $page->drawText(Mage::helper('firegento_pdf')->__('No.'), 			$this->margin['left'] + 25, 	$this->y, $this->encoding);
         $page->drawText(Mage::helper('firegento_pdf')->__('Description'), 	$this->margin['left'] + 120, 	$this->y, $this->encoding);
 
-        $singlePrice = Mage::helper('firegento_pdf')->__('Preis (Netto)');
+        $singlePrice = Mage::helper('firegento_pdf')->__('Price');
         $page->drawText($singlePrice, $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9), 	$this->y, $this->encoding);
 
-        $page->drawText(Mage::helper('firegento_pdf')->__('Amount'), 		$this->margin['left'] + 360, 	$this->y, $this->encoding);
+        $page->drawText(Mage::helper('firegento_pdf')->__('Qty'), 		$this->margin['left'] + 360, 	$this->y, $this->encoding);
 
         $taxLabel = Mage::helper('firegento_pdf')->__('Tax');
         $page->drawText($taxLabel, $this->margin['right'] - 65 - $this->widthForStringUsingFontSize($taxLabel, $font, 9), $this->y, $this->encoding);
@@ -256,15 +262,22 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
 
         $page->drawText(Mage::helper('firegento_pdf')->__( ($mode == 'invoice') ? 'Invoice number:' : 'Creditmemo number:' ), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
         $this->Ln();
-        $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-        $this->Ln();
+		
+		$yPlus = 15;
+		
+		if($order->getCustomerId() != "") {
+			
+			$page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+			$this->Ln();
 
-        $yPlus = 30;
+        	$yPlus += 15;
+			
+		}
 
         if(Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
-            $yPlus = 45;
+            $yPlus += 15;
         }
 
         $page->drawText(Mage::helper('firegento_pdf')->__('Invoice date:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
@@ -273,21 +286,27 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $rightoffset = 60;
         $page->drawText($invoice->getIncrementId(), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
         $this->Ln();
+		
+		$rightoffset = 10;
+		$font = $this->_setFontRegular($page, 10);
 
-        $prefix = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
-
-        if (!empty($prefix)) {
-            $customerid = $prefix.$order->getCustomerId();
-        }
-        else {
-            $customerid = $order->getCustomerId();
-        }
-
-        $rightoffset = 10;
-
-        $font = $this->_setFontRegular($page, 10);
-        $page->drawText($customerid, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
-        $this->Ln();
+		if($order->getCustomerId() != "") {
+			
+			$prefix = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
+	
+			if (!empty($prefix)) {
+				$customerid = $prefix.$order->getCustomerId();
+			}
+			else {
+				$customerid = $order->getCustomerId();
+			}
+	
+			
+			$page->drawText($customerid, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
+			$this->Ln();
+			
+		}
+		
         if(Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
             $customerIP = $order->getData('remote_ip');
             $font = $this->_setFontRegular($page, 10);
@@ -299,9 +318,23 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $page->drawText($invoiceDate, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($invoiceDate, $font, 10)), $this->y, $this->encoding);
 
     }
+	
+	protected function insertSenderAddessBar(&$page) {
+
+		if(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar') != "") {
+			
+			$this->_setFontRegular($page, 6);
+			
+			$page->drawText(trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')), $this->margin['left'], $this->y, $this->encoding);
+			$this->y -= 15;
+			
+		}
+
+	}
 
     protected function insertBillingAddress(&$page, $order)
     {
+		
         $this->_setFontRegular($page, 9);
 
         $billing = $this->_formatAddress($order->getBillingAddress()->format('pdf'));
@@ -359,8 +392,8 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $maxheight = 100;
 
         $image = Mage::getStoreConfig('sales/identity/logo', $store);
-        if ($image and file_exists(Mage::getStoreConfig('system/filesystem/media', $store) . '/sales/store/logo/' . $image)) {
-            $image = Mage::getStoreConfig('system/filesystem/media', $store) . '/sales/store/logo/' . $image;
+        if ($image and file_exists(Mage::getBaseDir('media', $store) . '/sales/store/logo/' . $image)) {
+            $image = Mage::getBaseDir('media', $store) . '/sales/store/logo/' . $image;
 
             $size = getimagesize($image);
 
@@ -392,7 +425,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
             if (is_file($image)) {
                 $image = Zend_Pdf_Image::imageWithPath($image);
 
-                $logoPosition = Mage::getStoreConfig('sales/identity/logoposition', $store);
+                $logoPosition = Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_position', $store);
 
                 switch($logoPosition) {
                     case 'center':
@@ -411,6 +444,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                 $position['y2'] = $position['y1'] + $height;
 
                 $page->drawImage($image, $position['x1'], $position['y1'], $position['x2'], $position['y2']);
+			
             }
         }
     }
@@ -487,7 +521,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                         $lineBlock['lines'][] = array(
                             array(
                                 'text'      => Mage::helper('firegento_pdf')->__('Additional tax %s', $source->getStore()->roundPrice(number_format($taxRate, 0)).'%'),
-                                'feed'      => $this->margin['left'] + 0 ,
+                                'feed'      => $this->margin['left'] + 320,
                                 'align'     => 'left',
                                 'font_size' => $fontSize,
                                 'font'      => $fontWeight
@@ -519,7 +553,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                         $lineBlock['lines'][] = array(
                             array(
                                 'text'      => $label,
-                                'feed'      => $this->margin['left'] + 0,
+                                'feed'      => $this->margin['left'] + 320,
                                 'align'     => 'left',
                                 'font_size' => $fontSize,
                                 'font'      => $fontWeight
@@ -550,7 +584,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                     $lineBlock['lines'][] = array(
                         array(
                             'text'      => Mage::helper('firegento_pdf')->__('Shipping:'),
-                            'feed'      => $this->margin['left'] + 0,
+                            'feed'      => $this->margin['left'] + 320,
                             'align'     => 'left',
                             'font_size' => $fontSize,
                             'font'      => $fontWeight
@@ -581,7 +615,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                         $lineBlock['lines'][] = array(
                             array(
                                 'text'      => $label,
-                                'feed'      => $this->margin['left'] + 0,
+                                'feed'      => $this->margin['left'] + 320,
                                 'align'     => 'left',
                                 'font_size' => $fontSize,
                                 'font'      => $fontWeight

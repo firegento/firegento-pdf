@@ -12,6 +12,9 @@
             </firegento_pdf>
         </helpers>
         <models>
+			<firegento_pdf>
+                <class>FireGento_Pdf_Model</class>
+            </firegento_pdf>
             <sales>
                 <rewrite>
                     <order_pdf_invoice>FireGento_Pdf_Model_Invoice</order_pdf_invoice>
