@@ -186,10 +186,10 @@ class FireGento_Pdf_Model_Shipment extends Mage_Sales_Model_Order_Pdf_Shipment
         $this->insertFooterBlock($page, $fields, 85, 40);
 
         $fields = array(
-            'bankname' => Mage::helper('firegento_pdf')->__('Bank name:'),
-            'bankaccount' => Mage::helper('firegento_pdf')->__('Account:'),
-            'bankcodenumber' => Mage::helper('firegento_pdf')->__('Bank number:'),
-            'bankaccountowner' => Mage::helper('firegento_pdf')->__('Account owner:'),
+            'bank_name' => Mage::helper('firegento_pdf')->__('Bank name:'),
+            'bank_account' => Mage::helper('firegento_pdf')->__('Account:'),
+            'bank_code_number' => Mage::helper('firegento_pdf')->__('Bank number:'),
+            'bank_account_owner' => Mage::helper('firegento_pdf')->__('Account owner:'),
             'swift' => Mage::helper('firegento_pdf')->__('SWIFT:'),
             'iban' => Mage::helper('firegento_pdf')->__('IBAN:')
         );
@@ -218,10 +218,10 @@ class FireGento_Pdf_Model_Shipment extends Mage_Sales_Model_Order_Pdf_Shipment
         $size = $page->getFontSize();
 
         $this->y -= 11;
-        $page->drawText(Mage::helper('firegento_pdf')->__('No.'), 			$this->margin['left'], 	$this->y, $this->encoding);
-        $page->drawText(Mage::helper('firegento_pdf')->__('Description'), 	$this->margin['left'] + 105, $this->y, $this->encoding);
+        $page->drawText(Mage::helper('firegento_pdf')->__('No.'),            $this->margin['left'],       $this->y, $this->encoding);
+        $page->drawText(Mage::helper('firegento_pdf')->__('Description'),    $this->margin['left'] + 105, $this->y, $this->encoding);
 
-        $page->drawText(Mage::helper('firegento_pdf')->__('Amount'), 		$this->margin['left'] + 450, 	$this->y, $this->encoding);
+        $page->drawText(Mage::helper('firegento_pdf')->__('Amount'),         $this->margin['left'] + 450, $this->y, $this->encoding);
     }
 
     protected function insertHeader(&$page, $order, $invoice)
