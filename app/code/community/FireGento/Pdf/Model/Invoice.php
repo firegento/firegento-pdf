@@ -194,10 +194,10 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $this->insertFooterBlock($page, $fields, 70, 40);
 
         $fields = array(
-            'bankname' => Mage::helper('firegento_pdf')->__('Bank name:'),
-            'bankaccount' => Mage::helper('firegento_pdf')->__('Account:'),
-            'bankcodenumber' => Mage::helper('firegento_pdf')->__('Bank number:'),
-            'bankaccountowner' => Mage::helper('firegento_pdf')->__('Account owner:'),
+            'bank_name' => Mage::helper('firegento_pdf')->__('Bank name:'),
+            'bank_account' => Mage::helper('firegento_pdf')->__('Account:'),
+            'bank_code_number' => Mage::helper('firegento_pdf')->__('Bank number:'),
+            'bank_account_owner' => Mage::helper('firegento_pdf')->__('Account owner:'),
             'swift' => Mage::helper('firegento_pdf')->__('SWIFT:'),
             'iban' => Mage::helper('firegento_pdf')->__('IBAN:')
         );
@@ -227,7 +227,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $page->drawText(Mage::helper('firegento_pdf')->__('No.'), 			$this->margin['left'] + 25, 	$this->y, $this->encoding);
         $page->drawText(Mage::helper('firegento_pdf')->__('Description'), 	$this->margin['left'] + 120, 	$this->y, $this->encoding);
 
-        $singlePrice = Mage::helper('firegento_pdf')->__('Preis (Netto)');
+        $singlePrice = Mage::helper('firegento_pdf')->__('Price (excl. tax)');
         $page->drawText($singlePrice, $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9), 	$this->y, $this->encoding);
 
         $page->drawText(Mage::helper('firegento_pdf')->__('Amount'), 		$this->margin['left'] + 360, 	$this->y, $this->encoding);
