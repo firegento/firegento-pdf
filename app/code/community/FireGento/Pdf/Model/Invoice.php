@@ -204,9 +204,9 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $this->insertFooterBlock($page, $fields, 215, 50);
 
         $fields = array(
-            'taxnumber' => Mage::helper('firegento_pdf')->__('Tax number:'),
-            'vatid' => Mage::helper('firegento_pdf')->__('VAT-ID:'),
-            'hrb' => Mage::helper('firegento_pdf')->__('Register number:'),
+            'tax_number' => Mage::helper('firegento_pdf')->__('Tax number:'),
+            'vat_id' => Mage::helper('firegento_pdf')->__('VAT-ID:'),
+            'register_number' => Mage::helper('firegento_pdf')->__('Register number:'),
             'ceo' => Mage::helper('firegento_pdf')->__('CEO:')
         );
         $this->insertFooterBlock($page, $fields, 355, 60);
