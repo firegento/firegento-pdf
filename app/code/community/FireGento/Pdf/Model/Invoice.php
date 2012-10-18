@@ -267,13 +267,8 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $page->drawText(Mage::helper('firegento_pdf')->__('No.'),             $this->margin['left'] + 25,     $this->y, $this->encoding);
         $page->drawText(Mage::helper('firegento_pdf')->__('Description'),     $this->margin['left'] + 120,     $this->y, $this->encoding);
 
-<<<<<<< HEAD
         $singlePrice = Mage::helper('firegento_pdf')->__('Price (excl. tax)');
         $page->drawText($singlePrice, $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9), 	$this->y, $this->encoding);
-=======
-        $singlePrice = Mage::helper('firegento_pdf')->__('Price');
-        $page->drawText($singlePrice, $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9),     $this->y, $this->encoding);
->>>>>>> master
 
         $page->drawText(Mage::helper('firegento_pdf')->__('Qty'),         $this->margin['left'] + 360,     $this->y, $this->encoding);
 
