@@ -1,33 +1,35 @@
 <?php
 /**
- * Magento
+ * This file is part of the FIREGENTO project.
  *
- * NOTICE OF LICENSE
+ * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
  *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
- * DISCLAIMER
+ * PHP version 5
  *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    Mage
- * @package     Mage_Adminhtml
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ * @version   $Id:$
+ * @since     0.1.0
  */
-
 /**
- * Adminhtml sales orders controller
+ * Sales orders controller
  *
- * @author      Magento Core Team <core@magentocommerce.com>
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ * @version   $Id:$
+ * @since     0.1.0
  */
 
 include_once("Mage/Adminhtml/controllers/Sales/Order/InvoiceController.php");
@@ -62,14 +64,29 @@ class FireGento_Pdf_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminht
         //TODO Engine einbauen
         $invoicesIds = $this->getRequest()->getPost('invoice_ids');
         if (!empty($invoicesIds)) {
+            $engine = Mage::getStoreConfig('order/pdf/engine');
             $invoices = Mage::getResourceModel('sales/order_invoice_collection')
                 ->addAttributeToSelect('*')
                 ->addAttributeToFilter('entity_id', array('in' => $invoicesIds))
                 ->load();
             if (!isset($pdf)) {
-                $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
+                if ($engine) {
+                    $pdf = Mage::getModel($engine);
+                    if ($pdf && $pdf->test()) {
+                        $pdf = $pdf->getPdf($invoices);
+                    }
+                } else {
+                    $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
+                }
             } else {
-                $pages = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
+                if ($engine) {
+                    $pdf = Mage::getModel($engine);
+                    if ($pdf && $pdf->test()) {
+                        $pdf = $pdf->getPdf($invoices);
+                    }
+                } else {
+                    $pages = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
+                }
                 $pdf->pages = array_merge($pdf->pages, $pages->pages);
             }
 
