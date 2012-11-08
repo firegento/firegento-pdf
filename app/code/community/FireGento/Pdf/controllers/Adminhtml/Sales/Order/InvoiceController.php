@@ -40,11 +40,11 @@ class FireGento_Pdf_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminht
     {
         if ($invoiceId = $this->getRequest()->getParam('invoice_id')) {
             if ($invoice = Mage::getModel('sales/order_invoice')->load($invoiceId)) {
-                $engine = Mage::getStoreConfig('order/pdf/engine');
+                $engine = Mage::getStoreConfig('sales_pdf/invoice/engine');
                 if ($engine) {
                     $pdf = Mage::getModel($engine);
                     if ($pdf && $pdf->test()) {
-                        $pdf = $pdf->getPdf($invoice);
+                        $pdf = $pdf->getPdf(array($invoice));
                         $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
                             '.pdf', $pdf->render(), 'application/pdf');
                     }

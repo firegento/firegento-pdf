@@ -21,7 +21,7 @@
  * @since     0.1.0
  */
 /**
- * Dropdown for Logo Position
+ * Pdf creation engine source model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
@@ -31,31 +31,26 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-
-class FireGento_Pdf_Model_System_Config_Source_Dropdown_Values
+class FireGento_Pdf_Model_System_Config_Source_Engine
 {
     /**
-     * Dropdown Values for Logo Position
+     * Return array of possible engines.
      *
-     * @return array Dropdown Values
+     * @return array
      */
     public function toOptionArray()
     {
-        $helper = Mage::helper('firegento_pdf');
-
-        return array(
-            array(
-                'value' => 'left',
-                'label' => $helper->__('Left'),
-            ),
-            array(
-                'value' => 'center',
-                'label' => $helper->__('Center'),
-            ),
-            array(
-                'value' => 'right',
-                'label' => $helper->__('Right'),
-            ),
+        $engines = array(
+            ''                      => Mage::helper('firegento_pdf')->__('Klassische Ansicht'),
+            'firegento_pdf/invoice' => Mage::helper('firegento_pdf')->__('Standard German')
         );
+        $options = array();
+        foreach ($engines as $k => $v) {
+            $options[] = array(
+                'value' => $k,
+                'label' => $v
+            );
+        }
+        return $options;
     }
 }

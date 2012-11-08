@@ -378,18 +378,16 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
      *
      * @return void
      */
-    protected function insertSenderAddessBar(&$page) {
-
-        if(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar') != "") {
+    protected function insertSenderAddessBar(&$page)
+    {
+        if (Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar') != "") {
             
             $this->_setFontRegular($page, 6);
             
             $page->drawText(trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')), $this->margin['left'], $this->y, $this->encoding);
-            
         }
-
     }
-	
+
     /**
      * Insert Billing Address
      *
@@ -770,8 +768,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
     /**
      * Set next Line Position
      *
-     * @param string $height   Line-Height
-     *
+     * @param int $height Line-Height
      * @return void
      */
     protected function Ln($height=15)
@@ -1002,4 +999,29 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         return $page;
     }
 
+    /**
+     * Return status of the engine.
+     *
+     * @return bool
+     */
+    public function test()
+    {
+        return true;
+    }
+
+    /**
+     * Initialize renderer process.
+     *
+     * @param string $type
+     * @return void
+     */
+    protected function _initRenderer($type)
+    {
+        parent::_initRenderer($type);
+
+        $this->_renderers['default'] = array(
+            'model' => 'firegento_pdf/items_default',
+            'renderer' => null
+        );
+    }
 }
