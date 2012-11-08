@@ -175,7 +175,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         if(!empty( $int_maturity ) || 0 < $int_maturity ){
             $maturity = Mage::helper('firegento_pdf')->__('Invoice maturity: %s days', Mage::getStoreConfig('sales_pdf/invoice/maturity'));
         }
-        elseif (0 === $int_maturity){
+        elseif ('0' === $int_maturity){
             $maturity = Mage::helper('firegento_pdf')->__('Rechnung sofort fällig');
         }
 
