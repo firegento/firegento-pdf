@@ -151,7 +151,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
 
             /* add note */
             if ($mode == 'invoice') {
-                $this->insertNote($page);
+                $this->insertNote($page,$order,$invoice);
             }
         }
 
@@ -167,7 +167,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
      *
      * @return void
      */
-    protected function insertNote($page)
+    protected function insertNote($page,&$order,&$invoice)
     {
         $this->_setFontRegular($page, 10);
         $this->y = $this->y - 60;
