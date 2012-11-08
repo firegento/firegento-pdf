@@ -509,7 +509,7 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
                 }
 
                 if ($width > $maxwidth) {
-                    $width = $maxheight;
+                    $width = $maxwidth;
                     $height = round($maxwidth * $ratio);
                 }
             }
