@@ -88,7 +88,10 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
         $this->pagecounter = 1;
 
         foreach ($invoices as $invoice) {
-            Mage::app()->getLocale()->emulate(Mage::app()->getStore()->getId());
+            if ($invoice->getStoreId()) {
+                Mage::app()->getLocale()->emulate($invoice->getStoreId());
+                Mage::app()->setCurrentStore($invoice->getStoreId());
+            }
             $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
             $pdf->pages[] = $page;
 
