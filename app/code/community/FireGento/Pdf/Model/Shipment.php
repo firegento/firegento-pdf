@@ -81,6 +81,10 @@ class FireGento_Pdf_Model_Shipment extends Mage_Sales_Model_Order_Pdf_Shipment
         $this->pagecounter = 1;
 
         foreach ($invoices as $invoice) {
+            if ($invoice->getStoreId()) {
+                Mage::app()->getLocale()->emulate($invoice->getStoreId());
+                Mage::app()->setCurrentStore($invioce->getStoreId());
+            }
             Mage::app()->getLocale()->emulate(Mage::app()->getStore()->getId());
             $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
             $pdf->pages[] = $page;
