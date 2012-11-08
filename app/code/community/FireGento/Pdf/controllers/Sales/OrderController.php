@@ -1,6 +1,6 @@
 <?php
 /**
-* This file is part of the FIREGENTO project.
+ * This file is part of the FIREGENTO project.
  *
  * FireGento_GermanSetup is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
@@ -43,12 +43,12 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
      */
     public function printInvoiceAction()
     {
-        $invoiceId = (int) $this->getRequest()->getParam('invoice_id');
+        $invoiceId = (int)$this->getRequest()->getParam('invoice_id');
         if ($invoiceId) {
             $invoice = Mage::getModel('sales/order_invoice')->load($invoiceId);
             $order = $invoice->getOrder();
         } else {
-            $orderId = (int) $this->getRequest()->getParam('order_id');
+            $orderId = (int)$this->getRequest()->getParam('order_id');
             $order = Mage::getModel('sales/order')->load($orderId);
         }
 
@@ -64,9 +64,20 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
                 $invoices = array($invoice);
             }
 
-            $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
-            $this->_prepareDownloadResponse('invoice'.Mage::getSingleton('core/date')->date('Y-m-d_H-i-s').
-                '.pdf', $pdf->render(), 'application/pdf');
+            $engine = Mage::getStoreConfig('order/pdf/engine');
+            if ($engine) {
+                $pdf = Mage::getModel($engine);
+                if ($pdf && $pdf->test()) {
+                    $pdf = $pdf->getPdf($invoices);
+                    $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
+                        '.pdf', $pdf->render(), 'application/pdf');
+                }
+            } else {
+                $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
+                $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
+                    '.pdf', $pdf->render(), 'application/pdf');
+            }
+
 
         } else {
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
