@@ -64,6 +64,10 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
                 $invoices = array($invoice);
             }
 
+            // Store current area and set to adminhtml for invoice generation.
+            $currentArea = Mage::getDesign()->getArea();
+            Mage::getDesign()->setArea('adminhtml');
+
             $engine = Mage::getStoreConfig('order/pdf/engine');
             if ($engine) {
                 $pdf = Mage::getModel($engine);
@@ -78,6 +82,8 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
                     '.pdf', $pdf->render(), 'application/pdf');
             }
 
+            // Restore area.
+            Mage::getDesign()->setArea($currentArea);
 
         } else {
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
