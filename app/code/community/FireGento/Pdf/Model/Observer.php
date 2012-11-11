@@ -1,0 +1,58 @@
+<?php
+/**
+ * This file is part of the FIREGENTO project.
+ *
+ * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * PHP version 5
+ *
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ * @version   $Id:$
+ * @since     0.1.0
+ */
+/**
+ * FireGento Pdf observer.
+ *
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ * @version   $Id:$
+ * @since     0.1.0
+ */
+class FireGento_Pdf_Model_Observer
+{
+    /**
+     * Add maturity to invoice notes.
+     *
+     * @param Varien_Event_Observer $observer
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addInvoiceMaturity(Varien_Event_Observer $observer)
+    {
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+
+        $maturity = Mage::getStoreConfig('sales_pdf/invoice/maturity');
+        if (!empty($maturity) || 0 < $maturity) {
+            $maturity = Mage::helper('firegento_pdf')->__('Invoice maturity: %s days', Mage::getStoreConfig('sales_pdf/invoice/maturity'));
+        } elseif ('0' === $maturity) {
+            $maturity = Mage::helper('firegento_pdf')->__('Invoice is payable immediately');
+        }
+
+        $notes[] = $maturity;
+        $result->setNotes($notes);
+        return $this;
+    }
+}

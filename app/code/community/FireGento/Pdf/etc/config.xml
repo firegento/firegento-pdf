@@ -22,6 +22,16 @@
                 </rewrite>
             </sales>
         </models>
+        <events>
+            <firegento_pdf_invoice_insert_note>
+                <observers>
+                    <firegento_pdf>
+                        <class>firegento_pdf/observer</class>
+                        <method>addInvoiceMaturity</method>
+                    </firegento_pdf>
+                </observers>
+            </firegento_pdf_invoice_insert_note>
+        </events>
     </global>
     <frontend>
         <translate>

@@ -166,24 +166,22 @@ class FireGento_Pdf_Model_Invoice extends Mage_Sales_Model_Order_Pdf_Abstract
     /**
      * Insert Notice after Totals
      *
-     * @param objet $page  Current Page Object of Zend_PDF
+     * @param object $page  Current Page Object of Zend_PDF
      *
      * @return void
      */
-    protected function insertNote($page,&$order,&$invoice)
+    protected function insertNote($page, &$order, &$invoice)
     {
         $this->_setFontRegular($page, 10);
         $this->y = $this->y - 60;
-        $int_maturity = Mage::getStoreConfig('sales_pdf/invoice/maturity');
-        if(!empty( $int_maturity ) || 0 < $int_maturity ){
-            $maturity = Mage::helper('firegento_pdf')->__('Invoice maturity: %s days', Mage::getStoreConfig('sales_pdf/invoice/maturity'));
-        }
-        elseif ('0' === $int_maturity){
-            $maturity = Mage::helper('firegento_pdf')->__('Rechnung sofort fällig');
-        }
 
-        if (!empty($maturity)) {
-            $page->drawText($maturity, $this->margin['left'], $this->y + 50, $this->encoding);
+        $result = new Varien_Object();
+        $result->setNotes(array());
+        Mage::dispatchEvent('firegento_pdf_invoice_insert_note', array('result' => $result));
+
+        foreach ($result->getNotes() as $note) {
+            $this->Ln(15);
+            $page->drawText($note, $this->margin['left'], $this->y + 50, $this->encoding);
         }
 
         $this->Ln(15);
