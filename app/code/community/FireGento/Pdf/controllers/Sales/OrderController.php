@@ -68,7 +68,7 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
             $currentArea = Mage::getDesign()->getArea();
             Mage::getDesign()->setArea('adminhtml');
 
-            $engine = Mage::getStoreConfig('order/pdf/engine');
+            $engine = Mage::getStoreConfig('sales_pdf/invoice/engine');
             if ($engine) {
                 $pdf = Mage::getModel($engine);
                 if ($pdf && $pdf->test()) {
