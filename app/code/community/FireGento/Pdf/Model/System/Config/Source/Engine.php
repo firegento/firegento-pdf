@@ -41,7 +41,7 @@ class FireGento_Pdf_Model_System_Config_Source_Engine
     public function toOptionArray()
     {
         $engines = array(
-            ''                      => Mage::helper('firegento_pdf')->__('Klassische Ansicht'),
+            ''                      => Mage::helper('firegento_pdf')->__('Standard Magento'),
             'firegento_pdf/invoice' => Mage::helper('firegento_pdf')->__('Standard German')
         );
         $options = array();
