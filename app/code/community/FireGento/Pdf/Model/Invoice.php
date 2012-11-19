@@ -143,24 +143,26 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
         $this->_setFontRegular($page, 10);
         $this->y = $this->y - 60;
 
-        $result = new Varien_Object();
-        $result->setNotes(array());
-        Mage::dispatchEvent('firegento_pdf_invoice_insert_note', array('order' => $order, 'invoice' => $invoice, 'result' => $result));
+        $notes = array();
 
-        foreach ($result->getNotes() as $note) {
-            $this->Ln(15);
-            $page->drawText($note, $this->margin['left'], $this->y + 50, $this->encoding);
+        $result = new Varien_Object();
+        $result->setNotes($notes);
+        Mage::dispatchEvent('firegento_pdf_invoice_insert_note', array('order' => $order, 'invoice' => $invoice, 'result' => $result));
+        $notes = array_merge($notes, $result->getNotes());
+
+        $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date');
+
+        // Get free text notes.
+        $note = Mage::getStoreConfig('sales_pdf/invoice/note');
+        if (!empty($note)) {
+            $tmpNotes = explode("\n", $note);
+            $notes = array_merge($notes, $tmpNotes);
         }
 
-        $this->Ln(15);
-
-        $notice = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date');
-        $page->drawText($notice, $this->margin['left'], $this->y + 50, $this->encoding);
-
-        $note = Mage::getStoreConfig('sales_pdf/invoice/note');
-
-        if (!empty($note)) {
+        // Draw notes on invoice.
+        foreach ($notes as $note) {
             $page->drawText($note, $this->margin['left'], $this->y + 30, $this->encoding);
+            $this->Ln(15);
         }
     }
 
