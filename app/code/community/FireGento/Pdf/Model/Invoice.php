@@ -150,7 +150,7 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
         Mage::dispatchEvent('firegento_pdf_invoice_insert_note', array('order' => $order, 'invoice' => $invoice, 'result' => $result));
         $notes = array_merge($notes, $result->getNotes());
 
-        $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date');
+        $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date.');
 
         // Get free text notes.
         $note = Mage::getStoreConfig('sales_pdf/invoice/note');
