@@ -17,6 +17,7 @@
             </firegento_pdf>
             <sales>
                 <rewrite>
+                    <order_pdf_invoice>FireGento_Pdf_Model_Invoice</order_pdf_invoice>
                     <order_pdf_creditmemo>FireGento_Pdf_Model_Creditmemo</order_pdf_creditmemo>
                     <order_pdf_items_creditmemo_default>FireGento_Pdf_Model_Items_Creditmemo_Default</order_pdf_items_creditmemo_default>
                     <order_pdf_shipment>FireGento_Pdf_Model_Shipment</order_pdf_shipment>
@@ -66,15 +67,4 @@
             </modules>
         </translate>
     </adminhtml>
-    <admin>
-        <routers>
-            <adminhtml>
-                <args>
-                    <modules>
-                        <firegento_pdf before="Mage_Adminhtml">FireGento_Pdf_Adminhtml</firegento_pdf>
-                    </modules>
-                </args>
-            </adminhtml>
-        </routers>
-    </admin>
 </config>

@@ -50,6 +50,30 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
      */
     public function getPdf($invoices = array())
     {
+        $engine = Mage::getStoreConfig('sales_pdf/invoice/engine');
+
+        if ($engine) {
+            // Check if chosen engine is not the class we are currently in.
+            if (Mage::getConfig()->getModelClassName($engine) != __CLASS__) {
+                $pdf = Mage::getModel($engine);
+
+                if ($pdf && $pdf->test()) {
+                    $pdf = $pdf->getPdf($invoices);
+                    $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
+                        '.pdf', $pdf->render(), 'application/pdf');
+
+                    return $pdf;
+                }
+            }
+        }
+
+        if (!$engine) {
+            // Fallback to Magento standard invoice layout.
+            $invoiceInstance = new Mage_Sales_Model_Order_Pdf_Invoice();
+            $pdf = $invoiceInstance->getPdf($invoices);
+            return $pdf;
+        }
+
         $this->_beforeGetPdf();
         $this->_initRenderer('invoice');
 
