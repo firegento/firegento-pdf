@@ -63,6 +63,9 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
                         '.pdf', $pdf->render(), 'application/pdf');
 
                     return $pdf;
+
+                } else {
+                    $engine = false;
                 }
             }
         }
