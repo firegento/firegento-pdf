@@ -693,4 +693,39 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $object->setFont($font, $size);
         return $font;
     }
+
+    /**
+     * Prepares the text so that it fits to the given page's width.
+     *
+     * @param $text the text which should be prepared
+     * @param $page the page on which the text will be rendered
+     * @param $font the font with which the text will be rendered
+     * @param $fontSize the font size with which the text will be rendered
+     *
+     * @return string the given text wrapped by new line characters
+     */
+    protected function _prepareText($text, $page, $font, $fontSize)
+    {
+        $lines = '';
+        $currentLine = '';
+        // calculate the page's width with respect to the margins
+        $width = $page->getWidth() - $this->margin['left'] - ($page->getWidth() - $this->margin['right']);
+        $textChunks = explode(' ', $text);
+        foreach ($textChunks as $textChunk) {
+            if ($this->widthForStringUsingFontSize($currentLine . ' ' . $textChunk, $font, $fontSize) < $width) {
+                // do not add whitespace on first line
+                if (!empty($currentLine)) {
+                    $currentLine .= ' ';
+                }
+                $currentLine .= $textChunk;
+            } else {
+                // text is too broad, so add new line character
+                $lines .= $currentLine . "\n";
+                $currentLine = $textChunk;
+            }
+        }
+        // append the last line
+        $lines .= $currentLine;
+        return $lines;
+    }
 }
