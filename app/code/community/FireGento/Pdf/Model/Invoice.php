@@ -140,7 +140,8 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
      */
     protected function insertNote($page, &$order, &$invoice)
     {
-        $this->_setFontRegular($page, 10);
+        $fontSize = 10;
+        $font = $this->_setFontRegular($page, $fontSize);
         $this->y = $this->y - 60;
 
         $notes = array();
@@ -161,8 +162,13 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
 
         // Draw notes on invoice.
         foreach ($notes as $note) {
-            $page->drawText($note, $this->margin['left'], $this->y + 30, $this->encoding);
-            $this->Ln(15);
+            // prepare the text so that it fits to the paper
+            $note = $this->_prepareText($note, $page, $font, $fontSize);
+            $tmpNotes = explode("\n", $note);
+            foreach ($tmpNotes as $tmpNote) {
+                $page->drawText($tmpNote, $this->margin['left'], $this->y + 30, $this->encoding);
+                $this->Ln(15);
+            }
         }
     }
 
