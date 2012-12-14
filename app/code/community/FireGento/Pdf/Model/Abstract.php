@@ -559,7 +559,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             'email' => Mage::helper('firegento_pdf')->__('E-Mail:'),
             'web' => Mage::helper('firegento_pdf')->__('Web:')
         );
-        $this->_insertFooterBlock($page, $fields, 70, 40);
+        $this->_insertFooterBlock($page, $fields, 70, 40, 140);
 
         $fields = array(
             'bank_name' => Mage::helper('firegento_pdf')->__('Bank name:'),
@@ -569,7 +569,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             'swift' => Mage::helper('firegento_pdf')->__('SWIFT:'),
             'iban' => Mage::helper('firegento_pdf')->__('IBAN:')
         );
-        $this->_insertFooterBlock($page, $fields, 215, 50);
+        $this->_insertFooterBlock($page, $fields, 215, 50, 140);
 
         $fields = array(
             'tax_number' => Mage::helper('firegento_pdf')->__('Tax number:'),
@@ -577,7 +577,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             'register_number' => Mage::helper('firegento_pdf')->__('Register number:'),
             'ceo' => Mage::helper('firegento_pdf')->__('CEO:')
         );
-        $this->_insertFooterBlock($page, $fields, 355, 60);
+        $this->_insertFooterBlock($page, $fields, 355, 60, $this->margin['right'] - 355 - 10);
     }
 
     /**
@@ -587,11 +587,13 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
      * @param array $fields Fields of footer
      * @param int $colposition Starting colposition
      * @param int $valadjust Margin between label and value
+     * @param int $colwidth the width of this footer block - text will be wrapped if it is broader than this width
      * @return void
      */
-    protected function _insertFooterBlock(&$page, $fields, $colposition = 0, $valadjust = 30)
+    protected function _insertFooterBlock(&$page, $fields, $colposition = 0, $valadjust = 30, $colwidth = null)
     {
-        $this->_setFontRegular($page, 7);
+        $fontSize = 7;
+        $font = $this->_setFontRegular($page, $fontSize);
         $y = $this->y;
 
         $valposition = $colposition + $valadjust;
@@ -601,9 +603,21 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
                 if (empty($this->imprint[$field])) {
                     continue;
                 }
-                $page->drawText($label , $this->margin['left'] + $colposition, $y, $this->encoding);
-                $page->drawText( $this->imprint[$field], $this->margin['left'] + $valposition, $y, $this->encoding);
-                $y -= 12;
+                // draw the label
+                $page->drawText($label, $this->margin['left'] + $colposition, $y, $this->encoding);
+                // prepare the value: wrap it if necessary
+                $val = $this->imprint[$field];
+                $width = $colwidth;
+                if (!empty($colwidth)) {
+                    // calculate the maximum width for the value
+                    $width = $this->margin['left'] + $colposition + $colwidth - ($this->margin['left'] + $valposition);
+                }
+                $tmpVal = $this->_prepareText($val, $page, $font, $fontSize, $width);
+                $tmpVals = explode("\n", $tmpVal);
+                foreach ($tmpVals as $tmpVal) {
+                    $page->drawText($tmpVal, $this->margin['left'] + $valposition, $y, $this->encoding);
+                    $y -= 12;
+                }
             }
         }
     }
@@ -701,15 +715,18 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
      * @param $page the page on which the text will be rendered
      * @param $font the font with which the text will be rendered
      * @param $fontSize the font size with which the text will be rendered
+     * @param $width [optional] the width for the given text, defaults to the page width
      *
      * @return string the given text wrapped by new line characters
      */
-    protected function _prepareText($text, $page, $font, $fontSize)
+    protected function _prepareText($text, $page, $font, $fontSize, $width = null)
     {
         $lines = '';
         $currentLine = '';
         // calculate the page's width with respect to the margins
-        $width = $page->getWidth() - $this->margin['left'] - ($page->getWidth() - $this->margin['right']);
+        if (empty($width)) {
+            $width = $page->getWidth() - $this->margin['left'] - ($page->getWidth() - $this->margin['right']);
+        }
         $textChunks = explode(' ', $text);
         foreach ($textChunks as $textChunk) {
             if ($this->widthForStringUsingFontSize($currentLine . ' ' . $textChunk, $font, $fontSize) < $width) {
