@@ -1,4 +1,3 @@
-"Invoice Maturity","Rechnungs Fälligkeitsdatum"
 "Invoice maturity: %s days","Fälligkeit der Rechnung: %s Tage"
 "Invoice Maturity","Fälligkeit der Rechnung"
 "Days after the invoice is due. Leave this field blank to hide the message on the invoice.","Tage nach denen die Rechnung fällig ist. Feld leer lassen, um den Text auf der Rechnung zu verbergen."
