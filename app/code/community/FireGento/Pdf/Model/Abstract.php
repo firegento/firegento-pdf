@@ -48,14 +48,8 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $this->colors['black'] = new Zend_Pdf_Color_GrayScale(0);
         $this->colors['grey1'] = new Zend_Pdf_Color_GrayScale(0.9);
 
-        $storeId = $this->getStoreId();
-        $imprint =  Mage::getStoreConfig('general/imprint', $storeId);
-
-        if (!empty($imprint)) {
-            $this->imprint = $imprint;
-        } else {
-            $this->imprint = false;
-        }
+        // get the default imprint
+        $this->imprint = Mage::getStoreConfig('general/imprint');
     }
 
     /**
@@ -525,8 +519,13 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         return $page;
     }
 
-    protected function _addFooter(&$page)
+    protected function _addFooter(&$page, $store = null)
     {
+        // get the imprint of the store if a store is set
+        if (!empty($store)) {
+            $this->imprint = Mage::getStoreConfig('general/imprint', $store->getStoreId());
+        }
+
         // Add footer if GermanSetup is installed.
         if ($this->imprint && Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1) {
             $this->y = 110;
@@ -746,3 +745,4 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         return $lines;
     }
 }
+

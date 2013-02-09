@@ -81,7 +81,7 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             $this->insertHeader($page, $order, $creditmemo);
 
             // Add footer
-            $this->_addFooter($page);
+            $this->_addFooter($page, $creditmemo->getStore());
 
             /* Add table head */
             $this->_setFontRegular($page, 9);
@@ -148,3 +148,4 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
         $page->drawText($totalLabel, $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),     $this->y, $this->encoding);
     }
 }
+

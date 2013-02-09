@@ -89,7 +89,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
             $this->insertHeader($page, $order, $shipment);
 
             // Add footer
-            $this->_addFooter($page);
+            $this->_addFooter($page, $shipment->getStore());
 
             /* add table header */
             $this->_setFontRegular($page, 9);
@@ -337,3 +337,4 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
         return $page;
     }
 }
+
