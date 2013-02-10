@@ -116,7 +116,7 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
             $this->insertHeader($page, $order, $invoice);
 
             // Add footer
-            $this->_addFooter($page);
+            $this->_addFooter($page, $invoice->getStore());
 
             /* add table header */
             $this->_setFontRegular($page, 9);
@@ -391,3 +391,4 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
         );
     }
 }
+
