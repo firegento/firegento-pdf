@@ -35,6 +35,14 @@
                 </observers>
             </firegento_pdf_invoice_insert_note>
         </events>
+        <pdf>
+            <!-- fix totals order -->
+            <totals>
+                <tax>
+                    <sort_order>650</sort_order>
+                </tax>
+            </totals>
+        </pdf>
     </global>
     <frontend>
         <translate>
