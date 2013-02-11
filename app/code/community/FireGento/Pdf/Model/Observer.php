@@ -34,6 +34,19 @@
 class FireGento_Pdf_Model_Observer
 {
     /**
+     * Add notes to invoice document.
+     *
+     * @param Varien_Event_Observer $observer
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addInvoiceNotes(Varien_Event_Observer $observer)
+    {
+        $this->addInvoiceMaturity($observer);
+        $this->addPaymentMethod($observer);
+        return $this;
+    }
+
+    /**
      * Add maturity to invoice notes.
      *
      * @param Varien_Event_Observer $observer
@@ -52,6 +65,21 @@ class FireGento_Pdf_Model_Observer
         }
 
         $notes[] = $maturity;
+        $result->setNotes($notes);
+        return $this;
+    }
+
+    /**
+     * Add payment method to invoice notes.
+     *
+     * @param Varien_Event_Observer $observer
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addPaymentMethod(Varien_Event_Observer $observer)
+    {
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+        $notes[] = Mage::helper('firegento_pdf')->__('Payment method: %s', $observer->getOrder()->getPayment()->getMethodInstance()->getTitle());
         $result->setNotes($notes);
         return $this;
     }

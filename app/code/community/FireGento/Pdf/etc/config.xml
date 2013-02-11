@@ -30,7 +30,7 @@
                 <observers>
                     <firegento_pdf>
                         <class>firegento_pdf/observer</class>
-                        <method>addInvoiceMaturity</method>
+                        <method>addInvoiceNotes</method>
                     </firegento_pdf>
                 </observers>
             </firegento_pdf_invoice_insert_note>
