@@ -42,5 +42,6 @@ class FireGento_Pdf_Model_Items_Grouped extends Mage_Sales_Model_Order_Pdf_Items
         $renderer->setPage($this->getPage());
 
         $renderer->draw($position);
+        $this->setPage($renderer->getPage());
     }
 }
