@@ -234,7 +234,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
 
         $this->pagecounter++;
         $this->y = 110;
-        $this->insertPageCounter($page);
+        $this->_insertPageCounter($page);
 
         $this->y = 800;
         $this->_setFontRegular($page, 9);
