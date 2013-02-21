@@ -1,0 +1,10 @@
+{
+    "name": "firegento/pdf",
+    "license": ["GPL-3.0"],
+    "type": "magento-module",
+    "description": "FireGento Pdf overwrites standard PDF layouts for invoices and shipments.",
+    "homepage": "https://github.com/firegento/firegento-pdf",
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
