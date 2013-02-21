@@ -136,7 +136,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
         $page->drawText(Mage::helper('firegento_pdf')->__('No.'),            $this->margin['left'],       $this->y, $this->encoding);
         $page->drawText(Mage::helper('firegento_pdf')->__('Description'),    $this->margin['left'] + 105, $this->y, $this->encoding);
 
-        $page->drawText(Mage::helper('firegento_pdf')->__('Amount'),         $this->margin['left'] + 450, $this->y, $this->encoding);
+        $page->drawText(Mage::helper('firegento_pdf')->__('Qty'),         $this->margin['left'] + 450, $this->y, $this->encoding);
     }
 
     protected function insertHeader(&$page, $order, $shipment)
@@ -229,7 +229,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
 
         if ($this->imprint) {
             $this->y = 100;
-            $this->insertFooter($page);
+            $this->_insertFooter($page);
         }
 
         $this->pagecounter++;
