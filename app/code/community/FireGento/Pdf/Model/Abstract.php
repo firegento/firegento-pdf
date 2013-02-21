@@ -190,8 +190,8 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
      * Insert Header
      *
      * @param Zend_Pdf_Page $page     Current Page Object of Zend_PDF
-     * @param objet $order    Order object
-     * @param objet $document Document object
+     * @param object $order    Order object
+     * @param object $document Document object
      *
      * @return void
      */
@@ -306,7 +306,6 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $this->y -=15;
 
         $order = $source->getOrder();
-        $tax = Mage::getModel('sales/order_tax')->getCollection()->loadByOrder($order)->toArray();
 
         $total_tax = 0;
         $shippingTaxAmount = $order->getShippingTaxAmount();

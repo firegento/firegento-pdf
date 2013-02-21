@@ -144,7 +144,7 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
             $page->drawLine($this->margin['left'], $this->y + 5, $this->margin['right'], $this->y + 5);
 
             /* add totals */
-            $this->insertTotals($page, $invoice);
+            $page = $this->insertTotals($page, $invoice);
 
             /* add note */
             if ($mode == 'invoice') {
@@ -248,12 +248,12 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
 
         if ($this->imprint) {
             $this->y = 100;
-            $this->insertFooter($page);
+            $this->_insertFooter($page);
         }
 
         $this->pagecounter++;
         $this->y = 110;
-        $this->insertPageCounter($page);
+        $this->_insertPageCounter($page);
 
         $this->y = 800;
         $this->_setFontRegular($page, 9);
