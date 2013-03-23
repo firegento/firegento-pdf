@@ -30,7 +30,10 @@
 class FireGento_Pdf_Model_Items_Grouped extends Mage_Sales_Model_Order_Pdf_Items_Invoice_Grouped
 {
     /**
-     * Draw process
+     * Draw item line.
+     *
+     * @param int $position
+     * @return void
      */
     public function draw($position = 1)
     {

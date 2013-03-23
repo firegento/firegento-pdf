@@ -33,6 +33,12 @@
  */
 class FireGento_Pdf_Model_Items_Creditmemo_Default extends Mage_Sales_Model_Order_Pdf_Items_Creditmemo_Default
 {
+    /**
+     * Draw item line.
+     *
+     * @param int $position
+     * @return void
+     */
     public function draw($position = 1)
     {
         $order  = $this->getOrder();

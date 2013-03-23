@@ -69,13 +69,6 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             $this->y = 705;
             $this->_insertSenderAddessBar($page);
 
-//            /* Add head */
-//            $this->insertOrder(
-//                $page,
-//                $order,
-//                Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_CREDITMEMO_PUT_ORDER_ID, $order->getStoreId())
-//            );
-
             // Add head
             $this->y = 592;
             $this->insertHeader($page, $order, $creditmemo);
@@ -118,7 +111,7 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
     /**
      * Draw table header for product items
      *
-     * @param  Zend_Pdf_Page $page
+     * @param Zend_Pdf_Page $page
      * @return void
      */
     protected function _drawHeader(Zend_Pdf_Page $page)

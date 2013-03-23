@@ -234,10 +234,10 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
     }
 
     /**
-     * Generate new PDF Page
+     * Generate new PDF page.
      *
-     * @param array $setting   page settings
-     * @return object $page    PDF page object
+     * @param array $settings Page settings
+     * @return Zend_Pdf_Page
      */
     public function newPage(array $settings = array())
     {
@@ -256,13 +256,12 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
     }
 
     /**
-     * 
+     * ...
      *
-     * @param object $page     Current Page Object of Zend_PDF
-     * @param array  $draw     
-     * @param array  $pageSettings     
-     *
-     * @return object $page  PDF Page Object
+     * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
+     * @param array $draw
+     * @param array $pageSettings
+     * @return Zend_Pdf_Page
      */
     public function drawLineBlocks(Zend_Pdf_Page $page, array $draw, array $pageSettings = array())
     {

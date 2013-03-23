@@ -34,8 +34,10 @@
 class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf_Items_Invoice
 {
     /**
-     * Draw item line
+     * Draw item line.
      *
+     * @param int $position
+     * @return void
      */
     public function draw($position = 1)
     {
@@ -125,8 +127,6 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                 'feed'  => $pdf->margin['left'] + 120,
                 'font_size' => $fontSize
             );
-
-
 
             // draw prices
             if ($this->canShowPriceInfo($_item)) {

@@ -75,18 +75,18 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     }
 
     /**
-     * Set next Line Position
+     * Set next line position
      *
      * @param int $height Line-Height
      * @return void
      */
-    protected function Ln($height=15)
+    protected function Ln($height = 15)
     {
         $this->y -= $height;
     }
 
     /**
-     * Insert Sender Address Bar over the Billing Address
+     * Insert sender address bar.
      *
      * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
      * @return void
@@ -100,10 +100,10 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     }
 
     /**
-     * Insert Shop Logo
+     * Insert logo
      *
-     * @param Zend_Pdf_Page $page Current Page Object of Zend_PDF
-     * @param string $store Store ID
+     * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
+     * @param mixed $store
      * @return void
      */
     protected function insertLogo(&$page, $store = null)
@@ -122,11 +122,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
             if ($width > $height) {
                 $ratio = $width / $height;
-            }
-            elseif ($height > $width) {
+            } elseif ($height > $width) {
                 $ratio = $height / $width;
-            }
-            else {
+            } else {
                 $ratio = 1;
             }
 
@@ -168,12 +166,11 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         }
     }
 
-        /**
-     * Insert Billing Address
+    /**
+     * Insert billing address
      *
-     * @param object $page  Current Page Object of Zend_PDF
+     * @param object $page Current page object of Zend_Pdf
      * @param object $order Order object
-     *
      * @return void
      */
     protected function insertBillingAddress(&$page, $order)
@@ -189,10 +186,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     /**
      * Insert Header
      *
-     * @param Zend_Pdf_Page $page     Current Page Object of Zend_PDF
-     * @param object $order    Order object
+     * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
+     * @param object $order Order object
      * @param object $document Document object
-     *
      * @return void
      */
     protected function insertHeader(&$page, $order, $document)
@@ -216,14 +212,13 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $yPlus = 15;
 
         if ($order->getCustomerId() != '') {
-
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
 
             $yPlus += 15;
         }
 
-        if(Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
+        if (Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
             $yPlus += 15;
@@ -276,7 +271,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
      * ...
      *
      * @param Varien_Object $item
-     * @param Zend_Pdf_Page $page Current Page Object of Zend_PDF
+     * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
      * @param Mage_Sales_Model_Order $order
      * @param int $position
      * @return Zend_Pdf_Page
@@ -299,9 +294,8 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     /**
      * Insert Totals Block
      *
-     * @param object $page   Current Page Object of Zend_PDF
-     * @param object $source Fields of Footer
-     *
+     * @param object $page Current page object of Zend_Pdf
+     * @param object $source Fields of footer
      * @return void
      */
     protected function insertTotals($page, $source)
@@ -342,10 +336,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
                 $total_tax += $item['tax_amount'];
             }
             if (($item['tax_amount'])&&$_percent){
-                if(!array_key_exists((int)$_percent, $groupedTax)) {
+                if (!array_key_exists((int)$_percent, $groupedTax)) {
                     $groupedTax[$_percent] = $item['tax_amount'];
-                }
-                else {
+                } else {
                     $groupedTax[$_percent] += $item['tax_amount'];
                 }
             }
@@ -368,7 +361,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             switch($total['source_field']) {
                 case 'tax_amount':
                     foreach ($groupedTax as $taxRate => $taxValue) {
-                        if(empty($taxValue)) {
+                        if (empty($taxValue)) {
                             continue;
                         }
 
@@ -584,7 +577,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     /**
      * Insert footer block
      *
-     * @param Zend_Pdf_Page $page Current page object of Zend_PDF
+     * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
      * @param array $fields Fields of footer
      * @param int $colposition Starting colposition
      * @param int $valadjust Margin between label and value
@@ -626,8 +619,8 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     /**
      * Insert addess of store owner
      *
-     * @param Zend_Pdf_Page $page Current page object of Zend_df
-     * @param string $store Store ID
+     * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
+     * @param mixed $store
      * @return void
      */
     protected function _insertFooterAddress(&$page, $store = null)
@@ -667,10 +660,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     /**
      * Set default font
      *
-     * @param object $object   Current Page Object of Zend_PDF
-     * @param string $size     Font size
-     *
-     * @return void
+     * @param Zend_Pdf_Page $object Current page object of Zend_Pdf
+     * @param string|int $size Font size
+     * @return Zend_Pdf_Resource_Font
      */
     protected function _setFontRegular($object, $size = 10)
     {
@@ -682,10 +674,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     /**
      * Set bold font
      *
-     * @param object $object   Current Page Object of Zend_PDF
-     * @param string $size     Font size
-     *
-     * @return void
+     * @param Zend_Pdf_Page $object Current page object of Zend_Pdf
+     * @param string|int $size Font size
+     * @return Zend_Pdf_Resource_Font
      */
     protected function _setFontBold($object, $size = 10)
     {
@@ -697,10 +688,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     /**
      * Set italic font
      *
-     * @param object $object   Current Page Object of Zend_PDF
-     * @param string $size     Font size
-     *
-     * @return void
+     * @param Zend_Pdf_Page $object Current page object of Zend_Pdf
+     * @param string|int $size Font size
+     * @return Zend_Pdf_Resource_Font
      */
     protected function _setFontItalic($object, $size = 10)
     {

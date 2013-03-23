@@ -34,8 +34,9 @@
 class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_Pdf_Items_Shipment_Default
 {
     /**
-     * Draw item line
+     * Draw item line.
      *
+     * @return void
      */
     public function draw()
     {
