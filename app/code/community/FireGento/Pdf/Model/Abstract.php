@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -215,13 +215,12 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $yPlus = 15;
 
-        if($order->getCustomerId() != "") {
+        if ($order->getCustomerId() != '') {
 
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
 
             $yPlus += 15;
-
         }
 
         if(Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
@@ -232,6 +231,14 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice date:' : 'Date:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
 
+        // Draw payment method.
+        if ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/payment_method_position') == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER) {
+            $this->Ln();
+            $yPlus += 15;
+            $paymentMethod = Mage::helper('firegento_pdf')->__('Payment method: %s', $order->getPayment()->getMethodInstance()->getTitle());
+            $page->drawText($paymentMethod, ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+        }
+
         $this->y += $yPlus;
         $rightoffset = 60;
         $page->drawText($document->getIncrementId(), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
@@ -240,21 +247,18 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $rightoffset = 10;
         $font = $this->_setFontRegular($page, 10);
 
-        if($order->getCustomerId() != "") {
+        if ($order->getCustomerId() != '') {
 
             $prefix = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
 
             if (!empty($prefix)) {
                 $customerid = $prefix.$order->getCustomerId();
-            }
-            else {
+            } else {
                 $customerid = $order->getCustomerId();
             }
 
-
             $page->drawText($customerid, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
             $this->Ln();
-
         }
 
         if (Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
@@ -266,7 +270,6 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $documentDate = Mage::helper('core')->formatDate($document->getCreatedAtDate(), 'medium', false);
         $page->drawText($documentDate, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($documentDate, $font, 10)), $this->y, $this->encoding);
-
     }
 
     /**

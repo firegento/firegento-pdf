@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -77,6 +77,10 @@ class FireGento_Pdf_Model_Observer
      */
     public function addPaymentMethod(Varien_Event_Observer $observer)
     {
+        if (Mage::getStoreConfig('sales_pdf/invoice/payment_method_position') != FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_NOTE) {
+            return $this;
+        }
+
         $result = $observer->getResult();
         $notes = $result->getNotes();
         $notes[] = Mage::helper('firegento_pdf')->__('Payment method: %s', $observer->getOrder()->getPayment()->getMethodInstance()->getTitle());
