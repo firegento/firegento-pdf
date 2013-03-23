@@ -21,7 +21,7 @@
  * @since     0.1.0
  */
 /**
- * Dropdown for Logo Position
+ * Logo position source model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
@@ -31,31 +31,27 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-
-class FireGento_Pdf_Model_System_Config_Source_Dropdown_Values
+class FireGento_Pdf_Model_System_Config_Source_Logo
 {
     /**
-     * Dropdown Values for Logo Position
+     * Return array of possible positions.
      *
-     * @return array Dropdown Values
+     * @return array
      */
     public function toOptionArray()
     {
-        $helper = Mage::helper('firegento_pdf');
-
-        return array(
-            array(
-                'value' => 'left',
-                'label' => $helper->__('Left'),
-            ),
-            array(
-                'value' => 'center',
-                'label' => $helper->__('Center'),
-            ),
-            array(
-                'value' => 'right',
-                'label' => $helper->__('Right'),
-            ),
+        $positions = array(
+            'left'      => Mage::helper('firegento_pdf')->__('Left'),
+            'center'    => Mage::helper('firegento_pdf')->__('Center'),
+            'right'     => Mage::helper('firegento_pdf')->__('Right'),
         );
+        $options = array();
+        foreach ($positions as $k => $v) {
+            $options[] = array(
+                'value' => $k,
+                'label' => $v
+            );
+        }
+        return $options;
     }
 }

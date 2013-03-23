@@ -50,7 +50,7 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
      */
     public function getPdf($invoices = array())
     {
-        $engine = Mage::getStoreConfig('sales_pdf/invoice/engine');
+        $engine = Mage::getStoreConfig('sales_pdf/firegento_pdf/engine');
 
         if ($engine) {
             // Check if chosen engine is not the class we are currently in.

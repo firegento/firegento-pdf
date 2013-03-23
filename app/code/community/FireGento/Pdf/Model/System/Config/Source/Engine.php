@@ -42,7 +42,7 @@ class FireGento_Pdf_Model_System_Config_Source_Engine
     {
         $engines = array(
             ''                      => Mage::helper('firegento_pdf')->__('Standard Magento'),
-            'firegento_pdf/invoice' => Mage::helper('firegento_pdf')->__('Standard German')
+            'firegento_pdf/invoice' => Mage::helper('firegento_pdf')->__('Standard Germany')
         );
         $options = array();
         foreach ($engines as $k => $v) {
