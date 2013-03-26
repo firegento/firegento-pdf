@@ -114,7 +114,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
      */
     protected function insertLogo(&$page, $store = null)
     {
-        $maxwidth = 300;
+        $maxwidth = ($this->margin['right'] - $this->margin['left']);
         $maxheight = 100;
 
         $image = Mage::getStoreConfig('sales/identity/logo', $store);
