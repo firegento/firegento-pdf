@@ -310,6 +310,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $total_tax = 0;
         $shippingTaxAmount = $order->getShippingTaxAmount();
+        $shippingTaxRate = $order->getShippingTaxAmount()*100/($order->getShippingInclTax()-$order->getShippingTaxAmount());
 
         $groupedTax = array();
 
@@ -321,10 +322,10 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         }
 
         array_push($items['items'], array(
-            'row_invoiced' => $order->getShippingInvoiced(),
+            'row_invoiced'     => $order->getShippingInvoiced(),
             'tax_inc_subtotal' => false,
-            'tax_percent' => '19.0000',
-            'tax_amount' => $shippingTaxAmount
+            'tax_percent'      => $shippingTaxRate,
+            'tax_amount'       => $shippingTaxAmount
         ));
 
         foreach ($items['items'] as $item) {
@@ -334,7 +335,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             if (!isset($item['price'])) $item['price'] = 0;
             if (!isset($item['tax_inc_subtotal'])) $item['tax_inc_subtotal'] = 0;
             if (((float)$item['tax_amount'] > 0)&&((float)$item['row_invoiced'] > 0)) {
-                $_percent = round((float)$item['tax_amount'] / (float)$item['row_invoiced'] * 100,0);
+                $_percent = round($item["tax_percent"],0);
             }
             if (!array_key_exists('tax_inc_subtotal', $item) || $item['tax_inc_subtotal']) {
                 $total_tax += $item['tax_amount'];
