@@ -55,7 +55,7 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
 
         // draw Product name
         $lines[0][] = array(
-            'text'  => Mage::helper('core/string')->str_split($item->getName(), 100, true, true),
+            'text'  => Mage::helper('core/string')->str_split($item->getName(), 70, true, true),
             'feed'  => 150,
             'align' => 'left',
             'width' => 375
