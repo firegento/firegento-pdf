@@ -249,7 +249,7 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
 
         if ($this->imprint) {
             $this->y = 100;
-            $this->insertFooter($page);
+            $this->_addFooter($page);
         }
 
         $this->y = 800;
