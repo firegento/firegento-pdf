@@ -36,6 +36,8 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     public $margin = array('left' => 45, 'right' => 540);
     public $colors = array();
     public $mode;
+    public $encoding;
+    public $pagecounter;
 
     protected $imprint;
 
@@ -259,6 +261,28 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $documentDate = Mage::helper('core')->formatDate($document->getCreatedAtDate(), 'medium', false);
         $page->drawText($documentDate, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($documentDate, $font, 10)), $this->y, $this->encoding);
+    }
+
+    /**
+     * Generate new PDF page.
+     *
+     * @param array $settings Page settings
+     * @return Zend_Pdf_Page
+     */
+    public function newPage(array $settings = array())
+    {
+        $pdf = $this->_getPdf();
+
+        $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
+        $this->pagecounter++;
+        $pdf->pages[] = $page;
+
+        $this->_addFooter($page, Mage::app()->getStore());
+
+        $this->y = 800;
+        $this->_setFontRegular($page, 9);
+
+        return $page;
     }
 
     /**
@@ -510,6 +534,55 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             }
         }
         $page = $this->drawLineBlocks($page, array($lineBlock));
+        return $page;
+    }
+
+    /**
+     * Insert Notes
+     *
+     * @param Zend_Pdf_Page $page Current Page Object of Zend_PDF
+     * @param Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Abstract $model
+     * @return void
+     */
+    protected function _insertNote($page, &$order, &$model)
+    {
+        $fontSize = 10;
+        $font = $this->_setFontRegular($page, $fontSize);
+        $this->y = $this->y - 60;
+
+        $notes = array();
+
+        $result = new Varien_Object();
+        $result->setNotes($notes);
+        Mage::dispatchEvent('firegento_pdf_' . $this->getMode() . '_insert_note', array('order' => $order, $this->getMode() => $model, 'result' => $result));
+        $notes = array_merge($notes, $result->getNotes());
+
+        if ($this->getMode() === 'invoice') {
+            $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date.');
+        }
+
+        // Get free text notes.
+        $note = Mage::getStoreConfig('sales_pdf/' . $this->getMode() . '/note');
+        if (!empty($note)) {
+            $tmpNotes = explode("\n", $note);
+            $notes = array_merge($notes, $tmpNotes);
+        }
+
+        // Draw notes on PDF.
+        foreach ($notes as $note) {
+            // prepare the text so that it fits to the paper
+            $note = $this->_prepareText($note, $page, $font, $fontSize);
+            $tmpNotes = explode("\n", $note);
+            foreach ($tmpNotes as $tmpNote) {
+                // create a new page if necessary
+                if ($this->y < 200) {
+                    $page = $this->newPage(array());
+                }
+                $page->drawText($tmpNote, $this->margin['left'], $this->y + 30, $this->encoding);
+                $this->Ln(15);
+            }
+        }
         return $page;
     }
 

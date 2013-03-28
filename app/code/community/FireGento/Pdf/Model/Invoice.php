@@ -33,8 +33,6 @@
  */
 class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
 {
-    public $encoding;
-    public $pagecounter;
 
     public function __construct()
     {
@@ -80,23 +78,21 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
         $this->_beforeGetPdf();
         $this->_initRenderer('invoice');
 
-        $mode = $this->getMode();
-
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
 
         $style = new Zend_Pdf_Style();
         $this->_setFontBold($style, 10);
 
-        $this->pagecounter = 1;
+        // pagecounter is 0 at the beginning, because it is incremented in newPage()
+        $this->pagecounter = 0;
 
         foreach ($invoices as $invoice) {
             if ($invoice->getStoreId()) {
                 Mage::app()->getLocale()->emulate($invoice->getStoreId());
                 Mage::app()->setCurrentStore($invoice->getStoreId());
             }
-            $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
-            $pdf->pages[] = $page;
+            $page = $this->newPage();
 
             $order = $invoice->getOrder();
 
@@ -147,56 +143,12 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
             $page = $this->insertTotals($page, $invoice);
 
             /* add note */
-            if ($mode == 'invoice') {
-                $this->insertNote($page, $order, $invoice);
-            }
+            $this->_insertNote($page, $order, $invoice);
         }
 
         $this->_afterGetPdf();
 
         return $pdf;
-    }
-
-    /**
-     * Insert Notice after Totals
-     *
-     * @param Zend_Pdf_Page $page Current Page Object of Zend_PDF
-     * @param Mage_Sales_Model_Order $order
-     * @param Mage_Sales_Model_Order_Invoice $invoice
-     * @return void
-     */
-    protected function insertNote($page, &$order, &$invoice)
-    {
-        $fontSize = 10;
-        $font = $this->_setFontRegular($page, $fontSize);
-        $this->y = $this->y - 60;
-
-        $notes = array();
-
-        $result = new Varien_Object();
-        $result->setNotes($notes);
-        Mage::dispatchEvent('firegento_pdf_invoice_insert_note', array('order' => $order, 'invoice' => $invoice, 'result' => $result));
-        $notes = array_merge($notes, $result->getNotes());
-
-        $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date.');
-
-        // Get free text notes.
-        $note = Mage::getStoreConfig('sales_pdf/invoice/note');
-        if (!empty($note)) {
-            $tmpNotes = explode("\n", $note);
-            $notes = array_merge($notes, $tmpNotes);
-        }
-
-        // Draw notes on invoice.
-        foreach ($notes as $note) {
-            // prepare the text so that it fits to the paper
-            $note = $this->_prepareText($note, $page, $font, $fontSize);
-            $tmpNotes = explode("\n", $note);
-            foreach ($tmpNotes as $tmpNote) {
-                $page->drawText($tmpNote, $this->margin['left'], $this->y + 30, $this->encoding);
-                $this->Ln(15);
-            }
-        }
     }
 
     /**
@@ -231,28 +183,6 @@ class FireGento_Pdf_Model_Invoice extends FireGento_Pdf_Model_Abstract
 
         $totalLabel = Mage::helper('firegento_pdf')->__('Total');
         $page->drawText($totalLabel, $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),     $this->y, $this->encoding);
-    }
-
-    /**
-     * Generate new PDF page.
-     *
-     * @param array $settings Page settings
-     * @return Zend_Pdf_Page
-     */
-    public function newPage(array $settings = array())
-    {
-        $pdf = $this->_getPdf();        
-
-        $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
-        $this->pagecounter++;
-        $pdf->pages[] = $page;
-
-        $this->_addFooter($page, Mage::app()->getStore());
-
-        $this->y = 800;
-        $this->_setFontRegular($page, 9);
-
-        return $page;
     }
 
     /**

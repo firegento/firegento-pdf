@@ -39,6 +39,8 @@
 "PDF Engine","PDF Engine"
 "Note","Notiz"
 "Printed on every invoice.","Wird auf jeder Rechnung gedruckt."
+"Printed on every shipment.","Wird auf jedem Lieferschein gedruckt."
+"Printed on every credit memo.","Wird auf jeder Gutschrift gedruckt."
 "PDF Creation","PDF Erstellung"
 "Sender Address Bar","Absenderadresse"
 "Show Footer","Zeige Footer"
