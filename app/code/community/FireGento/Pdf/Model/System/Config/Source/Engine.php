@@ -34,16 +34,34 @@
 class FireGento_Pdf_Model_System_Config_Source_Engine
 {
     /**
+     * Config xpath to pdf engine node
+     *
+     */
+    const XML_PATH_PDF_ENGINE = 'global/pdf/firegento_engines';
+
+    /**
      * Return array of possible engines.
      *
      * @return array
      */
     public function toOptionArray()
     {
+        // load default engines shipped with Mage_Sales and FireGento_Pdf
         $engines = array(
-            ''                      => Mage::helper('firegento_pdf')->__('Standard Magento'),
-            'firegento_pdf/invoice' => Mage::helper('firegento_pdf')->__('Standard Germany')
+            ''                                     => Mage::helper('firegento_pdf')->__('Standard Magento'),
+            'firegento_pdf/engine_invoice_default' => Mage::helper('firegento_pdf')->__('Standard Germany')
         );
+
+        // load additional engines provided by third party extensions
+        $engineNodes = Mage::app()->getConfig()->getNode(self::XML_PATH_PDF_ENGINE);
+        if ($engineNodes && $engineNodes->hasChildren()) {
+            foreach ($engineNodes->children() as $engineName => $engineNode) {
+                $className   = (string)$engineNode->class;
+                $engineLabel = Mage::helper('firegento_pdf')->__((string)$engineNode->label);
+                $engines[$className] = $engineLabel;
+            }
+        }
+
         $options = array();
         foreach ($engines as $k => $v) {
             $options[] = array(
