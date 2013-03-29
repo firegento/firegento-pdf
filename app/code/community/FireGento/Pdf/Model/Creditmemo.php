@@ -33,6 +33,13 @@
  */
 class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setMode('creditmemo');
+    }
+
     /**
      * Return PDF document
      *
@@ -46,10 +53,12 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
 
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
+
         $style = new Zend_Pdf_Style();
         $this->_setFontBold($style, 10);
 
-        $this->pagecounter = 1;
+        // pagecounter is 0 at the beginning, because it is incremented in newPage()
+        $this->pagecounter = 0;
 
         foreach ($creditmemos as $creditmemo) {
             if ($creditmemo->getStoreId()) {
@@ -57,7 +66,9 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
             }
             $page  = $this->newPage();
+
             $order = $creditmemo->getOrder();
+
             // Add logo
             $this->insertLogo($page, $creditmemo->getStore());
 
@@ -82,6 +93,7 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             $this->_drawHeader($page);
 
             $this->y -=20;
+
             $position = 0;
 
             /* Add body */
@@ -101,7 +113,9 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             /* Add totals */
             $page = $this->insertTotals($page, $creditmemo);
         }
+
         $this->_afterGetPdf();
+
         if ($creditmemo->getStoreId()) {
             Mage::app()->getLocale()->revert();
         }
@@ -266,6 +280,16 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             'model' => 'firegento_pdf/items_bundle',
             'renderer' => null
         );
+    }
+
+    /**
+     * Return status of the engine.
+     *
+     * @return bool
+     */
+    public function test()
+    {
+        return true;
     }
 
 }

@@ -33,8 +33,6 @@
  */
 class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
 {
-    public $encoding;
-    public $pagecounter;
 
     public function __construct()
     {
@@ -53,23 +51,21 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
         $this->_beforeGetPdf();
         $this->_initRenderer('shipment');
 
-        $mode = $this->getMode();
-
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
 
         $style = new Zend_Pdf_Style();
         $this->_setFontBold($style, 10);
 
-        $this->pagecounter = 1;
+        // pagecounter is 0 at the beginning, because it is incremented in newPage()
+        $this->pagecounter = 0;
 
         foreach ($shipments as $shipment) {
             if ($shipment->getStoreId()) {
                 Mage::app()->getLocale()->emulate($shipment->getStoreId());
                 Mage::app()->setCurrentStore($shipment->getStoreId());
             }
-            $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
-            $pdf->pages[] = $page;
+            $page = $this->newPage();
 
             $order = $shipment->getOrder();
 
@@ -128,9 +124,6 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
 
         $page->setFillColor($this->colors['black']);
         $font = $this->_setFontRegular($page, 9);
-
-        $font = $page->getFont();
-        $size = $page->getFontSize();
 
         $this->y -= 11;
         $page->drawText(Mage::helper('firegento_pdf')->__('No.'),            $this->margin['left'],       $this->y, $this->encoding);
@@ -218,28 +211,6 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
             $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
             $this->Ln(12);
         }
-    }
-
-    public function newPage(array $settings = array())
-    {
-        $pdf = $this->_getPdf();
-
-        $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
-        $pdf->pages[] = $page;
-
-        if ($this->imprint) {
-            $this->y = 100;
-            $this->_addFooter($page);
-        }
-
-        $this->pagecounter++;
-        $this->y = 110;
-        $this->_insertPageCounter($page);
-
-        $this->y = 800;
-        $this->_setFontRegular($page, 9);
-
-        return $page;
     }
 
     public function drawLineBlocks(Zend_Pdf_Page $page, array $draw, array $pageSettings = array())
@@ -336,5 +307,16 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
 
         return $page;
     }
+
+    /**
+     * Return status of the engine.
+     *
+     * @return bool
+     */
+    public function test()
+    {
+        return true;
+    }
+
 }
 

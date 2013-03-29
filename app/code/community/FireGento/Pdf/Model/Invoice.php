@@ -36,15 +36,16 @@
  */
 class FireGento_Pdf_Model_Invoice
 {
+
     /**
      * The actual PDF engine responsible for rendering the file.
      * @var Mage_Sales_Model_Order_Pdf_Abstract
      */
-    private $engine;
+    private $_engine;
 
     protected function getEngine()
     {
-        if (!$this->engine) {
+        if (!$this->_engine) {
             $modelClass = Mage::getStoreConfig('sales_pdf/firegento_pdf/engine');
             $engine = Mage::getModel($modelClass);
 
@@ -53,17 +54,16 @@ class FireGento_Pdf_Model_Invoice
                 $engine = new Mage_Sales_Model_Order_Pdf_Invoice();
             }
 
-            $this->engine = $engine;
+            $this->_engine = $engine;
         }
 
-        return $this->engine;
+        return $this->_engine;
     }
 
     public function getPdf($invoices = array())
     {
         return $this->getEngine()->getPdf($invoices);
     }
-
 
     public function widthForStringUsingFontSize($string, $font, $fontSize)
     {
@@ -99,4 +99,5 @@ class FireGento_Pdf_Model_Invoice
     {
         return $this->getEngine()->drawLineBlocks($page, $draw, $pageSettings);
     }
+
 }
