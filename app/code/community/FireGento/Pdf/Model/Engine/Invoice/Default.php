@@ -33,8 +33,6 @@
  */
 class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abstract
 {
-    public $encoding;
-    public $pagecounter;
 
     public function __construct()
     {
@@ -53,23 +51,21 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
         $this->_beforeGetPdf();
         $this->_initRenderer('invoice');
 
-        $mode = $this->getMode();
-
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
 
         $style = new Zend_Pdf_Style();
         $this->_setFontBold($style, 10);
 
-        $this->pagecounter = 1;
+        // pagecounter is 0 at the beginning, because it is incremented in newPage()
+        $this->pagecounter = 0;
 
         foreach ($invoices as $invoice) {
             if ($invoice->getStoreId()) {
                 Mage::app()->getLocale()->emulate($invoice->getStoreId());
                 Mage::app()->setCurrentStore($invoice->getStoreId());
             }
-            $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
-            $pdf->pages[] = $page;
+            $page = $this->newPage();
 
             $order = $invoice->getOrder();
 
@@ -120,9 +116,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
             $page = $this->insertTotals($page, $invoice);
 
             /* add note */
-            if ($mode == 'invoice') {
-                $this->insertNote($page, $order, $invoice);
-            }
+            $this->insertNote($page, $order, $invoice);
         }
 
         $this->_afterGetPdf();
@@ -204,28 +198,6 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
 
         $totalLabel = Mage::helper('firegento_pdf')->__('Total');
         $page->drawText($totalLabel, $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),     $this->y, $this->encoding);
-    }
-
-    /**
-     * Generate new PDF page.
-     *
-     * @param array $settings Page settings
-     * @return Zend_Pdf_Page
-     */
-    public function newPage(array $settings = array())
-    {
-        $pdf = $this->_getPdf();
-
-        $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
-        $this->pagecounter++;
-        $pdf->pages[] = $page;
-
-        $this->_addFooter($page, Mage::app()->getStore());
-
-        $this->y = 800;
-        $this->_setFontRegular($page, 9);
-
-        return $page;
     }
 
     /**
@@ -364,4 +336,5 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
             'renderer' => null
         );
     }
+
 }

@@ -33,9 +33,12 @@
  */
 abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_Abstract
 {
+
     public $margin = array('left' => 45, 'right' => 540);
     public $colors = array();
     public $mode;
+    public $encoding;
+    public $pagecounter;
 
     protected $imprint;
 
@@ -266,6 +269,28 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $documentDate = Mage::helper('core')->formatDate($document->getCreatedAtDate(), 'medium', false);
         $page->drawText($documentDate, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($documentDate, $font, 10)), $this->y, $this->encoding);
+    }
+
+    /**
+     * Generate new PDF page.
+     *
+     * @param array $settings Page settings
+     * @return Zend_Pdf_Page
+     */
+    public function newPage(array $settings = array())
+    {
+        $pdf = $this->_getPdf();
+
+        $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
+        $this->pagecounter++;
+        $pdf->pages[] = $page;
+
+        $this->_addFooter($page, Mage::app()->getStore());
+
+        $this->y = 800;
+        $this->_setFontRegular($page, 9);
+
+        return $page;
     }
 
     /**
@@ -743,5 +768,6 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $lines .= $currentLine;
         return $lines;
     }
+
 }
 
