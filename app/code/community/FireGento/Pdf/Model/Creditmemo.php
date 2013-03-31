@@ -112,6 +112,9 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
 
             /* Add totals */
             $page = $this->insertTotals($page, $creditmemo);
+
+            /* add note */
+            $page = $this->_insertNote($page, $order, $creditmemo);
         }
 
         $this->_afterGetPdf();

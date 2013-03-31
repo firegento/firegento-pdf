@@ -333,11 +333,11 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $total_tax = 0;
         $shippingTaxRate = 0;
         $shippingTaxAmount = $order->getShippingTaxAmount();
-        
+
         if($shippingTaxAmount > 0) {
-            $shippingTaxRate = $order->getShippingTaxAmount()*100/($order->getShippingInclTax()-$order->getShippingTaxAmount());    
+            $shippingTaxRate = $order->getShippingTaxAmount()*100/($order->getShippingInclTax()-$order->getShippingTaxAmount());
         }
-        
+
         $groupedTax = array();
 
         $items['items'] = array();
@@ -543,6 +543,55 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             }
         }
         $page = $this->drawLineBlocks($page, array($lineBlock));
+        return $page;
+    }
+
+    /**
+     * Insert Notes
+     *
+     * @param Zend_Pdf_Page $page Current Page Object of Zend_PDF
+     * @param Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Abstract $model
+     * @return void
+     */
+    protected function _insertNote($page, &$order, &$model)
+    {
+        $fontSize = 10;
+        $font = $this->_setFontRegular($page, $fontSize);
+        $this->y = $this->y - 60;
+
+        $notes = array();
+
+        $result = new Varien_Object();
+        $result->setNotes($notes);
+        Mage::dispatchEvent('firegento_pdf_' . $this->getMode() . '_insert_note', array('order' => $order, $this->getMode() => $model, 'result' => $result));
+        $notes = array_merge($notes, $result->getNotes());
+
+        if ($this->getMode() === 'invoice') {
+            $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date.');
+        }
+
+        // Get free text notes.
+        $note = Mage::getStoreConfig('sales_pdf/' . $this->getMode() . '/note');
+        if (!empty($note)) {
+            $tmpNotes = explode("\n", $note);
+            $notes = array_merge($notes, $tmpNotes);
+        }
+
+        // Draw notes on PDF.
+        foreach ($notes as $note) {
+            // prepare the text so that it fits to the paper
+            $note = $this->_prepareText($note, $page, $font, $fontSize);
+            $tmpNotes = explode("\n", $note);
+            foreach ($tmpNotes as $tmpNote) {
+                // create a new page if necessary
+                if ($this->y < 200) {
+                    $page = $this->newPage(array());
+                }
+                $page->drawText($tmpNote, $this->margin['left'], $this->y + 30, $this->encoding);
+                $this->Ln(15);
+            }
+        }
         return $page;
     }
 
