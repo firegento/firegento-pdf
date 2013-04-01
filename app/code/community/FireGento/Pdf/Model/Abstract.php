@@ -33,7 +33,6 @@
  */
 abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_Abstract
 {
-
     public $margin = array('left' => 45, 'right' => 540);
     public $colors = array();
     public $mode;
@@ -207,18 +206,23 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $this->_setFontRegular($page);
 
-        $this->y += 34;
+        $this->y += 70;
         $rightoffset = 180;
 
         $page->drawText(Mage::helper('firegento_pdf')->__( ($mode == 'invoice') ? 'Invoice number:' : 'Creditmemo number:' ), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
         $this->Ln();
-
         $yPlus = 15;
+
+        $putOrderId = $this->_putOrderId($order);
+        if ($putOrderId) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Order # '), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+            $this->Ln();
+            $yPlus += 15;
+        }
 
         if ($order->getCustomerId() != '') {
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
-
             $yPlus += 15;
         }
 
@@ -229,19 +233,34 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         }
 
         $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice date:' : 'Date:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+        $this->Ln();
+        $yPlus += 15;
 
         // Draw payment method.
-        if ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/payment_method_position') == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER) {
+        $putPaymentMethod = ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/payment_method_position') == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER);
+        if ($putPaymentMethod) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Payment method:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
             $yPlus += 15;
-            $paymentMethod = Mage::helper('firegento_pdf')->__('Payment method: %s', $order->getPayment()->getMethodInstance()->getTitle());
-            $page->drawText($paymentMethod, ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+        }
+
+        // Draw shipping method.
+        $putShippingMethod = ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position') == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
+        if ($putShippingMethod) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Shipping method:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+            $this->Ln();
+            $yPlus += 15;
         }
 
         $this->y += $yPlus;
         $rightoffset = 60;
         $page->drawText($document->getIncrementId(), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
         $this->Ln();
+
+        if ($putOrderId) {
+            $page->drawText($putOrderId, ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+            $this->Ln();
+        }
 
         $rightoffset = 10;
         $font = $this->_setFontRegular($page, 10);
@@ -269,6 +288,45 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $documentDate = Mage::helper('core')->formatDate($document->getCreatedAtDate(), 'medium', false);
         $page->drawText($documentDate, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($documentDate, $font, 10)), $this->y, $this->encoding);
+        $this->Ln();
+
+        if ($putPaymentMethod) {
+            $paymentMethod = $order->getPayment()->getMethodInstance()->getTitle();
+            $page->drawText($paymentMethod, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($paymentMethod, $font, 10)), $this->y, $this->encoding);
+            $this->Ln();
+        }
+
+        if ($putShippingMethod) {
+            $shippingMethod = $order->getShippingDescription();
+            $page->drawText($shippingMethod, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($shippingMethod, $font, 10)), $this->y, $this->encoding);
+            $this->Ln();
+        }
+    }
+
+    /**
+     * Return the order id or false if order id should not be displayed on document.
+     *
+     * @param $order
+     * @return mixed
+     */
+    protected function _putOrderId($order)
+    {
+        switch ($this->mode) {
+            case 'invoice':
+                if (Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_INVOICE_PUT_ORDER_ID, $order->getStoreId())) {
+                    return $order->getRealOrderId();
+                }
+                break;
+
+            case 'shipment':
+                return false;
+                break;
+
+            case 'creditmemo':
+                return false;
+                break;
+        }
+        return false;
     }
 
     /**
