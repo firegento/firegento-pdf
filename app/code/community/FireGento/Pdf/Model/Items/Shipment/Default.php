@@ -21,7 +21,7 @@
  * @since     0.1.0
  */
 /**
- * Shipment default item model rewrite.
+ * Shipment default item model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
@@ -40,17 +40,19 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
      */
     public function draw()
     {
-        $order  = $this->getOrder();
         $item   = $this->getItem();
         $pdf    = $this->getPdf();
         $page   = $this->getPage();
         $lines  = array();
 
+        $fontSize = 9;
+
         // draw SKU
         $lines[0] = array(array(
             'text' => Mage::helper('core/string')->str_split($this->getSku($item), 25),
             'feed' => 45,
-            'width' => 85
+            'width' => 85,
+            'font_size' => $fontSize
         ));
 
         // draw Product name
@@ -58,7 +60,8 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
             'text'  => Mage::helper('core/string')->str_split($item->getName(), 70, true, true),
             'feed'  => 150,
             'align' => 'left',
-            'width' => 375
+            'width' => 375,
+            'font_size' => $fontSize
         );
 
         // draw QTY
@@ -66,12 +69,13 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
             'text'  => $item->getQty()*1,
             'feed'  => 505,
             'align' => 'left',
-            'width' => 10
+            'width' => 10,
+            'font_size' => $fontSize
         );
 
         $lineBlock = array(
             'lines'  => $lines,
-            'height' => 10
+            'height' => 15
         );
 
         $page = $pdf->drawLineBlocks($page, array($lineBlock), array('table_header' => true));

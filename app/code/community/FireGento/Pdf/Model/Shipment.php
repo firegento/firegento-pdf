@@ -312,6 +312,26 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
     }
 
     /**
+     * Initialize renderer process.
+     *
+     * @param string $type
+     * @return void
+     */
+    protected function _initRenderer($type)
+    {
+        parent::_initRenderer($type);
+
+        $this->_renderers['default'] = array(
+            'model' => 'firegento_pdf/items_shipment_default',
+            'renderer' => null
+        );
+        $this->_renderers['bundle'] = array(
+            'model' => 'firegento_pdf/items_shipment_bundle',
+            'renderer' => null
+        );
+    }
+
+    /**
      * Return status of the engine.
      *
      * @return bool
