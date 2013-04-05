@@ -215,7 +215,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $putOrderId = $this->_putOrderId($order);
         if ($putOrderId) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Order # '), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+            $page->drawText(Mage::helper('firegento_pdf')->__('Order number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
             $yPlus += 15;
         }
@@ -226,7 +226,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             $yPlus += 15;
         }
 
-        if (Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
+        if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
             $yPlus += 15;
@@ -279,7 +279,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             $this->Ln();
         }
 
-        if (Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
+        if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
             $customerIP = $order->getData('remote_ip');
             $font = $this->_setFontRegular($page, 10);
             $page->drawText($customerIP, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerIP, $font, 10)), $this->y, $this->encoding);

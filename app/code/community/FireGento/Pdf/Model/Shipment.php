@@ -157,7 +157,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
 
         $yPlus = 30;
 
-        if(Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
+        if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
             $yPlus = 45;
@@ -192,7 +192,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
         $font = $this->_setFontRegular($page, 10);
         $page->drawText($customerid, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
         $this->Ln();
-        if(Mage::getStoreConfig('sales_pdf/invoice/showcustomerip')) {
+        if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
             $customerIP = $order->getData('remote_ip');
             $font = $this->_setFontRegular($page, 10);
             $page->drawText($customerIP, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerIP, $font, 10)), $this->y, $this->encoding);
