@@ -215,7 +215,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $putOrderId = $this->_putOrderId($order);
         if ($putOrderId) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Order # '), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+            $page->drawText(Mage::helper('firegento_pdf')->__('Order number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
             $yPlus += 15;
         }

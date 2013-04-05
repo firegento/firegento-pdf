@@ -31,6 +31,7 @@
 "Total","Summe"
 "Invoice","Rechnung"
 "Creditmemo","Gutschrift"
+"Order number:","Bestellnummer:"
 "Invoice number:","Rechnungsnummer:"
 "Shipment number:","Lieferscheinnummer:"
 "Creditmemo number:","Gutschriftsnummer:"
