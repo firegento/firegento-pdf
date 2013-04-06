@@ -147,28 +147,49 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
 
         $this->_setFontRegular($page);
 
-        $this->y += 34;
+        $this->y += 60;
         $rightoffset = 180;
 
         $page->drawText(($mode == 'shipment') ? Mage::helper('firegento_pdf')->__('Shipment number:') : Mage::helper('firegento_pdf')->__('Creditmemo number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
         $this->Ln();
-        $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-        $this->Ln();
+        $yPlus = 15;
 
-        $yPlus = 30;
+        $putOrderId = $this->_putOrderId($order);
+        if ($putOrderId) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Order number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+            $this->Ln();
+            $yPlus += 15;
+        }
+
+        if ($order->getCustomerId() != '') {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+            $this->Ln();
+            $yPlus += 15;
+        }
 
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
             $this->Ln();
-            $yPlus = 45;
+            $yPlus += 15;
         }
 
         $page->drawText(Mage::helper('firegento_pdf')->__('Shipping date:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+        $this->Ln();
+        $yPlus += 15;
 
         $this->y += $yPlus;
-        $rightoffset = 60;
-        $page->drawText($shipment->getIncrementId(), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
+
+        $rightoffset = 10;
+        $font = $this->_setFontRegular($page, 10);
+
+        $incrementId = $shipment->getIncrementId();
+        $page->drawText($shipment->getIncrementId(), ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($incrementId, $font, 10)), $this->y, $this->encoding);
         $this->Ln();
+
+        if ($putOrderId) {
+            $page->drawText($putOrderId, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($putOrderId, $font, 10)), $this->y, $this->encoding);
+            $this->Ln();
+        }
 
         $prefix = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
 

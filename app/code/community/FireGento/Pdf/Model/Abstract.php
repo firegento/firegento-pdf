@@ -206,7 +206,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $this->_setFontRegular($page);
 
-        $this->y += 70;
+        $this->y += 80;
         $rightoffset = 180;
 
         $page->drawText(Mage::helper('firegento_pdf')->__( ($mode == 'invoice') ? 'Invoice number:' : 'Creditmemo number:' ), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
@@ -253,17 +253,18 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         }
 
         $this->y += $yPlus;
-        $rightoffset = 60;
-        $page->drawText($document->getIncrementId(), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-        $this->Ln();
-
-        if ($putOrderId) {
-            $page->drawText($putOrderId, ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-            $this->Ln();
-        }
 
         $rightoffset = 10;
         $font = $this->_setFontRegular($page, 10);
+
+        $incrementId = $document->getIncrementId();
+        $page->drawText($incrementId, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($incrementId, $font, 10)), $this->y, $this->encoding);
+        $this->Ln();
+
+        if ($putOrderId) {
+            $page->drawText($putOrderId, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($putOrderId, $font, 10)), $this->y, $this->encoding);
+            $this->Ln();
+        }
 
         if ($order->getCustomerId() != '') {
 
@@ -319,11 +320,15 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
                 break;
 
             case 'shipment':
-                return false;
+                if (Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_SHIPMENT_PUT_ORDER_ID, $order->getStoreId())) {
+                    return $order->getRealOrderId();
+                }
                 break;
 
             case 'creditmemo':
-                return false;
+                if (Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_CREDITMEMO_PUT_ORDER_ID, $order->getStoreId())) {
+                    return $order->getRealOrderId();
+                }
                 break;
         }
         return false;
