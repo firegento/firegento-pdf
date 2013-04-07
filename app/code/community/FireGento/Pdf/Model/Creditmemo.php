@@ -196,7 +196,7 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
                 $itemsProp['shift'] = $shift;
             }
 
-            if ($this->y - $itemsProp['shift'] < 200) {
+            if ($this->y - $itemsProp['shift'] < 100) {
                 $page = $this->newPage($pageSettings);
             }
 

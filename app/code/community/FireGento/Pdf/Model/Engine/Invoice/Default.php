@@ -101,7 +101,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
                     continue;
                 }
 
-                if ($this->y < 200) {
+                if ($this->y < 100) {
                     $page = $this->newPage(array());
                 }
 
@@ -196,7 +196,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
                 $itemsProp['shift'] = $shift;
             }
 
-            if ($this->y - $itemsProp['shift'] < 200) {
+            if ($this->y - $itemsProp['shift'] < 100) {
                 $page = $this->newPage($pageSettings);
             }
 
