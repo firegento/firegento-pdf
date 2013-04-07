@@ -612,7 +612,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             $tmpNotes = explode("\n", $note);
             foreach ($tmpNotes as $tmpNote) {
                 // create a new page if necessary
-                if ($this->y < 200) {
+                if ($this->y < 100) {
                     $page = $this->newPage(array());
                     $this->y = $this->y - 60;
                     $font = $this->_setFontRegular($page, $fontSize);
