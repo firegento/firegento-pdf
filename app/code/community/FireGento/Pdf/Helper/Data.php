@@ -33,5 +33,34 @@
  */
 class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    /**
+     * Return the order id or false if order id should not be displayed on document.
+     *
+     * @param Mage_Sales_Model_Order $order
+     * @param string $mode
+     * @return mixed
+     */
+    public function putOrderId(Mage_Sales_Model_Order $order, $mode = 'invoice')
+    {
+        switch ($mode) {
+            case 'invoice':
+                if (Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_INVOICE_PUT_ORDER_ID, $order->getStoreId())) {
+                    return $order->getRealOrderId();
+                }
+                break;
 
+            case 'shipment':
+                if (Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_SHIPMENT_PUT_ORDER_ID, $order->getStoreId())) {
+                    return $order->getRealOrderId();
+                }
+                break;
+
+            case 'creditmemo':
+                if (Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_CREDITMEMO_PUT_ORDER_ID, $order->getStoreId())) {
+                    return $order->getRealOrderId();
+                }
+                break;
+        }
+        return false;
+    }
 }
