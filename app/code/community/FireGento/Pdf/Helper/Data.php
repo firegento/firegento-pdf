@@ -63,4 +63,36 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         }
         return false;
     }
+
+    /**
+     * Return scaled image sizes based on an path to an image file.
+     *
+     * @param string $image Url to image file.
+     * @param int $maxWidth
+     * @param int $maxHeight
+     * @return array with 2 elements - width and height.
+     */
+    public function getScaledImageSize($image, $maxWidth, $maxHeight)
+    {
+        list($width, $height) = getimagesize($image);
+
+        if ($height > $maxHeight or $width > $maxWidth) {
+            // Calculate max variance to match dimensions.
+            $widthVar = $width / $maxWidth;
+            $heightVar = $height / $maxHeight;
+
+            // Calculate scale factor to match dimensions.
+            if ($widthVar > $heightVar) {
+                $scale = $maxWidth / $width;
+            } else {
+                $scale = $maxHeight / $height;
+            }
+
+            // Calculate new dimensions.
+            $height = round($height * $scale);
+            $width  = round($width * $scale);
+        }
+
+        return array($width, $height);
+    }
 }

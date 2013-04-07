@@ -124,24 +124,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         if ($image and file_exists(Mage::getBaseDir('media', $store) . '/sales/store/logo/' . $image)) {
             $image = Mage::getBaseDir('media', $store) . '/sales/store/logo/' . $image;
 
-            list($width, $height) = getimagesize($image);
-
-            if ($height > $maxheight or $width > $maxwidth) {
-                // calculate max variance to match dimensions
-                $widthVar = $width / $maxwidth;
-                $heightVar = $height / $maxheight;
-
-                // calculate scale factor to match dimensions
-                if ($widthVar > $heightVar) {
-                    $scale = $maxwidth / $width;
-                } else {
-                    $scale = $maxheight / $height;
-                }
-
-                // calculate new dimensions
-                $height = round($height * $scale);
-                $width  = round($width * $scale);
-            }
+            list ($width, $height) = Mage::helper('firegento_pdf')->getScaledImageSize($image, $maxwidth, $maxheight);
 
             if (is_file($image)) {
                 $image = Zend_Pdf_Image::imageWithPath($image);
