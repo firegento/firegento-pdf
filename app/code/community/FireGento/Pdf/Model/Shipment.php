@@ -101,7 +101,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
                     continue;
                 }
 
-                if ($this->y < 200) {
+                if ($this->y < 100) {
                     $page = $this->newPage(array());
                 }
 
@@ -267,7 +267,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
                 $itemsProp['shift'] = $shift;
             }
 
-            if ($this->y - $itemsProp['shift'] < 200) {
+            if ($this->y - $itemsProp['shift'] < 100) {
                 $page = $this->newPage($pageSettings);
             }
 
