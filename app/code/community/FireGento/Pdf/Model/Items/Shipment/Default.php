@@ -49,7 +49,7 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
 
         // draw SKU
         $lines[0] = array(array(
-            'text' => Mage::helper('core/string')->str_split($this->getSku($item), 25),
+            'text' => Mage::helper('core/string')->str_split($this->getSku($item), 20),
             'feed' => 45,
             'width' => 85,
             'font_size' => $fontSize
