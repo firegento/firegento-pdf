@@ -90,7 +90,7 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
             // draw SKUs
             if (!$_item->getParentItem()) {
                 $text = array();
-                foreach (Mage::helper('core/string')->str_split($_item->getSku(), 25) as $part) {
+                foreach (Mage::helper('core/string')->str_split($_item->getSku(), 20) as $part) {
                     $text[] = $part;
                 }
                 $line[] = array(
