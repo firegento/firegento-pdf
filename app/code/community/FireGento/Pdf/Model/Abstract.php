@@ -366,6 +366,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         }
 
         $groupedTax = array();
+        $items = array('items' => array());
 
         $items['items'] = array();
         foreach ($source->getAllItems() as $item) {
