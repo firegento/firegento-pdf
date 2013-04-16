@@ -582,30 +582,32 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
                     $amount = $source->getDataUsingMethod($total['source_field']);
                     $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
 
-                    $amount = $order->formatPriceTxt($amount);
+                    if ($amount != 0 || $displayZero) {
+                        $amount = $order->formatPriceTxt($amount);
 
-                    if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                        $amount = "{$total['amount_prefix']}{$amount}";
+                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
+                            $amount = "{$total['amount_prefix']}{$amount}";
+                        }
+
+                        $label = Mage::helper('sales')->__($total['title']) . ':';
+
+                        $lineBlock['lines'][] = array(
+                            array(
+                                'text'      => Mage::helper('firegento_pdf')->__('Shipping:'),
+                                'feed'      => $this->margin['left'] + 320,
+                                'align'     => 'left',
+                                'font_size' => $fontSize,
+                                'font'      => $fontWeight
+                            ),
+                            array(
+                                'text'      => $amount,
+                                'feed'      => $this->margin['right'] - 10,
+                                'align'     => 'right',
+                                'font_size' => $fontSize,
+                                'font'      => $fontWeight
+                            ),
+                        );
                     }
-
-                    $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                    $lineBlock['lines'][] = array(
-                        array(
-                            'text'      => Mage::helper('firegento_pdf')->__('Shipping:'),
-                            'feed'      => $this->margin['left'] + 320,
-                            'align'     => 'left',
-                            'font_size' => $fontSize,
-                            'font'      => $fontWeight
-                        ),
-                        array(
-                            'text'      => $amount,
-                            'feed'      => $this->margin['right'] - 10,
-                            'align'     => 'right',
-                            'font_size' => $fontSize,
-                            'font'      => $fontWeight
-                        ),
-                    );
                     break;
 
                 case 'grand_total':
