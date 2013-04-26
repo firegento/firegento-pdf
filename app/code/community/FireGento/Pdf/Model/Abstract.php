@@ -331,7 +331,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
             if (!isset($item['row_invoiced'])) $item['row_invoiced'] = 0;
             if (!isset($item['price'])) $item['price'] = 0;
             if (!isset($item['tax_inc_subtotal'])) $item['tax_inc_subtotal'] = 0;
-            if (((float)$item['tax_amount'] > 0)&&((float)$item['row_invoiced'] > 0)) {
+            if (isset($item['tax_percent']) && !empty($item['tax_percent'])) {
+                $_percent = (int)$item['tax_percent'];
+            } else if (((float)$item['tax_amount'] > 0)&&((float)$item['row_invoiced'] > 0)) {
                 $_percent = round((float)$item['tax_amount'] / ((float)$item['row_invoiced'] - (float)$item['discount_invoiced']) * 100,0);
             }
             if (!array_key_exists('tax_inc_subtotal', $item) || $item['tax_inc_subtotal']) {
