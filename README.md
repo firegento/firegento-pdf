@@ -2,9 +2,9 @@
 
 ## Branches
 
-* master => stabile Version der Extension
-* development => Entwicklungsstand der Extension
+* master => stable branch
+* development => development branch (bugs are fixed in this branch and new features are integrated here)
 
-## Über diese Extension
+## About this extension
 
-FireGento Pdf überschreibt die Standard PDF Layouts für Rechnung und Lieferschein.
+FireGento Pdf overwrites standard PDF layouts for invoices, shipments and creditmemos.

@@ -21,7 +21,7 @@
  * @since     0.1.0
  */
 /**
- * Pdf creation engine source model.
+ * Shipping method position source model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
@@ -31,39 +31,25 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-class FireGento_Pdf_Model_System_Config_Source_Engine
+class FireGento_Pdf_Model_System_Config_Source_Shipping
 {
-    /**
-     * Config xpath to pdf engine node
-     *
-     */
-    const XML_PATH_PDF_ENGINE = 'global/pdf/firegento_engines';
+    const POSITION_HEADER = 'header';
+    const POSITION_NOTE = 'note';
 
     /**
-     * Return array of possible engines.
+     * Return array of possible positions.
      *
      * @return array
      */
     public function toOptionArray()
     {
-        // load default engines shipped with Mage_Sales and FireGento_Pdf
-        $engines = array(
-            ''                                     => Mage::helper('firegento_pdf')->__('Standard Magento'),
-            'firegento_pdf/engine_invoice_default' => Mage::helper('firegento_pdf')->__('Standard Germany')
+        $positions = array(
+            '' => Mage::helper('firegento_pdf')->__('Hide shipping method'),
+            self::POSITION_HEADER => Mage::helper('firegento_pdf')->__('Header'),
+            self::POSITION_NOTE => Mage::helper('firegento_pdf')->__('Notes area')
         );
-
-        // load additional engines provided by third party extensions
-        $engineNodes = Mage::app()->getConfig()->getNode(self::XML_PATH_PDF_ENGINE);
-        if ($engineNodes && $engineNodes->hasChildren()) {
-            foreach ($engineNodes->children() as $engineName => $engineNode) {
-                $className   = (string)$engineNode->class;
-                $engineLabel = Mage::helper('firegento_pdf')->__((string)$engineNode->label);
-                $engines[$className] = $engineLabel;
-            }
-        }
-
         $options = array();
-        foreach ($engines as $k => $v) {
+        foreach ($positions as $k => $v) {
             $options[] = array(
                 'value' => $k,
                 'label' => $v

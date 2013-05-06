@@ -15,47 +15,46 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
  */
 /**
- * Dropdown for Logo Position
+ * Payment method position source model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
  */
-
-class FireGento_Pdf_Model_System_Config_Source_Dropdown_Values
+class FireGento_Pdf_Model_System_Config_Source_Payment
 {
+    const POSITION_HEADER = 'header';
+    const POSITION_NOTE = 'note';
+
     /**
-     * Dropdown Values for Logo Position
+     * Return array of possible positions.
      *
-     * @return array Dropdown Values
+     * @return array
      */
     public function toOptionArray()
     {
-        $helper = Mage::helper('firegento_pdf');
-
-        return array(
-            array(
-                'value' => 'left',
-                'label' => $helper->__('Left'),
-            ),
-            array(
-                'value' => 'center',
-                'label' => $helper->__('Center'),
-            ),
-            array(
-                'value' => 'right',
-                'label' => $helper->__('Right'),
-            ),
+        $positions = array(
+            '' => Mage::helper('firegento_pdf')->__('Hide payment method'),
+            self::POSITION_HEADER => Mage::helper('firegento_pdf')->__('Header'),
+            self::POSITION_NOTE => Mage::helper('firegento_pdf')->__('Notes area')
         );
+        $options = array();
+        foreach ($positions as $k => $v) {
+            $options[] = array(
+                'value' => $k,
+                'label' => $v
+            );
+        }
+        return $options;
     }
 }

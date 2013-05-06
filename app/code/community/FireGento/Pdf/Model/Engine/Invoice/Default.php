@@ -21,7 +21,7 @@
  * @since     0.1.0
  */
 /**
- * Creditmemo model rewrite.
+ * Default invoice rendering engine.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
@@ -31,25 +31,25 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
+class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abstract
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->setMode('creditmemo');
+        $this->setMode('invoice');
     }
 
     /**
      * Return PDF document
      *
-     * @param  array $creditmemos
+     * @param  array $invoices
      * @return Zend_Pdf
      */
-    public function getPdf($creditmemos = array())
+    public function getPdf($invoices = array())
     {
         $this->_beforeGetPdf();
-        $this->_initRenderer('creditmemo');
+        $this->_initRenderer('invoice');
 
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
@@ -60,19 +60,19 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
         // pagecounter is 0 at the beginning, because it is incremented in newPage()
         $this->pagecounter = 0;
 
-        foreach ($creditmemos as $creditmemo) {
-            if ($creditmemo->getStoreId()) {
-                Mage::app()->getLocale()->emulate($creditmemo->getStoreId());
-                Mage::app()->setCurrentStore($creditmemo->getStoreId());
+        foreach ($invoices as $invoice) {
+            if ($invoice->getStoreId()) {
+                Mage::app()->getLocale()->emulate($invoice->getStoreId());
+                Mage::app()->setCurrentStore($invoice->getStoreId());
             }
-            $page  = $this->newPage();
+            $page = $this->newPage();
 
-            $order = $creditmemo->getOrder();
+            $order = $invoice->getOrder();
 
-            // Add logo
-            $this->insertLogo($page, $creditmemo->getStore());
+            /* add logo */
+            $this->insertLogo($page, $invoice->getStore());
 
-            // Add billing address
+            /* add billing address */
             $this->y = 692;
             $this->insertBillingAddress($page, $order);
 
@@ -80,58 +80,58 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             $this->y = 705;
             $this->_insertSenderAddessBar($page);
 
-            // Add head
+            /* add header */
             $this->y = 592;
-            $this->insertHeader($page, $order, $creditmemo);
+            $this->insertHeader($page, $order, $invoice);
 
             // Add footer
-            $this->_addFooter($page, $creditmemo->getStore());
+            $this->_addFooter($page, $invoice->getStore());
 
-            /* Add table head */
+            /* add table header */
             $this->_setFontRegular($page, 9);
             $this->y = 562;
-            $this->_drawHeader($page);
+            $this->insertTableHeader($page);
 
             $this->y -=20;
 
             $position = 0;
 
-            /* Add body */
-            foreach ($creditmemo->getAllItems() as $item){
+            foreach ($invoice->getAllItems() as $item) {
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
-                /* Draw item */
+
+                if ($this->y < 100) {
+                    $page = $this->newPage(array());
+                }
+
                 $position++;
-                $this->_drawItem($item, $page, $order, $position);
-                $page = end($pdf->pages);
+                $page = $this->_drawItem($item, $page, $order, $position);
             }
 
             /* add line after items */
             $page->drawLine($this->margin['left'], $this->y + 5, $this->margin['right'], $this->y + 5);
 
-            /* Add totals */
-            $page = $this->insertTotals($page, $creditmemo);
+            /* add totals */
+            $page = $this->insertTotals($page, $invoice);
 
             /* add note */
-            $page = $this->_insertNote($page, $order, $creditmemo);
+            $this->_insertNote($page, $order, $invoice);
         }
 
         $this->_afterGetPdf();
 
-        if ($creditmemo->getStoreId()) {
-            Mage::app()->getLocale()->revert();
-        }
         return $pdf;
     }
 
     /**
-     * Draw table header for product items
+     * Insert Table Header for Items
      *
-     * @param Zend_Pdf_Page $page
+     * @param Zend_Pdf_Page $page  Current Page Object of Zend_PDF
+     *
      * @return void
      */
-    protected function _drawHeader(Zend_Pdf_Page $page)
+    protected function insertTableHeader(&$page)
     {
         $page->setFillColor($this->colors['grey1']);
         $page->setLineColor($this->colors['grey1']);
@@ -159,6 +159,16 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
     }
 
     /**
+     * Return status of the engine.
+     *
+     * @return bool
+     */
+    public function test()
+    {
+        return true;
+    }
+
+    /**
      * Initialize renderer process.
      *
      * @param string $type
@@ -182,15 +192,4 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
         );
     }
 
-    /**
-     * Return status of the engine.
-     *
-     * @return bool
-     */
-    public function test()
-    {
-        return true;
-    }
-
 }
-

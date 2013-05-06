@@ -16,7 +16,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -28,15 +28,6 @@
             <groups>
                 <invoice>
                     <fields>
-                        <engine translate="label">
-                            <label>PDF Engine</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>firegento_pdf/system_config_source_engine</source_model>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </engine>
                         <maturity translate="label comment">
                             <label>Invoice Maturity</label>
                             <frontend_type>text</frontend_type>
@@ -46,10 +37,30 @@
                             <show_in_store>1</show_in_store>
                             <comment>Days after the invoice is due. Leave this field blank to hide the message on the invoice.</comment>
                         </maturity>
+                        <payment_method_position translate="label comment">
+                            <label>Show Payment Method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_payment</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Position of payment method on invoice.</comment>
+                        </payment_method_position>
+                        <shipping_method_position translate="label comment">
+                            <label>Show Shipping Method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_shipping</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Position of shipping method on invoice.</comment>
+                        </shipping_method_position>
                         <note translate="label comment">
                             <label>Note</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>4</sort_order>
+                            <sort_order>6</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -57,39 +68,74 @@
                         </note>
                     </fields>
                 </invoice>
+                <shipment>
+                    <fields>
+                        <note translate="label comment">
+                            <label>Note</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Printed on every shipment.</comment>
+                        </note>
+                    </fields>
+                </shipment>
+                <creditmemo>
+                    <fields>
+                        <note translate="label comment">
+                            <label>Note</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Printed on every credit memo.</comment>
+                        </note>
+                    </fields>
+                </creditmemo>
                 <firegento_pdf translate="label">
                     <label>PDF Creation</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>900</sort_order>
+                    <sort_order>0</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
+                        <engine translate="label">
+                            <label>PDF Engine</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_engine</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </engine>
                         <sender_address_bar translate="label">
                             <label>Sender Address Bar</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>5</sort_order>
+                            <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </sender_address_bar>
                         <show_footer translate="label">
-                          <label>Show Footer</label>
-                          <frontend_type>select</frontend_type>
-                          <source_model>adminhtml/system_config_source_yesno</source_model>
-                          <sort_order>10</sort_order>
-                          <show_in_default>1</show_in_default>
-                          <show_in_website>1</show_in_website>
-                          <show_in_store>1</show_in_store>
+                            <label>Show Footer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </show_footer>
                         <logo_position translate="label">
-                          <label>Logo Position</label>
-                          <frontend_type>select</frontend_type>
-                          <source_model>firegento_pdf/system_config_source_dropdown_values</source_model>
-                          <sort_order>10</sort_order>
-                          <show_in_default>1</show_in_default>
-                          <show_in_website>1</show_in_website>
-                          <show_in_store>1</show_in_store>
+                            <label>Logo Position</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_logo</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </logo_position>
                     </fields>
                 </firegento_pdf>
