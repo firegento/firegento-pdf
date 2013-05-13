@@ -110,7 +110,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
             }
 
             /* add note */
-            $page = $this->_insertNote($page, $order, $creditmemo);
+            $page = $this->_insertNote($page, $order, $shipment);
         }
 
         $this->_afterGetPdf();
