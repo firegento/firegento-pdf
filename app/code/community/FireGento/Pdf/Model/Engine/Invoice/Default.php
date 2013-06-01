@@ -84,12 +84,9 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
             $this->y = 592;
             $this->insertHeader($page, $order, $invoice);
 
-            // Add footer
-            $this->_addFooter($page, $invoice->getStore());
 
             /* add table header */
             $this->_setFontRegular($page, 9);
-            $this->y = 562;
             $this->insertTableHeader($page);
 
             $this->y -= 20;
@@ -115,7 +112,11 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
             $page = $this->insertTotals($page, $invoice);
 
             /* add note */
-            $this->_insertNote($page, $order, $invoice);
+            $page = $this->_insertNote($page, $order, $invoice);
+
+            // Add footer
+            $this->_addFooter($page, $invoice->getStore());
+
         }
 
         $this->_afterGetPdf();
