@@ -509,8 +509,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         );
 
         foreach ($totals as $total) {
-            $total->setOrder($order)
-                ->setSource($source);
+            $total->setOrder($order)->setSource($source);
 
             if ($total->canDisplay()) {
                 $total->setFontSize(10);
@@ -518,17 +517,15 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
                     $lineBlock['lines'][] = array(
                         array(
                             'text'      => $totalData['label'],
-                            'feed'      => 475,
+                            'feed'      => 470,
                             'align'     => 'right',
-                            'font_size' => $totalData['font_size'],
-                            'font'      => 'bold'
+                            'font_size' => $totalData['font_size']
                         ),
                         array(
                             'text'      => $totalData['amount'],
-                            'feed'      => 565,
+                            'feed'      => 540,
                             'align'     => 'right',
-                            'font_size' => $totalData['font_size'],
-                            'font'      => 'bold'
+                            'font_size' => $totalData['font_size']
                         ),
                     );
                 }

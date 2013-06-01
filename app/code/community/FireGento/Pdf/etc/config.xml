@@ -27,6 +27,11 @@
                     <order_pdf_shipment>FireGento_Pdf_Model_Shipment</order_pdf_shipment>
                 </rewrite>
             </sales>
+            <tax>
+                <rewrite>
+                    <sales_pdf_grandtotal>FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal</sales_pdf_grandtotal>
+                </rewrite>
+            </tax>
         </models>
         <events>
             <firegento_pdf_invoice_insert_note>
@@ -84,5 +89,10 @@
                 <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
             </invoice>
         </sales_pdf>
+        <tax>
+            <sales_display>
+                <no_sum_on_details>0</no_sum_on_details>
+            </sales_display>
+        </tax>
     </default>
 </config>
