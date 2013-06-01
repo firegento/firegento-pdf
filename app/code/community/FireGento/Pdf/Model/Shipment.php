@@ -257,15 +257,5 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
         );
     }
 
-    /**
-     * Return status of the engine.
-     *
-     * @return bool
-     */
-    public function test()
-    {
-        return true;
-    }
-
 }
 
