@@ -100,8 +100,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
-
-                if ($this->y < 100) {
+                if ($this->y < 50 || (Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1 && $this->y < 100)) {
                     $page = $this->newPage(array());
                 }
 
