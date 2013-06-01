@@ -2,7 +2,7 @@
 <config>
     <modules>
         <FireGento_Pdf>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </FireGento_Pdf>
     </modules>
     <global>
