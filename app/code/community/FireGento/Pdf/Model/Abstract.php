@@ -915,6 +915,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
      */
     protected function _prepareText($text, $page, $font, $fontSize, $width = null)
     {
+        if (empty($text)) {
+            return array();
+        }
         $lines = '';
         $currentLine = '';
         // calculate the page's width with respect to the margins
