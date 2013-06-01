@@ -372,7 +372,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $width = 80;
 
         if ($putPaymentMethod) {
-            $paymentMethodArray = $this->_stringToArray($order->getPayment()->getMethodInstance()->getTitle(), $page, $font, 10, $width);
+            $paymentMethodArray = $this->_prepareText($order->getPayment()->getMethodInstance()->getTitle(), $page, $font, 10, $width);
             $page->drawText(array_shift($paymentMethodArray), ($this->margin['right'] - $valueRightOffset - $width), $this->y, $this->encoding);
             $this->Ln();
             $paymentMethodArray = $this->_prepareText(implode(" ", $paymentMethodArray), $page, $font, 10, 2 * $width);
