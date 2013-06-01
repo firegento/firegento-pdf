@@ -286,60 +286,32 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $this->y += 80;
         $labelRightOffset = 180;
 
-        $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice number:' : 'Creditmemo number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
-        $this->Ln();
-        $yPlus = 15;
-
-        $putOrderId = $this->_putOrderId($order);
-        if ($putOrderId) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Order number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
-            $this->Ln();
-            $yPlus += 15;
-        }
-
-        $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
-        $this->Ln();
-        $yPlus += 15;
-
-        if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
-            $this->Ln();
-            $yPlus += 15;
-        }
-
-        $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice date:' : 'Date:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
-        $this->Ln();
-        $yPlus += 15;
-
-        // Draw payment method.
-        $putPaymentMethod = ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/payment_method_position') == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER);
-        if ($putPaymentMethod) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Payment method:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
-            $this->Ln();
-            $yPlus += 15;
-        }
-
-        // Draw shipping method.
-        $putShippingMethod = ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position') == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
-        if ($putShippingMethod) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Shipping method:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
-            $this->Ln();
-            $yPlus += 15;
-        }
-
-        $this->y += $yPlus;
-
         $valueRightOffset = 10;
         $font = $this->_setFontRegular($page, 10);
+        $width = 80;
+        $numberOfLines = 0;
+
+
+        // Invoice Number
+        $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice number:' : 'Creditmemo number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
 
         $incrementId = $document->getIncrementId();
         $page->drawText($incrementId, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($incrementId, $font, 10)), $this->y, $this->encoding);
         $this->Ln();
+        $numberOfLines++;
 
+        // Order Number
+        $putOrderId = $this->_putOrderId($order);
         if ($putOrderId) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Order number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
             $page->drawText($putOrderId, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($putOrderId, $font, 10)), $this->y, $this->encoding);
             $this->Ln();
+            $numberOfLines++;
         }
+
+        // Customer Number
+        $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
+        $numberOfLines++;
 
         if ($order->getCustomerId() != '') {
 
@@ -353,45 +325,64 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
             $page->drawText($customerid, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
             $this->Ln();
+            $numberOfLines++;
         } else {
             $page->drawText('-', ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize('-', $font, 10)), $this->y, $this->encoding);
             $this->Ln();
+            $numberOfLines++;
         }
 
+        // Customer IP
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
             $customerIP = $order->getData('remote_ip');
             $font = $this->_setFontRegular($page, 10);
             $page->drawText($customerIP, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($customerIP, $font, 10)), $this->y, $this->encoding);
             $this->Ln();
+            $numberOfLines++;
         }
 
+        $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice date:' : 'Date:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
         $documentDate = Mage::helper('core')->formatDate($document->getCreatedAtDate(), 'medium', false);
         $page->drawText($documentDate, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($documentDate, $font, 10)), $this->y, $this->encoding);
         $this->Ln();
+        $numberOfLines++;
 
-        $width = 80;
 
+        // Payment method.
+        $putPaymentMethod = ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/payment_method_position') == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER);
         if ($putPaymentMethod) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Payment method:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
             $paymentMethodArray = $this->_prepareText($order->getPayment()->getMethodInstance()->getTitle(), $page, $font, 10, $width);
             $page->drawText(array_shift($paymentMethodArray), ($this->margin['right'] - $valueRightOffset - $width), $this->y, $this->encoding);
             $this->Ln();
+            $numberOfLines++;
             $paymentMethodArray = $this->_prepareText(implode(" ", $paymentMethodArray), $page, $font, 10, 2 * $width);
             foreach ($paymentMethodArray as $methodString) {
                 $page->drawText($methodString, $this->margin['right'] - $labelRightOffset, $this->y, $this->encoding);
                 $this->Ln();
+                $numberOfLines++;
             }
+
         }
 
+        // Shipping method.
+        $putShippingMethod = ($mode == 'invoice' && Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position') == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
         if ($putShippingMethod) {
+            $page->drawText(Mage::helper('firegento_pdf')->__('Shipping method:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
             $shippingMethodArray = $this->_prepareText($order->getShippingDescription(), $page, $font, 10, $width);
             $page->drawText(array_shift($shippingMethodArray), ($this->margin['right'] - $valueRightOffset - $width), $this->y, $this->encoding);
             $this->Ln();
+            $numberOfLines++;
             $shippingMethodArray = $this->_prepareText(implode(" ", $shippingMethodArray), $page, $font, 10, 2 * $width);
             foreach ($shippingMethodArray as $methodString) {
                 $page->drawText($methodString, $this->margin['right'] - $labelRightOffset, $this->y, $this->encoding);
                 $this->Ln();
+                $numberOfLines++;
             }
+
         }
+        $this->y -= ($numberOfLines*2);
     }
 
     /**
@@ -518,164 +509,29 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         );
 
         foreach ($totals as $total) {
-            $fontSize = (isset($total['font_size']) ? $total['font_size'] : 7);
-            if ($fontSize < 9) {
-                $fontSize = 9;
-            }
-            $fontWeight = (isset($total['font_weight']) ? $total['font_weight'] : 'regular');
+            $total->setOrder($order)
+                ->setSource($source);
 
-            switch ($total['source_field']) {
-                case 'tax_amount':
-                    foreach ($groupedTax as $taxRate => $taxValue) {
-                        if (empty($taxValue)) {
-                            continue;
-                        }
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => Mage::helper('firegento_pdf')->__('Additional tax %s', $source->getStore()->roundPrice(number_format($taxRate, 0)) . '%'),
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $order->formatPriceTxt($taxValue),
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                case 'subtotal':
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => $label,
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                case 'shipping_amount':
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => Mage::helper('firegento_pdf')->__('Shipping:'),
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                case 'grand_total':
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => $label,
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                default:
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => $label,
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
+            if ($total->canDisplay()) {
+                $total->setFontSize(10);
+                foreach ($total->getTotalsForDisplay() as $totalData) {
+                    $lineBlock['lines'][] = array(
+                        array(
+                            'text'      => $totalData['label'],
+                            'feed'      => 475,
+                            'align'     => 'right',
+                            'font_size' => $totalData['font_size'],
+                            'font'      => 'bold'
+                        ),
+                        array(
+                            'text'      => $totalData['amount'],
+                            'feed'      => 565,
+                            'align'     => 'right',
+                            'font_size' => $totalData['font_size'],
+                            'font'      => 'bold'
+                        ),
+                    );
+                }
             }
         }
         $page = $this->drawLineBlocks($page, array($lineBlock));
@@ -927,6 +783,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
      */
     protected function _prepareText($text, $page, $font, $fontSize, $width = null)
     {
+        if (empty($text)) {
+            return array();
+        }
         $lines = '';
         $currentLine = '';
         // calculate the page's width with respect to the margins
