@@ -823,9 +823,7 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
                     // calculate the maximum width for the value
                     $width = $this->margin['left'] + $colposition + $colwidth - ($this->margin['left'] + $valposition);
                 }
-                $tmpVal = $this->_prepareText($val, $page, $font, $fontSize, $width);
-                $tmpVals = explode("\n", $tmpVal);
-                foreach ($tmpVals as $tmpVal) {
+                foreach ($this->_prepareText($val, $page, $font, $fontSize, $width) as $tmpVal) {
                     $page->drawText($tmpVal, $this->margin['left'] + $valposition, $y, $this->encoding);
                     $y -= 12;
                 }
