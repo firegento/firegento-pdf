@@ -509,164 +509,26 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         );
 
         foreach ($totals as $total) {
-            $fontSize = (isset($total['font_size']) ? $total['font_size'] : 7);
-            if ($fontSize < 9) {
-                $fontSize = 9;
-            }
-            $fontWeight = (isset($total['font_weight']) ? $total['font_weight'] : 'regular');
+            $total->setOrder($order)->setSource($source);
 
-            switch ($total['source_field']) {
-                case 'tax_amount':
-                    foreach ($groupedTax as $taxRate => $taxValue) {
-                        if (empty($taxValue)) {
-                            continue;
-                        }
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => Mage::helper('firegento_pdf')->__('Additional tax %s', $source->getStore()->roundPrice(number_format($taxRate, 0)) . '%'),
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $order->formatPriceTxt($taxValue),
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                case 'subtotal':
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => $label,
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                case 'shipping_amount':
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => Mage::helper('firegento_pdf')->__('Shipping:'),
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                case 'grand_total':
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => $label,
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
-                    break;
-
-                default:
-                    $amount = $source->getDataUsingMethod($total['source_field']);
-                    $displayZero = (isset($total['display_zero']) ? $total['display_zero'] : 0);
-
-                    if ($amount != 0 || $displayZero) {
-                        $amount = $order->formatPriceTxt($amount);
-
-                        if (isset($total['amount_prefix']) && $total['amount_prefix']) {
-                            $amount = "{$total['amount_prefix']}{$amount}";
-                        }
-
-                        $label = Mage::helper('sales')->__($total['title']) . ':';
-
-                        $lineBlock['lines'][] = array(
-                            array(
-                                'text' => $label,
-                                'feed' => $this->margin['left'] + 320,
-                                'align' => 'left',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                            array(
-                                'text' => $amount,
-                                'feed' => $this->margin['right'] - 10,
-                                'align' => 'right',
-                                'font_size' => $fontSize,
-                                'font' => $fontWeight
-                            ),
-                        );
-                    }
+            if ($total->canDisplay()) {
+                $total->setFontSize(10);
+                foreach ($total->getTotalsForDisplay() as $totalData) {
+                    $lineBlock['lines'][] = array(
+                        array(
+                            'text'      => $totalData['label'],
+                            'feed'      => 470,
+                            'align'     => 'right',
+                            'font_size' => $totalData['font_size']
+                        ),
+                        array(
+                            'text'      => $totalData['amount'],
+                            'feed'      => 540,
+                            'align'     => 'right',
+                            'font_size' => $totalData['font_size']
+                        ),
+                    );
+                }
             }
         }
         $page = $this->drawLineBlocks($page, array($lineBlock));
