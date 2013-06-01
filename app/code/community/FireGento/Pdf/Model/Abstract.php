@@ -357,6 +357,9 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
             $page->drawText($customerid, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
             $this->Ln();
+        }else{
+            $page->drawText('-', ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize('-', $font, 10)), $this->y, $this->encoding);
+            $this->Ln();
         }
 
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
