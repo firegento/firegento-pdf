@@ -110,7 +110,7 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
             }
 
             /* add note */
-            $page = $this->_insertNote($page, $order, $creditmemo);
+            $page = $this->_insertNote($page, $order, $shipment);
         }
 
         $this->_afterGetPdf();
@@ -133,96 +133,6 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
         $page->drawText(Mage::helper('firegento_pdf')->__('Description'),    $this->margin['left'] + 105, $this->y, $this->encoding);
 
         $page->drawText(Mage::helper('firegento_pdf')->__('Qty'),         $this->margin['left'] + 450, $this->y, $this->encoding);
-    }
-
-    protected function insertHeader(&$page, $order, $shipment)
-    {
-        $page->setFillColor($this->colors['black']);
-
-        $mode = $this->getMode();
-
-        $this->_setFontBold($page, 15);
-
-        $page->drawText(Mage::helper('firegento_pdf')->__( ($mode == 'shipment') ? 'Shipment' : 'Creditmemo' ), $this->margin['left'], $this->y, $this->encoding);
-
-        $this->_setFontRegular($page);
-
-        $this->y += 60;
-        $rightoffset = 180;
-
-        $page->drawText(($mode == 'shipment') ? Mage::helper('firegento_pdf')->__('Shipment number:') : Mage::helper('firegento_pdf')->__('Creditmemo number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-        $this->Ln();
-        $yPlus = 15;
-
-        $putOrderId = $this->_putOrderId($order);
-        if ($putOrderId) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Order number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-            $this->Ln();
-            $yPlus += 15;
-        }
-
-        if ($order->getCustomerId() != '') {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-            $this->Ln();
-            $yPlus += 15;
-        }
-
-        if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
-            $page->drawText(Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-            $this->Ln();
-            $yPlus += 15;
-        }
-
-        $page->drawText(Mage::helper('firegento_pdf')->__('Shipping date:'), ($this->margin['right'] - $rightoffset), $this->y, $this->encoding);
-        $this->Ln();
-        $yPlus += 15;
-
-        $this->y += $yPlus;
-
-        $rightoffset = 10;
-        $font = $this->_setFontRegular($page, 10);
-
-        $incrementId = $shipment->getIncrementId();
-        $page->drawText($shipment->getIncrementId(), ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($incrementId, $font, 10)), $this->y, $this->encoding);
-        $this->Ln();
-
-        if ($putOrderId) {
-            $page->drawText($putOrderId, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($putOrderId, $font, 10)), $this->y, $this->encoding);
-            $this->Ln();
-        }
-
-        $prefix = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
-
-        if (!empty($prefix)) {
-            if (($order->getCustomerId())) {
-                $customerid = $prefix . $order->getCustomerId();
-            } else {
-                $customerid = Mage::helper('firegento_pdf')->__('Guestorder');
-            }
-
-        } else {
-            if ($order->getCustomerId()) {
-                $customerid = $order->getCustomerId();
-            } else {
-                $customerid = Mage::helper('firegento_pdf')->__('Guestorder');
-            }
-        }
-
-        $rightoffset = 10;
-
-        $font = $this->_setFontRegular($page, 10);
-        $page->drawText($customerid, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
-        $this->Ln();
-        if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
-            $customerIP = $order->getData('remote_ip');
-            $font = $this->_setFontRegular($page, 10);
-            $page->drawText($customerIP, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($customerIP, $font, 10)), $this->y, $this->encoding);
-            $this->Ln();
-        }
-
-        $shipmentDate = Mage::helper('core')->formatDate($shipment->getCreatedAtDate(), 'medium', false);
-        $page->drawText($shipmentDate, ($this->margin['right'] - $rightoffset - $this->widthForStringUsingFontSize($shipmentDate, $font, 10)), $this->y, $this->encoding);
-
     }
 
     protected function insertShippingAddress(&$page, $order)
@@ -255,16 +165,6 @@ class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
             'model' => 'firegento_pdf/items_shipment_bundle',
             'renderer' => null
         );
-    }
-
-    /**
-     * Return status of the engine.
-     *
-     * @return bool
-     */
-    public function test()
-    {
-        return true;
     }
 
 }

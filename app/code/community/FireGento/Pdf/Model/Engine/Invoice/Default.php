@@ -159,16 +159,6 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
     }
 
     /**
-     * Return status of the engine.
-     *
-     * @return bool
-     */
-    public function test()
-    {
-        return true;
-    }
-
-    /**
      * Initialize renderer process.
      *
      * @param string $type
