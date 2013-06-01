@@ -6,6 +6,11 @@
         </FireGento_Pdf>
     </modules>
     <global>
+        <blocks>
+            <firegento_pdf>
+                <class>FireGento_Pdf_Block</class>
+            </firegento_pdf>
+        </blocks>
         <helpers>
             <firegento_pdf>
                 <class>FireGento_Pdf_Helper</class>
@@ -73,4 +78,11 @@
             </modules>
         </translate>
     </adminhtml>
+    <default>
+        <sales_pdf>
+            <invoice>
+                <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
+            </invoice>
+        </sales_pdf>
+    </default>
 </config>
