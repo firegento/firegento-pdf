@@ -189,7 +189,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abs
                     $column['label'],
                     $this->margin['right'] - $columnOffset - $labelWidth,
                     $this->y,
-                    +$this->encoding
+                    $this->encoding
                 );
                 $columnOffset += $column['_width'];
             }
