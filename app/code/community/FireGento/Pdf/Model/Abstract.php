@@ -158,13 +158,6 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
     }
 
     /**
-     * Return status of the engine.
-     *
-     * @return bool
-     */
-    abstract public function test();
-
-    /**
      * Set pdf mode.
      *
      * @param string $mode
