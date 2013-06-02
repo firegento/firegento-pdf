@@ -31,13 +31,13 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-class FireGento_Pdf_Model_System_Config_Source_Engine
+class FireGento_Pdf_Model_System_Config_Source_Creditmemo_Engine
 {
     /**
      * Config xpath to pdf engine node
      *
      */
-    const XML_PATH_PDF_ENGINE = 'global/pdf/firegento_engines';
+    const XML_PATH_PDF_ENGINE = 'global/pdf/firegento_creditmemo_engines';
 
     /**
      * Return array of possible engines.
@@ -49,7 +49,7 @@ class FireGento_Pdf_Model_System_Config_Source_Engine
         // load default engines shipped with Mage_Sales and FireGento_Pdf
         $engines = array(
             ''                                     => Mage::helper('firegento_pdf')->__('Standard Magento'),
-            'firegento_pdf/engine_invoice_default' => Mage::helper('firegento_pdf')->__('Standard Germany')
+            'firegento_pdf/engine_creditmemo_default' => Mage::helper('firegento_pdf')->__('Standard Germany')
         );
 
         // load additional engines provided by third party extensions

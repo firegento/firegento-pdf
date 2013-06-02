@@ -31,141 +31,35 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-class FireGento_Pdf_Model_Shipment extends FireGento_Pdf_Model_Abstract
+class FireGento_Pdf_Model_Shipment
 {
 
-    public function __construct()
+    /**
+     * The actual PDF engine responsible for rendering the file.
+     * @var Mage_Sales_Model_Order_Pdf_Abstract
+     */
+    private $_engine;
+
+    protected function getEngine()
     {
-        parent::__construct();
-        $this->setMode('shipment');
+        if (!$this->_engine) {
+            $modelClass = Mage::getStoreConfig('sales_pdf/shipment/engine');
+            $engine = Mage::getModel($modelClass);
+
+            if (!$engine) {
+                // Fallback to Magento standard shipment layout.
+                $engine = new Mage_Sales_Model_Order_Pdf_Shipment();
+            }
+
+            $this->_engine = $engine;
+        }
+
+        return $this->_engine;
     }
 
-    /**
-     * Return PDF document
-     *
-     * @param  array $shipments
-     * @return Zend_Pdf
-     */
     public function getPdf($shipments = array())
     {
-        $this->_beforeGetPdf();
-        $this->_initRenderer('shipment');
-
-        $pdf = new Zend_Pdf();
-        $this->_setPdf($pdf);
-
-        $style = new Zend_Pdf_Style();
-        $this->_setFontBold($style, 10);
-
-        // pagecounter is 0 at the beginning, because it is incremented in newPage()
-        $this->pagecounter = 0;
-
-        foreach ($shipments as $shipment) {
-            if ($shipment->getStoreId()) {
-                Mage::app()->getLocale()->emulate($shipment->getStoreId());
-                Mage::app()->setCurrentStore($shipment->getStoreId());
-            }
-            $page = $this->newPage();
-
-            $order = $shipment->getOrder();
-
-            /* add logo */
-            $this->insertLogo($page, $shipment->getStore());
-
-            // Add shipping address
-            $this->y = 692;
-            $this->insertShippingAddress($page, $order);
-
-            /* add sender address */
-            $this->y = 705;
-            $this->_insertSenderAddessBar($page);
-
-            /* add header */
-            $this->y = 592;
-            $this->insertHeader($page, $order, $shipment);
-
-            // Add footer
-            $this->_addFooter($page, $shipment->getStore());
-
-            /* add table header */
-            $this->_setFontRegular($page, 9);
-            $this->y = 562;
-            $this->insertTableHeader($page);
-
-            $this->y -=20;
-
-            $position = 0;
-
-            foreach ($shipment->getAllItems() as $item) {
-                if ($item->getOrderItem()->getParentItem()) {
-                    continue;
-                }
-
-                if ($this->y < 50 || (Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1 && $this->y < 100)) {
-                    $page = $this->newPage(array());
-                }
-
-                $position++;
-                $page = $this->_drawItem($item, $page, $order, $position);
-            }
-
-            /* add note */
-            $page = $this->_insertNote($page, $order, $shipment);
-        }
-
-        $this->_afterGetPdf();
-
-        return $pdf;
-    }
-
-    protected function insertTableHeader(&$page)
-    {
-        $page->setFillColor($this->colors['grey1']);
-        $page->setLineColor($this->colors['grey1']);
-        $page->setLineWidth(1);
-        $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
-
-        $page->setFillColor($this->colors['black']);
-        $font = $this->_setFontRegular($page, 9);
-
-        $this->y -= 11;
-        $page->drawText(Mage::helper('firegento_pdf')->__('No.'),            $this->margin['left'],       $this->y, $this->encoding);
-        $page->drawText(Mage::helper('firegento_pdf')->__('Description'),    $this->margin['left'] + 105, $this->y, $this->encoding);
-
-        $page->drawText(Mage::helper('firegento_pdf')->__('Qty'),         $this->margin['left'] + 450, $this->y, $this->encoding);
-    }
-
-    protected function insertShippingAddress(&$page, $order)
-    {
-        $this->_setFontRegular($page, 9);
-
-        $billing = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
-
-        foreach ($billing as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
-            $this->Ln(12);
-        }
-    }
-
-    /**
-     * Initialize renderer process.
-     *
-     * @param string $type
-     * @return void
-     */
-    protected function _initRenderer($type)
-    {
-        parent::_initRenderer($type);
-
-        $this->_renderers['default'] = array(
-            'model' => 'firegento_pdf/items_shipment_default',
-            'renderer' => null
-        );
-        $this->_renderers['bundle'] = array(
-            'model' => 'firegento_pdf/items_shipment_bundle',
-            'renderer' => null
-        );
+        return $this->getEngine()->getPdf($shipments);
     }
 
 }
-

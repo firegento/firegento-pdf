@@ -31,7 +31,7 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_Abstract
+abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Order_Pdf_Abstract
 {
     public $margin = array('left' => 45, 'right' => 540);
     public $colors = array();
@@ -279,7 +279,14 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
 
         $this->_setFontBold($page, 15);
 
-        $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice' : 'Creditmemo'), $this->margin['left'], $this->y, $this->encoding);
+        if ($mode == 'invoice') {
+            $title = 'Invoice';
+        } else if ($mode == 'shipment') {
+            $title = 'Shipment';
+        } else {
+            $title = 'Creditmemo';
+        }
+        $page->drawText(Mage::helper('firegento_pdf')->__($title), $this->margin['left'], $this->y, $this->encoding);
 
         $this->_setFontRegular($page);
 
@@ -292,8 +299,15 @@ abstract class FireGento_Pdf_Model_Abstract extends Mage_Sales_Model_Order_Pdf_A
         $numberOfLines = 0;
 
 
-        // Invoice Number
-        $page->drawText(Mage::helper('firegento_pdf')->__(($mode == 'invoice') ? 'Invoice number:' : 'Creditmemo number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
+        // Invoice/shipment/creditmemo Number
+        if ($mode == 'invoice') {
+            $numberTitle = 'Invoice number:';
+        } else if ($mode == 'shipment') {
+            $numberTitle = 'Shipment number:';
+        } else {
+            $numberTitle = 'Creditmemo number:';
+        }
+        $page->drawText(Mage::helper('firegento_pdf')->__($numberTitle), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
 
         $incrementId = $document->getIncrementId();
         $page->drawText($incrementId, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($incrementId, $font, 10)), $this->y, $this->encoding);

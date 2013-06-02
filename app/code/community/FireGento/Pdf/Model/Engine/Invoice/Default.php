@@ -31,7 +31,7 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Abstract
+class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Engine_Abstract
 {
 
     public function __construct()

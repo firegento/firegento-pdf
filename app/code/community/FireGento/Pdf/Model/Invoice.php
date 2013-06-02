@@ -46,7 +46,7 @@ class FireGento_Pdf_Model_Invoice
     protected function getEngine()
     {
         if (!$this->_engine) {
-            $modelClass = Mage::getStoreConfig('sales_pdf/firegento_pdf/engine');
+            $modelClass = Mage::getStoreConfig('sales_pdf/invoice/engine');
             $engine = Mage::getModel($modelClass);
 
             if (!$engine) {
@@ -63,41 +63,6 @@ class FireGento_Pdf_Model_Invoice
     public function getPdf($invoices = array())
     {
         return $this->getEngine()->getPdf($invoices);
-    }
-
-    public function widthForStringUsingFontSize($string, $font, $fontSize)
-    {
-        return $this->getEngine()->widthForStringUsingFontSize($string, $font, $fontSize);
-    }
-
-    public function getAlignRight($string, $x, $columnWidth, Zend_Pdf_Resource_Font $font, $fontSize, $padding = 5)
-    {
-        return $this->getEngine()->getAlignRight($string, $x, $columnWidth, $font, $fontSize);
-    }
-
-    public function getAlignCenter($string, $x, $columnWidth, Zend_Pdf_Resource_Font $font, $fontSize)
-    {
-        return $this->getEngine()->getAlignCenter($string, $x, $columnWidth, $font, $fontSize);
-    }
-
-    public function insertDocumentNumber(Zend_Pdf_Page $page, $text)
-    {
-        return $this->getEngine()->insertDocumentNumber($page, $text);
-    }
-
-    public function getRenderer($type)
-    {
-        return $this->getEngine()->getRenderer($type);
-    }
-
-    public function newPage(array $settings = array())
-    {
-        return $this->getEngine()->newPage($settings);
-    }
-
-    public function drawLineBlocks(Zend_Pdf_Page $page, array $draw, array $pageSettings = array())
-    {
-        return $this->getEngine()->drawLineBlocks($page, $draw, $pageSettings);
     }
 
 }
