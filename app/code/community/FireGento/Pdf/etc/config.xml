@@ -2,7 +2,7 @@
 <config>
     <modules>
         <FireGento_Pdf>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </FireGento_Pdf>
     </modules>
     <global>
@@ -33,6 +33,13 @@
                 </rewrite>
             </tax>
         </models>
+        <resources>
+            <firegento_pdf_setup>
+                <setup>
+                    <module>FireGento_Pdf</module>
+                </setup>
+            </firegento_pdf_setup>
+        </resources>
         <events>
             <firegento_pdf_invoice_insert_note>
                 <observers>
