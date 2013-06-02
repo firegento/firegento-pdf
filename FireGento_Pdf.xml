@@ -1,0 +1,90 @@
+<_>
+   <form_key>UHEGCJE8d1TqZD1U</form_key>
+   <name>FireGento_Pdf</name>
+   <channel>community</channel>
+   <version_ids>
+      <version_ids>2</version_ids>
+   </version_ids>
+   <summary>FireGento PDF overwrites standard PDF layouts for invoices, shipments and creditmemos.</summary>
+   <description>FireGento PDF overwrites standard PDF layouts for invoices, shipments and creditmemos. Anyway, you can still use the standard Magento layout, because the extension is highly configurable.</description>
+   <license>OSL 3.0</license>
+   <license_uri/>
+   <version>1.1.0</version>
+   <stability>stable</stability>
+   <notes>Refactoring, New Feature configurable engines for shipment,creditmemo</notes>
+   <authors>
+      <name>
+         <name>FireGento Team</name>
+      </name>
+      <user>
+         <user>firegento</user>
+      </user>
+      <email>
+         <email>team@firegento.com</email>
+      </email>
+   </authors>
+   <depends_php_min>5.2.0</depends_php_min>
+   <depends_php_max>6.0.0</depends_php_max>
+   <depends>
+      <package>
+         <name>
+            <name/>
+         </name>
+         <channel>
+            <channel/>
+         </channel>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+         <files>
+            <files>           </files>
+         </files>
+      </package>
+      <extension>
+         <name>
+            <name>Core</name>
+         </name>
+         <min>
+            <min/>
+         </min>
+         <max>
+            <max/>
+         </max>
+      </extension>
+   </depends>
+   <contents>
+      <target>
+         <target>magelocal</target>
+         <target>magecommunity</target>
+         <target>mageetc</target>
+         <target>magelocale</target>
+      </target>
+      <path>
+         <path/>
+         <path>FireGento/Pdf</path>
+         <path>modules/FireGento_Pdf.xml</path>
+         <path/>
+      </path>
+      <type>
+         <type>file</type>
+         <type>dir</type>
+         <type>file</type>
+         <type>dir</type>
+      </type>
+      <include>
+         <include/>
+         <include/>
+         <include/>
+         <include>#FireGento_Pdf.csv#</include>
+      </include>
+      <ignore>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+         <ignore/>
+      </ignore>
+   </contents>
+</_>
