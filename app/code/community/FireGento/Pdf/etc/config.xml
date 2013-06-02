@@ -2,10 +2,15 @@
 <config>
     <modules>
         <FireGento_Pdf>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </FireGento_Pdf>
     </modules>
     <global>
+        <blocks>
+            <firegento_pdf>
+                <class>FireGento_Pdf_Block</class>
+            </firegento_pdf>
+        </blocks>
         <helpers>
             <firegento_pdf>
                 <class>FireGento_Pdf_Helper</class>
@@ -22,7 +27,19 @@
                     <order_pdf_shipment>FireGento_Pdf_Model_Shipment</order_pdf_shipment>
                 </rewrite>
             </sales>
+            <tax>
+                <rewrite>
+                    <sales_pdf_grandtotal>FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal</sales_pdf_grandtotal>
+                </rewrite>
+            </tax>
         </models>
+        <resources>
+            <firegento_pdf_setup>
+                <setup>
+                    <module>FireGento_Pdf</module>
+                </setup>
+            </firegento_pdf_setup>
+        </resources>
         <events>
             <firegento_pdf_invoice_insert_note>
                 <observers>
@@ -73,4 +90,23 @@
             </modules>
         </translate>
     </adminhtml>
+    <default>
+        <sales_pdf>
+            <invoice>
+                <engine></engine>
+                <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
+            </invoice>
+            <shipment>
+                <engine></engine>
+            </shipment>
+            <creditmemo>
+                <engine></engine>
+            </creditmemo>
+        </sales_pdf>
+        <tax>
+            <sales_display>
+                <no_sum_on_details>0</no_sum_on_details>
+            </sales_display>
+        </tax>
+    </default>
 </config>

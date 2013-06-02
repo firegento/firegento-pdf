@@ -21,7 +21,10 @@
  * @since     0.1.0
  */
 /**
- * Shipment model rewrite.
+ * Invoice model rewrite.
+ *
+ * The invoice model serves as a proxy to the actual PDF engine as set via
+ * backend configuration.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
@@ -31,35 +34,11 @@
  * @version   $Id:$
  * @since     0.1.0
  */
-class FireGento_Pdf_Model_Shipment
-{
 
-    /**
-     * The actual PDF engine responsible for rendering the file.
-     * @var Mage_Sales_Model_Order_Pdf_Abstract
-     */
-    private $_engine;
+/* @var $this Mage_Eav_Model_Entity_Setup */
+$installer = $this;
+$installer->startSetup();
 
-    protected function getEngine()
-    {
-        if (!$this->_engine) {
-            $modelClass = Mage::getStoreConfig('sales_pdf/shipment/engine');
-            $engine = Mage::getModel($modelClass);
+$installer->deleteConfigData('sales_pdf/firegento_pdf/engine');
 
-            if (!$engine) {
-                // Fallback to Magento standard shipment layout.
-                $engine = new Mage_Sales_Model_Order_Pdf_Shipment();
-            }
-
-            $this->_engine = $engine;
-        }
-
-        return $this->_engine;
-    }
-
-    public function getPdf($shipments = array())
-    {
-        return $this->getEngine()->getPdf($shipments);
-    }
-
-}
+$installer->endSetup();
