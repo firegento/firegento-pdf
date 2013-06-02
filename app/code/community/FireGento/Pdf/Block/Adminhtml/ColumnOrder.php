@@ -4,7 +4,8 @@
  *
  * @category  Block
  * @package   FireGento_Pdf
- * @author    Thomas Birke <tbirke@netextreme.de>
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 class Firegento_Pdf_Block_Adminhtml_ColumnOrder
