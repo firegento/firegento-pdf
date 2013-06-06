@@ -65,7 +65,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 Mage::app()->getLocale()->emulate($creditmemo->getStoreId());
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
             }
-            $page  = $this->newPage();
+            $page = $this->newPage();
 
             $order = $creditmemo->getOrder();
 
@@ -84,19 +84,18 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
             $this->y = 592;
             $this->insertHeader($page, $order, $creditmemo);
 
-            // Add footer
-            $this->_addFooter($page, $creditmemo->getStore());
-
             /* Add table head */
+            // make sure that item table does not overlap heading
+            if ($this->y > 575) {
+                $this->y = 575;
+            }
             $this->_setFontRegular($page, 9);
-            $this->y = 562;
             $this->_drawHeader($page);
 
-            $this->y -=20;
+            $this->y -= 20;
 
             $position = 0;
 
-            /* Add body */
             foreach ($creditmemo->getAllItems() as $item){
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
@@ -115,6 +114,9 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
 
             /* add note */
             $page = $this->_insertNote($page, $order, $creditmemo);
+
+            // Add footer
+            $this->_addFooter($page, $creditmemo->getStore());
         }
 
         $this->_afterGetPdf();
