@@ -707,18 +707,22 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _insertFooterAddress(&$page, $store = null)
     {
-        $address = $this->imprint['company_first'] . "\n";
+        $fontSize = 7;
+        $font = $this->_setFontRegular($page, $fontSize);
+        $y = $this->y;
+
+        $company_first = $this->_prepareText($this->imprint['company_first'], $page, $font, $fontSize, 90);
+        $address = $company_first . "\n";
 
         if (array_key_exists('company_second', $this->imprint)) {
-            $address .= $this->imprint['company_second'] . "\n";
+            $company_second = $this->_prepareText($this->imprint['company_second'], $page, $font, $fontSize, 90);
+            $address .= $company_second . "\n";
         }
 
         $address .= $this->imprint['street'] . "\n";
         $address .= $this->imprint['zip'] . " ";
         $address .= $this->imprint['city'] . "\n";
 
-        $this->_setFontRegular($page, 7);
-        $y = $this->y;
         foreach (explode("\n", $address) as $value) {
             if ($value !== '') {
                 $page->drawText(trim(strip_tags($value)), $this->margin['left'] - 20, $y, $this->encoding);
