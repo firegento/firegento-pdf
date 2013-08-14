@@ -84,8 +84,11 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
             $this->y = 592;
             $this->insertHeader($page, $order, $invoice);
 
-
             /* add table header */
+            // make sure that item table does not overlap heading
+            if ($this->y > 575) {
+                $this->y = 575;
+            }
             $this->_setFontRegular($page, 9);
             $this->insertTableHeader($page);
 
@@ -97,6 +100,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
+
                 if ($this->y < 50 || (Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1 && $this->y < 100)) {
                     $page = $this->newPage(array());
                 }
@@ -116,7 +120,6 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
 
             // Add footer
             $this->_addFooter($page, $invoice->getStore());
-
         }
 
         $this->_afterGetPdf();

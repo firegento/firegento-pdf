@@ -84,15 +84,15 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
             $this->y = 592;
             $this->insertHeader($page, $order, $shipment);
 
-            // Add footer
-            $this->_addFooter($page, $shipment->getStore());
-
             /* add table header */
+            // make sure that item table does not overlap heading
+            if ($this->y > 575) {
+                $this->y = 575;
+            }
             $this->_setFontRegular($page, 9);
-            $this->y = 562;
             $this->insertTableHeader($page);
 
-            $this->y -=20;
+            $this->y -= 20;
 
             $position = 0;
 
@@ -111,6 +111,9 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
 
             /* add note */
             $page = $this->_insertNote($page, $order, $shipment);
+
+            // Add footer
+            $this->_addFooter($page, $shipment->getStore());
         }
 
         $this->_afterGetPdf();
