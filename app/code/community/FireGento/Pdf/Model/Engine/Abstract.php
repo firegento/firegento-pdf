@@ -747,6 +747,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     }
 
     /**
+     * @return Zend_Pdf_Resource_Font the regular font
+     */
+    public function getFontRegular()
+    {
+        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
+    }
+
+    /**
      * Set default font
      *
      * @param Zend_Pdf_Page $object Current page object of Zend_Pdf
@@ -755,9 +763,17 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _setFontRegular($object, $size = 10)
     {
-        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
+        $font = $this->getFontRegular();
         $object->setFont($font, $size);
         return $font;
+    }
+
+    /**
+     * @return Zend_Pdf_Resource_Font the bold font
+     */
+    public function getFontBold()
+    {
+        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
     }
 
     /**
@@ -769,9 +785,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _setFontBold($object, $size = 10)
     {
-        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
+        $font = $this->getFontBold();
         $object->setFont($font, $size);
         return $font;
+    }
+
+    public function getFontItalic()
+    {
+        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
     }
 
     /**
@@ -783,7 +804,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _setFontItalic($object, $size = 10)
     {
-        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
+        $font = $this->getFontItalic();
         $object->setFont($font, $size);
         return $font;
     }
@@ -799,7 +820,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return array the given text in an array where each item represents a new line
      */
-    protected function _prepareText($text, $page, $font, $fontSize, $width = null)
+    public function _prepareText($text, $page, $font, $fontSize, $width = null)
     {
         if (empty($text)) {
             return array();
