@@ -711,12 +711,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $font = $this->_setFontRegular($page, $fontSize);
         $y = $this->y;
 
-        $company_first = $this->_prepareText($this->imprint['company_first'], $page, $font, $fontSize, 90);
-        $address = $company_first . "\n";
+        $company_first = (array) $this->_prepareText($this->imprint['company_first'], $page, $font, $fontSize, 90);
+        $address = implode("\n", $company_first) . "\n";
 
         if (array_key_exists('company_second', $this->imprint)) {
-            $company_second = $this->_prepareText($this->imprint['company_second'], $page, $font, $fontSize, 90);
-            $address .= $company_second . "\n";
+            $company_second = (array) $this->_prepareText($this->imprint['company_second'], $page, $font, $fontSize, 90);
+            $address .= implode("\n", $company_second) . "\n";
         }
 
         $address .= $this->imprint['street'] . "\n";
