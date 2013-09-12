@@ -725,6 +725,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $address .= $this->imprint['street'] . "\n";
         $address .= $this->imprint['zip'] . " ";
         $address .= $this->imprint['city'] . "\n";
+        $address .= $this->imprint['country'] . "\n";
 
         foreach (explode("\n", $address) as $value) {
             if ($value !== '') {
