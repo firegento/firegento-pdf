@@ -41,10 +41,25 @@ class FireGento_Pdf_Model_Observer
      */
     public function addInvoiceNotes(Varien_Event_Observer $observer)
     {
+        $this->addInvoiceDateNotice($observer);
         $this->addInvoiceMaturity($observer);
         $this->addPaymentMethod($observer);
         $this->addShippingMethod($observer);
         $this->addInvoiceComments($observer);
+
+        return $this;
+    }
+
+
+    public function addInvoiceDateNotice(Varien_Event_Observer $observer) {
+        if (! Mage::getStoreConfigFlag('sales_pdf/invoice/show_date_notice')) {
+            return $this;
+        }
+
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+        $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date.');
+        $result->setNotes($notes);
         return $this;
     }
 
