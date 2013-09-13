@@ -727,8 +727,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $address .= $this->imprint['city'] . "\n";
         
         if ($this->imprint['country']) {
-            $country_name = Mage::getModel('directory/country')->loadByCode($this->imprint['country'])->getName();
-            $address .= Mage::helper('core')->__($country_name);
+            $countryName = Mage::getModel('directory/country')->loadByCode($this->imprint['country'])->getName();
+            $address .= Mage::helper('core')->__($countryName);
         }
 
         foreach (explode("\n", $address) as $value) {
