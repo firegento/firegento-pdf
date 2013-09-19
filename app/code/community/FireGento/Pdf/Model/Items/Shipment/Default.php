@@ -80,7 +80,7 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
                 $lines[][] = array(
                     'text' => Mage::helper('core/string')->str_split(strip_tags($option['label']), 40, false, true),
                     'font' => 'bold',
-                    'feed' => $pdf->margin['left'] + 120
+                    'feed' => $pdf->margin['left'] + 130
                 );
 
                 // draw options value
@@ -90,7 +90,7 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
                     foreach ($values as $value) {
                         $lines[][] = array(
                             'text' => Mage::helper('core/string')->str_split($value, 60, true, true),
-                            'feed' => $pdf->margin['left'] + 120
+                            'feed' => $pdf->margin['left'] + 130
                         );
                     }
                 }
