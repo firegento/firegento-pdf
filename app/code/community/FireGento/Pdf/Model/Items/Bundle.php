@@ -77,7 +77,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                     $line[0] = array(
                         'font'  => 'italic',
                         'text'  => Mage::helper('core/string')->str_split($attributes['option_label'], 45, true, true),
-                        'feed'  => $pdf->margin['left'] + 120,
+                        'feed'  => $pdf->margin['left'] + 130,
                         'font_size' => $fontSize
                     );
 
@@ -124,7 +124,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
             }
             $line[] = array(
                 'text'  => Mage::helper('core/string')->str_split($name, 35, true, true),
-                'feed'  => $pdf->margin['left'] + 120,
+                'feed'  => $pdf->margin['left'] + 130,
                 'font_size' => $fontSize
             );
 
