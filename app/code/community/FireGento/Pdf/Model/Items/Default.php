@@ -61,7 +61,7 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
         $lines[0][] = array(
             'text' => Mage::helper('core/string')->str_split($this->getSku($item), 19),
             'feed' => $pdf->margin['left'] + 25,
-            'font_size' => $fontSize,
+            'font_size' => $fontSize
         );
 
         // draw Product name

@@ -160,7 +160,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
         );
         $columns['qty'] = array(
             'label'  => Mage::helper('firegento_pdf')->__('Qty'),
-            '_width' => 30
+            '_width' => 40
         );
         $columns['tax'] = array(
             'label'  => Mage::helper('firegento_pdf')->__('Tax'),
