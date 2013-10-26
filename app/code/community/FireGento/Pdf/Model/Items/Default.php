@@ -59,7 +59,7 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
 
         // draw SKU
         $lines[0][] = array(
-            'text' => Mage::helper('core/string')->str_split($this->getSku($item), 17),
+            'text' => Mage::helper('core/string')->str_split($this->getSku($item), 19),
             'feed' => $pdf->margin['left'] + 25,
             'font_size' => $fontSize
         );
@@ -67,31 +67,23 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
         // draw Product name
         $lines[0][] = array(
             'text' => Mage::helper('core/string')->str_split($item->getName(), 40, true, true),
-            'feed' => $pdf->margin['left'] + 120,
+            'feed' => $pdf->margin['left'] + 130,
             'font_size' => $fontSize
         );
 
         $options = $this->getItemOptions();
         if ($options) {
             foreach ($options as $option) {
-                // draw options label
-                $lines[][] = array(
-                    'text' => Mage::helper('core/string')->str_split(strip_tags($option['label']), 40, false, true),
-                    'font' => 'bold',
-                    'feed' => $pdf->margin['left'] + 120
-                );
-
-                // draw options value
+                $optionText = $option['label'] . ': ';
+                // append option value
                 if ($option['value']) {
-                    $_printValue = isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
-                    $values = explode(', ', $_printValue);
-                    foreach ($values as $value) {
-                        $lines[][] = array(
-                            'text' => Mage::helper('core/string')->str_split($value, 60, true, true),
-                            'feed' => $pdf->margin['left'] + 120
-                        );
-                    }
+                    $optionText .= isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
                 }
+                $optionArray = $pdf->_prepareText($optionText, $page, $pdf->getFontRegular(), $fontSize, 215);
+                $lines[][] = array(
+                    'text' => $optionArray,
+                    'feed' => $pdf->margin['left'] + 135
+                );
             }
         }
 
@@ -101,7 +93,7 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
             'text' => $item->getQty() * 1,
             'align' => 'right',
             'font_size' => $fontSize,
-            '_width' => 40
+            '_width' => 30
         );
 
         // prepare price

@@ -564,15 +564,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $this->y = $this->y - 60;
 
         $notes = array();
-
         $result = new Varien_Object();
         $result->setNotes($notes);
         Mage::dispatchEvent('firegento_pdf_' . $this->getMode() . '_insert_note', array('order' => $order, $this->getMode() => $model, 'result' => $result));
         $notes = array_merge($notes, $result->getNotes());
-
-        if ($this->getMode() === 'invoice') {
-            $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date.');
-        }
 
         // Get free text notes.
         $note = Mage::getStoreConfig('sales_pdf/' . $this->getMode() . '/note');
@@ -647,7 +642,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             'swift' => Mage::helper('firegento_pdf')->__('SWIFT:'),
             'iban' => Mage::helper('firegento_pdf')->__('IBAN:')
         );
-        $this->_insertFooterBlock($page, $fields, 215, 50, 140);
+        $this->_insertFooterBlock($page, $fields, 215, 50, 150);
 
         $fields = array(
             'tax_number' => Mage::helper('firegento_pdf')->__('Tax number:'),
@@ -655,7 +650,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             'register_number' => Mage::helper('firegento_pdf')->__('Register number:'),
             'ceo' => Mage::helper('firegento_pdf')->__('CEO:')
         );
-        $this->_insertFooterBlock($page, $fields, 355, 60, $this->margin['right'] - 355 - 10);
+        $this->_insertFooterBlock($page, $fields, 355, 60, $this->margin['right'] - 365 - 10);
     }
 
     /**
@@ -710,18 +705,26 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $fontSize = 7;
         $font = $this->_setFontRegular($page, $fontSize);
         $y = $this->y;
+        $address = '';
 
-        $company_first = $this->_prepareText($this->imprint['company_first'], $page, $font, $fontSize, 90);
-        $address = $company_first . "\n";
+        foreach ($this->_prepareText($this->imprint['company_first'], $page, $font, $fontSize, 90) as $companyFirst) {
+            $address .= $companyFirst . "\n";
+        }
 
         if (array_key_exists('company_second', $this->imprint)) {
-            $company_second = $this->_prepareText($this->imprint['company_second'], $page, $font, $fontSize, 90);
-            $address .= $company_second . "\n";
+            foreach ($this->_prepareText($this->imprint['company_second'], $page, $font, $fontSize, 90) as $companySecond) {
+                $address .= $companySecond . "\n";
+            }
         }
 
         $address .= $this->imprint['street'] . "\n";
         $address .= $this->imprint['zip'] . " ";
         $address .= $this->imprint['city'] . "\n";
+        
+        if ($this->imprint['country']) {
+            $countryName = Mage::getModel('directory/country')->loadByCode($this->imprint['country'])->getName();
+            $address .= Mage::helper('core')->__($countryName);
+        }
 
         foreach (explode("\n", $address) as $value) {
             if ($value !== '') {
@@ -744,6 +747,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     }
 
     /**
+     * @return Zend_Pdf_Resource_Font the regular font
+     */
+    public function getFontRegular()
+    {
+        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
+    }
+
+    /**
      * Set default font
      *
      * @param Zend_Pdf_Page $object Current page object of Zend_Pdf
@@ -752,9 +763,17 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _setFontRegular($object, $size = 10)
     {
-        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
+        $font = $this->getFontRegular();
         $object->setFont($font, $size);
         return $font;
+    }
+
+    /**
+     * @return Zend_Pdf_Resource_Font the bold font
+     */
+    public function getFontBold()
+    {
+        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
     }
 
     /**
@@ -766,9 +785,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _setFontBold($object, $size = 10)
     {
-        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
+        $font = $this->getFontBold();
         $object->setFont($font, $size);
         return $font;
+    }
+
+    public function getFontItalic()
+    {
+        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
     }
 
     /**
@@ -780,7 +804,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _setFontItalic($object, $size = 10)
     {
-        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
+        $font = $this->getFontItalic();
         $object->setFont($font, $size);
         return $font;
     }
@@ -788,15 +812,15 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     /**
      * Prepares the text so that it fits to the given page's width.
      *
-     * @param $text the text which should be prepared
-     * @param $page the page on which the text will be rendered
-     * @param $font the font with which the text will be rendered
-     * @param $fontSize the font size with which the text will be rendered
-     * @param $width [optional] the width for the given text, defaults to the page width
+     * @param string $text the text which should be prepared
+     * @param Zend_Pdf_Page $page the page on which the text will be rendered
+     * @param Zend_Pdf_Resource_Font $font the font with which the text will be rendered
+     * @param int $fontSize the font size with which the text will be rendered
+     * @param int $width [optional] the width for the given text, defaults to the page width
      *
-     * @return string the given text wrapped by new line characters
+     * @return array the given text in an array where each item represents a new line
      */
-    protected function _prepareText($text, $page, $font, $fontSize, $width = null)
+    public function _prepareText($text, $page, $font, $fontSize, $width = null)
     {
         if (empty($text)) {
             return array();

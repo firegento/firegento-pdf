@@ -41,9 +41,25 @@ class FireGento_Pdf_Model_Observer
      */
     public function addInvoiceNotes(Varien_Event_Observer $observer)
     {
+        $this->addInvoiceDateNotice($observer);
         $this->addInvoiceMaturity($observer);
         $this->addPaymentMethod($observer);
         $this->addShippingMethod($observer);
+        $this->addInvoiceComments($observer);
+
+        return $this;
+    }
+
+
+    public function addInvoiceDateNotice(Varien_Event_Observer $observer) {
+        if (! Mage::getStoreConfigFlag('sales_pdf/invoice/show_date_notice')) {
+            return $this;
+        }
+
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+        $notes[] = Mage::helper('firegento_pdf')->__('Invoice date is equal to delivery date.');
+        $result->setNotes($notes);
         return $this;
     }
 
@@ -104,6 +120,37 @@ class FireGento_Pdf_Model_Observer
         $result = $observer->getResult();
         $notes = $result->getNotes();
         $notes[] = Mage::helper('firegento_pdf')->__('Shipping method: %s', $observer->getOrder()->getShippingDescription());
+        $result->setNotes($notes);
+        return $this;
+    }
+
+
+    /**
+     * Add the invoice comments
+     *
+     * @param Varien_Event_Observer $observer
+     * @return $this
+     */
+    public function addInvoiceComments(Varien_Event_Observer $observer) {
+        if (! Mage::getStoreConfigFlag('sales_pdf/invoice/show_comments')) {
+            return $this;
+        }
+
+        /** @var Mage_Sales_Model_Order_Invoice $invoice */
+        $invoice = $observer->getInvoice();
+
+        /** @var Mage_Sales_Model_Resource_Order_Invoice_Comment_Collection $commentsCollection */
+        $commentsCollection = $invoice->getCommentsCollection();
+        $commentsCollection->addVisibleOnFrontFilter();
+
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+
+        foreach ($commentsCollection as $comment) {
+            /** @var $comment Mage_Sales_Model_Order_Invoice_Comment */
+            $notes[] = $comment->getComment();
+        }
+
         $result->setNotes($notes);
         return $this;
     }

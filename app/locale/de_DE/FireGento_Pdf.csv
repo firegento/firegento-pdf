@@ -68,6 +68,7 @@
 "Hide shipping method","Nicht andrucken"
 "Position of shipping method on invoice.","Position der Versandart auf der Rechnung."
 "not to be listed","nicht aufzulisten"
+"Show Invoice Comments","Rechnungskommentare andrucken"
 "Show Item Discount","Rabatt auf Artikelebene anzeigen"
 "You get a discount of %s.","Sie erhalten einen Rabatt von %s."
 "Tax amount","Steuerbetrag"
@@ -77,3 +78,5 @@
 "Define the order by moving the following items using your mouse:","Legen Sie die Reihenfolge durch Verschieben der Einträge mit der Maus fest:"
 "Tax rate","Steuersatz"
 "Total (incl. tax)","Gesamt (brutto)"
+"Show Date Notice","Anzeige des Datum im Notizbereich"
+"Show Notice: Invoice date is equal to delivery date.","Zeige im Notizbereich: Rechnungsdatum ist gleich dem Lieferdatum."
