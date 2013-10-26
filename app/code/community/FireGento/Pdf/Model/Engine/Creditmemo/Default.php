@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -34,6 +34,9 @@
 class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_Engine_Abstract
 {
 
+    /**
+     * constructor to set mode to creditmemo
+     */
     public function __construct()
     {
         parent::__construct();
@@ -43,7 +46,8 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
     /**
      * Return PDF document
      *
-     * @param  array $creditmemos
+     * @param  array $creditmemos creditmemos to generate pdfs for
+     *
      * @return Zend_Pdf
      */
     public function getPdf($creditmemos = array())
@@ -96,7 +100,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
 
             $position = 0;
 
-            foreach ($creditmemo->getAllItems() as $item){
+            foreach ($creditmemo->getAllItems() as $item) {
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
@@ -130,7 +134,8 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
     /**
      * Draw table header for product items
      *
-     * @param Zend_Pdf_Page $page
+     * @param  Zend_Pdf_Page $page page to draw on
+     *
      * @return void
      */
     protected function _drawHeader(Zend_Pdf_Page $page)
@@ -144,26 +149,62 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
         $font = $this->_setFontRegular($page, 9);
 
         $this->y -= 11;
-        $page->drawText(Mage::helper('firegento_pdf')->__('Pos'),             $this->margin['left'] + 3,         $this->y, $this->encoding);
-        $page->drawText(Mage::helper('firegento_pdf')->__('No.'),             $this->margin['left'] + 25,     $this->y, $this->encoding);
-        $page->drawText(Mage::helper('firegento_pdf')->__('Description'),     $this->margin['left'] + 120,     $this->y, $this->encoding);
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('Pos'),
+            $this->margin['left'] + 3,
+            $this->y,
+            $this->encoding
+        );
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('No.'),
+            $this->margin['left'] + 25,
+            $this->y,
+            $this->encoding
+        );
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('Description'),
+            $this->margin['left'] + 120,
+            $this->y,
+            $this->encoding
+        );
 
         $singlePrice = Mage::helper('firegento_pdf')->__('Price (excl. tax)');
-        $page->drawText($singlePrice, $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9), 	$this->y, $this->encoding);
+        $page->drawText(
+            $singlePrice,
+            $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9),
+            $this->y,
+            $this->encoding
+        );
 
-        $page->drawText(Mage::helper('firegento_pdf')->__('Qty'),         $this->margin['left'] + 360,     $this->y, $this->encoding);
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('Qty'),
+            $this->margin['left'] + 360,
+            $this->y,
+            $this->encoding
+        );
 
         $taxLabel = Mage::helper('firegento_pdf')->__('Tax');
-        $page->drawText($taxLabel, $this->margin['right'] - 65 - $this->widthForStringUsingFontSize($taxLabel, $font, 9), $this->y, $this->encoding);
+        $page->drawText(
+            $taxLabel,
+            $this->margin['right'] - 65 - $this->widthForStringUsingFontSize($taxLabel, $font, 9),
+            $this->y,
+            $this->encoding
+        );
 
         $totalLabel = Mage::helper('firegento_pdf')->__('Total');
-        $page->drawText($totalLabel, $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),     $this->y, $this->encoding);
+        $page->drawText(
+            $totalLabel,
+            $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),
+            $this->y,
+            $this->encoding
+        );
     }
 
     /**
      * Initialize renderer process.
      *
-     * @param string $type
+     * @param  string $type renderer type to initialize
+     *
      * @return void
      */
     protected function _initRenderer($type)
@@ -171,15 +212,15 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
         parent::_initRenderer($type);
 
         $this->_renderers['default'] = array(
-            'model' => 'firegento_pdf/items_default',
+            'model'    => 'firegento_pdf/items_default',
             'renderer' => null
         );
         $this->_renderers['grouped'] = array(
-            'model' => 'firegento_pdf/items_grouped',
+            'model'    => 'firegento_pdf/items_grouped',
             'renderer' => null
         );
         $this->_renderers['bundle'] = array(
-            'model' => 'firegento_pdf/items_bundle',
+            'model'    => 'firegento_pdf/items_bundle',
             'renderer' => null
         );
     }

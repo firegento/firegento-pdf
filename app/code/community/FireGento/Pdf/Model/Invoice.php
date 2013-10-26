@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -29,7 +29,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -39,10 +39,16 @@ class FireGento_Pdf_Model_Invoice
 
     /**
      * The actual PDF engine responsible for rendering the file.
+     *
      * @var Mage_Sales_Model_Order_Pdf_Abstract
      */
     private $_engine;
 
+    /**
+     * get pdf rendering engine
+     *
+     * @return Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice
+     */
     protected function getEngine()
     {
         if (!$this->_engine) {
@@ -60,6 +66,13 @@ class FireGento_Pdf_Model_Invoice
         return $this->_engine;
     }
 
+    /**
+     * get pdf for invoices
+     *
+     * @param  array $invoices invoices to render pdfs for
+     *
+     * @return mixed
+     */
     public function getPdf($invoices = array())
     {
         return $this->getEngine()->getPdf($invoices);

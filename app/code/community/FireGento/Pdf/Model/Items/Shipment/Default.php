@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -85,8 +85,8 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
 
                 // draw options value
                 if ($option['value']) {
-                    $_printValue = isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
-                    $values = explode(', ', $_printValue);
+                    $_printVal = isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
+                    $values = explode(', ', $_printVal);
                     foreach ($values as $value) {
                         $lines[][] = array(
                             'text' => Mage::helper('core/string')->str_split($value, 60, true, true),

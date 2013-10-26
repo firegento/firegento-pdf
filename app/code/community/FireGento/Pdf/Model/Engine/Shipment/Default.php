@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -34,6 +34,9 @@
 class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_Engine_Abstract
 {
 
+    /**
+     * constructor to set shipping mode
+     */
     public function __construct()
     {
         parent::__construct();
@@ -43,7 +46,8 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
     /**
      * Return PDF document
      *
-     * @param  array $shipments
+     * @param  array $shipments list of shipments to generate pdfs for
+     *
      * @return Zend_Pdf
      */
     public function getPdf($shipments = array())
@@ -73,26 +77,26 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
             $this->insertLogo($page, $shipment->getStore());
 
             // Add shipping address
-            $this->y = 692;
+            $this->_y = 692;
             $this->insertShippingAddress($page, $order);
 
             /* add sender address */
-            $this->y = 705;
+            $this->_y = 705;
             $this->_insertSenderAddessBar($page);
 
             /* add header */
-            $this->y = 592;
+            $this->_y = 592;
             $this->insertHeader($page, $order, $shipment);
 
             /* add table header */
             // make sure that item table does not overlap heading
-            if ($this->y > 575) {
-                $this->y = 575;
+            if ($this->_y > 575) {
+                $this->_y = 575;
             }
             $this->_setFontRegular($page, 9);
             $this->insertTableHeader($page);
 
-            $this->y -= 20;
+            $this->_y -= 20;
 
             $position = 0;
 
@@ -101,7 +105,10 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
                     continue;
                 }
 
-                if ($this->y < 50 || (Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1 && $this->y < 100)) {
+                if ($this->_y < 50
+                    || (Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1
+                        && $this->_y < 100)
+                ) {
                     $page = $this->newPage(array());
                 }
 
@@ -121,31 +128,57 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
         return $pdf;
     }
 
-    protected function insertTableHeader(&$page)
+    /**
+     * insert the table header of the shipment
+     *
+     * @param Zend_Pdf_Page $page page to write on
+     */
+    protected function insertTableHeader($page)
     {
         $page->setFillColor($this->colors['grey1']);
         $page->setLineColor($this->colors['grey1']);
         $page->setLineWidth(1);
-        $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
+        $page->drawRectangle($this->margin['left'], $this->_y, $this->margin['right'] - 10, $this->_y - 15);
 
         $page->setFillColor($this->colors['black']);
-        $font = $this->_setFontRegular($page, 9);
+        $this->_setFontRegular($page, 9);
 
-        $this->y -= 11;
-        $page->drawText(Mage::helper('firegento_pdf')->__('No.'),            $this->margin['left'],       $this->y, $this->encoding);
-        $page->drawText(Mage::helper('firegento_pdf')->__('Description'),    $this->margin['left'] + 105, $this->y, $this->encoding);
+        $this->_y -= 11;
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('No.'),
+            $this->margin['left'],
+            $this->_y,
+            $this->encoding
+        );
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('Description'),
+            $this->margin['left'] + 105,
+            $this->_y,
+            $this->encoding
+        );
 
-        $page->drawText(Mage::helper('firegento_pdf')->__('Qty'),         $this->margin['left'] + 450, $this->y, $this->encoding);
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('Qty'),
+            $this->margin['left'] + 450,
+            $this->_y,
+            $this->encoding
+        );
     }
 
-    protected function insertShippingAddress(&$page, $order)
+    /**
+     * insert address into pdf
+     *
+     * @param Zend_Pdf_Page          $page  to insert addres into
+     * @param Mage_Sales_Model_Order $order order to get address from
+     */
+    protected function insertShippingAddress($page, $order)
     {
         $this->_setFontRegular($page, 9);
 
         $billing = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
 
         foreach ($billing as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->_y, $this->encoding);
             $this->Ln(12);
         }
     }
@@ -153,7 +186,8 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
     /**
      * Initialize renderer process.
      *
-     * @param string $type
+     * @param  string $type type to be initialized
+     *
      * @return void
      */
     protected function _initRenderer($type)
@@ -161,11 +195,11 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
         parent::_initRenderer($type);
 
         $this->_renderers['default'] = array(
-            'model' => 'firegento_pdf/items_shipment_default',
+            'model'    => 'firegento_pdf/items_shipment_default',
             'renderer' => null
         );
         $this->_renderers['bundle'] = array(
-            'model' => 'firegento_pdf/items_shipment_bundle',
+            'model'    => 'firegento_pdf/items_shipment_bundle',
             'renderer' => null
         );
     }

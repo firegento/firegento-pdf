@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -34,6 +34,9 @@
 class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Engine_Abstract
 {
 
+    /**
+     * constructor to set mode to invoice
+     */
     public function __construct()
     {
         parent::__construct();
@@ -43,7 +46,8 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
     /**
      * Return PDF document
      *
-     * @param  array $invoices
+     * @param  array $invoices invoices to render pdfs for
+     *
      * @return Zend_Pdf
      */
     public function getPdf($invoices = array())
@@ -101,7 +105,8 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
                     continue;
                 }
 
-                if ($this->y < 50 || (Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1 && $this->y < 100)) {
+                $showFooter = Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer');
+                if ($this->y < 50 || ($showFooter == 1 && $this->y < 100)) {
                     $page = $this->newPage(array());
                 }
 
@@ -130,7 +135,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
     /**
      * Insert Table Header for Items
      *
-     * @param Zend_Pdf_Page $page  Current Page Object of Zend_PDF
+     * @param  Zend_Pdf_Page $page current page object of Zend_PDF
      *
      * @return void
      */
@@ -146,8 +151,12 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
 
         $this->y -= 11;
         $page->drawText(Mage::helper('firegento_pdf')->__('Pos'), $this->margin['left'] + 3, $this->y, $this->encoding);
-        $page->drawText(Mage::helper('firegento_pdf')->__('No.'), $this->margin['left'] + 25, $this->y, $this->encoding);
-        $page->drawText(Mage::helper('firegento_pdf')->__('Description'), $this->margin['left'] + 130, $this->y, $this->encoding);
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('No.'), $this->margin['left'] + 25, $this->y, $this->encoding
+        );
+        $page->drawText(
+            Mage::helper('firegento_pdf')->__('Description'), $this->margin['left'] + 130, $this->y, $this->encoding
+        );
 
         $columns = array();
         $columns['price'] = array(
@@ -200,9 +209,10 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
     }
 
     /**
-     * Initialize renderer process.
+     * Initialize renderer process
      *
-     * @param string $type
+     * @param  string $type renderer type to be initialized
+     *
      * @return void
      */
     protected function _initRenderer($type)
@@ -210,15 +220,15 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
         parent::_initRenderer($type);
 
         $this->_renderers['default'] = array(
-            'model' => 'firegento_pdf/items_default',
+            'model'    => 'firegento_pdf/items_default',
             'renderer' => null
         );
         $this->_renderers['grouped'] = array(
-            'model' => 'firegento_pdf/items_grouped',
+            'model'    => 'firegento_pdf/items_grouped',
             'renderer' => null
         );
         $this->_renderers['bundle'] = array(
-            'model' => 'firegento_pdf/items_bundle',
+            'model'    => 'firegento_pdf/items_bundle',
             'renderer' => null
         );
     }

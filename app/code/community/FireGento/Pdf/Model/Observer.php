@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -36,7 +36,8 @@ class FireGento_Pdf_Model_Observer
     /**
      * Add notes to invoice document.
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer observer object
+     *
      * @return FireGento_Pdf_Model_Observer
      */
     public function addInvoiceNotes(Varien_Event_Observer $observer)
@@ -50,9 +51,16 @@ class FireGento_Pdf_Model_Observer
         return $this;
     }
 
-
-    public function addInvoiceDateNotice(Varien_Event_Observer $observer) {
-        if (! Mage::getStoreConfigFlag('sales_pdf/invoice/show_date_notice')) {
+    /**
+     * add inovoice date notice to pdf
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return $this
+     */
+    public function addInvoiceDateNotice(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/invoice/show_date_notice')) {
             return $this;
         }
 
@@ -66,7 +74,8 @@ class FireGento_Pdf_Model_Observer
     /**
      * Add maturity to invoice notes.
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer observer object
+     *
      * @return FireGento_Pdf_Model_Observer
      */
     public function addInvoiceMaturity(Varien_Event_Observer $observer)
@@ -76,7 +85,9 @@ class FireGento_Pdf_Model_Observer
 
         $maturity = Mage::getStoreConfig('sales_pdf/invoice/maturity');
         if (!empty($maturity) || 0 < $maturity) {
-            $maturity = Mage::helper('firegento_pdf')->__('Invoice maturity: %s days', Mage::getStoreConfig('sales_pdf/invoice/maturity'));
+            $maturity = Mage::helper('firegento_pdf')->__(
+                'Invoice maturity: %s days', Mage::getStoreConfig('sales_pdf/invoice/maturity')
+            );
         } elseif ('0' === $maturity) {
             $maturity = Mage::helper('firegento_pdf')->__('Invoice is payable immediately');
         }
@@ -89,18 +100,23 @@ class FireGento_Pdf_Model_Observer
     /**
      * Add payment method to invoice notes.
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer observer object
+     *
      * @return FireGento_Pdf_Model_Observer
      */
     public function addPaymentMethod(Varien_Event_Observer $observer)
     {
-        if (Mage::getStoreConfig('sales_pdf/invoice/payment_method_position') != FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_NOTE) {
+        if (Mage::getStoreConfig('sales_pdf/invoice/payment_method_position')
+            != FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_NOTE
+        ) {
             return $this;
         }
 
         $result = $observer->getResult();
         $notes = $result->getNotes();
-        $notes[] = Mage::helper('firegento_pdf')->__('Payment method: %s', $observer->getOrder()->getPayment()->getMethodInstance()->getTitle());
+        $notes[] = Mage::helper('firegento_pdf')->__(
+            'Payment method: %s', $observer->getOrder()->getPayment()->getMethodInstance()->getTitle()
+        );
         $result->setNotes($notes);
         return $this;
     }
@@ -108,18 +124,23 @@ class FireGento_Pdf_Model_Observer
     /**
      * Add shipping method to invoice notes.
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer observer object
+     *
      * @return FireGento_Pdf_Model_Observer
      */
     public function addShippingMethod(Varien_Event_Observer $observer)
     {
-        if (Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position') != FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_NOTE) {
+        if (Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
+            != FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_NOTE
+        ) {
             return $this;
         }
 
         $result = $observer->getResult();
         $notes = $result->getNotes();
-        $notes[] = Mage::helper('firegento_pdf')->__('Shipping method: %s', $observer->getOrder()->getShippingDescription());
+        $notes[] = Mage::helper('firegento_pdf')->__(
+            'Shipping method: %s', $observer->getOrder()->getShippingDescription()
+        );
         $result->setNotes($notes);
         return $this;
     }
@@ -128,11 +149,13 @@ class FireGento_Pdf_Model_Observer
     /**
      * Add the invoice comments
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer observer object
+     *
      * @return $this
      */
-    public function addInvoiceComments(Varien_Event_Observer $observer) {
-        if (! Mage::getStoreConfigFlag('sales_pdf/invoice/show_comments')) {
+    public function addInvoiceComments(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/invoice/show_comments')) {
             return $this;
         }
 

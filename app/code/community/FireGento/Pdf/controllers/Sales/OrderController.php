@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,25 +15,24 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
  */
+
+require_once 'Mage/Sales/controllers/OrderController.php';
 /**
  * Sales orders controller
  *
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
  */
-
-require_once  'Mage/Sales/controllers/OrderController.php';
-
 class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
 {
     /**
@@ -43,12 +42,12 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
      */
     public function printInvoiceAction()
     {
-        $invoiceId = (int)$this->getRequest()->getParam('invoice_id');
+        $invoiceId = (int) $this->getRequest()->getParam('invoice_id');
         if ($invoiceId) {
             $invoice = Mage::getModel('sales/order_invoice')->load($invoiceId);
             $order = $invoice->getOrder();
         } else {
-            $orderId = (int)$this->getRequest()->getParam('order_id');
+            $orderId = (int) $this->getRequest()->getParam('order_id');
             $order = Mage::getModel('sales/order')->load($orderId);
         }
 

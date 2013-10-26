@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -36,15 +36,16 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
     /**
      * Draw item line.
      *
-     * @param int $position
+     * @param  int $position position of the product
+     *
      * @return void
      */
     public function draw($position = 1)
     {
-        $order  = $this->getOrder();
-        $item   = $this->getItem();
-        $pdf    = $this->getPdf();
-        $page   = $this->getPage();
+        $order = $this->getOrder();
+        $item = $this->getItem();
+        $pdf = $this->getPdf();
+        $page = $this->getPage();
 
         $fontSize = 9;
 
@@ -55,13 +56,12 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
         $drawItems = array();
 
         foreach ($items as $_item) {
-            $line   = array();
+            $line = array();
 
             $attributes = $this->getSelectionAttributes($_item);
             if (is_array($attributes)) {
-                $optionId   = $attributes['option_id'];
-            }
-            else {
+                $optionId = $attributes['option_id'];
+            } else {
                 $optionId = 0;
             }
 
@@ -100,16 +100,16 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                 }
 
                 // draw Position Number
-                $line[]= array(
-                    'text'  => $position,
-                    'feed'  => $pdf->margin['left'] + 10,
-                    'align' => 'right',
+                $line[] = array(
+                    'text'      => $position,
+                    'feed'      => $pdf->margin['left'] + 10,
+                    'align'     => 'right',
                     'font_size' => $fontSize
                 );
 
                 $line[] = array(
-                    'text'  => $text,
-                    'feed'  => $pdf->margin['left'] + 25,
+                    'text'      => $text,
+                    'feed'      => $pdf->margin['left'] + 25,
                     'font_size' => $fontSize
                 );
             }
@@ -132,31 +132,31 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
             if ($this->canShowPriceInfo($_item)) {
                 $price = $order->formatPriceTxt($_item->getPrice());
                 $line[] = array(
-                    'text'  => $price,
-                    'feed'  => $pdf->margin['right'] - 160,
-                    'align' => 'right',
+                    'text'      => $price,
+                    'feed'      => $pdf->margin['right'] - 160,
+                    'align'     => 'right',
                     'font_size' => $fontSize
                 );
                 $line[] = array(
-                    'text'  => $_item->getQty()*1,
-                    'feed'  => $pdf->margin['right'] - 120,
-                    'align' => 'right',
+                    'text'      => $_item->getQty() * 1,
+                    'feed'      => $pdf->margin['right'] - 120,
+                    'align'     => 'right',
                     'font_size' => $fontSize
                 );
 
                 $tax = $order->formatPriceTxt($_item->getTaxAmount());
                 $line[] = array(
-                    'text'  => $tax,
-                    'feed'  => $pdf->margin['right'] - 60,
-                    'align' => 'right',
+                    'text'      => $tax,
+                    'feed'      => $pdf->margin['right'] - 60,
+                    'align'     => 'right',
                     'font_size' => $fontSize
                 );
 
-                $row_total = $order->formatPriceTxt($_item->getRowTotal());
+                $rowTotal = $order->formatPriceTxt($_item->getRowTotal());
                 $line[] = array(
-                    'text'  => $row_total,
-                    'feed'  => $pdf->margin['right'] - 10,
-                    'align' => 'right',
+                    'text'      => $rowTotal,
+                    'feed'      => $pdf->margin['right'] - 10,
+                    'align'     => 'right',
                     'font_size' => $fontSize
                 );
             }
@@ -171,9 +171,9 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                 foreach ($options['options'] as $option) {
                     $lines = array();
                     $lines[][] = array(
-                        'text'  => Mage::helper('core/string')->str_split(strip_tags($option['label']), 40, true, true),
-                        'font'  => 'italic',
-                        'feed'  => 35
+                        'text' => Mage::helper('core/string')->str_split(strip_tags($option['label']), 40, true, true),
+                        'font' => 'italic',
+                        'feed' => 35
                     );
 
                     if ($option['value']) {
@@ -189,8 +189,8 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                         }
 
                         $lines[][] = array(
-                            'text'  => $text,
-                            'feed'  => 40
+                            'text' => $text,
+                            'feed' => 40
                         );
                     }
 

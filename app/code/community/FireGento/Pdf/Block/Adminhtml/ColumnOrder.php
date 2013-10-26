@@ -1,18 +1,44 @@
 <?php
 /**
- * Firegento
+ * This file is part of a FireGento e.V. module.
  *
- * @category  Block
+ * This FireGento e.V. module is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * PHP version 5
+ *
+ * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
- * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ */
+/**
+ * Firegento
+ *
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
 class Firegento_Pdf_Block_Adminhtml_ColumnOrder
     extends Mage_Adminhtml_Block_System_Config_Form_Field
 {
-    protected $sortableListHtml = '';
+    protected $_sortableListHtml = '';
 
+    /**
+     * generate html for orderable list
+     *
+     * @param  Varien_Data_Form_Element_Abstract $element form element to render
+     *
+     * @return string
+     */
     protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
         return '
@@ -21,7 +47,8 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
             <ul id="' . $element->getHtmlId() . '_list" class="orderable_config">
             ' . $this->_getSortableListHtml($element) . '
             </ul>
-            <input type="hidden" value="' . $element->getValue() . '" name="' . $element->getName() . '" id="' . $element->getHtmlId() . '">
+            <input type="hidden" value="' . $element->getValue() . '" name="' . $element->getName() .
+                '" id="' . $element->getHtmlId() . '">
             <script type="text/javascript">
                 Sortable.create("' . $element->getHtmlId() . '_list", {
                     onUpdate: function() {
@@ -51,10 +78,11 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
                         var current = $(item).attributes["data-column"].value;
                         if ($(item.attributes["data-width"])) {
                             newWidth += parseInt($(item).attributes["data-width"].value);
-                        } else if ("disabled" == current) {
+                        } elseif ("disabled" == current) {
                             console.log(newWidth);
                             if (240 < newWidth) {
-                                $("' . $element->getHtmlId() . '_warning").innerHTML = "' . $this->__('Caution: Your columns may overlap!') . '";
+                                $("' . $element->getHtmlId() . '_warning").innerHTML = "'
+                                . $this->__('Caution: Your columns may overlap!') . '";
                                 $("' . $element->getHtmlId() . '_warning").show();
                             } else {
                                 $("' . $element->getHtmlId() . '_warning").hide();
@@ -67,6 +95,13 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
         ';
     }
 
+    /**
+     * get html for list
+     *
+     * @param  Varien_Data_Form_Element_Abstract $element form element to render
+     *
+     * @return string
+     */
     protected function _getSortableListHtml(Varien_Data_Form_Element_Abstract $element)
     {
         $availableItems = array(
@@ -88,20 +123,27 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
         }
 
         $this->_addListItems($activeItems);
-        $this->sortableListHtml .= '<li id="pdf-column-disabled" data-column="disabled" style="list-style:none">
+        $this->_sortableListHtml .= '<li id="pdf-column-disabled" data-column="disabled" style="list-style:none">
             <div id="' . $element->getHtmlId() . '_warning" style="display:none" class="validation-advice"></div>
             <br />
             ' . $this->__('not to be listed') . '
             </li>';
         $this->_addListItems($availableItems);
 
-        return $this->sortableListHtml;
+        return $this->_sortableListHtml;
     }
 
+    /**
+     * add items to list
+     *
+     * @param  array $items items to add
+     *
+     * @return $this
+     */
     protected function _addListItems($items)
     {
         foreach ($items as $name=>$item) {
-            $this->sortableListHtml .= sprintf(
+            $this->_sortableListHtml .= sprintf(
                 '<li id="pdf-column-%s" data-column="%s" data-width="%s">%s</li>',
                 $name,
                 $name,

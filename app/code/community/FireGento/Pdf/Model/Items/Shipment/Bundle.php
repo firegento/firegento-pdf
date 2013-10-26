@@ -2,7 +2,7 @@
 /**
  * This file is part of the FIREGENTO project.
  *
- * FireGento_GermanSetup is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
 /**
@@ -24,7 +24,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -56,8 +56,7 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
             $attributes = $this->getSelectionAttributes($_item);
             if (is_array($attributes)) {
                 $optionId   = $attributes['option_id'];
-            }
-            else {
+            } else {
                 $optionId = 0;
             }
 
@@ -102,10 +101,8 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
 
             // draw Name
             if ($_item->getParentItem()) {
-                #$feed = 155;
                 $name = $this->getValueHtml($_item);
             } else {
-                #$feed = 150;
                 $name = $_item->getName();
             }
             $text = array();
@@ -124,7 +121,7 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
             ) {
                 if (isset($shipItems[$_item->getId()])) {
                     $qty = $shipItems[$_item->getId()]->getQty()*1;
-                } else if ($_item->getIsVirtual()) {
+                } elseif ($_item->getIsVirtual()) {
                     $qty = Mage::helper('bundle')->__('N/A');
                 } else {
                     $qty = 0;
