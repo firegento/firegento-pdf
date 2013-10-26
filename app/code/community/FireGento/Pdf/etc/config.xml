@@ -93,14 +93,14 @@
     <default>
         <sales_pdf>
             <invoice>
-                <engine></engine>
+                <engine />
                 <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
             </invoice>
             <shipment>
-                <engine></engine>
+                <engine />
             </shipment>
             <creditmemo>
-                <engine></engine>
+                <engine />
             </creditmemo>
         </sales_pdf>
         <tax>
