@@ -1,5 +1,5 @@
-app/code/community/FireGento/Pdf/       app/code/community/FireGento/Pdf/
-app/etc/modules/FireGento_Pdf.xml       app/etc/modules/FireGento_Pdf.xml
-app/locale/de_DE/*                      app/locale/de_DE/
-app/locale/de_AT/*                      app/locale/de_AT/
-app/locale/nl_NL/*                      app/locale/nl_NL/
+src/app/code/community/FireGento/Pdf/       app/code/community/FireGento/Pdf/
+src/app/etc/modules/FireGento_Pdf.xml       app/etc/modules/FireGento_Pdf.xml
+src/app/locale/de_DE/*                      app/locale/de_DE/
+src/app/locale/de_AT/*                      app/locale/de_AT/
+src/app/locale/nl_NL/*                      app/locale/nl_NL/
