@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.de/src#">
+  <namespace name="">
+    <class name="Firegento_Pdf_Block_Adminhtml_ColumnOrder" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php" xml="classes/Firegento_Pdf_Block_Adminhtml_ColumnOrder.xml"/>
+    <class name="FireGento_Pdf_Sales_OrderController" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales/OrderController.php" xml="classes/FireGento_Pdf_Sales_OrderController.xml"/>
+    <class name="FireGento_Pdf_Helper_Data" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" xml="classes/FireGento_Pdf_Helper_Data.xml"/>
+    <class name="FireGento_Pdf_Model_Creditmemo" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Creditmemo.php" xml="classes/FireGento_Pdf_Model_Creditmemo.xml"/>
+    <class name="FireGento_Pdf_Model_Engine_Abstract" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Abstract.php" xml="classes/FireGento_Pdf_Model_Engine_Abstract.xml"/>
+    <class name="FireGento_Pdf_Model_Engine_Creditmemo_Default" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Creditmemo/Default.php" xml="classes/FireGento_Pdf_Model_Engine_Creditmemo_Default.xml"/>
+    <class name="FireGento_Pdf_Model_Engine_Invoice_Default" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Invoice/Default.php" xml="classes/FireGento_Pdf_Model_Engine_Invoice_Default.xml"/>
+    <class name="FireGento_Pdf_Model_Engine_Shipment_Default" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Shipment/Default.php" xml="classes/FireGento_Pdf_Model_Engine_Shipment_Default.xml"/>
+    <class name="FireGento_Pdf_Model_Invoice" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" xml="classes/FireGento_Pdf_Model_Invoice.xml"/>
+    <class name="FireGento_Pdf_Model_Items_Bundle" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Bundle.php" xml="classes/FireGento_Pdf_Model_Items_Bundle.xml"/>
+    <class name="FireGento_Pdf_Model_Items_Default" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Default.php" xml="classes/FireGento_Pdf_Model_Items_Default.xml"/>
+    <class name="FireGento_Pdf_Model_Items_Grouped" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Grouped.php" xml="classes/FireGento_Pdf_Model_Items_Grouped.xml"/>
+    <class name="FireGento_Pdf_Model_Items_Shipment_Bundle" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php" xml="classes/FireGento_Pdf_Model_Items_Shipment_Bundle.xml"/>
+    <class name="FireGento_Pdf_Model_Items_Shipment_Default" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Default.php" xml="classes/FireGento_Pdf_Model_Items_Shipment_Default.xml"/>
+    <class name="FireGento_Pdf_Model_Observer" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" xml="classes/FireGento_Pdf_Model_Observer.xml"/>
+    <class name="FireGento_Pdf_Model_Shipment" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Shipment.php" xml="classes/FireGento_Pdf_Model_Shipment.xml"/>
+    <class name="FireGento_Pdf_Model_System_Config_Source_Creditmemo_Engine" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Creditmemo/Engine.php" xml="classes/FireGento_Pdf_Model_System_Config_Source_Creditmemo_Engine.xml"/>
+    <class name="FireGento_Pdf_Model_System_Config_Source_Invoice_Engine" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Invoice/Engine.php" xml="classes/FireGento_Pdf_Model_System_Config_Source_Invoice_Engine.xml"/>
+    <class name="FireGento_Pdf_Model_System_Config_Source_Logo" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php" xml="classes/FireGento_Pdf_Model_System_Config_Source_Logo.xml"/>
+    <class name="FireGento_Pdf_Model_System_Config_Source_Payment" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Payment.php" xml="classes/FireGento_Pdf_Model_System_Config_Source_Payment.xml"/>
+    <class name="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php" xml="classes/FireGento_Pdf_Model_System_Config_Source_Shipment_Engine.xml"/>
+    <class name="FireGento_Pdf_Model_System_Config_Source_Shipping" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipping.php" xml="classes/FireGento_Pdf_Model_System_Config_Source_Shipping.xml"/>
+    <class name="FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal" src="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Tax/Sales/Pdf/Grandtotal.php" xml="classes/FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal.xml"/>
+  </namespace>
+</index>

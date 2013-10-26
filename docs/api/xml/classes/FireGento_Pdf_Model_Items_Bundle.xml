@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Items_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Bundle" abstract="false" final="false" start="34" end="209">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Bundle.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Bundle.php" size="7347" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="4cb7eff8aea64cbbe5b8afaa3d9df7fddeb9fcab"/>
+  <docblock>
+    <description compact="Bundle item model rewrite."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <extends full="Mage_Bundle_Model_Sales_Order_Pdf_Items_Invoice" namespace="" name="Mage_Bundle_Model_Sales_Order_Pdf_Items_Invoice"/>
+  <method name="draw" start="43" end="208" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Draw item line."/>
+      <param description="position of the product" type="int" variable="$position"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="position" byreference="false" type="integer" default=""/>
+  </method>
+</class>

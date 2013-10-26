@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Shipment" namespace="" name="FireGento_Pdf_Model_Shipment" abstract="false" final="false" start="34" end="78">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Shipment.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Shipment.php" size="2220" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="6d21bdceb7556306fc64cf20a1ba3855cfa301c4"/>
+  <docblock>
+    <description compact="Shipment model rewrite."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <member name="_engine" type="{unknown}" visibility="private">
+    <docblock>
+      <description compact="The actual PDF engine responsible for rendering the file."/>
+      <var type="object">
+        <type full="Mage_Sales_Model_Order_Pdf_Abstract" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getEngine" start="49" end="64" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="get pdf rendering engine"/>
+      <return type="object">
+        <type full="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Shipment" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Shipment"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getPdf" start="73" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="get PDF object"/>
+      <param description="shipments to generate pdfs for" type="array" variable="$shipments"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="shipments" byreference="false" type="array"/>
+  </method>
+</class>

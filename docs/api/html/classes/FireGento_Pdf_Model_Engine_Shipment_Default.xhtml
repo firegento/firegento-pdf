@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "html" "">
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>FireGento_Pdf - FireGento_Pdf_Model_Engine_Shipment_Default - API Documentation</title>
+    <link href="../css/normalize.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" media="all"/>
+  </head>
+  <body>
+    <div class="wrapper clearfix">
+      <div class="topbar clearfix">
+        <h1>
+          <a class="brand" href="../index.xhtml">FireGento_Pdf - API Documentation</a>
+        </h1>
+        <ul class="nav">
+          <li class="active">
+            <a href="../index.xhtml">Overview</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navigation">
+        <h3>Methods</h3>
+        <ul>
+          <li>
+            <a href="#Ln">Ln</a>
+          </li>
+          <li>
+            <a href="#__construct">__construct</a>
+          </li>
+          <li>
+            <a href="#_addFooter">_addFooter</a>
+          </li>
+          <li>
+            <a href="#_drawItem">_drawItem</a>
+          </li>
+          <li>
+            <a href="#_initRenderer">_initRenderer</a>
+          </li>
+          <li>
+            <a href="#_insertFooter">_insertFooter</a>
+          </li>
+          <li>
+            <a href="#_insertFooterAddress">_insertFooterAddress</a>
+          </li>
+          <li>
+            <a href="#_insertFooterBlock">_insertFooterBlock</a>
+          </li>
+          <li>
+            <a href="#_insertNote">_insertNote</a>
+          </li>
+          <li>
+            <a href="#_insertPageCounter">_insertPageCounter</a>
+          </li>
+          <li>
+            <a href="#_insertSenderAddessBar">_insertSenderAddessBar</a>
+          </li>
+          <li>
+            <a href="#_prepareText">_prepareText</a>
+          </li>
+          <li>
+            <a href="#_putOrderId">_putOrderId</a>
+          </li>
+          <li>
+            <a href="#_setFontBold">_setFontBold</a>
+          </li>
+          <li>
+            <a href="#_setFontItalic">_setFontItalic</a>
+          </li>
+          <li>
+            <a href="#_setFontRegular">_setFontRegular</a>
+          </li>
+          <li>
+            <a href="#drawLineBlocks">drawLineBlocks</a>
+          </li>
+          <li>
+            <a href="#getFontBold">getFontBold</a>
+          </li>
+          <li>
+            <a href="#getFontItalic">getFontItalic</a>
+          </li>
+          <li>
+            <a href="#getFontRegular">getFontRegular</a>
+          </li>
+          <li>
+            <a href="#getMode">getMode</a>
+          </li>
+          <li>
+            <a href="#getPdf">getPdf</a>
+          </li>
+          <li>
+            <a href="#insertBillingAddress">insertBillingAddress</a>
+          </li>
+          <li>
+            <a href="#insertHeader">insertHeader</a>
+          </li>
+          <li>
+            <a href="#insertLogo">insertLogo</a>
+          </li>
+          <li>
+            <a href="#insertShippingAddress">insertShippingAddress</a>
+          </li>
+          <li>
+            <a href="#insertTableHeader">insertTableHeader</a>
+          </li>
+          <li>
+            <a href="#insertTotals">insertTotals</a>
+          </li>
+          <li>
+            <a href="#newPage">newPage</a>
+          </li>
+          <li>
+            <a href="#setMode">setMode</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <h2><span style="font-size:60%">\</span>FireGento_Pdf_Model_Engine_Shipment_Default</h2>
+        <div class="file-notice">
+          <p>Shipment model rewrite.</p>
+        </div>
+        <ul class="fileinfos">
+          <li><b>Author: </b>FireGento Team &lt;team@firegento.com&gt;</li>
+          <li><b>Copyright: </b>2013 FireGento Team (http://www.firegento.com)</li>
+          <li><b>License: </b>http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</li>
+        </ul>
+        <h3>Members</h3>
+        <ul class="varlist"/>
+        <h3>Constructor</h3>
+        <ul class="varlist">
+          <li>
+            <a name="__construct"/>
+            <h4><span class="label public">public</span>__construct<span style="font-size:90%;">(  )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>constructor to set shipping mode</li>
+            </p>
+          </li>
+        </ul>
+        <h3>Methods</h3>
+        <ul class="varlist">
+          <li>
+            <a name="_prepareText"/>
+            <h4><span class="label public">public</span>_prepareText<span style="font-size:90%;">( <span class="param-type">string</span><strong> $text</strong>, <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type"><span title="Zend_Pdf_Resource_Font">Zend_Pdf_Resource_Font</span></span><strong> $font</strong>, <span class="param-type">int</span><strong> $fontSize</strong>, <span class="param-type">int</span><strong> $width</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Prepares the text so that it fits to the given page's width.</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$text</code> - the text which should be prepared</li>
+                <li><code>$page</code> - the page on which the text will be rendered</li>
+                <li><code>$font</code> - the font with which the text will be rendered</li>
+                <li><code>$fontSize</code> - the font size with which the text will be rendered</li>
+                <li><code>$width</code> - [optional] the width for the given text, defaults to the page width</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li>the given text in an array where each item represents a new line</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="drawLineBlocks"/>
+            <h4><span class="label public">public</span>drawLineBlocks<span style="font-size:90%;">( <span class="param-type"><span title="\\Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type">Array</span><strong> $draw</strong>, <span class="param-type">Array</span><strong> $pageSettings</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Draw one line</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$draw</code> - items to draw</li>
+                <li><code>$pageSettings</code> - page settings to use for new pages</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="getFontBold"/>
+            <h4><span class="label public">public</span>getFontBold<span style="font-size:90%;">(  )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>get default bold font</li>
+            </p>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li>the bold font</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="getFontItalic"/>
+            <h4><span class="label public">public</span>getFontItalic<span style="font-size:90%;">(  )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>get italic font</li>
+            </p>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="getFontRegular"/>
+            <h4><span class="label public">public</span>getFontRegular<span style="font-size:90%;">(  )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>get stanard font</li>
+            </p>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li>the regular font</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="getMode"/>
+            <h4><span class="label public">public</span>getMode<span style="font-size:90%;">(  )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Return pdf mode.</li>
+            </p>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="getPdf"/>
+            <h4><span class="label public">public</span>getPdf<span style="font-size:90%;">( <span class="param-type">Array</span><strong> $shipments</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Return PDF document</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$shipments</code> - list of shipments to generate pdfs for</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="newPage"/>
+            <h4><span class="label public">public</span>newPage<span style="font-size:90%;">( <span class="param-type">Array</span><strong> $settings</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Generate new PDF page.</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$settings</code> - Page settings</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="setMode"/>
+            <h4><span class="label public">public</span>setMode<span style="font-size:90%;">( <span class="param-type">string</span><strong> $mode</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Set pdf mode.</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$mode</code> - set mode to differ between creditmemo, invoice, etc.</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="Ln"/>
+            <h4><span class="label protected">protected</span>Ln<span style="font-size:90%;">( <span class="param-type">integer</span><strong> $height</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Set next line position</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$height</code> - Line-Height</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_addFooter"/>
+            <h4><span class="label protected">protected</span>_addFooter<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type"><span title="Mage_Core_Model_Store">Mage_Core_Model_Store</span></span><strong> $store</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>draw footer on pdf</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - page to draw on</li>
+                <li><code>$store</code> - store to get infos from</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_drawItem"/>
+            <h4><span class="label protected">protected</span>_drawItem<span style="font-size:90%;">( <span class="param-type"><span title="\\Varien_Object">Varien_Object</span></span><strong> $item</strong>, <span class="param-type"><span title="\\Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type"><span title="\\Mage_Sales_Model_Order">Mage_Sales_Model_Order</span></span><strong> $order</strong>, <span class="param-type">integer</span><strong> $position</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Draw</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$item</code> - creditmemo/shipping/invoice to draw</li>
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$order</code> - order to get infos from</li>
+                <li><code>$position</code> - position in table</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_initRenderer"/>
+            <h4><span class="label protected">protected</span>_initRenderer<span style="font-size:90%;">( <span class="param-type">string</span><strong> $type</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Initialize renderer process.</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$type</code> - type to be initialized</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_insertFooter"/>
+            <h4><span class="label protected">protected</span>_insertFooter<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert footer</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_insertFooterAddress"/>
+            <h4><span class="label protected">protected</span>_insertFooterAddress<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type"><span title="int|Mage_Core_Model_Store">int|Mage_Core_Model_Store</span></span><strong> $store</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert addess of store owner</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$store</code> - store to get infos from</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_insertFooterBlock"/>
+            <h4><span class="label protected">protected</span>_insertFooterBlock<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type">array</span><strong> $fields</strong>, <span class="param-type">integer</span><strong> $colposition</strong>, <span class="param-type">integer</span><strong> $valadjust</strong>, <span class="param-type">int</span><strong> $colwidth</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert footer block</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$fields</code> - Fields of footer</li>
+                <li><code>$colposition</code> - Starting colposition</li>
+                <li><code>$valadjust</code> - Margin between label and value</li>
+                <li><code>$colwidth</code> - the width of this footer block - text will be wrapped if it is broader</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_insertNote"/>
+            <h4><span class="label protected">protected</span>_insertNote<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type"><span title="Mage_Sales_Model_Order">Mage_Sales_Model_Order</span></span><strong> $order</strong>, <span class="param-type"><span title="Mage_Sales_Model_Abstract">Mage_Sales_Model_Abstract</span></span><strong> $model</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert Notes</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current Page Object of Zend_PDF</li>
+                <li><code>$order</code> - order to get note from</li>
+                <li><code>$model</code> - invoice/shipment/creditmemo</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_insertPageCounter"/>
+            <h4><span class="label protected">protected</span>_insertPageCounter<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert page counter</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_insertSenderAddessBar"/>
+            <h4><span class="label protected">protected</span>_insertSenderAddessBar<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert sender address bar</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_putOrderId"/>
+            <h4><span class="label protected">protected</span>_putOrderId<span style="font-size:90%;">( <span class="param-type"><span title="\\Mage_Sales_Model_Order">Mage_Sales_Model_Order</span></span><strong> $order</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Return the order id or false if order id should not be displayed on document.</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$order</code> - order to get id from</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_setFontBold"/>
+            <h4><span class="label protected">protected</span>_setFontBold<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $object</strong>, <span class="param-type">integer</span><strong> $size</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Set bold font</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$object</code> - Current page object of Zend_Pdf</li>
+                <li><code>$size</code> - Font size</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_setFontItalic"/>
+            <h4><span class="label protected">protected</span>_setFontItalic<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $object</strong>, <span class="param-type">integer</span><strong> $size</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Set italic font</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$object</code> - Current page object of Zend_Pdf</li>
+                <li><code>$size</code> - Font size</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="_setFontRegular"/>
+            <h4><span class="label protected">protected</span>_setFontRegular<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $object</strong>, <span class="param-type">integer</span><strong> $size</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Set default font</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$object</code> - Current page object of Zend_Pdf</li>
+                <li><code>$size</code> - Font size</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="insertBillingAddress"/>
+            <h4><span class="label protected">protected</span>insertBillingAddress<span style="font-size:90%;">( <span class="param-type">invalid method call</span><strong> $page</strong>, <span class="param-type">invalid method call</span><strong> $order</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert billing address</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$order</code> - Order object</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="insertHeader"/>
+            <h4><span class="label protected">protected</span>insertHeader<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type">invalid method call</span><strong> $order</strong>, <span class="param-type">invalid method call</span><strong> $document</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert Header</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$order</code> - Order object</li>
+                <li><code>$document</code> - Document object</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="insertLogo"/>
+            <h4><span class="label protected">protected</span>insertLogo<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type"><span title="int|Mage_Core_Model_Store">int|Mage_Core_Model_Store</span></span><strong> $store</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert logo</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$store</code> - store to get data from</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="insertShippingAddress"/>
+            <h4><span class="label protected">protected</span>insertShippingAddress<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong>, <span class="param-type"><span title="Mage_Sales_Model_Order">Mage_Sales_Model_Order</span></span><strong> $order</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>insert address into pdf</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - to insert addres into</li>
+                <li><code>$order</code> - order to get address from</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="insertTableHeader"/>
+            <h4><span class="label protected">protected</span>insertTableHeader<span style="font-size:90%;">( <span class="param-type"><span title="Zend_Pdf_Page">Zend_Pdf_Page</span></span><strong> $page</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>insert the table header of the shipment</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - page to write on</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a name="insertTotals"/>
+            <h4><span class="label protected">protected</span>insertTotals<span style="font-size:90%;">( <span class="param-type">invalid method call</span><strong> $page</strong>, <span class="param-type">invalid method call</span><strong> $source</strong> )</span></h4>
+            <p style="font-size:110%; padding-top:5px;">
+              <li>Insert Totals Block</li>
+            </p>
+            <ul>
+              <h4 class="param">Parameters:</h4>
+              <ul class="param">
+                <li><code>$page</code> - Current page object of Zend_Pdf</li>
+                <li><code>$source</code> - Fields of footer</li>
+              </ul>
+            </ul>
+            <ul>
+              <h4 class="return">Returns:</h4>
+              <ul class="return">
+                <li/>
+              </ul>
+            </ul>
+          </li>
+        </ul>
+        <div class="footer">Generated using phpDox 0.5 - Copyright (C) 2010 - 2013 by Arne Blankerts</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Creditmemo" namespace="" name="FireGento_Pdf_Model_Creditmemo" abstract="false" final="false" start="34" end="77">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Creditmemo.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Creditmemo.php" size="2224" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="b8e0801d1d5bd527c42cad394f50f2083bab897a"/>
+  <docblock>
+    <description compact="Creditmemo model rewrite."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <member name="_engine" type="{unknown}" visibility="private">
+    <docblock>
+      <description compact="The actual PDF engine responsible for rendering the file."/>
+      <var type="object">
+        <type full="Mage_Sales_Model_Order_Pdf_Abstract" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getEngine" start="48" end="63" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="get pdf renderer engine"/>
+      <return type="object">
+        <type full="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Creditmemo" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Creditmemo"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getPdf" start="72" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="get pdf object"/>
+      <param description="creditmemos to render" type="array" variable="$creditmemos"/>
+      <return type="object">
+        <type full="Zend_Pdf" namespace="" name="Zend_Pdf"/>
+      </return>
+    </docblock>
+    <parameter name="creditmemos" byreference="false" type="array"/>
+  </method>
+</class>

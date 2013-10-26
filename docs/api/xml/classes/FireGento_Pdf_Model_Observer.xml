@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer" abstract="false" final="false" start="34" end="180">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Observer.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" size="5686" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="88b49faa93a9f1438182b50f71fceaeb8b3c4963"/>
+  <docblock>
+    <description compact="FireGento Pdf observer."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <method name="addInvoiceNotes" start="43" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add notes to invoice document."/>
+      <param description="observer object" type="object" variable="$observer">
+        <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
+      </param>
+      <return type="object">
+        <type full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer"/>
+      </return>
+    </docblock>
+    <parameter name="observer" byreference="false" type="object">
+      <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
+    </parameter>
+  </method>
+  <method name="addInvoiceDateNotice" start="61" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="add inovoice date notice to pdf"/>
+      <param description="observer object" type="object" variable="$observer">
+        <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
+      </param>
+      <return type="object">
+        <type full="$this" namespace="" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="observer" byreference="false" type="object">
+      <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
+    </parameter>
+  </method>
+  <method name="addInvoiceMaturity" start="81" end="98" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add maturity to invoice notes."/>
+      <param description="observer object" type="object" variable="$observer">
+        <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
+      </param>
+      <return type="object">
+        <type full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer"/>
+      </return>
+    </docblock>
+    <parameter name="observer" byreference="false" type="object">
+      <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
+    </parameter>
+  </method>
+  <method name="addPaymentMethod" start="107" end="122" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add payment method to invoice notes."/>
+      <param description="observer object" type="object" variable="$observer">
+        <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
+      </param>
+      <return type="object">
+        <type full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer"/>
+      </return>
+    </docblock>
+    <parameter name="observer" byreference="false" type="object">
+      <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
+    </parameter>
+  </method>
+  <method name="addShippingMethod" start="131" end="146" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add shipping method to invoice notes."/>
+      <param description="observer object" type="object" variable="$observer">
+        <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
+      </param>
+      <return type="object">
+        <type full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer"/>
+      </return>
+    </docblock>
+    <parameter name="observer" byreference="false" type="object">
+      <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
+    </parameter>
+  </method>
+  <method name="addInvoiceComments" start="156" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add the invoice comments"/>
+      <param description="observer object" type="object" variable="$observer">
+        <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
+      </param>
+      <return type="object">
+        <type full="$this" namespace="" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="observer" byreference="false" type="object">
+      <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
+    </parameter>
+  </method>
+</class>

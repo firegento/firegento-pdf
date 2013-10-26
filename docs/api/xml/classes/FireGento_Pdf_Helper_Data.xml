@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Helper_Data" namespace="" name="FireGento_Pdf_Helper_Data" abstract="false" final="false" start="34" end="112">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="3964" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="f7497890a5c416fcd8c1c5e9535b6c923e44d0a5"/>
+  <docblock>
+    <description compact="Dummy data helper for translation issues."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <extends full="Mage_Core_Helper_Abstract" namespace="" name="Mage_Core_Helper_Abstract"/>
+  <method name="putOrderId" start="44" end="78" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return the order id or false if order id should not be displayed on document."/>
+      <param description="order to get id from" type="object" variable="$order">
+        <type full="Mage_Sales_Model_Order" namespace="" name="Mage_Sales_Model_Order"/>
+      </param>
+      <param description="differ between creditmemo, invoice, etc." type="string" variable="$mode"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="order" byreference="false" type="object">
+      <type full="\\Mage_Sales_Model_Order" namespace="\" name="Mage_Sales_Model_Order"/>
+    </parameter>
+    <parameter name="mode" byreference="false" type="string" default=""/>
+  </method>
+  <method name="getScaledImageSize" start="89" end="111" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return scaled image sizes based on an path to an image file."/>
+      <param description="Url to image file." type="string" variable="$image"/>
+      <param description="max width the image can have" type="int" variable="$maxWidth"/>
+      <param description="max height the image can have" type="int" variable="$maxHeight"/>
+      <return description="with 2 elements - width and height." type="array"/>
+    </docblock>
+    <parameter name="image" byreference="false" type="{unknown}"/>
+    <parameter name="maxWidth" byreference="false" type="{unknown}"/>
+    <parameter name="maxHeight" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Items_Grouped" namespace="" name="FireGento_Pdf_Model_Items_Grouped" abstract="false" final="false" start="30" end="51">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Grouped.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Grouped.php" size="1770" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="75e7f2d0b6e329e050d2685b32f3aa0764cd0d6f"/>
+  <docblock>
+    <description compact="Default item model rewrite."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+  </docblock>
+  <extends full="Mage_Sales_Model_Order_Pdf_Items_Invoice_Grouped" namespace="" name="Mage_Sales_Model_Order_Pdf_Items_Invoice_Grouped"/>
+  <method name="draw" start="39" end="50" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Draw item line."/>
+      <param description="position of the product" type="int" variable="$position"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="position" byreference="false" type="integer" default=""/>
+  </method>
+</class>
