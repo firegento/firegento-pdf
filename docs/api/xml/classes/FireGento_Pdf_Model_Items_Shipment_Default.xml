@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Items_Shipment_Default" namespace="" name="FireGento_Pdf_Model_Items_Shipment_Default" abstract="false" final="false" start="34" end="108">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Default.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Default.php" size="3553" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="7a2ac89bf3f79ceaf359c25ba07e0b4197f1fb15"/>
+  <docblock>
+    <description compact="Shipment default item model."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <extends full="Mage_Sales_Model_Order_Pdf_Items_Shipment_Default" namespace="" name="Mage_Sales_Model_Order_Pdf_Items_Shipment_Default"/>
+  <method name="draw" start="41" end="107" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Draw item line."/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>

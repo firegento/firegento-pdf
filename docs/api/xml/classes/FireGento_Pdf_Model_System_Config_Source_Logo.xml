@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_System_Config_Source_Logo" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Logo" abstract="false" final="false" start="34" end="57">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Logo.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php" size="1822" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="1de77a6c7aeb2998f15dbb703b96e87e14723342"/>
+  <docblock>
+    <description compact="Logo position source model."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <method name="toOptionArray" start="41" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return array of possible positions."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

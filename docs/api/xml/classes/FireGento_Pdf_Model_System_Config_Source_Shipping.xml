@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_System_Config_Source_Shipping" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Shipping" abstract="false" final="false" start="34" end="60">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Shipping.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipping.php" size="1939" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="0b02ec6a31da9b0344ea35b925508e32427eb0ca"/>
+  <docblock>
+    <description compact="Shipping method position source model."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <constant name="POSITION_HEADER" value="'header'"/>
+  <constant name="POSITION_NOTE" value="'note'"/>
+  <method name="toOptionArray" start="44" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return array of possible positions."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

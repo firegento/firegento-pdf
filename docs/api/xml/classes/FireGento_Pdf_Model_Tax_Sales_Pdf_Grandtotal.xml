@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal" namespace="" name="FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal" abstract="false" final="false" start="32" end="100">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Tax/Sales/Pdf" file="Grandtotal.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Tax/Sales/Pdf/Grandtotal.php" size="3727" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="90d1d5a8289bd2c521d60886e95d639521980e06"/>
+  <docblock>
+    <description compact="Shipment bundle item model."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <extends full="Mage_Tax_Model_Sales_Pdf_Grandtotal" namespace="" name="Mage_Tax_Model_Sales_Pdf_Grandtotal"/>
+  <constant name="NO_SUM_ON_DETAILS" value="'tax/sales_display/no_sum_on_details'"/>
+  <method name="getTotalsForDisplay" start="49" end="99" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if tax amount should be included to grandtotals block array(  $index =&gt; array(      'amount'   =&gt; $amount,      'label'    =&gt; $label,      'font_size'=&gt; $font_size  ) )"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

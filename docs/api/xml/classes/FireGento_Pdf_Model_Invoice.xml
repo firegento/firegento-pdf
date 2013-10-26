@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Invoice" namespace="" name="FireGento_Pdf_Model_Invoice" abstract="false" final="false" start="37" end="81">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Invoice.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" size="2318" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="a458be636a9c575df384ccdcb6f105da9ed68543"/>
+  <docblock>
+    <description compact="Invoice model rewrite.">The invoice model serves as a proxy to the actual PDF engine as set via
+backend configuration.</description>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <member name="_engine" type="{unknown}" visibility="private">
+    <docblock>
+      <description compact="The actual PDF engine responsible for rendering the file."/>
+      <var type="object">
+        <type full="Mage_Sales_Model_Order_Pdf_Abstract" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="getEngine" start="52" end="67" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="get pdf rendering engine"/>
+      <return type="object">
+        <type full="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getPdf" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="get pdf for invoices"/>
+      <param description="invoices to render pdfs for" type="array" variable="$invoices"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="invoices" byreference="false" type="array"/>
+  </method>
+</class>

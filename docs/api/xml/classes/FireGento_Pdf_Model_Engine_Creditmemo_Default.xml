@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Engine_Creditmemo_Default" namespace="" name="FireGento_Pdf_Model_Engine_Creditmemo_Default" abstract="false" final="false" start="34" end="228">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Creditmemo" file="Default.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Creditmemo/Default.php" size="6859" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="e365d351b02ab1634d7c18323f539a171ce4ffad"/>
+  <docblock>
+    <description compact="Creditmemo model rewrite."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <extends full="FireGento_Pdf_Model_Engine_Abstract" namespace="" name="FireGento_Pdf_Model_Engine_Abstract"/>
+  <constructor name="__construct" start="40" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="constructor to set mode to creditmemo"/>
+    </docblock>
+  </constructor>
+  <method name="getPdf" start="53" end="132" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return PDF document"/>
+      <param description="creditmemos to generate pdfs for" type="array" variable="$creditmemos"/>
+      <return type="object">
+        <type full="Zend_Pdf" namespace="" name="Zend_Pdf"/>
+      </return>
+    </docblock>
+    <parameter name="creditmemos" byreference="false" type="array"/>
+  </method>
+  <method name="_drawHeader" start="141" end="201" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Draw table header for product items"/>
+      <param description="page to draw on" type="object" variable="$page">
+        <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+      </param>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="page" byreference="false" type="object">
+      <type full="\\Zend_Pdf_Page" namespace="\" name="Zend_Pdf_Page"/>
+    </parameter>
+  </method>
+  <method name="_initRenderer" start="210" end="226" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Initialize renderer process."/>
+      <param description="renderer type to initialize" type="string" variable="$type"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="FireGento_Pdf_Model_Engine_Abstract" namepsace="" name="FireGento_Pdf_Model_Engine_Abstract">
+    <extends full="Mage_Sales_Model_Order_Pdf_Abstract" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract"/>
+    <member name="margin" type="array" visibility="public"/>
+    <member name="colors" type="array" visibility="public"/>
+    <member name="mode" type="{unknown}" visibility="public"/>
+    <member name="encoding" type="{unknown}" visibility="public"/>
+    <member name="pagecounter" type="{unknown}" visibility="public"/>
+    <member name="_imprint" type="{unknown}" visibility="protected"/>
+    <member name="_y" type="{unknown}" visibility="protected">
+      <docblock>
+        <description compact=""/>
+        <var description="position inside of the pdf" type="int"/>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="52" end="63" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="constructor to init settings"/>
+      </docblock>
+    </constructor>
+    <method name="drawLineBlocks" start="74" end="168" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Draw one line"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="items to draw" type="array" variable="$draw"/>
+        <param description="page settings to use for new pages" type="array" variable="$pageSettings"/>
+        <return type="object">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="object">
+        <type full="\\Zend_Pdf_Page" namespace="\" name="Zend_Pdf_Page"/>
+      </parameter>
+      <parameter name="draw" byreference="false" type="array"/>
+      <parameter name="pageSettings" byreference="false" type="array"/>
+    </method>
+    <method name="setMode" start="177" end="181" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set pdf mode."/>
+        <param description="set mode to differ between creditmemo, invoice, etc." type="string" variable="$mode"/>
+        <return type="object">
+          <type full="FireGento_Pdf_Model_Abstract" namespace="" name="FireGento_Pdf_Model_Abstract"/>
+        </return>
+      </docblock>
+      <parameter name="mode" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getMode" start="188" end="191" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Return pdf mode."/>
+        <return type="string"/>
+      </docblock>
+    </method>
+    <method name="Ln" start="200" end="203" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Set next line position"/>
+        <param description="Line-Height" type="int" variable="$height"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="height" byreference="false" type="integer" default=""/>
+    </method>
+    <method name="_insertSenderAddessBar" start="212" end="221" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert sender address bar"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="insertLogo" start="231" end="268" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert logo"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="store to get data from" type="object" variable="$store">
+          <type full="int|Mage_Core_Model_Store" namespace="" name="int|Mage_Core_Model_Store"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="store" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="insertBillingAddress" start="278" end="286" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert billing address"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page"/>
+        <param description="Order object" type="object" variable="$order"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="order" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="insertHeader" start="297" end="481" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert Header"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="Order object" type="object" variable="$order"/>
+        <param description="Document object" type="object" variable="$document"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="order" byreference="false" type="{unknown}"/>
+      <parameter name="document" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_putOrderId" start="490" end="493" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Return the order id or false if order id should not be displayed on document."/>
+        <param description="order to get id from" type="object" variable="$order">
+          <type full="Mage_Sales_Model_Order" namespace="" name="Mage_Sales_Model_Order"/>
+        </param>
+        <return type="object">
+          <type full="int|false" namespace="" name="int|false"/>
+        </return>
+      </docblock>
+      <parameter name="order" byreference="false" type="object">
+        <type full="\\Mage_Sales_Model_Order" namespace="\" name="Mage_Sales_Model_Order"/>
+      </parameter>
+    </method>
+    <method name="newPage" start="502" end="516" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Generate new PDF page."/>
+        <param description="Page settings" type="array" variable="$settings"/>
+        <return type="object">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </return>
+      </docblock>
+      <parameter name="settings" byreference="false" type="array"/>
+    </method>
+    <method name="_drawItem" start="528" end="541" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Draw"/>
+        <param description="creditmemo/shipping/invoice to draw" type="object" variable="$item">
+          <type full="Varien_Object" namespace="" name="Varien_Object"/>
+        </param>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="order to get infos from" type="object" variable="$order">
+          <type full="Mage_Sales_Model_Order" namespace="" name="Mage_Sales_Model_Order"/>
+        </param>
+        <param description="position in table" type="int" variable="$position"/>
+        <return type="object">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </return>
+      </docblock>
+      <parameter name="item" byreference="false" type="object">
+        <type full="\\Varien_Object" namespace="\" name="Varien_Object"/>
+      </parameter>
+      <parameter name="page" byreference="false" type="object">
+        <type full="\\Zend_Pdf_Page" namespace="\" name="Zend_Pdf_Page"/>
+      </parameter>
+      <parameter name="order" byreference="false" type="object">
+        <type full="\\Mage_Sales_Model_Order" namespace="\" name="Mage_Sales_Model_Order"/>
+      </parameter>
+      <parameter name="position" byreference="false" type="integer" default=""/>
+    </method>
+    <method name="insertTotals" start="551" end="647" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert Totals Block"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page"/>
+        <param description="Fields of footer" type="object" variable="$source"/>
+        <return type="object">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="source" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_insertNote" start="658" end="698" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert Notes"/>
+        <param description="Current Page Object of Zend_PDF" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="order to get note from" type="object" variable="$order">
+          <type full="Mage_Sales_Model_Order" namespace="" name="Mage_Sales_Model_Order"/>
+        </param>
+        <param description="invoice/shipment/creditmemo" type="object" variable="$model">
+          <type full="Mage_Sales_Model_Abstract" namespace="" name="Mage_Sales_Model_Abstract"/>
+        </param>
+        <return type="object">
+          <type full="\Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="order" byreference="false" type="{unknown}"/>
+      <parameter name="model" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_addFooter" start="706" end="722" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="draw footer on pdf"/>
+        <param description="page to draw on" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="store to get infos from" type="object" variable="$store">
+          <type full="Mage_Core_Model_Store" namespace="" name="Mage_Core_Model_Store"/>
+        </param>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="store" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="_insertFooter" start="731" end="765" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert footer"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="_insertFooterBlock" start="779" end="807" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert footer block"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="Fields of footer" type="array" variable="$fields"/>
+        <param description="Starting colposition" type="int" variable="$colposition"/>
+        <param description="Margin between label and value" type="int" variable="$valadjust"/>
+        <param description="the width of this footer block - text will be wrapped if it is broader" type="int" variable="$colwidth">than this width</param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="fields" byreference="false" type="{unknown}"/>
+      <parameter name="colposition" byreference="false" type="integer" default=""/>
+      <parameter name="valadjust" byreference="false" type="integer" default=""/>
+      <parameter name="colwidth" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="_insertFooterAddress" start="817" end="851" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert addess of store owner"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="store to get infos from" type="object" variable="$store">
+          <type full="int|Mage_Core_Model_Store" namespace="" name="int|Mage_Core_Model_Store"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="store" byreference="false" type="{unknown}" default="null"/>
+    </method>
+    <method name="_insertPageCounter" start="860" end="868" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Insert page counter"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getFontRegular" start="875" end="878" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="get stanard font"/>
+        <return description="the regular font" type="object">
+          <type full="Zend_Pdf_Resource_Font" namespace="" name="Zend_Pdf_Resource_Font"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="_setFontRegular" start="888" end="893" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Set default font"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$object">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="Font size" type="object" variable="$size">
+          <type full="string|int" namespace="" name="string|int"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Pdf_Resource_Font" namespace="" name="Zend_Pdf_Resource_Font"/>
+        </return>
+      </docblock>
+      <parameter name="object" byreference="false" type="{unknown}"/>
+      <parameter name="size" byreference="false" type="integer" default=""/>
+    </method>
+    <method name="getFontBold" start="900" end="903" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="get default bold font"/>
+        <return description="the bold font" type="object">
+          <type full="Zend_Pdf_Resource_Font" namespace="" name="Zend_Pdf_Resource_Font"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="_setFontBold" start="913" end="918" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Set bold font"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$object">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="Font size" type="object" variable="$size">
+          <type full="string|int" namespace="" name="string|int"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Pdf_Resource_Font" namespace="" name="Zend_Pdf_Resource_Font"/>
+        </return>
+      </docblock>
+      <parameter name="object" byreference="false" type="{unknown}"/>
+      <parameter name="size" byreference="false" type="integer" default=""/>
+    </method>
+    <method name="getFontItalic" start="925" end="928" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="get italic font"/>
+        <return type="object">
+          <type full="Zend_Pdf_Resource_Font" namespace="" name="Zend_Pdf_Resource_Font"/>
+        </return>
+      </docblock>
+    </method>
+    <method name="_setFontItalic" start="938" end="943" abstract="false" final="false" static="false" visibility="protected">
+      <docblock>
+        <description compact="Set italic font"/>
+        <param description="Current page object of Zend_Pdf" type="object" variable="$object">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="Font size" type="object" variable="$size">
+          <type full="string|int" namespace="" name="string|int"/>
+        </param>
+        <return type="object">
+          <type full="Zend_Pdf_Resource_Font" namespace="" name="Zend_Pdf_Resource_Font"/>
+        </return>
+      </docblock>
+      <parameter name="object" byreference="false" type="{unknown}"/>
+      <parameter name="size" byreference="false" type="integer" default=""/>
+    </method>
+    <method name="_prepareText" start="956" end="984" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Prepares the text so that it fits to the given page's width."/>
+        <param description="the text which should be prepared" type="string" variable="$text"/>
+        <param description="the page on which the text will be rendered" type="object" variable="$page">
+          <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
+        </param>
+        <param description="the font with which the text will be rendered" type="object" variable="$font">
+          <type full="Zend_Pdf_Resource_Font" namespace="" name="Zend_Pdf_Resource_Font"/>
+        </param>
+        <param description="the font size with which the text will be rendered" type="int" variable="$fontSize"/>
+        <param description="[optional] the width for the given text, defaults to the page width" type="int" variable="$width"/>
+        <return description="the given text in an array where each item represents a new line" type="array"/>
+      </docblock>
+      <parameter name="text" byreference="false" type="{unknown}"/>
+      <parameter name="page" byreference="false" type="{unknown}"/>
+      <parameter name="font" byreference="false" type="{unknown}"/>
+      <parameter name="fontSize" byreference="false" type="{unknown}"/>
+      <parameter name="width" byreference="false" type="{unknown}" default="null"/>
+    </method>
+  </parent>
+</class>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Sales_OrderController" namespace="" name="FireGento_Pdf_Sales_OrderController" abstract="false" final="false" start="36" end="85">
+  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales" file="OrderController.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales/OrderController.php" size="3094" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="f8575000d3521cf1c19163bc5b05ed267175322c"/>
+  <docblock>
+    <description compact="Sales orders controller"/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <extends full="Mage_Sales_OrderController" namespace="" name="Mage_Sales_OrderController"/>
+  <method name="printInvoiceAction" start="43" end="84" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Print PDF Invoice Action"/>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+</class>
