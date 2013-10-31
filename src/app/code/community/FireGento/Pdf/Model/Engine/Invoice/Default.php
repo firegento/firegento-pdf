@@ -139,7 +139,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
      *
      * @return void
      */
-    protected function insertTableHeader($page)
+    protected function insertTableHeader(&$page)
     {
         $page->setFillColor($this->colors['grey1']);
         $page->setLineColor($this->colors['grey1']);

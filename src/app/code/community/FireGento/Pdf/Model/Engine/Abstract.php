@@ -209,7 +209,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function _insertSenderAddessBar($page)
+    protected function _insertSenderAddessBar(&$page)
     {
         if (Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar') != '') {
             $this->_setFontRegular($page, 6);
@@ -275,7 +275,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function insertBillingAddress($page, $order)
+    protected function insertBillingAddress(&$page, $order)
     {
         $this->_setFontRegular($page, 9);
         $billing = $this->_formatAddress($order->getBillingAddress()->format('pdf'));
@@ -294,7 +294,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function insertHeader($page, $order, $document)
+    protected function insertHeader(&$page, $order, $document)
     {
         $page->setFillColor($this->colors['black']);
 
@@ -487,7 +487,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return int|false
      */
-    protected function _putOrderId(Mage_Sales_Model_Order $order)
+    protected function _putOrderId($order)
     {
         return Mage::helper('firegento_pdf')->putOrderId($order, $this->mode);
     }
@@ -655,7 +655,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return \Zend_Pdf_Page
      */
-    protected function _insertNote($page, $order, $model)
+    protected function _insertNote($page, &$order, &$model)
     {
         $fontSize = 10;
         $font = $this->_setFontRegular($page, $fontSize);
@@ -697,13 +697,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         return $page;
     }
 
+    protected function _addFooter(&$page, $store = null)
     /**
      * draw footer on pdf
      *
      * @param Zend_Pdf_Page         $page  page to draw on
      * @param Mage_Core_Model_Store $store store to get infos from
      */
-    protected function _addFooter($page, $store = null)
     {
         // get the imprint of the store if a store is set
         if (!empty($store)) {
@@ -728,7 +728,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function _insertFooter($page)
+    protected function _insertFooter(&$page)
     {
         $page->setLineColor($this->colors['black']);
         $page->setLineWidth(0.5);
@@ -776,7 +776,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function _insertFooterBlock($page, $fields, $colposition = 0, $valadjust = 30, $colwidth = null)
+    protected function _insertFooterBlock(&$page, $fields, $colposition = 0, $valadjust = 30, $colwidth = null)
     {
         $fontSize = 7;
         $font = $this->_setFontRegular($page, $fontSize);
@@ -814,7 +814,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function _insertFooterAddress($page, $store = null)
+    protected function _insertFooterAddress(&$page, $store = null)
     {
         $fontSize = 7;
         $font = $this->_setFontRegular($page, $fontSize);
@@ -857,7 +857,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function _insertPageCounter($page)
+    protected function _insertPageCounter(&$page)
     {
         $font = $this->_setFontRegular($page, 9);
         $page->drawText(
