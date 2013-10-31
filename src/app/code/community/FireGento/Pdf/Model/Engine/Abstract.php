@@ -228,7 +228,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @return void
      */
-    protected function insertLogo($page, $store = null)
+    protected function insertLogo(&$page, $store = null)
     {
         $maxwidth = ($this->margin['right'] - $this->margin['left']);
         $maxheight = 100;
