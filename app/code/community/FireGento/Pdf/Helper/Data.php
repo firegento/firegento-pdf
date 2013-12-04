@@ -64,6 +64,18 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return false;
     }
 
+    public function showCustomerNumber($mode = 'invoice'){
+        switch ($mode) {
+            case 'invoice':
+                return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER);
+            case 'shipment':
+                return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER);
+            case 'creditmemo':
+                return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER);
+        }
+        return true; // downwoard compatibility
+    }
+
     /**
      * Return scaled image sizes based on an path to an image file.
      *
