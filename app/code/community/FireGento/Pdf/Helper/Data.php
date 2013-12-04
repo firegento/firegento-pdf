@@ -33,11 +33,13 @@
  */
 class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';
+
     /**
      * Return the order id or false if order id should not be displayed on document.
      *
      * @param Mage_Sales_Model_Order $order
-     * @param string $mode
+     * @param string                 $mode
      * @return mixed
      */
     public function putOrderId(Mage_Sales_Model_Order $order, $mode = 'invoice')
@@ -64,12 +66,18 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return false;
     }
 
+    public function isLogoFullWidth($store)
+    {
+        $configSetting = Mage::getStoreConfig(self::XML_PATH_FIREGENTO_PDF_LOGO_POSITION, $store);
+        return $configSetting == FireGento_Pdf_Model_System_Config_Source_Logo::FULL_WIDTH;
+    }
+
     /**
      * Return scaled image sizes based on an path to an image file.
      *
      * @param string $image Url to image file.
-     * @param int $maxWidth
-     * @param int $maxHeight
+     * @param int    $maxWidth
+     * @param int    $maxHeight
      * @return array with 2 elements - width and height.
      */
     public function getScaledImageSize($image, $maxWidth, $maxHeight)
@@ -90,7 +98,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 
             // Calculate new dimensions.
             $height = round($height * $scale);
-            $width  = round($width * $scale);
+            $width = round($width * $scale);
         }
 
         return array($width, $height);

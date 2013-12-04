@@ -41,6 +41,11 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
     protected $imprint;
 
+    /**
+     * @var int correct all y values if the logo is full width and bigger
+     */
+    protected $_marginTop = 0;
+
     public function __construct()
     {
         parent::__construct();
@@ -211,6 +216,26 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function insertLogo(&$page, $store = null)
     {
+        if ($this->_isLogoFullWidth($store)) {
+            $this->_insertLogoFullWidth($page, $store = null);
+        } else {
+            $this->_insertLogoPositioned($page, $store = null);
+        }
+    }
+
+    protected function _isLogoFullWidth($store)
+    {
+        return Mage::helper('firegento_pdf')->isLogoFullWidth($store);
+    }
+
+    /**
+     * inserts the logo if it is positioned left, center or right
+     *
+     * @param      $page
+     * @param null $store
+     */
+    protected function _insertLogoPositioned(&$page, $store = null)
+    {
         $maxwidth = ($this->margin['right'] - $this->margin['left']);
         $maxheight = 100;
 
@@ -243,6 +268,81 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
                 $page->drawImage($image, $position['x1'], $position['y1'], $position['x2'], $position['y2']);
             }
+        }
+    }
+
+    /**
+     * inserts the logo from complete left to right
+     *
+     * @param      $page
+     * @param null $store
+     *
+     * @todo merge _insertLogoPositioned and _insertLogoFullWidth
+     */
+    protected function _insertLogoFullWidth(&$page, $store = null)
+    {
+        $maxwidth = 594;
+        $maxheight = 300;
+
+        $image = Mage::getStoreConfig('sales/identity/logo', $store);
+        if ($image and file_exists(Mage::getBaseDir('media', $store) . '/sales/store/logo/' . $image)) {
+            $image = Mage::getBaseDir('media', $store) . '/sales/store/logo/' . $image;
+
+            list ($width, $height) = Mage::helper('firegento_pdf')->getScaledImageSize($image, $maxwidth, $maxheight);
+
+            if (is_file($image)) {
+                $image = Zend_Pdf_Image::imageWithPath($image);
+
+                $logoPosition = Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_position', $store);
+
+                switch ($logoPosition) {
+                    case 'center':
+                        $startLogoAt = $this->margin['left'] + (($this->margin['right'] - $this->margin['left']) / 2) - $width / 2;
+                        break;
+                    case 'right':
+                        $startLogoAt = $this->margin['right'] - $width;
+                        break;
+                    default:
+                        $startLogoAt = 0;
+                }
+
+                $position['x1'] = $startLogoAt;
+                $position['y1'] = 663;
+                $position['x2'] = $position['x1'] + $width;
+                $position['y2'] = $position['y1'] + $height;
+
+                $page->drawImage($image, $position['x1'], $position['y1'], $position['x2'], $position['y2']);
+                $this->_marginTop = $height - 130;
+            }
+        }
+    }
+
+    /**
+     * @param Zend_Pdf_Page              $page
+     * @param Mage_Sales_Model_Abstract $source
+     * @param Mage_Sales_Model_Order     $order
+     */
+    protected function insertAddressesAndHeader(Zend_Pdf_Page $page, Mage_Sales_Model_Abstract $source, Mage_Sales_Model_Order $order)
+    {
+        // Add logo
+        $this->insertLogo($page, $source->getStore());
+
+        // Add billing address
+        $this->y = 692 - $this->_marginTop;
+        $this->insertBillingAddress($page, $order);
+
+        // Add sender address
+        $this->y = 705 - $this->_marginTop;
+        $this->_insertSenderAddessBar($page);
+
+        // Add head
+        $this->y = 592 - $this->_marginTop;
+        $this->insertHeader($page, $order, $source);
+
+        /* Add table head */
+        // make sure that item table does not overlap heading
+        if ($this->y > 575 - $this->_marginTop) {
+            $this->y = 575 - $this->_marginTop;
         }
     }
 
@@ -710,13 +810,16 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $fontSize = 7;
         $font = $this->_setFontRegular($page, $fontSize);
         $y = $this->y;
+        $address = '';
 
-        $company_first = $this->_prepareText($this->imprint['company_first'], $page, $font, $fontSize, 90);
-        $address = $company_first . "\n";
+        foreach ($this->_prepareText($this->imprint['company_first'], $page, $font, $fontSize, 90) as $companyFirst) {
+            $address .= $companyFirst . "\n";
+        }
 
         if (array_key_exists('company_second', $this->imprint)) {
-            $company_second = $this->_prepareText($this->imprint['company_second'], $page, $font, $fontSize, 90);
-            $address .= $company_second . "\n";
+            foreach ($this->_prepareText($this->imprint['company_second'], $page, $font, $fontSize, 90) as $companySecond) {
+                $address .= $companySecond . "\n";
+            }
         }
 
         $address .= $this->imprint['street'] . "\n";
@@ -788,13 +891,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     /**
      * Prepares the text so that it fits to the given page's width.
      *
-     * @param $text the text which should be prepared
-     * @param $page the page on which the text will be rendered
-     * @param $font the font with which the text will be rendered
-     * @param $fontSize the font size with which the text will be rendered
-     * @param $width [optional] the width for the given text, defaults to the page width
+     * @param string $text the text which should be prepared
+     * @param Zend_Pdf_Page $page the page on which the text will be rendered
+     * @param Zend_Pdf_Resource_Font $font the font with which the text will be rendered
+     * @param int $fontSize the font size with which the text will be rendered
+     * @param int $width [optional] the width for the given text, defaults to the page width
      *
-     * @return string the given text wrapped by new line characters
+     * @return array the given text in an array where each item represents a new line
      */
     protected function _prepareText($text, $page, $font, $fontSize, $width = null)
     {
