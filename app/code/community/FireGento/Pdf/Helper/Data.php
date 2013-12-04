@@ -68,14 +68,20 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return false;
     }
 
-    public function showCustomerNumber($mode = 'invoice'){
+    /**
+     * @param string                $mode
+     * @param Mage_Core_Model_Store $store
+     *
+     * @return bool
+     */
+    public function showCustomerNumber($mode = 'invoice', Mage_Core_Model_Store $store){
         switch ($mode) {
             case 'invoice':
-                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER);
+                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER, $store);
             case 'shipment':
-                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER);
+                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER, $store);
             case 'creditmemo':
-                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER);
+                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER, $store);
         }
         return true; // downwoard compatibility
     }

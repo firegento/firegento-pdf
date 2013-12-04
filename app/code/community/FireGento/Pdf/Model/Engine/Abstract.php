@@ -323,7 +323,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             $numberOfLines++;
         }
 
-        if($this->_showCustomerNumber()) {
+        if($this->_showCustomerNumber($order->getStore())) {
             // Customer Number
             $page->drawText(Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
             $numberOfLines++;
@@ -412,9 +412,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         return Mage::helper('firegento_pdf')->putOrderId($order, $this->mode);
     }
 
-    protected function _showCustomerNumber()
+    protected function _showCustomerNumber($store)
     {
-        return Mage::helper('firegento_pdf')->showCustomerNumber($this->mode);
+        return Mage::helper('firegento_pdf')->showCustomerNumber($this->mode, $store);
     }
 
     /**
