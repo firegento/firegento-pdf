@@ -33,6 +33,10 @@
  */
 class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';
+    const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';
+    const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';
+
     /**
      * Return the order id or false if order id should not be displayed on document.
      *
@@ -67,11 +71,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function showCustomerNumber($mode = 'invoice'){
         switch ($mode) {
             case 'invoice':
-                return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER);
+                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER);
             case 'shipment':
-                return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER);
+                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER);
             case 'creditmemo':
-                return Mage::getStoreConfigFlag(Mage_Sales_Model_Order_Pdf_Abstract::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER);
+                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER);
         }
         return true; // downwoard compatibility
     }
