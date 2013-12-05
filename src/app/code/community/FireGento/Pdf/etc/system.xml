@@ -234,6 +234,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
                         </logo_position>
                     </fields>
                 </firegento_pdf>

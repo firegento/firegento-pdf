@@ -33,6 +33,11 @@
  */
 class FireGento_Pdf_Model_System_Config_Source_Logo
 {
+    const LEFT = 'left';
+    const CENTER = 'center';
+    const RIGHT = 'right';
+    const FULL_WIDTH = 'full_width';
+
     /**
      * Return array of possible positions.
      *
@@ -41,9 +46,10 @@ class FireGento_Pdf_Model_System_Config_Source_Logo
     public function toOptionArray()
     {
         $positions = array(
-            'left'      => Mage::helper('firegento_pdf')->__('Left'),
-            'center'    => Mage::helper('firegento_pdf')->__('Center'),
-            'right'     => Mage::helper('firegento_pdf')->__('Right'),
+            self::LEFT       => Mage::helper('firegento_pdf')->__('Left'),
+            self::CENTER     => Mage::helper('firegento_pdf')->__('Center'),
+            self::RIGHT      => Mage::helper('firegento_pdf')->__('Right'),
+            self::FULL_WIDTH => Mage::helper('firegento_pdf')->__('Full width')
         );
         $options = array();
         foreach ($positions as $k => $v) {

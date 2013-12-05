@@ -73,26 +73,8 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
 
             $order = $creditmemo->getOrder();
 
-            // Add logo
-            $this->insertLogo($page, $creditmemo->getStore());
+            $this->insertAddressesAndHeader($page, $creditmemo, $order);
 
-            // Add billing address
-            $this->y = 692;
-            $this->insertBillingAddress($page, $order);
-
-            // Add sender address
-            $this->y = 705;
-            $this->_insertSenderAddessBar($page);
-
-            // Add head
-            $this->y = 592;
-            $this->insertHeader($page, $order, $creditmemo);
-
-            /* Add table head */
-            // make sure that item table does not overlap heading
-            if ($this->y > 575) {
-                $this->y = 575;
-            }
             $this->_setFontRegular($page, 9);
             $this->_drawHeader($page);
 

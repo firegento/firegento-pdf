@@ -73,26 +73,8 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
 
             $order = $invoice->getOrder();
 
-            /* add logo */
-            $this->insertLogo($page, $invoice->getStore());
+            $this->insertAddressesAndHeader($page, $invoice, $order);
 
-            /* add billing address */
-            $this->y = 692;
-            $this->insertBillingAddress($page, $order);
-
-            // Add sender address
-            $this->y = 705;
-            $this->_insertSenderAddessBar($page);
-
-            /* add header */
-            $this->y = 592;
-            $this->insertHeader($page, $order, $invoice);
-
-            /* add table header */
-            // make sure that item table does not overlap heading
-            if ($this->y > 575) {
-                $this->y = 575;
-            }
             $this->_setFontRegular($page, 9);
             $this->insertTableHeader($page);
 

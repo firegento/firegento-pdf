@@ -81,3 +81,5 @@
 "Show Date Notice","Anzeige des Datum im Notizbereich"
 "Show Notice: Invoice date is equal to delivery date.","Zeige im Notizbereich: Rechnungsdatum ist gleich dem Lieferdatum."
 "Show Customer Number","Kundennummer andrucken"
+"Full width","volle Breite"
+"Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.","""volle Breite"" bedeutet, dass das Logo über die komplette Seite von oben links bis zum rechten Rand gezogen wird. Es verbleibt kein Druckrand."

@@ -33,6 +33,7 @@
  */
 class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';
     const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';
@@ -82,12 +83,23 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string                $mode
-     * @param Mage_Core_Model_Store $store
+     * @param mixed $store
      *
      * @return bool
      */
-    public function showCustomerNumber($mode = 'invoice', Mage_Core_Model_Store $store)
+    public function isLogoFullWidth($store)
+    {
+        $configSetting = Mage::getStoreConfig(self::XML_PATH_FIREGENTO_PDF_LOGO_POSITION, $store);
+        return $configSetting == FireGento_Pdf_Model_System_Config_Source_Logo::FULL_WIDTH;
+    }
+
+    /**
+     * @param string $mode
+     * @param mixed  $store
+     *
+     * @return bool
+     */
+    public function showCustomerNumber($mode = 'invoice', $store)
     {
         switch ($mode) {
             case 'invoice':

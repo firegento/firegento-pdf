@@ -73,26 +73,8 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
 
             $order = $shipment->getOrder();
 
-            /* add logo */
-            $this->insertLogo($page, $shipment->getStore());
+            $this->insertAddressesAndHeader($page, $shipment, $order);
 
-            // Add shipping address
-            $this->_y = 692;
-            $this->insertShippingAddress($page, $order);
-
-            /* add sender address */
-            $this->_y = 705;
-            $this->_insertSenderAddessBar($page);
-
-            /* add header */
-            $this->_y = 592;
-            $this->insertHeader($page, $order, $shipment);
-
-            /* add table header */
-            // make sure that item table does not overlap heading
-            if ($this->_y > 575) {
-                $this->_y = 575;
-            }
             $this->_setFontRegular($page, 9);
             $this->insertTableHeader($page);
 
