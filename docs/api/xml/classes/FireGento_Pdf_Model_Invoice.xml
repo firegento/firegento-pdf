@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Invoice" namespace="" name="FireGento_Pdf_Model_Invoice" abstract="false" final="false" start="37" end="81">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Invoice.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" size="2318" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="a458be636a9c575df384ccdcb6f105da9ed68543"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Invoice" namespace="" name="FireGento_Pdf_Model_Invoice" abstract="false" final="false" start="37" end="81">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Invoice.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" size="2318" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="a458be636a9c575df384ccdcb6f105da9ed68543"/>
   <docblock>
     <description compact="Invoice model rewrite.">The invoice model serves as a proxy to the actual PDF engine as set via
 backend configuration.</description>
@@ -12,7 +12,7 @@ backend configuration.</description>
     <version value="$Id:$"/>
     <since value="0.1.0"/>
   </docblock>
-  <member name="_engine" type="{unknown}" visibility="private">
+  <member name="_engine" type="{unknown}" visibility="private" line="45">
     <docblock>
       <description compact="The actual PDF engine responsible for rendering the file."/>
       <var type="object">
@@ -27,6 +27,9 @@ backend configuration.</description>
         <type full="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice"/>
       </return>
     </docblock>
+    <inline>
+      <comment value="Fallback to Magento standard invoice layout." line="59"/>
+    </inline>
   </method>
   <method name="getPdf" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
     <docblock>

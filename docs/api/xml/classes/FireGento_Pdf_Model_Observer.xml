@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer" abstract="false" final="false" start="34" end="180">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Observer.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" size="5686" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="88b49faa93a9f1438182b50f71fceaeb8b3c4963"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer" abstract="false" final="false" start="34" end="180">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Observer.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" size="5686" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="88b49faa93a9f1438182b50f71fceaeb8b3c4963"/>
   <docblock>
     <description compact="FireGento Pdf observer."/>
     <category value="FireGento"/>

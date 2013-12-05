@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Items_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Bundle" abstract="false" final="false" start="34" end="209">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Bundle.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Bundle.php" size="7347" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="4cb7eff8aea64cbbe5b8afaa3d9df7fddeb9fcab"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Items_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Bundle" abstract="false" final="false" start="34" end="209">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Bundle.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Bundle.php" size="7347" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="4cb7eff8aea64cbbe5b8afaa3d9df7fddeb9fcab"/>
   <docblock>
     <description compact="Bundle item model rewrite."/>
     <category value="FireGento"/>
@@ -20,6 +20,13 @@
         <type full="void" namespace="" name="void"/>
       </return>
     </docblock>
-    <parameter name="position" byreference="false" type="integer" default=""/>
+    <parameter name="position" byreference="false" type="integer" default="1"/>
+    <inline>
+      <comment value="draw SKUs" line="95"/>
+      <comment value="draw Position Number" line="102"/>
+      <comment value="in case Product name is longer than 80 chars - it is written in a few lines" line="117"/>
+      <comment value="draw prices" line="131"/>
+      <comment value="custom options" line="167"/>
+    </inline>
   </method>
 </class>

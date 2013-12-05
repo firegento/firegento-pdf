@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Helper_Data" namespace="" name="FireGento_Pdf_Helper_Data" abstract="false" final="false" start="34" end="112">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="3964" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="f7497890a5c416fcd8c1c5e9535b6c923e44d0a5"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Helper_Data" namespace="" name="FireGento_Pdf_Helper_Data" abstract="false" final="false" start="34" end="147">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="5375" time="2013-12-05T15:01:08+01:00" unixtime="1386252068" sha1="028489b7cede5c31d24861976f3ff23a901600b6"/>
   <docblock>
     <description compact="Dummy data helper for translation issues."/>
     <category value="FireGento"/>
@@ -12,7 +12,11 @@
     <since value="0.1.0"/>
   </docblock>
   <extends full="Mage_Core_Helper_Abstract" namespace="" name="Mage_Core_Helper_Abstract"/>
-  <method name="putOrderId" start="44" end="78" abstract="false" final="false" static="false" visibility="public">
+  <constant name="XML_PATH_FIREGENTO_PDF_LOGO_POSITION" value="'sales_pdf/firegento_pdf/logo_position'"/>
+  <constant name="XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/invoice/show_customer_number'"/>
+  <constant name="XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/shipment/show_customer_number'"/>
+  <constant name="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/creditmemo/show_customer_number'"/>
+  <method name="putOrderId" start="49" end="83" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return the order id or false if order id should not be displayed on document."/>
       <param description="order to get id from" type="object" variable="$order">
@@ -24,9 +28,31 @@
     <parameter name="order" byreference="false" type="object">
       <type full="\\Mage_Sales_Model_Order" namespace="\" name="Mage_Sales_Model_Order"/>
     </parameter>
-    <parameter name="mode" byreference="false" type="string" default=""/>
+    <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
   </method>
-  <method name="getScaledImageSize" start="89" end="111" abstract="false" final="false" static="false" visibility="public">
+  <method name="isLogoFullWidth" start="90" end="94" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact=""/>
+      <param type="mixed" variable="$store"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="store" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="showCustomerNumber" start="102" end="113" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact=""/>
+      <param type="string" variable="$mode"/>
+      <param type="mixed" variable="$store"/>
+      <return type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
+    <parameter name="store" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getScaledImageSize" start="124" end="146" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return scaled image sizes based on an path to an image file."/>
       <param description="Url to image file." type="string" variable="$image"/>
@@ -37,5 +63,10 @@
     <parameter name="image" byreference="false" type="{unknown}"/>
     <parameter name="maxWidth" byreference="false" type="{unknown}"/>
     <parameter name="maxHeight" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Calculate max variance to match dimensions." line="129"/>
+      <comment value="Calculate scale factor to match dimensions." line="133"/>
+      <comment value="Calculate new dimensions." line="140"/>
+    </inline>
   </method>
 </class>

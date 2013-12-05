@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Items_Default" namespace="" name="FireGento_Pdf_Model_Items_Default" abstract="false" final="false" start="34" end="187">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Default.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Default.php" size="6382" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="f913586c371effea715164acc3fccb1794eaa986"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Items_Default" namespace="" name="FireGento_Pdf_Model_Items_Default" abstract="false" final="false" start="34" end="187">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Default.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Default.php" size="6382" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="f913586c371effea715164acc3fccb1794eaa986"/>
   <docblock>
     <description compact="Default item model rewrite."/>
     <category value="FireGento"/>
@@ -20,6 +20,22 @@
         <type full="void" namespace="" name="void"/>
       </return>
     </docblock>
-    <parameter name="position" byreference="false" type="integer" default=""/>
+    <parameter name="position" byreference="false" type="integer" default="1"/>
+    <inline>
+      <comment value="draw Position Number" line="53"/>
+      <comment value="draw SKU" line="63"/>
+      <comment value="draw Product name" line="70"/>
+      <comment value="append option value" line="81"/>
+      <comment value="prepare qty" line="94"/>
+      <comment value="prepare price" line="102"/>
+      <comment value="prepare price_incl_tax" line="110"/>
+      <comment value="prepare tax" line="118"/>
+      <comment value="prepare tax_rate" line="126"/>
+      <comment value="prepare subtotal" line="134"/>
+      <comment value="prepare subtotal_incl_tax" line="142"/>
+      <comment value="draw columns in specified order" line="150"/>
+      <comment value="draw starting from right" line="152"/>
+      <comment value="print discount" line="167"/>
+    </inline>
   </method>
 </class>

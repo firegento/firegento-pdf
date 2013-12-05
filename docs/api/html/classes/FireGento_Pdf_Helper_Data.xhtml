@@ -1,91 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "html" "">
-<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pdxf="http://xml.phpdox.net/functions" lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <title>FireGento_Pdf - FireGento_Pdf_Helper_Data - API Documentation</title>
-    <link href="../css/normalize.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="../css/styles.css" rel="stylesheet" type="text/css" media="all"/>
+    <title>phpDox - FireGento_Pdf_Helper_Data</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   </head>
   <body>
-    <div class="wrapper clearfix">
-      <div class="topbar clearfix">
-        <h1>
-          <a class="brand" href="../index.xhtml">FireGento_Pdf - API Documentation</a>
-        </h1>
-        <ul class="nav">
-          <li class="active">
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../reports.xhtml">Reports</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
             <a href="../index.xhtml">Overview</a>
           </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">FireGento_Pdf_Helper_Data</li>
         </ul>
       </div>
-      <div class="navigation">
-        <h3>Methods</h3>
+      <nav class="box">
         <ul>
           <li>
-            <a href="#getScaledImageSize">getScaledImageSize</a>
+            <a href="#introduction">Introduction</a>
           </li>
           <li>
-            <a href="#putOrderId">putOrderId</a>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
           </li>
         </ul>
-      </div>
-      <div class="content">
-        <h2><span style="font-size:60%">\</span>FireGento_Pdf_Helper_Data</h2>
-        <div class="file-notice">
-          <p>Dummy data helper for translation issues.</p>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>FireGento_Pdf_Helper_Data</h1>
+        <h4>Dummy data helper for translation issues.</h4>
+        <p/>
+        <ul>
+          <li>Author: FireGento Team &lt;team@firegento.com&gt;</li>
+          <li>Copyright: 2013 FireGento Team (http://www.firegento.com)</li>
+          <li>License: http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class FireGento_Pdf_Helper_Data
+                extends <a title="Mage_Core_Helper_Abstract" href="../classes/Mage_Core_Helper_Abstract.xhtml">Mage_Core_Helper_Abstract</a>
+            {<br/><ul class="none"><li>// constants</li><li>const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';</li><li>const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';</li></ul><ul class="none"><li>// methods</li><li>public mixed <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId</a>()
+                    </li><li>public bool <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/isLogoFullWidth.xhtml">isLogoFullWidth</a>()
+                    </li><li>public bool <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerNumber.xhtml">showCustomerNumber</a>()
+                    </li><li>public array <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getScaledImageSize.xhtml">getScaledImageSize</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/Mage_Core_Helper_Abstract.xhtml">Mage_Core_Helper_Abstract</a>
+            </li>
+          </ul>
         </div>
-        <ul class="fileinfos">
-          <li><b>Author: </b>FireGento Team &lt;team@firegento.com&gt;</li>
-          <li><b>Copyright: </b>2013 FireGento Team (http://www.firegento.com)</li>
-          <li><b>License: </b>http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</li>
-        </ul>
-        <h3>Methods</h3>
-        <ul class="varlist">
-          <li>
-            <a name="getScaledImageSize"/>
-            <h4><span class="label public">public</span>getScaledImageSize<span style="font-size:90%;">( <span class="param-type">string</span><strong> $image</strong>, <span class="param-type">int</span><strong> $maxWidth</strong>, <span class="param-type">int</span><strong> $maxHeight</strong> )</span></h4>
-            <p style="font-size:110%; padding-top:5px;">
-              <li>Return scaled image sizes based on an path to an image file.</li>
-            </p>
-            <ul>
-              <h4 class="param">Parameters:</h4>
-              <ul class="param">
-                <li><code>$image</code> - Url to image file.</li>
-                <li><code>$maxWidth</code> - max width the image can have</li>
-                <li><code>$maxHeight</code> - max height the image can have</li>
-              </ul>
-            </ul>
-            <ul>
-              <h4 class="return">Returns:</h4>
-              <ul class="return">
-                <li>with 2 elements - width and height.</li>
-              </ul>
-            </ul>
-          </li>
-          <li>
-            <a name="putOrderId"/>
-            <h4><span class="label public">public</span>putOrderId<span style="font-size:90%;">( <span class="param-type"><span title="\\Mage_Sales_Model_Order">Mage_Sales_Model_Order</span></span><strong> $order</strong>, <span class="param-type">string</span><strong> $mode</strong> )</span></h4>
-            <p style="font-size:110%; padding-top:5px;">
-              <li>Return the order id or false if order id should not be displayed on document.</li>
-            </p>
-            <ul>
-              <h4 class="param">Parameters:</h4>
-              <ul class="param">
-                <li><code>$order</code> - order to get id from</li>
-                <li><code>$mode</code> - differ between creditmemo, invoice, etc.</li>
-              </ul>
-            </ul>
-            <ul>
-              <h4 class="return">Returns:</h4>
-              <ul class="return">
-                <li/>
-              </ul>
-            </ul>
-          </li>
-        </ul>
-        <div class="footer">Generated using phpDox 0.5 - Copyright (C) 2010 - 2013 by Arne Blankerts</div>
-      </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="XML_PATH_FIREGENTO_PDF_LOGO_POSITION">XML_PATH_FIREGENTO_PDF_LOGO_POSITION</td>
+              <td>'sales_pdf/firegento_pdf/logo_position'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER">XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER</td>
+              <td>'sales_pdf/invoice/show_customer_number'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER">XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER</td>
+              <td>'sales_pdf/shipment/show_customer_number'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER">XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER</td>
+              <td>'sales_pdf/creditmemo/show_customer_number'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="getScaledImageSize"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getScaledImageSize.xhtml">getScaledImageSize()</a>
+                — Return scaled image sizes based on an path to an image file.</li>
+            <li id="isLogoFullWidth">
+              <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/isLogoFullWidth.xhtml">isLogoFullWidth()</a>
+            </li>
+            <li id="putOrderId"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId()</a>
+                — Return the order id or false if order id should not be displayed on document.</li>
+            <li id="showCustomerNumber">
+              <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerNumber.xhtml">showCustomerNumber()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="" href="../classes/.xhtml"/></h3>
+        </div>
+      </section>
     </div>
+    <footer>
+      <span/>
+    </footer>
   </body>
 </html>

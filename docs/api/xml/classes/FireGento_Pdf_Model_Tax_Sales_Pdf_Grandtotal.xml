@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal" namespace="" name="FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal" abstract="false" final="false" start="32" end="100">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Tax/Sales/Pdf" file="Grandtotal.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Tax/Sales/Pdf/Grandtotal.php" size="3727" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="90d1d5a8289bd2c521d60886e95d639521980e06"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal" namespace="" name="FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal" abstract="false" final="false" start="32" end="100">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Tax/Sales/Pdf" file="Grandtotal.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Tax/Sales/Pdf/Grandtotal.php" size="3727" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="90d1d5a8289bd2c521d60886e95d639521980e06"/>
   <docblock>
     <description compact="Shipment bundle item model."/>
     <category value="FireGento"/>
@@ -18,5 +18,11 @@
       <description compact="Check if tax amount should be included to grandtotals block array(  $index =&gt; array(      'amount'   =&gt; $amount,      'label'    =&gt; $label,      'font_size'=&gt; $font_size  ) )"/>
       <return type="array"/>
     </docblock>
+    <inline>
+      <comment value="if display_sales_full_summary = 1" line="70"/>
+      <comment xmlns="http://xml.phpdox.net/src#" value="display each tax group" line="71"/>
+      <comment xmlns="http://xml.phpdox.net/src#" value="if no_sum_on_details is = 1 display tax total additionally" line="72"/>
+      <comment xmlns="http://xml.phpdox.net/src#" value="else display only tax total" line="73"/>
+    </inline>
   </method>
 </class>

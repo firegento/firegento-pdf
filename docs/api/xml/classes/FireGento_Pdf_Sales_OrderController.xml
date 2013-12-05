@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Sales_OrderController" namespace="" name="FireGento_Pdf_Sales_OrderController" abstract="false" final="false" start="36" end="85">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales" file="OrderController.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales/OrderController.php" size="3094" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="f8575000d3521cf1c19163bc5b05ed267175322c"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Sales_OrderController" namespace="" name="FireGento_Pdf_Sales_OrderController" abstract="false" final="false" start="36" end="85">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales" file="OrderController.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales/OrderController.php" size="3094" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="f8575000d3521cf1c19163bc5b05ed267175322c"/>
   <docblock>
     <description compact="Sales orders controller"/>
     <category value="FireGento"/>
@@ -19,5 +19,10 @@
         <type full="void" namespace="" name="void"/>
       </return>
     </docblock>
+    <inline>
+      <comment value="Create a pdf file from all invoices of requested order." line="56"/>
+      <comment value="Store current area and set to adminhtml for invoice generation." line="66"/>
+      <comment value="Restore area." line="74"/>
+    </inline>
   </method>
 </class>

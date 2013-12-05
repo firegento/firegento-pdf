@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" abstract="false" final="false" start="34" end="74">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment" file="Engine.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php" size="2575" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="2f839a6e99672d5b2c91d892a09fafdd2681b2ba"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" abstract="false" final="false" start="34" end="74">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment" file="Engine.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php" size="2575" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="2f839a6e99672d5b2c91d892a09fafdd2681b2ba"/>
   <docblock>
     <description compact="Pdf creation engine source model."/>
     <category value="FireGento"/>
@@ -21,5 +21,9 @@
       <description compact="Return array of possible engines."/>
       <return type="array"/>
     </docblock>
+    <inline>
+      <comment value="load default engines shipped with Mage_Sales and FireGento_Pdf" line="49"/>
+      <comment value="load additional engines provided by third party extensions" line="55"/>
+    </inline>
   </method>
 </class>

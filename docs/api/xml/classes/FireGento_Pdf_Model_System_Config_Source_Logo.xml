@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.de/src#" full="FireGento_Pdf_Model_System_Config_Source_Logo" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Logo" abstract="false" final="false" start="34" end="57">
-  <file path="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Logo.php" realpath="/Users/fabian/__htdocs/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php" size="1822" time="2013-10-26T16:03:03+02:00" unixtime="1382796183" sha1="1de77a6c7aeb2998f15dbb703b96e87e14723342"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_System_Config_Source_Logo" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Logo" abstract="false" final="false" start="34" end="63">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Logo.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php" size="2036" time="2013-12-05T14:39:15+01:00" unixtime="1386250755" sha1="7432503ca9ecc54479534495f7df6b3617102f19"/>
   <docblock>
     <description compact="Logo position source model."/>
     <category value="FireGento"/>
@@ -11,7 +11,11 @@
     <version value="$Id:$"/>
     <since value="0.1.0"/>
   </docblock>
-  <method name="toOptionArray" start="41" end="56" abstract="false" final="false" static="false" visibility="public">
+  <constant name="LEFT" value="'left'"/>
+  <constant name="CENTER" value="'center'"/>
+  <constant name="RIGHT" value="'right'"/>
+  <constant name="FULL_WIDTH" value="'full_width'"/>
+  <method name="toOptionArray" start="46" end="62" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return array of possible positions."/>
       <return type="array"/>
