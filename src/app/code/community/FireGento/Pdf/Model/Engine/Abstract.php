@@ -361,36 +361,29 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         }
 
         // Customer Number
-        $page->drawText(
-            Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $labelRightOffset),
-            $this->y, $this->encoding
-        );
-        $numberOfLines++;
+        if($this->_showCustomerNumber($order->getStore())) {
+            $page->drawText(
+                Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
+            $numberOfLines++;
 
-        if ($order->getCustomerId() != '') {
+            if ($order->getCustomerId() != '') {
 
-            $prefix = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
+                $prefix = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
 
-            if (!empty($prefix)) {
-                $customerid = $prefix . $order->getCustomerId();
+                if (!empty($prefix)) {
+                    $customerid = $prefix . $order->getCustomerId();
+                } else {
+                    $customerid = $order->getCustomerId();
+                }
+
+                $page->drawText($customerid, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
+                $this->Ln();
+                $numberOfLines++;
             } else {
-                $customerid = $order->getCustomerId();
+                $page->drawText('-', ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize('-', $font, 10)), $this->y, $this->encoding);
+                $this->Ln();
+                $numberOfLines++;
             }
-
-            $page->drawText(
-                $customerid, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize(
-                        $customerid, $font, 10
-                    )), $this->y, $this->encoding
-            );
-            $this->Ln();
-            $numberOfLines++;
-        } else {
-            $page->drawText(
-                '-', ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize('-', $font, 10)),
-                $this->y, $this->encoding
-            );
-            $this->Ln();
-            $numberOfLines++;
         }
 
         // Customer IP
@@ -490,6 +483,16 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     protected function _putOrderId($order)
     {
         return Mage::helper('firegento_pdf')->putOrderId($order, $this->mode);
+    }
+
+    /**
+     * @param Mage_Core_Model_Store $store
+     *
+     * @return bool
+     */
+    protected function _showCustomerNumber(Mage_Core_Model_Store $store)
+    {
+        return Mage::helper('firegento_pdf')->showCustomerNumber($this->mode, $store);
     }
 
     /**
