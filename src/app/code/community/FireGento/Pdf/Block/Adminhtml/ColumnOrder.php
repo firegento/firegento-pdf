@@ -73,13 +73,11 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
                 });
                 validateSortableWidth = function () {
                     var newWidth=0;
-                    console.log("Calculation columns width");
                     $A($("' . $element->getHtmlId() . '_list").children).each(function(item){
                         var current = $(item).attributes["data-column"].value;
                         if ($(item.attributes["data-width"])) {
                             newWidth += parseInt($(item).attributes["data-width"].value);
-                        } elseif ("disabled" == current) {
-                            console.log(newWidth);
+                        } else if ("disabled" == current) {
                             if (240 < newWidth) {
                                 $("' . $element->getHtmlId() . '_warning").innerHTML = "'
                                 . $this->__('Caution: Your columns may overlap!') . '";
