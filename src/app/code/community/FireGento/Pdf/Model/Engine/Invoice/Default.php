@@ -58,9 +58,6 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
 
-        $style = new Zend_Pdf_Style();
-        $this->_setFontBold($style, 10);
-
         // pagecounter is 0 at the beginning, because it is incremented in newPage()
         $this->pagecounter = 0;
 

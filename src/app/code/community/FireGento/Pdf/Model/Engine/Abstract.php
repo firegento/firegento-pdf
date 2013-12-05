@@ -47,11 +47,6 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     protected $_marginTop = 0;
 
     /**
-     * @var int position inside of the pdf
-     */
-    protected $_y;
-
-    /**
      * constructor to init settings
      */
     public function __construct()
@@ -177,7 +172,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @param  string $mode set mode to differ between creditmemo, invoice, etc.
      *
-     * @return FireGento_Pdf_Model_Abstract
+     * @return FireGento_Pdf_Model_Engine_Abstract
      */
     public function setMode($mode)
     {
@@ -377,8 +372,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     /**
      * Insert billing address
      *
-     * @param  object $page  Current page object of Zend_Pdf
-     * @param  object $order Order object
+     * @param  Zend_Pdf_Page          $page  Current page object of Zend_Pdf
+     * @param  Mage_Sales_Model_Order $order Order object
      *
      * @return void
      */
@@ -395,9 +390,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     /**
      * Insert Header
      *
-     * @param  Zend_Pdf_Page $page     Current page object of Zend_Pdf
-     * @param  object        $order    Order object
-     * @param  object        $document Document object
+     * @param  Zend_Pdf_Page          $page     Current page object of Zend_Pdf
+     * @param  Mage_Sales_Model_Order $order    Order object
+     * @param  object                 $document Document object
      *
      * @return void
      */

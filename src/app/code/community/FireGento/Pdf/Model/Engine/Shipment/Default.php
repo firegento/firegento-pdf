@@ -58,9 +58,6 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
 
-        $style = new Zend_Pdf_Style();
-        $this->_setFontBold($style, 10);
-
         // pagecounter is 0 at the beginning, because it is incremented in newPage()
         $this->pagecounter = 0;
 
@@ -78,7 +75,7 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
             $this->_setFontRegular($page, 9);
             $this->insertTableHeader($page);
 
-            $this->_y -= 20;
+            $this->y -= 20;
 
             $position = 0;
 
@@ -87,9 +84,9 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
                     continue;
                 }
 
-                if ($this->_y < 50
+                if ($this->y < 50
                     || (Mage::getStoreConfig('sales_pdf/firegento_pdf/show_footer') == 1
-                        && $this->_y < 100)
+                        && $this->y < 100)
                 ) {
                     $page = $this->newPage(array());
                 }
@@ -120,29 +117,29 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
         $page->setFillColor($this->colors['grey1']);
         $page->setLineColor($this->colors['grey1']);
         $page->setLineWidth(1);
-        $page->drawRectangle($this->margin['left'], $this->_y, $this->margin['right'] - 10, $this->_y - 15);
+        $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
 
         $page->setFillColor($this->colors['black']);
         $this->_setFontRegular($page, 9);
 
-        $this->_y -= 11;
+        $this->y -= 11;
         $page->drawText(
             Mage::helper('firegento_pdf')->__('No.'),
             $this->margin['left'],
-            $this->_y,
+            $this->y,
             $this->encoding
         );
         $page->drawText(
             Mage::helper('firegento_pdf')->__('Description'),
             $this->margin['left'] + 105,
-            $this->_y,
+            $this->y,
             $this->encoding
         );
 
         $page->drawText(
             Mage::helper('firegento_pdf')->__('Qty'),
             $this->margin['left'] + 450,
-            $this->_y,
+            $this->y,
             $this->encoding
         );
     }
@@ -160,7 +157,7 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
         $billing = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
 
         foreach ($billing as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->_y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
             $this->Ln(12);
         }
     }
