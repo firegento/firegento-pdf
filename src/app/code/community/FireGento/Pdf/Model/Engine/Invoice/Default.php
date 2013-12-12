@@ -66,9 +66,10 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
                 Mage::app()->getLocale()->emulate($invoice->getStoreId());
                 Mage::app()->setCurrentStore($invoice->getStoreId());
             }
-            $page = $this->newPage();
-
             $order = $invoice->getOrder();
+            $this->setOrder($order);
+
+            $page = $this->newPage();
 
             $this->insertAddressesAndHeader($page, $invoice, $order);
 

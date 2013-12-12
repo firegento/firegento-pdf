@@ -66,9 +66,10 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 Mage::app()->getLocale()->emulate($creditmemo->getStoreId());
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
             }
-            $page = $this->newPage();
-
             $order = $creditmemo->getOrder();
+            $this->setOrder($order);
+
+            $page = $this->newPage(array());
 
             $this->insertAddressesAndHeader($page, $creditmemo, $order);
 
