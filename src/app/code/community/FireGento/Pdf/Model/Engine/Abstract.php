@@ -549,6 +549,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         // Shipping method.
         $putShippingMethod = ($mode == 'invoice'
             && Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
+            == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER
+            || $mode == 'shipment'
+            && Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
         if ($putShippingMethod) {
             $page->drawText(

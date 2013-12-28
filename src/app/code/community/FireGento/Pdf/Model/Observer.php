@@ -130,7 +130,12 @@ class FireGento_Pdf_Model_Observer
      */
     public function addShippingMethod(Varien_Event_Observer $observer)
     {
-        if (Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
+        $invoice = $observer->getInvoice();
+        $shipment = $observer->getShipment();
+        if (empty($invoice) && empty($shipment)
+            || !empty($invoice) && Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
+            != FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_NOTE
+            || !empty($shipment) && Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
             != FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_NOTE
         ) {
             return $this;
