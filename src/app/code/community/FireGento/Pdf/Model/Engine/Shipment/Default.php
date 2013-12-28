@@ -66,9 +66,10 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
                 Mage::app()->getLocale()->emulate($shipment->getStoreId());
                 Mage::app()->setCurrentStore($shipment->getStoreId());
             }
-            $page = $this->newPage();
-
             $order = $shipment->getOrder();
+            $this->setOrder($order);
+
+            $page = $this->newPage(array());
 
             $this->insertAddressesAndHeader($page, $shipment, $order);
 

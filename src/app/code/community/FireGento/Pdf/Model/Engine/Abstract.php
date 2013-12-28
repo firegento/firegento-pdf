@@ -614,6 +614,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
         $this->_addFooter($page, Mage::app()->getStore());
 
+        // provide the possibility to add random stuff to the page
+        Mage::dispatchEvent(
+            'firegento_pdf_' . $this->getMode() . '_edit_page',
+            array('page' => $page, 'order' => $this->getOrder())
+        );
+
         $this->y = 800;
         $this->_setFontRegular($page, 9);
 
