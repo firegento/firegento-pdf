@@ -109,6 +109,24 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
     }
 
     /**
+     * Inserts the customer's shipping address.
+     *
+     * @param  Zend_Pdf_Page          $page  Current page object of Zend_Pdf
+     * @param  Mage_Sales_Model_Order $order Order object
+     *
+     * @return void
+     */
+    protected function _insertCustomerAddress(&$page, $order)
+    {
+        $this->_setFontRegular($page, 9);
+        $shipping = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
+        foreach ($shipping as $line) {
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
+            $this->Ln(12);
+        }
+    }
+
+    /**
      * insert the table header of the shipment
      *
      * @param Zend_Pdf_Page $page page to write on

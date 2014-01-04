@@ -352,7 +352,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
         // Add billing address
         $this->y = 692 - $this->_marginTop;
-        $this->insertBillingAddress($page, $order);
+        $this->_insertCustomerAddress($page, $order);
 
         // Add sender address
         $this->y = 705 - $this->_marginTop;
@@ -370,14 +370,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     }
 
     /**
-     * Insert billing address
+     * Inserts the customer address. The default address is the billing address.
      *
      * @param  Zend_Pdf_Page          $page  Current page object of Zend_Pdf
      * @param  Mage_Sales_Model_Order $order Order object
      *
      * @return void
      */
-    protected function insertBillingAddress(&$page, $order)
+    protected function _insertCustomerAddress(&$page, $order)
     {
         $this->_setFontRegular($page, 9);
         $billing = $this->_formatAddress($order->getBillingAddress()->format('pdf'));
