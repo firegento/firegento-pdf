@@ -57,6 +57,14 @@
                     </firegento_pdf>
                 </observers>
             </firegento_pdf_shipment_insert_note>
+            <firegento_pdf_shipment_edit_page>
+                <observers>
+                    <firegento_pdf>
+                        <class>firegento_pdf/observer</class>
+                        <method>addBarcode</method>
+                    </firegento_pdf>
+                </observers>
+            </firegento_pdf_shipment_edit_page>
         </events>
         <pdf>
             <!-- fix totals order -->
@@ -117,6 +125,7 @@
                 <show_customer_number>1</show_customer_number>
                 <shipping_method_position/>
                 <note/>
+                <order_id_as_barcode>0</order_id_as_barcode>
             </shipment>
             <creditmemo>
                 <engine />

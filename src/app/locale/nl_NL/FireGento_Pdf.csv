@@ -84,3 +84,5 @@
 "Show Customer Number","Show Customer Number"
 "Full width","Full width"
 "Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.","Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing."
+"Show Order ID as Barcode","Show Order ID as Barcode"
+"Prints the order ID as a barcode on the right hand side.","Prints the order ID as a barcode on the right hand side."

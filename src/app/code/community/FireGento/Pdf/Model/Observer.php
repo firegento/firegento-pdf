@@ -182,4 +182,41 @@ class FireGento_Pdf_Model_Observer
         $result->setNotes($notes);
         return $this;
     }
+
+    /**
+     * Adds a barcode representing the order number to the shipment if activated.
+     *
+     * @param Varien_Event_Observer $observer
+     *
+     * @return $this
+     */
+    public function addBarcode(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/order_id_as_barcode')) {
+            return $this;
+        }
+        $page = $observer->getPage();
+        $order = $observer->getOrder();
+
+        $barcodeConfig = array(
+            'drawText' => false,
+            'orientation' => 90,
+            'text' => $order->getIncrementId()
+        );
+        $rendererConfig = array(
+            'verticalPosition' => 'middle',
+            'moduleSize' => 0.9
+        );
+        // create dummy Zend_Pdf object, which just stores the current page, so that we can pass it in
+        // Zend_Barcode_Renderer_Pdf->setResource()
+        $pdf = new Zend_Pdf();
+        $pdf->pages[] = $page;
+        /** @var $renderer Zend_Barcode_Renderer_Pdf */
+        $renderer = Zend_Barcode::factory('code128', 'pdf', $barcodeConfig, $rendererConfig)->setResource($pdf, 0);
+        // calculate left offset so that barcode is printed on the right with a little margin
+        $leftOffset = $page->getWidth() - $renderer->getBarcode()->getWidth(true) * $renderer->getModuleSize() - 10;
+        $renderer->setLeftOffset($leftOffset);
+        $renderer->draw();
+        return $this;
+    }
 }

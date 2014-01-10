@@ -84,3 +84,5 @@
 "Show Customer Number","Kundennummer andrucken"
 "Full width","volle Breite"
 "Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.","""volle Breite"" bedeutet, dass das Logo über die komplette Seite von oben links bis zum rechten Rand gezogen wird. Es verbleibt kein Druckrand."
+"Show Order ID as Barcode","Bestellnummer als Barcode anzeigen"
+"Prints the order ID as a barcode on the right hand side.","Zeigt die Bestellnummer als Barcode auf der rechten Seite an."
