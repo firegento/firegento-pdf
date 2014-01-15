@@ -738,7 +738,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
             if ($total->canDisplay()) {
                 $total->setFontSize(10);
-                foreach ($total->getTotalsForDisplay() as $totalData) {
+                // fix Magento 1.8 bug, so that taxes for shipping do not appear twice
+                // see https://github.com/firegento/firegento-pdf/issues/106
+                $uniqueTotalsForDisplay = array_map('unserialize', array_unique(array_map('serialize', $total->getTotalsForDisplay())));
+                foreach ($uniqueTotalsForDisplay as $totalData) {
                     $lineBlock['lines'][] = array(
                         array(
                             'text'      => $totalData['label'],
