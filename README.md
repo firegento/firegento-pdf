@@ -4,9 +4,9 @@ FireGento PDF overwrites standard PDF layouts for invoices, shipments and credit
 
 Facts
 -----
-- version: 1.1.0
+- version: 1.2.0
 - extension key: FireGento_Pdf
-- [extension on Magento Connect](http://www.magentocommerce.com/magento-connect/pdf-9999.html)
+- [extension on Magento Connect](http://www.magentocommerce.com/magento-connect/firegento-pdf.html)
 - Magento Connect 2.0 extension key: http://connect20.magentocommerce.com/community/FireGento_Pdf
 - [extension on GitHub](https://github.com/firegento/firegento-pdf)
 - [direct download link](https://github.com/firegento/firegento-pdf/archive/master.zip)
@@ -54,4 +54,4 @@ License
 
 Copyright
 ---------
-(c) 2013 FireGento Team
+(c) 2013-2014 FireGento Team
