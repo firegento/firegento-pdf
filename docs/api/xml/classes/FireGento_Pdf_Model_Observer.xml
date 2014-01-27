@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer" abstract="false" final="false" start="34" end="180">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Observer.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" size="5686" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="88b49faa93a9f1438182b50f71fceaeb8b3c4963"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer" abstract="false" final="false" start="34" end="222">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Observer.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" size="7457" time="2014-01-27T14:37:03+00:00" unixtime="1390833423" sha1="993d20c6a66680e4a41be2a0b3c900da4afef2ab"/>
   <docblock>
     <description compact="FireGento Pdf observer."/>
     <category value="FireGento"/>
@@ -67,7 +67,7 @@
       <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
     </parameter>
   </method>
-  <method name="addShippingMethod" start="131" end="146" abstract="false" final="false" static="false" visibility="public">
+  <method name="addShippingMethod" start="131" end="151" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Add shipping method to invoice notes."/>
       <param description="observer object" type="object" variable="$observer">
@@ -81,7 +81,7 @@
       <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
     </parameter>
   </method>
-  <method name="addInvoiceComments" start="156" end="179" abstract="false" final="false" static="false" visibility="public">
+  <method name="addInvoiceComments" start="161" end="184" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Add the invoice comments"/>
       <param description="observer object" type="object" variable="$observer">
@@ -94,5 +94,24 @@
     <parameter name="observer" byreference="false" type="object">
       <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
     </parameter>
+  </method>
+  <method name="addBarcode" start="193" end="221" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds a barcode representing the order number to the shipment if activated."/>
+      <param type="object" variable="$observer">
+        <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
+      </param>
+      <return type="object">
+        <type full="$this" namespace="" name="$this"/>
+      </return>
+    </docblock>
+    <parameter name="observer" byreference="false" type="object">
+      <type full="\\Varien_Event_Observer" namespace="\" name="Varien_Event_Observer"/>
+    </parameter>
+    <inline>
+      <comment value="create dummy Zend_Pdf object, which just stores the current page, so that we can pass it in" line="210"/>
+      <comment value="Zend_Barcode_Renderer_Pdf-&gt;setResource()" line="211"/>
+      <comment value="calculate left offset so that barcode is printed on the right with a little margin" line="216"/>
+    </inline>
   </method>
 </class>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Engine_Invoice_Default" namespace="" name="FireGento_Pdf_Model_Engine_Invoice_Default" abstract="false" final="false" start="34" end="215">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Invoice" file="Default.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Invoice/Default.php" size="7066" time="2013-12-05T15:22:57+01:00" unixtime="1386253377" sha1="aa785c4c688f2352e39846443ec8a19e5d809708"/>
+<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Engine_Invoice_Default" namespace="" name="FireGento_Pdf_Model_Engine_Invoice_Default" abstract="false" final="false" start="34" end="216">
+  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Invoice" file="Default.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Engine/Invoice/Default.php" size="7103" time="2014-01-27T14:37:03+00:00" unixtime="1390833423" sha1="83c8a28f4e68027df1bba89a9340c6e250591cfa"/>
   <docblock>
     <description compact="Default invoice rendering engine."/>
     <category value="FireGento"/>
@@ -17,7 +17,7 @@
       <description compact="constructor to set mode to invoice"/>
     </docblock>
   </constructor>
-  <method name="getPdf" start="53" end="112" abstract="false" final="false" static="false" visibility="public">
+  <method name="getPdf" start="53" end="113" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return PDF document"/>
       <param description="invoices to render pdfs for" type="array" variable="$invoices"/>
@@ -28,13 +28,13 @@
     <parameter name="invoices" byreference="false" type="array"/>
     <inline>
       <comment value="pagecounter is 0 at the beginning, because it is incremented in newPage()" line="61"/>
-      <comment value="add line after items" line="96"/>
-      <comment value="add totals" line="99"/>
-      <comment value="add note" line="102"/>
-      <comment value="Add footer" line="105"/>
+      <comment value="add line after items" line="97"/>
+      <comment value="add totals" line="100"/>
+      <comment value="add note" line="103"/>
+      <comment value="Add footer" line="106"/>
     </inline>
   </method>
-  <method name="insertTableHeader" start="121" end="188" abstract="false" final="false" static="false" visibility="protected">
+  <method name="insertTableHeader" start="122" end="189" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="Insert Table Header for Items"/>
       <param description="current page object of Zend_PDF" type="object" variable="$page">
@@ -46,11 +46,11 @@
     </docblock>
     <parameter name="page" byreference="true" type="{unknown}"/>
     <inline>
-      <comment value="draw price, tax, and subtotal in specified order" line="169"/>
-      <comment value="draw starting from right" line="171"/>
+      <comment value="draw price, tax, and subtotal in specified order" line="170"/>
+      <comment value="draw starting from right" line="172"/>
     </inline>
   </method>
-  <method name="_initRenderer" start="197" end="213" abstract="false" final="false" static="false" visibility="protected">
+  <method name="_initRenderer" start="198" end="214" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="Initialize renderer process"/>
       <param description="renderer type to be initialized" type="string" variable="$type"/>
@@ -219,9 +219,9 @@
         <comment value="make sure that item table does not overlap heading" line="366"/>
       </inline>
     </method>
-    <method name="insertBillingAddress" start="380" end="388" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_insertCustomerAddress" start="380" end="388" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
-        <description compact="Insert billing address"/>
+        <description compact="Inserts the customer address. The default address is the billing address."/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$page">
           <type full="Zend_Pdf_Page" namespace="" name="Zend_Pdf_Page"/>
         </param>
@@ -235,7 +235,7 @@
       <parameter name="page" byreference="true" type="{unknown}"/>
       <parameter name="order" byreference="false" type="{unknown}"/>
     </method>
-    <method name="insertHeader" start="399" end="576" abstract="false" final="false" static="false" visibility="protected">
+    <method name="insertHeader" start="399" end="579" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Insert Header"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$page">
@@ -261,7 +261,7 @@
         <comment value="Shipping method." line="549"/>
       </inline>
     </method>
-    <method name="_putOrderId" start="585" end="588" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_putOrderId" start="588" end="591" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Return the order id or false if order id should not be displayed on document."/>
         <param description="order to get id from" type="object" variable="$order">
@@ -273,7 +273,7 @@
       </docblock>
       <parameter name="order" byreference="false" type="{unknown}"/>
     </method>
-    <method name="_showCustomerNumber" start="595" end="598" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_showCustomerNumber" start="598" end="601" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact=""/>
         <param type="mixed" variable="$store"/>
@@ -283,7 +283,7 @@
       </docblock>
       <parameter name="store" byreference="false" type="{unknown}"/>
     </method>
-    <method name="newPage" start="607" end="621" abstract="false" final="false" static="false" visibility="public">
+    <method name="newPage" start="610" end="630" abstract="false" final="false" static="false" visibility="public">
       <docblock>
         <description compact="Generate new PDF page."/>
         <param description="Page settings" type="array" variable="$settings"/>
@@ -292,8 +292,11 @@
         </return>
       </docblock>
       <parameter name="settings" byreference="false" type="array"/>
+      <inline>
+        <comment value="provide the possibility to add random stuff to the page" line="620"/>
+      </inline>
     </method>
-    <method name="_drawItem" start="633" end="646" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_drawItem" start="642" end="655" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Draw"/>
         <param description="creditmemo/shipping/invoice to draw" type="object" variable="$item">
@@ -321,7 +324,7 @@
       </parameter>
       <parameter name="position" byreference="false" type="integer" default="1"/>
     </method>
-    <method name="insertTotals" start="656" end="752" abstract="false" final="false" static="false" visibility="protected">
+    <method name="insertTotals" start="665" end="764" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Insert Totals Block"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$page"/>
@@ -332,8 +335,12 @@
       </docblock>
       <parameter name="page" byreference="false" type="{unknown}"/>
       <parameter name="source" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="fix Magento 1.8 bug, so that taxes for shipping do not appear twice" line="741"/>
+        <comment value="see https://github.com/firegento/firegento-pdf/issues/106" line="742"/>
+      </inline>
     </method>
-    <method name="_insertNote" start="763" end="803" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_insertNote" start="775" end="815" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Insert Notes"/>
         <param description="Current Page Object of Zend_PDF" type="object" variable="$page">
@@ -353,13 +360,13 @@
       <parameter name="order" byreference="true" type="{unknown}"/>
       <parameter name="model" byreference="true" type="{unknown}"/>
       <inline>
-        <comment value="Get free text notes." line="778"/>
-        <comment value="Draw notes on PDF." line="785"/>
-        <comment value="prepare the text so that it fits to the paper" line="787"/>
-        <comment value="create a new page if necessary" line="789"/>
+        <comment value="Get free text notes." line="790"/>
+        <comment value="Draw notes on PDF." line="797"/>
+        <comment value="prepare the text so that it fits to the paper" line="799"/>
+        <comment value="create a new page if necessary" line="801"/>
       </inline>
     </method>
-    <method name="_addFooter" start="811" end="827" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_addFooter" start="823" end="839" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="draw footer on pdf"/>
         <param description="page to draw on" type="object" variable="$page">
@@ -370,12 +377,12 @@
       <parameter name="page" byreference="true" type="{unknown}"/>
       <parameter name="store" byreference="false" type="{unknown}" default="null"/>
       <inline>
-        <comment value="get the imprint of the store if a store is set" line="813"/>
-        <comment value="Add footer if GermanSetup is installed." line="818"/>
-        <comment value="Add page counter." line="823"/>
+        <comment value="get the imprint of the store if a store is set" line="825"/>
+        <comment value="Add footer if GermanSetup is installed." line="830"/>
+        <comment value="Add page counter." line="835"/>
       </inline>
     </method>
-    <method name="_insertFooter" start="836" end="870" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_insertFooter" start="848" end="882" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Insert footer"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$page">
@@ -387,7 +394,7 @@
       </docblock>
       <parameter name="page" byreference="true" type="{unknown}"/>
     </method>
-    <method name="_insertFooterBlock" start="884" end="912" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_insertFooterBlock" start="896" end="924" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Insert footer block"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$page">
@@ -407,12 +414,12 @@
       <parameter name="valadjust" byreference="false" type="integer" default="30"/>
       <parameter name="colwidth" byreference="false" type="{unknown}" default="null"/>
       <inline>
-        <comment value="draw the label" line="897"/>
-        <comment value="prepare the value: wrap it if necessary" line="899"/>
-        <comment value="calculate the maximum width for the value" line="903"/>
+        <comment value="draw the label" line="909"/>
+        <comment value="prepare the value: wrap it if necessary" line="911"/>
+        <comment value="calculate the maximum width for the value" line="915"/>
       </inline>
     </method>
-    <method name="_insertFooterAddress" start="922" end="954" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_insertFooterAddress" start="934" end="966" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Insert addess of store owner"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$page">
@@ -426,7 +433,7 @@
       <parameter name="page" byreference="true" type="{unknown}"/>
       <parameter name="store" byreference="false" type="{unknown}" default="null"/>
     </method>
-    <method name="_insertPageCounter" start="963" end="971" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_insertPageCounter" start="975" end="983" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Insert page counter"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$page">
@@ -438,7 +445,7 @@
       </docblock>
       <parameter name="page" byreference="true" type="{unknown}"/>
     </method>
-    <method name="getFontRegular" start="978" end="981" abstract="false" final="false" static="false" visibility="public">
+    <method name="getFontRegular" start="990" end="993" abstract="false" final="false" static="false" visibility="public">
       <docblock>
         <description compact="get stanard font"/>
         <return description="the regular font" type="object">
@@ -446,7 +453,7 @@
         </return>
       </docblock>
     </method>
-    <method name="_setFontRegular" start="991" end="996" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_setFontRegular" start="1003" end="1008" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Set default font"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$object">
@@ -462,7 +469,7 @@
       <parameter name="object" byreference="false" type="{unknown}"/>
       <parameter name="size" byreference="false" type="integer" default="10"/>
     </method>
-    <method name="getFontBold" start="1003" end="1006" abstract="false" final="false" static="false" visibility="public">
+    <method name="getFontBold" start="1015" end="1018" abstract="false" final="false" static="false" visibility="public">
       <docblock>
         <description compact="get default bold font"/>
         <return description="the bold font" type="object">
@@ -470,7 +477,7 @@
         </return>
       </docblock>
     </method>
-    <method name="_setFontBold" start="1016" end="1021" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_setFontBold" start="1028" end="1033" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Set bold font"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$object">
@@ -486,7 +493,7 @@
       <parameter name="object" byreference="false" type="{unknown}"/>
       <parameter name="size" byreference="false" type="integer" default="10"/>
     </method>
-    <method name="getFontItalic" start="1028" end="1031" abstract="false" final="false" static="false" visibility="public">
+    <method name="getFontItalic" start="1040" end="1043" abstract="false" final="false" static="false" visibility="public">
       <docblock>
         <description compact="get italic font"/>
         <return type="object">
@@ -494,7 +501,7 @@
         </return>
       </docblock>
     </method>
-    <method name="_setFontItalic" start="1041" end="1046" abstract="false" final="false" static="false" visibility="protected">
+    <method name="_setFontItalic" start="1053" end="1058" abstract="false" final="false" static="false" visibility="protected">
       <docblock>
         <description compact="Set italic font"/>
         <param description="Current page object of Zend_Pdf" type="object" variable="$object">
@@ -510,7 +517,7 @@
       <parameter name="object" byreference="false" type="{unknown}"/>
       <parameter name="size" byreference="false" type="integer" default="10"/>
     </method>
-    <method name="_prepareText" start="1059" end="1087" abstract="false" final="false" static="false" visibility="public">
+    <method name="_prepareText" start="1071" end="1099" abstract="false" final="false" static="false" visibility="public">
       <docblock>
         <description compact="Prepares the text so that it fits to the given page's width."/>
         <param description="the text which should be prepared" type="string" variable="$text"/>
@@ -530,9 +537,9 @@
       <parameter name="fontSize" byreference="false" type="{unknown}"/>
       <parameter name="width" byreference="false" type="{unknown}" default="null"/>
       <inline>
-        <comment value="calculate the page's width with respect to the margins" line="1066"/>
-        <comment value="do not add whitespace on first line" line="1073"/>
-        <comment value="append the last line" line="1084"/>
+        <comment value="calculate the page's width with respect to the margins" line="1078"/>
+        <comment value="do not add whitespace on first line" line="1085"/>
+        <comment value="append the last line" line="1096"/>
       </inline>
     </method>
   </parent>

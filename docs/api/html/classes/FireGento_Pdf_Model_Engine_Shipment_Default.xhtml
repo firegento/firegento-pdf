@@ -82,6 +82,7 @@
                              <a href="#members">$_marginTop</a>;
                         </li></ul><ul class="none"><li>// methods</li><li>public void <a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/__construct.xhtml">__construct</a>()
                     </li><li>public Zend_Pdf <a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/getPdf.xhtml">getPdf</a>()
+                    </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/_insertCustomerAddress.xhtml">_insertCustomerAddress</a>()
                     </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/insertTableHeader.xhtml">insertTableHeader</a>()
                     </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/insertShippingAddress.xhtml">insertShippingAddress</a>()
                     </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/_initRenderer.xhtml">_initRenderer</a>()
@@ -96,7 +97,7 @@
                         </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertLogoPositioned.xhtml">_insertLogoPositioned</a>()
                         </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertLogoFullWidth.xhtml">_insertLogoFullWidth</a>()
                         </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertAddressesAndHeader.xhtml">insertAddressesAndHeader</a>()
-                        </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertBillingAddress.xhtml">insertBillingAddress</a>()
+                        </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertCustomerAddress.xhtml">_insertCustomerAddress</a>()
                         </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertHeader.xhtml">insertHeader</a>()
                         </li><li>protected int|false <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_putOrderId.xhtml">_putOrderId</a>()
                         </li><li>protected bool <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_showCustomerNumber.xhtml">_showCustomerNumber</a>()
@@ -177,6 +178,8 @@
           <ul>
             <li id="_initRenderer"><a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/_initRenderer.xhtml">_initRenderer()</a>
                 — Initialize renderer process.</li>
+            <li id="_insertCustomerAddress"><a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/_insertCustomerAddress.xhtml">_insertCustomerAddress()</a>
+                — Inserts the customer's shipping address.</li>
             <li id="insertShippingAddress"><a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/insertShippingAddress.xhtml">insertShippingAddress()</a>
                 — insert address into pdf</li>
             <li id="insertTableHeader"><a title="FireGento_Pdf_Model_Engine_Shipment_Default" href="../classes/FireGento_Pdf_Model_Engine_Shipment_Default/insertTableHeader.xhtml">insertTableHeader()</a>
@@ -198,6 +201,8 @@
                 — draw footer on pdf</li>
             <li id="_drawItem"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_drawItem.xhtml">_drawItem()</a>
                 — Draw</li>
+            <li id="_insertCustomerAddress"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertCustomerAddress.xhtml">_insertCustomerAddress()</a>
+                — Inserts the customer address. The default address is the billing address.</li>
             <li id="_insertFooter"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertFooter.xhtml">_insertFooter()</a>
                 — Insert footer</li>
             <li id="_insertFooterAddress"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertFooterAddress.xhtml">_insertFooterAddress()</a>
@@ -231,8 +236,6 @@
             <li id="insertAddressesAndHeader">
               <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertAddressesAndHeader.xhtml">insertAddressesAndHeader()</a>
             </li>
-            <li id="insertBillingAddress"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertBillingAddress.xhtml">insertBillingAddress()</a>
-                — Insert billing address</li>
             <li id="insertHeader"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertHeader.xhtml">insertHeader()</a>
                 — Insert Header</li>
             <li id="insertLogo"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertLogo.xhtml">insertLogo()</a>
@@ -259,7 +262,6 @@
             <li id="setMode"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/setMode.xhtml">setMode()</a>
                 — Set pdf mode.</li>
           </ul>
-          <h3>Inherited from <a title="" href="../classes/.xhtml"/></h3>
         </div>
       </section>
     </div>
