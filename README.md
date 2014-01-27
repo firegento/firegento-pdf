@@ -50,7 +50,7 @@ FireGento team and all other [contributors](https://github.com/firegento/firegen
 
 License
 -------
-[OSL - Open Software Licence 3.0](http://opensource.org/licenses/osl-3.0.php)
+[GNU General Public License, version 3 (GPLv3)](http://opensource.org/licenses/gpl-3.0)
 
 Copyright
 ---------
