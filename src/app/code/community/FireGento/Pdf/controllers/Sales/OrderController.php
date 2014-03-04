@@ -22,6 +22,7 @@
  */
 
 require_once 'Mage/Sales/controllers/OrderController.php';
+
 /**
  * Sales orders controller
  *
@@ -35,41 +36,94 @@ require_once 'Mage/Sales/controllers/OrderController.php';
  */
 class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
 {
+    protected $types
+        = array(
+            'invoice', 'creditmemo', 'shipment'
+        );
+
     /**
      * Print PDF Invoice Action
+     *
+     * it changes the standard action with html output to pdf output
      *
      * @return void
      */
     public function printInvoiceAction()
     {
-        $invoiceId = (int) $this->getRequest()->getParam('invoice_id');
-        if ($invoiceId) {
-            $invoice = Mage::getModel('sales/order_invoice')->load($invoiceId);
-            $order = $invoice->getOrder();
+        $this->printDocument('invoice');
+    }
+
+    /**
+     * Print PDF Creditmemo action
+     *
+     * it changes the standard action with html output to pdf output
+     *
+     * @return void
+     */
+
+    public function printCreditmemoAction()
+    {
+        $this->printDocument('creditmemo');
+    }
+
+    /**
+     * Print PDF Shipment Action
+     *
+     * it changes the standard action with html output to pdf output
+     *
+     * @return void
+     */
+    public function printShipmentAction()
+    {
+        $this->printDocument('shipment');
+    }
+
+    /**
+     * @param $type string
+     */
+    public function printDocument($type)
+    {
+        if (!in_array($type, $this->types)) {
+            Mage::throwException('Type not found in type table.');
+        }
+        /* @var $order Mage_Sales_Model_Order */
+        $documentId = (int)$this->getRequest()->getParam($type . '_id');
+        $document = null;
+        if ($documentId) {
+            /* @var $document Mage_Sales_Model_Abstract */
+            $document = Mage::getModel('sales/order_' . $type);
+            $document->load($documentId);
+            $order = $document->getOrder();
         } else {
-            $orderId = (int) $this->getRequest()->getParam('order_id');
+            $orderId = (int)$this->getRequest()->getParam('order_id');
             $order = Mage::getModel('sales/order')->load($orderId);
         }
 
         if ($this->_canViewOrder($order)) {
             if (isset($orderId)) {
-                // Create a pdf file from all invoices of requested order.
-                $invoices = Mage::getResourceModel('sales/order_invoice_collection')
+                // Create a pdf file from all $type s of requested order.
+                /* @var $documentsCollection Mage_Sales_Model_Resource_Order_Collection_Abstract */
+                $documentsCollection = Mage::getResourceModel('sales/order_' . $type . '_collection');
+                $documentsCollection
                     ->addAttributeToSelect('*')
                     ->addAttributeToFilter('order_id', $orderId)
                     ->load();
             } else {
-                // Create a single invoice pdf.
-                $invoices = array($invoice);
+                // Create a single $type pdf.
+                $documentsCollection = array($document);
             }
 
-            // Store current area and set to adminhtml for invoice generation.
+            // Store current area and set to adminhtml for $type generation.
             $currentArea = Mage::getDesign()->getArea();
             Mage::getDesign()->setArea('adminhtml');
 
-            $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
-            $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
-                '.pdf', $pdf->render(), 'application/pdf');
+            /* @var $pdfGenerator Mage_Sales_Model_Order_Pdf_Abstract */
+            $pdfGenerator = Mage::getModel('sales/order_pdf_' . $type);
+            $pdf = $pdfGenerator->getPdf($documentsCollection);
+            $this->_prepareDownloadResponse(
+                $type . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
+                '.pdf', $pdf->render(), 'application/pdf'
+            );
 
             // Restore area.
             Mage::getDesign()->setArea($currentArea);
