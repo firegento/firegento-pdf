@@ -106,6 +106,13 @@
             </modules>
         </translate>
     </adminhtml>
+    <phpunit>
+        <suite>
+            <modules>
+                <FireGento_Pdf>1</FireGento_Pdf>
+            </modules>
+        </suite>
+    </phpunit>
     <default>
         <sales_pdf>
             <invoice>
