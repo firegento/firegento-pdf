@@ -65,7 +65,7 @@ class FireGento_Pdf_Model_Creditmemo
     /**
      * get pdf object
      *
-     * @param  array $creditmemos creditmemos to render
+     * @param  array|Varien_Data_Collection $creditmemos creditmemos to render
      *
      * @return Zend_Pdf
      */
