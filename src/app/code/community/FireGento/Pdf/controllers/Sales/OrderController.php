@@ -36,7 +36,7 @@ require_once 'Mage/Sales/controllers/OrderController.php';
  */
 class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
 {
-    protected $types
+    protected $_types
         = array(
             'invoice', 'creditmemo', 'shipment'
         );
@@ -79,11 +79,13 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
     }
 
     /**
-     * @param $type string
+     * Create invoice, creditmemo or shipment pdf
+     *
+     * @param string $type which document should be created? invoice, creditmemo or shipment
      */
     public function printDocument($type)
     {
-        if (!in_array($type, $this->types)) {
+        if (!in_array($type, $this->_types)) {
             Mage::throwException('Type not found in type table.');
         }
         /* @var $order Mage_Sales_Model_Order */
