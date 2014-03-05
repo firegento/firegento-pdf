@@ -20,6 +20,7 @@
  * @version   $Id:$
  * @since     0.1.0
  */
+
 /**
  * Abstract pdf model.
  *
@@ -320,7 +321,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
                 switch ($logoPosition) {
                     case 'center':
-                        $startLogoAt = $this->margin['left'] + (($this->margin['right'] - $this->margin['left']) / 2) - $width / 2;
+                        $startLogoAt = $this->margin['left'] +
+                            (($this->margin['right'] - $this->margin['left']) / 2) - $width / 2;
                         break;
                     case 'right':
                         $startLogoAt = $this->margin['right'] - $width;
@@ -341,12 +343,15 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     }
 
     /**
-     * @param Zend_Pdf_Page              $page
+     * @param Zend_Pdf_Page             $page
      * @param Mage_Sales_Model_Abstract $source
-     * @param Mage_Sales_Model_Order     $order
+     * @param Mage_Sales_Model_Order    $order
      */
-    protected function insertAddressesAndHeader(Zend_Pdf_Page $page, Mage_Sales_Model_Abstract $source, Mage_Sales_Model_Order $order)
-    {
+    protected function insertAddressesAndHeader(
+        Zend_Pdf_Page $page,
+        Mage_Sales_Model_Abstract $source,
+        Mage_Sales_Model_Order $order
+    ) {
         // Add logo
         $this->insertLogo($page, $source->getStore());
 
@@ -463,9 +468,11 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         }
 
         // Customer Number
-        if($this->_showCustomerNumber($order->getStore())) {
+        if ($this->_showCustomerNumber($order->getStore())) {
             $page->drawText(
-                Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $labelRightOffset), $this->y, $this->encoding);
+                Mage::helper('firegento_pdf')->__('Customer number:'), ($this->margin['right'] - $labelRightOffset),
+                $this->y, $this->encoding
+            );
             $numberOfLines++;
 
             if ($order->getCustomerId() != '') {
@@ -478,11 +485,19 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
                     $customerid = $order->getCustomerId();
                 }
 
-                $page->drawText($customerid, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize($customerid, $font, 10)), $this->y, $this->encoding);
+                $page->drawText(
+                    $customerid, ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize(
+                            $customerid, $font, 10
+                        )), $this->y, $this->encoding
+                );
                 $this->Ln();
                 $numberOfLines++;
             } else {
-                $page->drawText('-', ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize('-', $font, 10)), $this->y, $this->encoding);
+                $page->drawText(
+                    '-',
+                    ($this->margin['right'] - $valueRightOffset - $this->widthForStringUsingFontSize('-', $font, 10)),
+                    $this->y, $this->encoding
+                );
                 $this->Ln();
                 $numberOfLines++;
             }
@@ -690,11 +705,11 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
         array_push(
             $items['items'], array(
-                                  'row_invoiced'     => $order->getShippingInvoiced(),
-                                  'tax_inc_subtotal' => false,
-                                  'tax_percent'      => $shippingTaxRate,
-                                  'tax_amount'       => $shippingTaxAmount
-                             )
+                'row_invoiced'     => $order->getShippingInvoiced(),
+                'tax_inc_subtotal' => false,
+                'tax_percent'      => $shippingTaxRate,
+                'tax_amount'       => $shippingTaxAmount
+            )
         );
 
         foreach ($items['items'] as $item) {
@@ -740,7 +755,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
                 $total->setFontSize(10);
                 // fix Magento 1.8 bug, so that taxes for shipping do not appear twice
                 // see https://github.com/firegento/firegento-pdf/issues/106
-                $uniqueTotalsForDisplay = array_map('unserialize', array_unique(array_map('serialize', $total->getTotalsForDisplay())));
+                $uniqueTotalsForDisplay = array_map(
+                    'unserialize', array_unique(array_map('serialize', $total->getTotalsForDisplay()))
+                );
                 foreach ($uniqueTotalsForDisplay as $totalData) {
                     $lineBlock['lines'][] = array(
                         array(
@@ -943,7 +960,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         }
 
         if (array_key_exists('company_second', $this->_imprint)) {
-            foreach ($this->_prepareText($this->_imprint['company_second'], $page, $font, $fontSize, 90) as $companySecond) {
+            foreach (
+                $this->_prepareText($this->_imprint['company_second'], $page, $font, $fontSize, 90) as $companySecond
+            ) {
                 $address .= $companySecond . "\n";
             }
         }
