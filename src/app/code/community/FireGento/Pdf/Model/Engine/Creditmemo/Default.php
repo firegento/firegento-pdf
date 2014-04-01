@@ -203,6 +203,10 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
             'model'    => 'firegento_pdf/items_bundle',
             'renderer' => null
         );
+        $this->_renderers['downloadable'] = array(
+            'model'    => 'firegento_pdf/items_downloadable',
+            'renderer' => null
+        );
     }
 
 }
