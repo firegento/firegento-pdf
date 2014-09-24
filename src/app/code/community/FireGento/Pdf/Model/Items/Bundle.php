@@ -130,7 +130,12 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
             // draw prices
             if ($this->canShowPriceInfo($_item)) {
-                $price = $order->formatPriceTxt($_item->getPrice());
+                $item_price_column_order = explode(',', Mage::getStoreConfig('sales_pdf/invoice/item_price_column_order'));
+                 if (in_array("price_incl_tax",$item_price_column_order)) {
+                     $price = $order->formatPriceTxt($_item->getPriceInclTax());
+                 } else {
+                     $price = $order->formatPriceTxt($_item->getPrice());
+                 }
                 $line[] = array(
                     'text'      => $price,
                     'feed'      => $pdf->margin['right'] - 160,
@@ -152,7 +157,11 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                     'font_size' => $fontSize
                 );
 
-                $rowTotal = $order->formatPriceTxt($_item->getRowTotal());
+                if (in_array("subtotal_incl_tax",$item_price_column_order)) {
+                    $rowTotal = $order->formatPriceTxt($item->getRowTotalInclTax());
+                } else {
+                    $rowTotal = $order->formatPriceTxt($_item->getRowTotal());
+                }
                 $line[] = array(
                     'text'      => $rowTotal,
                     'feed'      => $pdf->margin['right'] - 10,
