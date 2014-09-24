@@ -237,16 +237,17 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </sender_address_bar>
-                        <show_footer translate="label">
+                        <show_footer translate="label comment">
                             <label>Show Footer</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment><![CDATA[Show Imprint. Compatible with <a href="http://www.magentocommerce.com/magento-connect/firegento-magesetup.html">MageSetup</a> or GermanSetup (not anymore maintained, replaced by MageSetup)]]></comment>
                             <sort_order>200</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_footer>
-                        <logo_position translate="label">
+                        <logo_position translate="label comment">
                             <label>Logo Position</label>
                             <frontend_type>select</frontend_type>
                             <source_model>firegento_pdf/system_config_source_logo</source_model>
@@ -256,6 +257,16 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
                         </logo_position>
+                        <logo_ratio translate="label">
+                            <label>Logo Ratio</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>validate-number-range number-range-1-100</frontend_class>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Resize or not the size of your logo in the header. Value possible from 1 (minimum size) to 100 (full size). Values in percent.]]></comment>
+                        </logo_ratio>
                     </fields>
                 </firegento_pdf>
             </groups>
