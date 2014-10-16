@@ -139,6 +139,9 @@
                 <show_customer_number>1</show_customer_number>
                 <note/>
             </creditmemo>
+            <firegento_pdf>
+                <logo_ratio>100</logo_ratio>
+            </firegento_pdf>
         </sales_pdf>
         <tax>
             <sales_display>

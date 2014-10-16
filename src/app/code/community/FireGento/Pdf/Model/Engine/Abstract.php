@@ -258,7 +258,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _insertLogoPositioned(&$page, $store = null)
     {
-        $maxwidth = ($this->margin['right'] - $this->margin['left']);
+        $imageRatio = (int) Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_ratio', $store);
+        $imageRatio = (empty($imageRatio)) ? 1 : $imageRatio;
+
+        $maxwidth = ($this->margin['right'] - $this->margin['left']) * $imageRatio / 100;
         $maxheight = 100;
 
         $image = Mage::getStoreConfig('sales/identity/logo', $store);
@@ -305,7 +308,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _insertLogoFullWidth(&$page, $store = null)
     {
-        $maxwidth = 594;
+        $imageRatio = (int) Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_ratio', $store);
+        $imageRatio = (empty($imageRatio)) ? 1 : $imageRatio;
+
+        $maxwidth = 594 * $imageRatio / 100;
         $maxheight = 300;
 
         $image = Mage::getStoreConfig('sales/identity/logo', $store);
