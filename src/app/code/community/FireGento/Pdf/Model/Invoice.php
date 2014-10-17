@@ -47,12 +47,21 @@ class FireGento_Pdf_Model_Invoice
     /**
      * get pdf rendering engine
      *
+     * @param $invoices array
      * @return Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice
      */
-    protected function getEngine()
+    protected function getEngine($invoices)
     {
+        /**
+         * grep first invoice to get store
+         * Currently only supported for printing out of one storeview
+         * No different storeviews supported
+         */
+        $storeId = $invoices[0]->getStore();
+
+
         if (!$this->_engine) {
-            $modelClass = Mage::getStoreConfig('sales_pdf/invoice/engine');
+            $modelClass = Mage::getStoreConfig('sales_pdf/invoice/engine', $storeId);
             $engine = Mage::getModel($modelClass);
 
             if (!$engine) {
@@ -75,7 +84,7 @@ class FireGento_Pdf_Model_Invoice
      */
     public function getPdf($invoices = array())
     {
-        return $this->getEngine()->getPdf($invoices);
+        return $this->getEngine($invoices)->getPdf($invoices);
     }
 
 }

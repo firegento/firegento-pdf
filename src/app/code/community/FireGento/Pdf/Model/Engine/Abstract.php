@@ -490,6 +490,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
 
         // Customer IP
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip', $order->getStoreId())) {
+            if (Mage::getStoreConfigFlag('sales_pdf/invoice/show_ip_number')) {
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Customer IP:'), ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
@@ -503,6 +504,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             );
             $this->Ln();
             $numberOfLines++;
+            }
         }
 
         $page->drawText(
@@ -725,6 +727,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
                 }
             }
         }
+        $oldShippingConfig = Mage::getStoreConfig('tax/sales_display/shipping', $source->getStore());
+        $newShippingConfig = Mage::app()->getStore($source->getStore())->setConfig('tax/sales_display/shipping', 1);
 
         $totals = $this->_getTotalsList($source);
 
@@ -760,6 +764,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             }
         }
         $page = $this->drawLineBlocks($page, array($lineBlock));
+
+        $newShippingConfig = Mage::app()->getStore($source->getStore())->setConfig('tax/sales_display/shipping', $oldShippingConfig);
         return $page;
     }
 
@@ -824,7 +830,15 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     {
         // get the imprint of the store if a store is set
         if (!empty($store)) {
-            $this->_imprint = Mage::getStoreConfig('general/imprint', $store);
+            $this->_imprint = explode(',', Mage::getStoreConfig('sales_pdf/invoice/footer_imprint', $store));
+            foreach ($this->_imprint as $imprintKey => $imprintValue) {
+                $this->_imprint[$imprintValue] = $this->_imprint[$imprintKey];
+                unset($this->_imprint[$imprintKey]);
+                $this->_imprint[$imprintValue] = Mage::getStoreConfig('general/imprint/'.$imprintValue, $store);
+            }
+            if (Mage::getStoreConfig('sales_pdf/invoice/modify_footer', $store)) {
+                $this->_modFooter($store);
+            }
         }
 
         // Add footer if GermanSetup is installed.
@@ -835,6 +849,18 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             // Add page counter.
             $this->y = 110;
             $this->_insertPageCounter($page);
+        }
+    }
+
+    /**
+     * @param $store
+     */
+    protected function _modFooter($store) {
+        foreach ($this->_imprint as $imprintItemKey => $imprintItemValue) {
+           if (Mage::getStoreConfig('sales_pdf/invoice/footer_'. $imprintItemKey)) {
+               $this->_imprint[$imprintItemKey] = Mage::getStoreConfig('sales_pdf/invoice/footer_'. $imprintItemKey);
+           }
+
         }
     }
 
@@ -876,7 +902,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             'tax_number'      => Mage::helper('firegento_pdf')->__('Tax number:'),
             'vat_id'          => Mage::helper('firegento_pdf')->__('VAT-ID:'),
             'register_number' => Mage::helper('firegento_pdf')->__('Register number:'),
-            'ceo'             => Mage::helper('firegento_pdf')->__('CEO:')
+            'ceo'             => Mage::helper('firegento_pdf')->__('CEO:'),
+            'city'            => Mage::helper('firegento_pdf')->__('Registered seat:'),
+            'court'           => Mage::helper('firegento_pdf')->__('Register court:')
         );
         $this->_insertFooterBlock($page, $fields, 355, 60, $this->margin['right'] - 365 - 10);
     }
@@ -937,20 +965,30 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $font = $this->_setFontRegular($page, $fontSize);
         $y = $this->y;
         $address = '';
-
+        if (array_key_exists('shop_name', $this->_imprint)) {
+            foreach ($this->_prepareText($this->_imprint['shop_name'], $page, $font, $fontSize, 90) as $shopName) {
+                $address .= $shopName . "\n";
+            }
+        }
+        if (array_key_exists('company_first', $this->_imprint)) {
         foreach ($this->_prepareText($this->_imprint['company_first'], $page, $font, $fontSize, 90) as $companyFirst) {
             $address .= $companyFirst . "\n";
         }
-
+        }
         if (array_key_exists('company_second', $this->_imprint)) {
             foreach ($this->_prepareText($this->_imprint['company_second'], $page, $font, $fontSize, 90) as $companySecond) {
                 $address .= $companySecond . "\n";
             }
         }
-
-        $address .= $this->_imprint['street'] . "\n";
-        $address .= $this->_imprint['zip'] . " ";
-        $address .= $this->_imprint['city'] . "\n";
+        if (array_key_exists('street', $this->_imprint)) {
+            $address .= $this->_imprint['street'] . "\n";
+        }
+        if (array_key_exists('zip', $this->_imprint)) {
+            $address .= $this->_imprint['zip'] . " ";
+        }
+        if (array_key_exists('city', $this->_imprint)) {
+            $address .= $this->_imprint['city'] . "\n";
+        }
 
         if (array_key_exists('country', $this->_imprint)) {
             $countryName = Mage::getModel('directory/country')->loadByCode($this->_imprint['country'])->getName();
