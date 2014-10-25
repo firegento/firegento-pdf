@@ -293,7 +293,7 @@
                             <label>Regular font</label>
                             <frontend_type>file</frontend_type>
                             <backend_model>firegento_pdf/system_config_backend_font</backend_model>
-                            <upload_dir>media/firegento_pdf/fonts/</upload_dir>
+                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
                             <sort_order>500</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -306,7 +306,7 @@
                             <label>Bold font</label>
                             <frontend_type>file</frontend_type>
                             <backend_model>firegento_pdf/system_config_backend_font</backend_model>
-                            <upload_dir>media/firegento_pdf/fonts/</upload_dir>
+                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
                             <sort_order>600</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -319,7 +319,7 @@
                             <label>Italic font</label>
                             <frontend_type>file</frontend_type>
                             <backend_model>firegento_pdf/system_config_backend_font</backend_model>
-                            <upload_dir>media/firegento_pdf/fonts/</upload_dir>
+                            <upload_dir scope_info="1">media/firegento_pdf/fonts</upload_dir>
                             <sort_order>700</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
