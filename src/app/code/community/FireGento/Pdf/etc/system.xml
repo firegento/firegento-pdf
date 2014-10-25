@@ -53,6 +53,7 @@
         <sales_pdf>
             <groups>
                 <invoice>
+                    <sort_order>300</sort_order>
                     <fields>
                         <engine translate="label">
                             <label>PDF Engine</label>
@@ -149,6 +150,7 @@
                     </fields>
                 </invoice>
                 <shipment>
+                    <sort_order>400</sort_order>
                     <fields>
                         <engine translate="label">
                             <label>PDF Engine</label>
@@ -200,6 +202,7 @@
                     </fields>
                 </shipment>
                 <creditmemo>
+                    <sort_order>500</sort_order>
                     <fields>
                         <engine translate="label">
                             <label>PDF Engine</label>
@@ -233,7 +236,7 @@
                 <firegento_pdf translate="label">
                     <label>PDF Creation</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>0</sort_order>
+                    <sort_order>100</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
