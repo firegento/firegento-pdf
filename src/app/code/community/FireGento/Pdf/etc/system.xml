@@ -240,6 +240,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
+                    <expanded>0</expanded>
                     <fields>
                         <sender_address_bar translate="label">
                             <label>Sender Address Bar</label>
@@ -268,9 +269,19 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
                         </logo_position>
+                    </fields>
+                </firegento_pdf>
+                <firegento_pdf_fonts>
+                    <label>Fonts for PDF Creation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
                         <upload_fonts translate="label comment">
                             <label>Upload own fonts</label>
-                            <comment><![CDATA[You can upload your own fonts instead of using Zends Helvetica]]></comment>
+                            <comment><![CDATA[You can upload your own fonts (*.ttf, *.otf) instead of using Zends Helvetica]]></comment>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <frontend_type>select</frontend_type>
                             <sort_order>400</sort_order>
@@ -281,6 +292,8 @@
                         <regular_font translate="label">
                             <label>Regular font</label>
                             <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir>media/firegento_pdf/fonts/</upload_dir>
                             <sort_order>500</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -292,6 +305,8 @@
                         <bold_font translate="label">
                             <label>Bold font</label>
                             <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir>media/firegento_pdf/fonts/</upload_dir>
                             <sort_order>600</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -301,8 +316,10 @@
                             </depends>
                         </bold_font>
                         <italic_font translate="label">
-                            <label>Regular font</label>
+                            <label>Italic font</label>
                             <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir>media/firegento_pdf/fonts/</upload_dir>
                             <sort_order>700</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -312,7 +329,7 @@
                             </depends>
                         </italic_font>
                     </fields>
-                </firegento_pdf>
+                </firegento_pdf_fonts>
             </groups>
         </sales_pdf>
     </sections>
