@@ -265,6 +265,49 @@
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
                         </logo_position>
+                        <upload_fonts translate="label comment">
+                            <label>Upload own fonts</label>
+                            <comment><![CDATA[You can upload your own fonts instead of using Zends Helvetica]]></comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </upload_fonts>
+                        <regular_font translate="label">
+                            <label>Regular font</label>
+                            <frontend_type>file</frontend_type>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </regular_font>
+                        <bold_font translate="label">
+                            <label>Bold font</label>
+                            <frontend_type>file</frontend_type>
+                            <sort_order>600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </bold_font>
+                        <italic_font translate="label">
+                            <label>Regular font</label>
+                            <frontend_type>file</frontend_type>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </italic_font>
                     </fields>
                 </firegento_pdf>
             </groups>
