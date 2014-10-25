@@ -1129,7 +1129,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     private function fixNumberFormat($label)
     {
         $pattern = "/(.*)\((\d{1,2}\.\d{4}%)\)/";
-        if (preg_match("$pattern", $label, $matches)) {
+        if (preg_match($pattern, $label, $matches)) {
             $percentage = Zend_Locale_Format::toNumber(
                 $matches[2],
                 array(
