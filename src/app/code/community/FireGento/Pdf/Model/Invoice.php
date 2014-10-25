@@ -69,7 +69,7 @@ class FireGento_Pdf_Model_Invoice
     /**
      * get pdf for invoices
      *
-     * @param  array $invoices invoices to render pdfs for
+     * @param  array|Varien_Data_Collection $invoices invoices to render pdfs for
      *
      * @return mixed
      */

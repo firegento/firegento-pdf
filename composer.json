@@ -6,5 +6,8 @@
     "homepage": "https://github.com/firegento/firegento-pdf",
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
+    },
+    "require-dev": {
+        "ivanchepurnyi/ecomdev_phpunit": "dev-dev"
     }
 }

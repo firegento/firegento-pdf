@@ -66,7 +66,7 @@ class FireGento_Pdf_Model_Shipment
     /**
      * get PDF object
      *
-     * @param  array $shipments shipments to generate pdfs for
+     * @param  array|Varien_Data_Collection $shipments shipments to generate pdfs for
      *
      * @return mixed
      */

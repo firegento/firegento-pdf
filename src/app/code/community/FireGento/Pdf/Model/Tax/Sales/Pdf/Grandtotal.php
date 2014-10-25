@@ -33,6 +33,7 @@ class FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal extends Mage_Tax_Model_Sales_
 {
 
     const NO_SUM_ON_DETAILS = 'tax/sales_display/no_sum_on_details';
+    const HIDE_GRANDTOTAL_EXCL_TAX = 'tax/sales_display/hide_grandtotal_excl_tax';
 
     /**
      * Check if tax amount should be included to grandtotals block
@@ -51,6 +52,7 @@ class FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal extends Mage_Tax_Model_Sales_
         $store = $this->getOrder()->getStore();
         $config = Mage::getSingleton('tax/config');
         $noDisplaySumOnDetails = Mage::getStoreConfig(self::NO_SUM_ON_DETAILS, $store);
+        $hideGrandTotalExclTax = Mage::getStoreConfig(self::HIDE_GRANDTOTAL_EXCL_TAX, $store);
         if (!$config->displaySalesTaxWithGrandTotal($store)) {
             return parent::getTotalsForDisplay();
         }
@@ -61,11 +63,14 @@ class FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal extends Mage_Tax_Model_Sales_
         $tax = $this->getOrder()->formatPriceTxt($this->getSource()->getTaxAmount());
         $fontSize = $this->getFontSize() ? $this->getFontSize() : 7;
 
-        $totals = array(array(
-            'amount' => $this->getAmountPrefix() . $amountExclTax,
-            'label' => Mage::helper('tax')->__('Grand Total (Excl. Tax)') . ':',
-            'font_size' => $fontSize
-        ));
+        $totals = array();
+        if (!$hideGrandTotalExclTax) {
+            $totals[] = array(
+                'amount' => $this->getAmountPrefix() . $amountExclTax,
+                'label' => Mage::helper('tax')->__('Grand Total (Excl. Tax)') . ':',
+                'font_size' => $fontSize
+            );
+        }
 
         /**
          * if display_sales_full_summary = 1
