@@ -58,10 +58,9 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
 
-        // pagecounter is 0 at the beginning, because it is incremented in newPage()
-        $this->pagecounter = 0;
-
         foreach ($creditmemos as $creditmemo) {
+            // pagecounter is 0 at the beginning, because it is incremented in newPage()
+            $this->pagecounter = 0;
             if ($creditmemo->getStoreId()) {
                 Mage::app()->getLocale()->emulate($creditmemo->getStoreId());
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
@@ -201,6 +200,10 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
         );
         $this->_renderers['bundle'] = array(
             'model'    => 'firegento_pdf/items_bundle',
+            'renderer' => null
+        );
+        $this->_renderers['downloadable'] = array(
+            'model'    => 'firegento_pdf/items_downloadable',
             'renderer' => null
         );
     }

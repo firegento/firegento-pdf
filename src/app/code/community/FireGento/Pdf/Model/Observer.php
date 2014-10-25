@@ -52,7 +52,7 @@ class FireGento_Pdf_Model_Observer
     }
 
     /**
-     * add inovoice date notice to pdf
+     * add invoice date notice to pdf
      *
      * @param  Varien_Event_Observer $observer observer object
      *
@@ -156,7 +156,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @param  Varien_Event_Observer $observer observer object
      *
-     * @return $this
+     * return FireGento_Pdf_Model_Observer
      */
     public function addInvoiceComments(Varien_Event_Observer $observer)
     {
@@ -186,9 +186,9 @@ class FireGento_Pdf_Model_Observer
     /**
      * Adds a barcode representing the order number to the shipment if activated.
      *
-     * @param Varien_Event_Observer $observer
+     * @param  Varien_Event_Observer $observer observer which is passed by magento
      *
-     * @return $this
+     * return FireGento_Pdf_Model_Observer
      */
     public function addBarcode(Varien_Event_Observer $observer)
     {

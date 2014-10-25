@@ -30,7 +30,7 @@ Installation Instructions
 -------------------------
 1. Install the extension via Magento Connect with the key shown above or copy all the files into your document root.
 2. Clear the cache, logout from the admin panel and then login again.
-3. Configure the extension under System - Configuration - PDF Print-outs.
+3. Configure the extension under System - Configuration - Sales - PDF Print-outs.
 
 Uninstallation
 --------------
