@@ -630,7 +630,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      *
      * @param  array $settings Page settings
      *
-     * @return Zend_Pdf_Page?
+     * @return Zend_Pdf_Page
      */
     public function newPage(array $settings = array())
     {
