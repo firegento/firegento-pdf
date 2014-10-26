@@ -769,9 +769,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
                     'unserialize', array_unique(array_map('serialize', $total->getTotalsForDisplay()))
                 );
                 foreach ($uniqueTotalsForDisplay as $totalData) {
+                    $label = $this->fixNumberFormat($totalData['label']);
                     $lineBlock['lines'][] = array(
                         array(
-                            'text'      => $totalData['label'],
+                            'text'      => $label,
                             'feed'      => 470,
                             'align'     => 'right',
                             'font_size' => $totalData['font_size']
@@ -1018,6 +1019,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     public function getFontRegular()
     {
+        if ($this->getRegularFont() && $this->regularFontFileExists()) {
+            return Zend_Pdf_Font::fontWithPath($this->getRegularFontFile());
+        }
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
     }
 
@@ -1043,6 +1047,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     public function getFontBold()
     {
+        if ($this->getBoldFont() && $this->boldFontFileExists()) {
+            return Zend_Pdf_Font::fontWithPath($this->getBoldFontFile());
+        }
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
     }
 
@@ -1068,7 +1075,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     public function getFontItalic()
     {
-        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
+        if ($this->getItalicFont() && $this->italicFontFileExists()) {
+            return Zend_Pdf_Font::fontWithPath($this->getItalicFontFile());
+        }
+        return Zend_Pdf_Font::fontWithName(
+            Zend_Pdf_Font::FONT_HELVETICA_ITALIC
+        );
     }
 
     /**
@@ -1125,5 +1137,95 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         // append the last line
         $lines .= $currentLine;
         return explode("\n", $lines);
+    }
+
+    /*
+    * we fix the percentage for taxes which come with four decimal places
+    * from magento core
+    *
+    * @param string $label
+    *
+    * @return string
+    */
+    private function fixNumberFormat($label)
+    {
+        $pattern = "/(.*)\((\d{1,2}\.\d{4}%)\)/";
+        if (preg_match($pattern, $label, $matches)) {
+            $percentage = Zend_Locale_Format::toNumber(
+                $matches[2],
+                array(
+                    'locale'    => Mage::app()->getLocale()->getLocale(),
+                    'precision' => 2,
+                )
+            );
+            return $matches[1] . '(' . $percentage . '%)';
+        }
+        return $label;
+    }
+
+    /**
+     * @return string
+     */
+    private function getBoldFontFile()
+    {
+        return Mage::helper('firegento_pdf')->getFontPath() . DS
+        . $this->getBoldFont();
+    }
+
+
+    /**
+     * @return mixed
+     */
+    private function getItalicFont()
+    {
+        return Mage::getStoreConfig(
+            FireGento_Pdf_Helper_Data::XML_PATH_ITALIC_FONT
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    private function ItalicFontFileExists()
+    {
+        return file_exists($this->getItalicFontFile());
+    }
+
+    /**
+     * @return string
+     */
+    private function getItalicFontFile()
+    {
+        return Mage::helper('firegento_pdf')->getFontPath() . DS
+        . $this->getItalicFont();
+    }
+
+
+    /**
+     * @return mixed
+     */
+    private function getRegularFont()
+    {
+        return Mage::getStoreConfig(
+            FireGento_Pdf_Helper_Data::XML_PATH_REGULAR_FONT
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    private function regularFontFileExists()
+    {
+        return file_exists($this->getRegularFontFile());
+    }
+
+    /**
+     * @return string
+     */
+    private function getRegularFontFile()
+    {
+        return Mage::helper('firegento_pdf')->getFontPath() . DS
+        . $this->getRegularFont();
+
     }
 }
