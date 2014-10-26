@@ -53,6 +53,7 @@
         <sales_pdf>
             <groups>
                 <invoice>
+                    <sort_order>300</sort_order>
                     <fields>
                         <engine translate="label">
                             <label>PDF Engine</label>
@@ -149,6 +150,7 @@
                     </fields>
                 </invoice>
                 <shipment>
+                    <sort_order>400</sort_order>
                     <fields>
                         <engine translate="label">
                             <label>PDF Engine</label>
@@ -200,6 +202,7 @@
                     </fields>
                 </shipment>
                 <creditmemo>
+                    <sort_order>500</sort_order>
                     <fields>
                         <engine translate="label">
                             <label>PDF Engine</label>
@@ -233,10 +236,11 @@
                 <firegento_pdf translate="label">
                     <label>PDF Creation</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>0</sort_order>
+                    <sort_order>100</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
+                    <expanded>0</expanded>
                     <fields>
                         <sender_address_bar translate="label">
                             <label>Sender Address Bar</label>
@@ -268,6 +272,65 @@
                         </logo_position>
                     </fields>
                 </firegento_pdf>
+                <firegento_pdf_fonts>
+                    <label>Fonts for PDF Creation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <upload_fonts translate="label comment">
+                            <label>Upload own fonts</label>
+                            <comment><![CDATA[You can upload your own fonts (*.ttf, *.otf) instead of using Zends Helvetica]]></comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </upload_fonts>
+                        <regular_font translate="label">
+                            <label>Regular font</label>
+                            <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </regular_font>
+                        <bold_font translate="label">
+                            <label>Bold font</label>
+                            <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
+                            <sort_order>600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </bold_font>
+                        <italic_font translate="label">
+                            <label>Italic font</label>
+                            <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir scope_info="1">media/firegento_pdf/fonts</upload_dir>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </italic_font>
+                    </fields>
+                </firegento_pdf_fonts>
             </groups>
         </sales_pdf>
     </sections>
