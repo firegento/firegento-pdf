@@ -45,7 +45,7 @@ If you have any issues with this extension, open an issue on [GitHub](https://gi
 
 Contribution
 ------------
-Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).
+Any contribution is highly appreciated. The best way to contribute code is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests). In order to contribute to the latest code, please checkout the `development` branch after cloning your fork.
 
 Developer
 ---------

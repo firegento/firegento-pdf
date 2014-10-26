@@ -86,6 +86,7 @@
 "Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.","""volle Breite"" bedeutet, dass das Logo über die komplette Seite von oben links bis zum rechten Rand gezogen wird. Es verbleibt kein Druckrand."
 "Show Order ID as Barcode","Bestellnummer als Barcode anzeigen"
 "Prints the order ID as a barcode on the right hand side.","Zeigt die Bestellnummer als Barcode auf der rechten Seite an."
+"Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.","Links: Kundenadresse links, Rechnungsdetails rechts. Rechts: Rechnungsdetails links, Kundenadresse rechts"
 "Show address above shipping/invoice address","Zeige Adresse über Empfängeradresse"
 "Fonts for PDF Creation","Schriftarten für PDF Erstellung"
 "You can upload your own fonts (*.ttf, *.otf) instead of using Zends Helvetica","Sie können eigene Schriften (*.ttf, *.otf) hochladen, statt Zends Helvetica zu benutzen."
