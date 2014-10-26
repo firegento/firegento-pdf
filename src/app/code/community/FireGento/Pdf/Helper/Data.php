@@ -38,8 +38,8 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
-    const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
-    const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
+    const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
+    const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
 
     /**
      * Return the order id or false if order id should not be displayed on document.
@@ -167,13 +167,52 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return true;
     }
 
+    public function getModelVars($model)
+    {
+        if (!$model instanceof Mage_Sales_Model_Order) {
+            switch ($model) {
+                case $model instanceof Mage_Sales_Model_Order_Invoice:
+                    $specificVars = array(
+                        '{{invoice_id}}'            => $model->getIncrementId()
+                    );
+                    break;
+                case $model instanceof Mage_Sales_Model_Order_Shipment:
+                    $specificVars = array(
+                        '{{shipment_id}}'           => $model->getIncrementId()
+                    );
+                    break;
+                case $model instanceof Mage_Sales_Model_Order_Creditmemo:
+                    $specificVars = array(
+                        '{{creditmemo_id}}'         => $model->getIncrementId()
+                    );
+            }
+            $commonVars = array(
+                '{{order_id}}'              => $model->getOrder()->getIncrementId(),
+                '{{customer_id}}'           => $model->getOrder()->getCustomerId(),
+                '{{customer_name}}'         => $model->getOrder()->getCustomerName(),
+                '{{customer_firstname}}'    => $model->getOrder()->getCustomerFirstname(),
+                '{{customer_lastname}}'     => $model->getOrder()->getCustomerLastname()
+            );
+            return array_merge($specificVars, $commonVars);
+        } else {
+            return array(
+                '{{order_id}}'              => $model->getIncrementId(),
+                '{{customer_id}}'           => $model->getCustomerId(),
+                '{{customer_name}}'         => $model->getCustomerName(),
+                '{{customer_firstname}}'    => $model->getCustomerFirstname(),
+                '{{customer_lastname}}'     => $model->getCustomerLastname()
+            );
+        }
+    }
+
     /**
      * @param string $type
-     * @param Mage_Sales_Model_Order $order
+     * @param $model
      * @return string
      */
-    public function getExportFilename($type = 'invoice', $order)
+    public function getExportFilename($type, $model)
     {
+        $type = (!$type) ? 'invoice' : $type;
         $pattern = $this->getExportPattern($type);
         if (!$pattern) {
             $pattern = $type . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s');
@@ -181,14 +220,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
         }
-        $path = strftime($pattern, strtotime($order->getCreatedAt()));
-        $vars = array(
-            '{{order_id}}'              => $order->getIncrementId(),
-            '{{customer_id}}'           => $order->getCustomerId(),
-            '{{customer_name}}'         => $order->getCustomerName(),
-            '{{customer_firstname}}'    => $order->getCustomerFirstname(),
-            '{{customer_lastname}}'     => $order->getCustomerLastname()
-        );
+
+        $path = strftime($pattern, strtotime($model->getCreatedAt()));
+        $vars = $this->getModelVars($model);
+
         return strtr($path, $vars);
     }
 

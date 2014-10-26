@@ -106,6 +106,17 @@
             </modules>
         </translate>
     </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <firegento_pdf before="Mage_Adminhtml">FireGento_Pdf_Adminhtml</firegento_pdf>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <phpunit>
         <suite>
             <modules>
@@ -116,7 +127,7 @@
     <default>
         <sales_pdf>
             <invoice>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <show_date_notice>0</show_date_notice>
                 <maturity/>
@@ -128,14 +139,14 @@
                 <show_item_discount>0</show_item_discount>
             </invoice>
             <shipment>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <shipping_method_position/>
                 <note/>
                 <order_id_as_barcode>0</order_id_as_barcode>
             </shipment>
             <creditmemo>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <note/>
             </creditmemo>

@@ -123,7 +123,7 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
             $pdfGenerator = Mage::getModel('sales/order_pdf_' . $type);
             $pdf = $pdfGenerator->getPdf($documentsCollection);
             $this->_prepareDownloadResponse(
-                Mage::helper('firegento_pdf')->getExportFilename($type, $order), $pdf->render(), 'application/pdf'
+                Mage::helper('firegento_pdf')->getExportFilename($type, $document), $pdf->render(), 'application/pdf'
             );
 
             // Restore area.
