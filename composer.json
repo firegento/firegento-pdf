@@ -4,8 +4,8 @@
     "type": "magento-module",
     "description": "FireGento Pdf overwrites standard PDF layouts for invoices and shipments.",
     "homepage": "https://github.com/firegento/firegento-pdf",
-    "require": {
-        "magento-hackathon/magento-composer-installer": "*"
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "Magento composer installer (or a replacement) is needed to install this packages"
     },
     "require-dev": {
         "ivanchepurnyi/ecomdev_phpunit": "dev-dev"
