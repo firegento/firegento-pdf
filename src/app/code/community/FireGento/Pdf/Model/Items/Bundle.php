@@ -116,10 +116,8 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
             /* in case Product name is longer than 80 chars - it is written in a few lines */
             if ($_item->getOrderItem()->getParentItem()) {
-                $feed = 40;
                 $name = $this->getValueHtml($_item);
             } else {
-                $feed = 35;
                 $name = $_item->getName();
             }
             $line[] = array(
@@ -130,35 +128,78 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
             // draw prices
             if ($this->canShowPriceInfo($_item)) {
-                $price = $order->formatPriceTxt($_item->getPrice());
-                $line[] = array(
-                    'text'      => $price,
-                    'feed'      => $pdf->margin['right'] - 160,
+                $columns = array();
+                // prepare qty
+                $columns['qty'] = array(
+                    'text'      => $item->getQty() * 1,
                     'align'     => 'right',
-                    'font_size' => $fontSize
-                );
-                $line[] = array(
-                    'text'      => $_item->getQty() * 1,
-                    'feed'      => $pdf->margin['right'] - 120,
-                    'align'     => 'right',
-                    'font_size' => $fontSize
+                    'font_size' => $fontSize,
+                    '_width' => 30
                 );
 
-                $tax = $order->formatPriceTxt($_item->getTaxAmount());
-                $line[] = array(
-                    'text'      => $tax,
-                    'feed'      => $pdf->margin['right'] - 60,
+                // prepare price
+                $columns['price'] = array(
+                    'text'      => $order->formatPriceTxt($item->getPrice()),
                     'align'     => 'right',
-                    'font_size' => $fontSize
+                    'font_size' => $fontSize,
+                    '_width'    => 60
                 );
 
-                $rowTotal = $order->formatPriceTxt($_item->getRowTotal());
-                $line[] = array(
-                    'text'      => $rowTotal,
-                    'feed'      => $pdf->margin['right'] - 10,
+                // prepare price_incl_tax
+                $columns['price_incl_tax'] = array(
+                    'text'      => $order->formatPriceTxt($item->getPriceInclTax()),
                     'align'     => 'right',
-                    'font_size' => $fontSize
+                    'font_size' => $fontSize,
+                    '_width'    => 60
                 );
+
+                // prepare tax
+                $columns['tax'] = array(
+                    'text'      => $order->formatPriceTxt($item->getTaxAmount() + $item->getHiddenTaxAmount()),
+                    'align'     => 'right',
+                    'font_size' => $fontSize,
+                    '_width'    => 50
+                );
+
+                // prepare tax_rate
+                $columns['tax_rate'] = array(
+                    'text'      => round($item->getOrderItem()->getTaxPercent(), 2) . '%',
+                    'align'     => 'right',
+                    'font_size' => $fontSize,
+                    '_width'    => 50
+                );
+
+                // prepare subtotal
+                $columns['subtotal'] = array(
+                    'text'      => $order->formatPriceTxt($item->getRowTotal()),
+                    'align'     => 'right',
+                    'font_size' => $fontSize,
+                    '_width'    => 50
+                );
+
+                // prepare subtotal_incl_tax
+                $columns['subtotal_incl_tax'] = array(
+                    'text'      => $order->formatPriceTxt($item->getRowTotalInclTax()),
+                    'align'     => 'right',
+                    'font_size' => $fontSize,
+                    '_width'    => 70
+                );
+
+                // draw columns in specified order
+                $columnsOrder = explode(',', Mage::getStoreConfig('sales_pdf/invoice/item_price_column_order'));
+                // draw starting from right
+                $columnsOrder = array_reverse($columnsOrder);
+                $columnOffset = 0;
+                foreach ($columnsOrder as $columnName) {
+                    $columnName = trim($columnName);
+                    if (array_key_exists($columnName, $columns)) {
+                        $column = $columns[$columnName];
+                        $column['feed'] = $pdf->margin['right'] - $columnOffset;
+                        $columnOffset += $column['_width'];
+                        unset($column['_width']);
+                        $line[] = $column;
+                    }
+                }
             }
 
             $drawItems[$optionId]['lines'][] = $line;
@@ -203,7 +244,6 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
         }
 
         $page = $pdf->drawLineBlocks($page, $drawItems, array('table_header' => true));
-
         $this->setPage($page);
     }
 }

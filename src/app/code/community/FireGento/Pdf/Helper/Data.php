@@ -37,6 +37,9 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';
+    const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
+    const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
+    const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
 
     /**
      * Return the order id or false if order id should not be displayed on document.
@@ -144,4 +147,49 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 
         return array($width, $height);
     }
+
+    /**
+     * Return export pattern config value
+     *
+     * @param string $type
+     * @return string
+     */
+    public function getExportPattern($type)
+    {
+        switch ($type) {
+            case 'invoice':
+                return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN);
+            case 'shipment':
+                return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN);
+            case 'creditmemo':
+                return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN);
+        }
+        return true;
+    }
+
+    /**
+     * @param string $type
+     * @param Mage_Sales_Model_Order $order
+     * @return string
+     */
+    public function getExportFilename($type = 'invoice', $order)
+    {
+        $pattern = $this->getExportPattern($type);
+        if (!$pattern) {
+            $pattern = $type . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s');
+        }
+        if (substr($pattern, -4) != '.pdf') {
+            $pattern = $pattern . '.pdf';
+        }
+        $path = strftime($pattern, strtotime($order->getCreatedAt()));
+        $vars = array(
+            '{{order_id}}'              => $order->getIncrementId(),
+            '{{customer_id}}'           => $order->getCustomerId(),
+            '{{customer_name}}'         => $order->getCustomerName(),
+            '{{customer_firstname}}'    => $order->getCustomerFirstname(),
+            '{{customer_lastname}}'     => $order->getCustomerLastname()
+        );
+        return strtr($path, $vars);
+    }
+
 }
