@@ -115,8 +115,11 @@
     </phpunit>
     <default>
         <sales_pdf>
+            <firegento_pdf>
+                <headerblocks_position>left</headerblocks_position>
+            </firegento_pdf>
             <invoice>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <show_date_notice>0</show_date_notice>
                 <maturity/>
@@ -128,14 +131,14 @@
                 <show_item_discount>0</show_item_discount>
             </invoice>
             <shipment>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <shipping_method_position/>
                 <note/>
                 <order_id_as_barcode>0</order_id_as_barcode>
             </shipment>
             <creditmemo>
-                <engine />
+                <engine/>
                 <show_customer_number>1</show_customer_number>
                 <note/>
             </creditmemo>

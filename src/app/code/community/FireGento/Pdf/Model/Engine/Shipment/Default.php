@@ -58,10 +58,9 @@ class FireGento_Pdf_Model_Engine_Shipment_Default extends FireGento_Pdf_Model_En
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
 
-        // pagecounter is 0 at the beginning, because it is incremented in newPage()
-        $this->pagecounter = 0;
-
         foreach ($shipments as $shipment) {
+            // pagecounter is 0 at the beginning, because it is incremented in newPage()
+            $this->pagecounter = 0;
             if ($shipment->getStoreId()) {
                 Mage::app()->getLocale()->emulate($shipment->getStoreId());
                 Mage::app()->setCurrentStore($shipment->getStoreId());
