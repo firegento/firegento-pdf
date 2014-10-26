@@ -215,7 +215,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         if (Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar') != '') {
             $this->_setFontRegular($page, 6);
             $page->drawText(
-                trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')), $this->margin['left'],
+                trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')), $this->margin['left']+ $this->getHeaderblockOffset() ,
                 $this->y, $this->encoding
             );
         }
@@ -387,9 +387,19 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $this->_setFontRegular($page, 9);
         $billing = $this->_formatAddress($order->getBillingAddress()->format('pdf'));
         foreach ($billing as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'] + $this->getHeaderblockOffset(), $this->y, $this->encoding);
             $this->Ln(12);
         }
+    }
+
+    protected function getHeaderblockOffset()
+    {
+        if (Mage::getStoreConfig('sales_pdf/firegento_pdf/headerblocks_position') ==  FireGento_Pdf_Model_System_Config_Source_Headerblocks::LEFT ) {
+            $offsetAdjustment = 0;
+        } else {
+            $offsetAdjustment = 315;
+        }
+        return $offsetAdjustment;
     }
 
     /**
@@ -421,9 +431,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $this->_setFontRegular($page);
 
         $this->y += 80;
-        $labelRightOffset = 180;
+        $labelRightOffset = 180 + $this->getHeaderblockOffset();
 
-        $valueRightOffset = 10;
+        $valueRightOffset = 10 + $this->getHeaderblockOffset();
         $font = $this->_setFontRegular($page, 10);
         $width = 80;
         $numberOfLines = 0;
