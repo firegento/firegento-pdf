@@ -273,7 +273,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details right, Customer address left.]]></comment>
+                            <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>
                         </headerblocks_position>
                     </fields>
                 </firegento_pdf>
