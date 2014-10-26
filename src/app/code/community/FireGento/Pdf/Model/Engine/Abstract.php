@@ -759,9 +759,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
                     'unserialize', array_unique(array_map('serialize', $total->getTotalsForDisplay()))
                 );
                 foreach ($uniqueTotalsForDisplay as $totalData) {
+                    $label = $this->fixNumberFormat($totalData['label']);
                     $lineBlock['lines'][] = array(
                         array(
-                            'text'      => $totalData['label'],
+                            'text'      => $label,
                             'feed'      => 470,
                             'align'     => 'right',
                             'font_size' => $totalData['font_size']
@@ -1115,5 +1116,29 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         // append the last line
         $lines .= $currentLine;
         return explode("\n", $lines);
+    }
+
+    /**
+     * we fix the percentage for taxes which come with four decimal places
+     * from magento core
+     *
+     * @param string $label
+     *
+     * @return string
+     */
+    private function fixNumberFormat($label)
+    {
+        $pattern = "/(.*)\((\d{1,2}\.\d{4}%)\)/";
+        if (preg_match($pattern, $label, $matches)) {
+            $percentage = Zend_Locale_Format::toNumber(
+                $matches[2],
+                array(
+                    'locale'    => Mage::app()->getLocale()->getLocale(),
+                    'precision' => 2,
+                )
+            );
+            return $matches[1] . '(' . $percentage . '%)';
+        }
+        return $label;
     }
 }
