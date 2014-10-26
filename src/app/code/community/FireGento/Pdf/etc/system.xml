@@ -146,6 +146,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_item_discount>
+                        <filename_export_pattern translate="label comment">
+                            <label>Filename Export Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholders: {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern>
                     </fields>
                 </invoice>
                 <shipment>
@@ -197,6 +206,15 @@
                             <show_in_store>1</show_in_store>
                             <comment>Prints the order ID as a barcode on the right hand side.</comment>
                         </order_id_as_barcode>
+                        <filename_export_pattern translate="label comment">
+                            <label>Filename Export Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholders: {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern>
                     </fields>
                 </shipment>
                 <creditmemo>
@@ -228,6 +246,15 @@
                             <show_in_store>1</show_in_store>
                             <comment>Printed on every credit memo.</comment>
                         </note>
+                        <filename_export_pattern translate="label comment">
+                            <label>Filename Export Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholders: {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern>
                     </fields>
                 </creditmemo>
                 <firegento_pdf translate="label">
