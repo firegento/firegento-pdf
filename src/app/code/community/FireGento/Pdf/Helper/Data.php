@@ -41,6 +41,12 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
 
+    const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
+    const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
+    const XML_PATH_ITALIC_FONT = 'sales_pdf/firegento_pdf_fonts/italic_font';
+
+    const FONT_PATH_IN_MEDIA = '/firegento_pdf/fonts';
+
     /**
      * Return the order id or false if order id should not be displayed on document.
      *
@@ -148,6 +154,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return array($width, $height);
     }
 
+<<<<<<< HEAD
     /**
      * Return export pattern config value
      *
@@ -227,4 +234,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return strtr($path, $vars);
     }
 
+=======
+    public function getFontPath()
+    {
+        return Mage::getBaseDir('media') . self::FONT_PATH_IN_MEDIA;
+    }
+>>>>>>> development
 }

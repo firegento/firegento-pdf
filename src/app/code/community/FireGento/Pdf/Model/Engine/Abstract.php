@@ -215,7 +215,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         if (Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar') != '') {
             $this->_setFontRegular($page, 6);
             $page->drawText(
-                trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')), $this->margin['left'],
+                trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')), $this->margin['left']+ $this->getHeaderblockOffset() ,
                 $this->y, $this->encoding
             );
         }
@@ -258,7 +258,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _insertLogoPositioned(&$page, $store = null)
     {
-        $maxwidth = ($this->margin['right'] - $this->margin['left']);
+        $imageRatio = (int) Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_ratio', $store);
+        $imageRatio = (empty($imageRatio)) ? 1 : $imageRatio;
+
+        $maxwidth = ($this->margin['right'] - $this->margin['left']) * $imageRatio / 100;
         $maxheight = 100;
 
         $image = Mage::getStoreConfig('sales/identity/logo', $store);
@@ -305,7 +308,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     protected function _insertLogoFullWidth(&$page, $store = null)
     {
-        $maxwidth = 594;
+        $imageRatio = (int) Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_ratio', $store);
+        $imageRatio = (empty($imageRatio)) ? 1 : $imageRatio;
+
+        $maxwidth = 594 * $imageRatio / 100;
         $maxheight = 300;
 
         $image = Mage::getStoreConfig('sales/identity/logo', $store);
@@ -387,9 +393,19 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $this->_setFontRegular($page, 9);
         $billing = $this->_formatAddress($order->getBillingAddress()->format('pdf'));
         foreach ($billing as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'] + $this->getHeaderblockOffset(), $this->y, $this->encoding);
             $this->Ln(12);
         }
+    }
+
+    protected function getHeaderblockOffset()
+    {
+        if (Mage::getStoreConfig('sales_pdf/firegento_pdf/headerblocks_position') ==  FireGento_Pdf_Model_System_Config_Source_Headerblocks::LEFT ) {
+            $offsetAdjustment = 0;
+        } else {
+            $offsetAdjustment = 315;
+        }
+        return $offsetAdjustment;
     }
 
     /**
@@ -421,9 +437,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         $this->_setFontRegular($page);
 
         $this->y += 80;
-        $labelRightOffset = 180;
+        $labelRightOffset = 180 + $this->getHeaderblockOffset();
 
-        $valueRightOffset = 10;
+        $valueRightOffset = 10 + $this->getHeaderblockOffset();
         $font = $this->_setFontRegular($page, 10);
         $width = 80;
         $numberOfLines = 0;
@@ -759,9 +775,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
                     'unserialize', array_unique(array_map('serialize', $total->getTotalsForDisplay()))
                 );
                 foreach ($uniqueTotalsForDisplay as $totalData) {
+                    $label = $this->fixNumberFormat($totalData['label']);
                     $lineBlock['lines'][] = array(
                         array(
-                            'text'      => $totalData['label'],
+                            'text'      => $label,
                             'feed'      => 470,
                             'align'     => 'right',
                             'font_size' => $totalData['font_size']
@@ -893,7 +910,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             'tax_number'      => Mage::helper('firegento_pdf')->__('Tax number:'),
             'vat_id'          => Mage::helper('firegento_pdf')->__('VAT-ID:'),
             'register_number' => Mage::helper('firegento_pdf')->__('Register number:'),
-            'ceo'             => Mage::helper('firegento_pdf')->__('CEO:')
+            'ceo'             => Mage::helper('firegento_pdf')->__('CEO:'),
+            'city'            => Mage::helper('firegento_pdf')->__('Registered seat:'),
+            'court'           => Mage::helper('firegento_pdf')->__('Register court:'),
         );
         $this->_insertFooterBlock($page, $fields, 355, 60, $this->margin['right'] - 365 - 10);
     }
@@ -967,10 +986,16 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
             }
         }
 
-        $address .= $this->_imprint['street'] . "\n";
-        $address .= $this->_imprint['zip'] . " ";
-        $address .= $this->_imprint['city'] . "\n";
-
+        if (array_key_exists('street', $this->_imprint)) {
+            $address .= $this->_imprint['street'] . "\n";
+        }
+        if (array_key_exists('zip', $this->_imprint)) {
+            $address .= $this->_imprint['zip'] . " ";
+        }
+        if (array_key_exists('city', $this->_imprint)) {
+            $address .= $this->_imprint['city'] . "\n";
+        }
+        
         if (!empty($this->_imprint['country'])) {
             $countryName = Mage::getModel('directory/country')->loadByCode($this->_imprint['country'])->getName();
             $address .= Mage::helper('core')->__($countryName);
@@ -1008,6 +1033,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     public function getFontRegular()
     {
+        if ($this->getRegularFont() && $this->regularFontFileExists()) {
+            return Zend_Pdf_Font::fontWithPath($this->getRegularFontFile());
+        }
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
     }
 
@@ -1033,6 +1061,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     public function getFontBold()
     {
+        if ($this->getBoldFont() && $this->boldFontFileExists()) {
+            return Zend_Pdf_Font::fontWithPath($this->getBoldFontFile());
+        }
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
     }
 
@@ -1058,7 +1089,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
      */
     public function getFontItalic()
     {
-        return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
+        if ($this->getItalicFont() && $this->italicFontFileExists()) {
+            return Zend_Pdf_Font::fontWithPath($this->getItalicFontFile());
+        }
+        return Zend_Pdf_Font::fontWithName(
+            Zend_Pdf_Font::FONT_HELVETICA_ITALIC
+        );
     }
 
     /**
@@ -1115,5 +1151,95 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         // append the last line
         $lines .= $currentLine;
         return explode("\n", $lines);
+    }
+
+    /*
+    * we fix the percentage for taxes which come with four decimal places
+    * from magento core
+    *
+    * @param string $label
+    *
+    * @return string
+    */
+    private function fixNumberFormat($label)
+    {
+        $pattern = "/(.*)\((\d{1,2}\.\d{4}%)\)/";
+        if (preg_match($pattern, $label, $matches)) {
+            $percentage = Zend_Locale_Format::toNumber(
+                $matches[2],
+                array(
+                    'locale'    => Mage::app()->getLocale()->getLocale(),
+                    'precision' => 2,
+                )
+            );
+            return $matches[1] . '(' . $percentage . '%)';
+        }
+        return $label;
+    }
+
+    /**
+     * @return string
+     */
+    private function getBoldFontFile()
+    {
+        return Mage::helper('firegento_pdf')->getFontPath() . DS
+        . $this->getBoldFont();
+    }
+
+
+    /**
+     * @return mixed
+     */
+    private function getItalicFont()
+    {
+        return Mage::getStoreConfig(
+            FireGento_Pdf_Helper_Data::XML_PATH_ITALIC_FONT
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    private function ItalicFontFileExists()
+    {
+        return file_exists($this->getItalicFontFile());
+    }
+
+    /**
+     * @return string
+     */
+    private function getItalicFontFile()
+    {
+        return Mage::helper('firegento_pdf')->getFontPath() . DS
+        . $this->getItalicFont();
+    }
+
+
+    /**
+     * @return mixed
+     */
+    private function getRegularFont()
+    {
+        return Mage::getStoreConfig(
+            FireGento_Pdf_Helper_Data::XML_PATH_REGULAR_FONT
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    private function regularFontFileExists()
+    {
+        return file_exists($this->getRegularFontFile());
+    }
+
+    /**
+     * @return string
+     */
+    private function getRegularFontFile()
+    {
+        return Mage::helper('firegento_pdf')->getFontPath() . DS
+        . $this->getRegularFont();
+
     }
 }
