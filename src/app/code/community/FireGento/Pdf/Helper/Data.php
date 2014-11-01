@@ -98,8 +98,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function isLogoFullWidth($store)
     {
-        $configSetting = Mage::getStoreConfig(self::XML_PATH_FIREGENTO_PDF_LOGO_POSITION, $store);
-        return $configSetting == FireGento_Pdf_Model_System_Config_Source_Logo::FULL_WIDTH;
+        $configSetting = Mage::getStoreConfig(
+            self::XML_PATH_FIREGENTO_PDF_LOGO_POSITION, $store
+        );
+        $fullWidth = FireGento_Pdf_Model_System_Config_Source_Logo::FULL_WIDTH;
+        return $configSetting == $fullWidth;
     }
 
     /**
@@ -112,11 +115,20 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     {
         switch ($mode) {
             case 'invoice':
-                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER, $store);
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER,
+                    $store
+                );
             case 'shipment':
-                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER, $store);
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER,
+                    $store
+                );
             case 'creditmemo':
-                return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER, $store);
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER,
+                    $store
+                );
         }
         return true; // backwards compatibility
     }
@@ -154,7 +166,6 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return array($width, $height);
     }
 
-<<<<<<< HEAD
     /**
      * Return export pattern config value
      *
@@ -165,11 +176,17 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     {
         switch ($type) {
             case 'invoice':
-                return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN);
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN
+                );
             case 'shipment':
-                return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN);
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN
+                );
             case 'creditmemo':
-                return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN);
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN
+                );
         }
         return true;
     }
@@ -193,12 +210,13 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                         '{{creditmemo_id}}'         => $model->getIncrementId()
                     );
             }
+            $order = $model->getOrder();
             $commonVars = array(
-                '{{order_id}}'              => $model->getOrder()->getIncrementId(),
-                '{{customer_id}}'           => $model->getOrder()->getCustomerId(),
-                '{{customer_name}}'         => $model->getOrder()->getCustomerName(),
-                '{{customer_firstname}}'    => $model->getOrder()->getCustomerFirstname(),
-                '{{customer_lastname}}'     => $model->getOrder()->getCustomerLastname()
+                '{{order_id}}'              => $order->getIncrementId(),
+                '{{customer_id}}'           => $order->getCustomerId(),
+                '{{customer_name}}'         => $order->getCustomerName(),
+                '{{customer_firstname}}'    => $order->getCustomerFirstname(),
+                '{{customer_lastname}}'     => $order->getCustomerLastname()
             );
             return array_merge($specificVars, $commonVars);
         } else {
@@ -222,7 +240,8 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         $type = (!$type) ? 'invoice' : $type;
         $pattern = $this->getExportPattern($type);
         if (!$pattern) {
-            $pattern = $type . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s');
+            $date = Mage::getSingleton('core/date');
+            $pattern = $type . $date->date('Y-m-d_H-i-s');
         }
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
@@ -234,10 +253,8 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return strtr($path, $vars);
     }
 
-=======
     public function getFontPath()
     {
         return Mage::getBaseDir('media') . self::FONT_PATH_IN_MEDIA;
     }
->>>>>>> development
 }
