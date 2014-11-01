@@ -106,6 +106,17 @@
             </modules>
         </translate>
     </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <firegento_pdf before="Mage_Adminhtml">FireGento_Pdf_Adminhtml</firegento_pdf>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <phpunit>
         <suite>
             <modules>
