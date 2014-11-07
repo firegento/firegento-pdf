@@ -156,7 +156,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @param  Varien_Event_Observer $observer observer object
      *
-     * return FireGento_Pdf_Model_Observer
+     * @return FireGento_Pdf_Model_Observer
      */
     public function addInvoiceComments(Varien_Event_Observer $observer)
     {
@@ -188,7 +188,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @param  Varien_Event_Observer $observer observer which is passed by magento
      *
-     * return FireGento_Pdf_Model_Observer
+     * @return FireGento_Pdf_Model_Observer
      */
     public function addBarcode(Varien_Event_Observer $observer)
     {

@@ -20,8 +20,7 @@ class FireGento_Pdf_Adminhtml_Sales_Order_CreditmemoController extends Mage_Admi
                     $pdf->render(), 'application/pdf'
                 );
             }
-        }
-        else {
+        } else {
             $this->_forward('noRoute');
         }
     }

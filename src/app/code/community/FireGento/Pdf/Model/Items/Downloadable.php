@@ -173,4 +173,4 @@ class FireGento_Pdf_Model_Items_Downloadable extends Mage_Downloadable_Model_Sal
         $page = $pdf->drawLineBlocks($page, array($lineBlock), array('table_header' => true));
         $this->setPage($page);
     }
-} 
+}

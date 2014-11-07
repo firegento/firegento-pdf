@@ -13,7 +13,6 @@ class FireGento_Pdf_Adminhtml_Sales_Order_InvoiceController extends Mage_Adminht
         $this->_initInvoice();
         if ($invoiceId = $this->getRequest()->getParam('invoice_id')) {
             if ($invoice = Mage::getModel('sales/order_invoice')->load($invoiceId)) {
-                $order = $invoice->getOrder();
                 $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf(array($invoice));
                 $this->_prepareDownloadResponse(
                     Mage::helper('firegento_pdf')->getExportFilename('invoice', $invoice),

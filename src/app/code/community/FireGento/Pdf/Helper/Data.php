@@ -92,9 +92,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param mixed $store
+     * Whether the logo should be shown in full width.
      *
-     * @return bool
+     * @param  mixed $store store to get information from
+     *
+     * @return bool whether the logo should be shown in full width
      */
     public function isLogoFullWidth($store)
     {
@@ -106,10 +108,12 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string $mode
-     * @param mixed  $store
+     * Whether the customer number should be shown.
      *
-     * @return bool
+     * @param  string $mode the mode of this document like invoice, shipment or creditmemo
+     * @param  mixed  $store store to get information from
+     *
+     * @return bool whether the customer number should be shown
      */
     public function showCustomerNumber($mode = 'invoice', $store)
     {
@@ -169,7 +173,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Return export pattern config value
      *
-     * @param string $type
+     * @param  string $type the type of this document like invoice, shipment or creditmemo
      * @return string
      */
     public function getExportPattern($type)
@@ -191,6 +195,13 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return true;
     }
 
+    /**
+     * Gets the variables which can be used as a placeholder in the filename.
+     *
+     * @param  Mage_Core_Model_Abstract $model the model instance
+     *
+     * @return array with the variables which can be use as placeholders in the filename
+     */
     public function getModelVars($model)
     {
         if (!$model instanceof Mage_Sales_Model_Order) {
@@ -231,9 +242,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param string $type
-     * @param $model
-     * @return string
+     * The filename of the exported file.
+     *
+     * @param  string $type the type of this document like invoice, shipment or creditmemo
+     * @param  Mage_Core_Model_Abstract $model the model instance
+     * @return string the filename of the exported file
      */
     public function getExportFilename($type, $model)
     {
@@ -253,6 +266,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return strtr($path, $vars);
     }
 
+    /**
+     * Returns the path where the fonts reside.
+     *
+     * @return string the path where the fonts reside
+     */
     public function getFontPath()
     {
         return Mage::getBaseDir('media') . self::FONT_PATH_IN_MEDIA;

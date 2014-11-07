@@ -1153,14 +1153,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         return explode("\n", $lines);
     }
 
-    /*
-    * we fix the percentage for taxes which come with four decimal places
-    * from magento core
-    *
-    * @param string $label
-    *
-    * @return string
-    */
+    /**
+     * Fix the percentage for taxes which come with four decimal places
+     * from magento core.
+     *
+     * @param string $label
+     *
+     * @return string
+     */
     private function fixNumberFormat($label)
     {
         $pattern = "/(.*)\((\d{1,2}\.\d{4}%)\)/";

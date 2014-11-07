@@ -5,6 +5,9 @@ require('Mage/Adminhtml/controllers/Sales/Order/ShipmentController.php');
 class FireGento_Pdf_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminhtml_Sales_Order_ShipmentController
 {
 
+    /**
+     * Create pdf for current shipment
+     */
     public function printAction()
     {
         /** @see Mage_Adminhtml_Sales_Order_InvoiceController */
@@ -16,8 +19,7 @@ class FireGento_Pdf_Adminhtml_Sales_Order_ShipmentController extends Mage_Adminh
                     $pdf->render(), 'application/pdf'
                 );
             }
-        }
-        else {
+        } else {
             $this->_forward('noRoute');
         }
     }
