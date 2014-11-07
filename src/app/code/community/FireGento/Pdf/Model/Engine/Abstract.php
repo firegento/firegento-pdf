@@ -960,10 +960,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
     }
 
     /**
-     * Insert addess of store owner
+     * Insert address of store owner
      *
      * @param  Zend_Pdf_Page $page  Current page object of Zend_Pdf
-     * @param  mixed         $store store to get infos from
+     * @param  mixed         $store store to get info from
      *
      * @return void
      */
