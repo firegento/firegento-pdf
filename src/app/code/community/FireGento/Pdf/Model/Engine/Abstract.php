@@ -853,7 +853,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract extends Mage_Sales_Model_Orde
         // get the imprint of the store if a store is set
         if (!empty($store)) {
             $imprintObject = new Varien_Object();
-            $imprintObject->setImprint(Mage::getStoreConfig('general/imprint', $store))
+            $imprintObject->setImprint(Mage::getStoreConfig('general/imprint', $store));
             Mage::dispatchEvent('firegento_pdf_imprint_load_after', array(
                     'transport_object' => $imprintObject
                 )
