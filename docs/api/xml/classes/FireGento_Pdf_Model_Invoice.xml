@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Invoice" namespace="" name="FireGento_Pdf_Model_Invoice" abstract="false" final="false" start="37" end="81">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Invoice.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" size="2318" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="a458be636a9c575df384ccdcb6f105da9ed68543"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Invoice" namespace="" name="FireGento_Pdf_Model_Invoice" abstract="false" final="false" start="37" end="81">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Invoice.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" size="2341" time="2014-10-26T15:00:57+01:00" unixtime="1414332057" sha1="a46ba1d499fc1e5532a2b04dd1b5b117df797f51" relative="app/code/community/FireGento/Pdf/Model/Invoice.php"/>
   <docblock>
     <description compact="Invoice model rewrite.">The invoice model serves as a proxy to the actual PDF engine as set via
 backend configuration.</description>
@@ -34,7 +34,9 @@ backend configuration.</description>
   <method name="getPdf" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="get pdf for invoices"/>
-      <param description="invoices to render pdfs for" type="array" variable="$invoices"/>
+      <param description="invoices to render pdfs for" type="object" variable="$invoices">
+        <type full="array|Varien_Data_Collection" namespace="" name="array|Varien_Data_Collection"/>
+      </param>
       <return type="mixed"/>
     </docblock>
     <parameter name="invoices" byreference="false" type="array"/>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pdxf="http://xml.phpdox.net/functions" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <title>phpDox - FireGento_Pdf_Helper_Data</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   </head>
   <body>
     <nav class="topnav">
@@ -16,7 +16,13 @@
           <a href="../index.xhtml">Overview</a>
         </li>
         <li class="separator">
-          <a href="../reports.xhtml">Reports</a>
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
         </li>
       </ul>
     </nav>
@@ -49,6 +55,9 @@
           <li>
             <a href="#methods">Methods</a>
           </li>
+          <li>
+            <a href="../source/app/code/community/FireGento/Pdf/Helper/Data.php.xhtml#line35">Source</a>
+          </li>
         </ul>
       </nav>
       <section>
@@ -63,10 +72,14 @@
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class FireGento_Pdf_Helper_Data
                 extends <a title="Mage_Core_Helper_Abstract" href="../classes/Mage_Core_Helper_Abstract.xhtml">Mage_Core_Helper_Abstract</a>
-            {<br/><ul class="none"><li>// constants</li><li>const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';</li><li>const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';</li></ul><ul class="none"><li>// methods</li><li>public mixed <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId</a>()
+            {<br/><ul class="none"><li>// constants</li><li>const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';</li><li>const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';</li><li>const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';</li><li>const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';</li><li>const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';</li><li>const XML_PATH_ITALIC_FONT = 'sales_pdf/firegento_pdf_fonts/italic_font';</li><li>const FONT_PATH_IN_MEDIA = '/firegento_pdf/fonts';</li></ul><ul class="none"><li>// methods</li><li>public mixed <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId</a>()
                     </li><li>public bool <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/isLogoFullWidth.xhtml">isLogoFullWidth</a>()
                     </li><li>public bool <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerNumber.xhtml">showCustomerNumber</a>()
                     </li><li>public array <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getScaledImageSize.xhtml">getScaledImageSize</a>()
+                    </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportPattern.xhtml">getExportPattern</a>()
+                    </li><li>public array <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getModelVars.xhtml">getModelVars</a>()
+                    </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportFilename.xhtml">getExportFilename</a>()
+                    </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getFontPath.xhtml">getFontPath</a>()
                     </li></ul>
 
             }<br/></div>
@@ -104,22 +117,56 @@
               <td id="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER">XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER</td>
               <td>'sales_pdf/creditmemo/show_customer_number'</td>
             </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN">XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN</td>
+              <td>'sales_pdf/invoice/filename_export_pattern'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN">XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN</td>
+              <td>'sales_pdf/shipment/filename_export_pattern'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN">XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN</td>
+              <td>'sales_pdf/creditmemo/filename_export_pattern'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_REGULAR_FONT">XML_PATH_REGULAR_FONT</td>
+              <td>'sales_pdf/firegento_pdf_fonts/regular_font'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_BOLD_FONT">XML_PATH_BOLD_FONT</td>
+              <td>'sales_pdf/firegento_pdf_fonts/bold_font'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_ITALIC_FONT">XML_PATH_ITALIC_FONT</td>
+              <td>'sales_pdf/firegento_pdf_fonts/italic_font'</td>
+            </tr>
+            <tr>
+              <td id="FONT_PATH_IN_MEDIA">FONT_PATH_IN_MEDIA</td>
+              <td>'/firegento_pdf/fonts'</td>
+            </tr>
           </tbody>
         </table>
         <h2 id="methods">Methods</h2>
         <div class="styled">
           <h4>public</h4>
           <ul>
+            <li id="getExportFilename"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportFilename.xhtml">getExportFilename()</a>
+                — The filename of the exported file.</li>
+            <li id="getExportPattern"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportPattern.xhtml">getExportPattern()</a>
+                — Return export pattern config value</li>
+            <li id="getFontPath"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getFontPath.xhtml">getFontPath()</a>
+                — Returns the path where the fonts reside.</li>
+            <li id="getModelVars"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getModelVars.xhtml">getModelVars()</a>
+                — Gets the variables which can be used as a placeholder in the filename.</li>
             <li id="getScaledImageSize"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getScaledImageSize.xhtml">getScaledImageSize()</a>
                 — Return scaled image sizes based on an path to an image file.</li>
-            <li id="isLogoFullWidth">
-              <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/isLogoFullWidth.xhtml">isLogoFullWidth()</a>
-            </li>
+            <li id="isLogoFullWidth"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/isLogoFullWidth.xhtml">isLogoFullWidth()</a>
+                — Whether the logo should be shown in full width.</li>
             <li id="putOrderId"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId()</a>
                 — Return the order id or false if order id should not be displayed on document.</li>
-            <li id="showCustomerNumber">
-              <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerNumber.xhtml">showCustomerNumber()</a>
-            </li>
+            <li id="showCustomerNumber"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerNumber.xhtml">showCustomerNumber()</a>
+                — Whether the customer number should be shown.</li>
           </ul>
         </div>
       </section>

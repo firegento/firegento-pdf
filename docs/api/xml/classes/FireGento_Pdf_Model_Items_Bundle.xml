@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Items_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Bundle" abstract="false" final="false" start="34" end="209">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Bundle.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Bundle.php" size="7347" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="4cb7eff8aea64cbbe5b8afaa3d9df7fddeb9fcab"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Bundle" abstract="false" final="false" start="34" end="249">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Bundle.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Bundle.php" size="9119" time="2014-10-26T15:22:24+01:00" unixtime="1414333344" sha1="26c38fdbfac12a4cd21d1a9aee1124097aaa6ba1" relative="app/code/community/FireGento/Pdf/Model/Items/Bundle.php"/>
   <docblock>
     <description compact="Bundle item model rewrite."/>
     <category value="FireGento"/>
@@ -12,7 +12,7 @@
     <since value="0.1.0"/>
   </docblock>
   <extends full="Mage_Bundle_Model_Sales_Order_Pdf_Items_Invoice" namespace="" name="Mage_Bundle_Model_Sales_Order_Pdf_Items_Invoice"/>
-  <method name="draw" start="43" end="208" abstract="false" final="false" static="false" visibility="public">
+  <method name="draw" start="43" end="248" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Draw item line."/>
       <param description="position of the product" type="int" variable="$position"/>
@@ -25,8 +25,17 @@
       <comment value="draw SKUs" line="95"/>
       <comment value="draw Position Number" line="102"/>
       <comment value="in case Product name is longer than 80 chars - it is written in a few lines" line="117"/>
-      <comment value="draw prices" line="131"/>
-      <comment value="custom options" line="167"/>
+      <comment value="draw prices" line="129"/>
+      <comment value="prepare qty" line="132"/>
+      <comment value="prepare price" line="140"/>
+      <comment value="prepare price_incl_tax" line="148"/>
+      <comment value="prepare tax" line="156"/>
+      <comment value="prepare tax_rate" line="164"/>
+      <comment value="prepare subtotal" line="172"/>
+      <comment value="prepare subtotal_incl_tax" line="180"/>
+      <comment value="draw columns in specified order" line="188"/>
+      <comment value="draw starting from right" line="190"/>
+      <comment value="custom options" line="208"/>
     </inline>
   </method>
 </class>

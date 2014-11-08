@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pdxf="http://xml.phpdox.net/functions" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <title>phpDox - FireGento_Pdf_Model_Engine_Abstract</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   </head>
   <body>
     <nav class="topnav">
@@ -16,7 +16,13 @@
           <a href="../index.xhtml">Overview</a>
         </li>
         <li class="separator">
-          <a href="../reports.xhtml">Reports</a>
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
         </li>
       </ul>
     </nav>
@@ -52,6 +58,9 @@
           <li>
             <a href="#methods">Methods</a>
           </li>
+          <li>
+            <a href="../source/app/code/community/FireGento/Pdf/Model/Engine/Abstract.php.xhtml#line35">Source</a>
+          </li>
         </ul>
       </nav>
       <section>
@@ -66,20 +75,13 @@
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class FireGento_Pdf_Model_Engine_Abstract
                 extends <a title="Mage_Sales_Model_Order_Pdf_Abstract" href="../classes/Mage_Sales_Model_Order_Pdf_Abstract.xhtml">Mage_Sales_Model_Order_Pdf_Abstract</a>
-            {<br/><ul class="none"><li>// members</li><li>public
-                         <a href="#members">$margin</a>;
-                    </li><li>public
-                         <a href="#members">$colors</a>;
-                    </li><li>public
-                         <a href="#members">$mode</a>;
-                    </li><li>public
-                         <a href="#members">$encoding</a>;
-                    </li><li>public
-                         <a href="#members">$pagecounter</a>;
-                    </li><li>protected
-                         <a href="#members">$_imprint</a>;
-                    </li><li>protected
-                         <a href="#members">$_marginTop</a>;
+            {<br/><ul class="none"><li>// members</li><li>public array <a href="#members">$margin</a>;
+                    </li><li>public array <a href="#members">$colors</a>;
+                    </li><li>public <a href="#members">$mode</a>;
+                    </li><li>public <a href="#members">$encoding</a>;
+                    </li><li>public <a href="#members">$pagecounter</a>;
+                    </li><li>protected <a href="#members">$_imprint</a>;
+                    </li><li>protected integer <a href="#members">$_marginTop</a>;
                     </li></ul><ul class="none"><li>// methods</li><li>public void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/__construct.xhtml">__construct</a>()
                     </li><li>public Zend_Pdf_Page <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/drawLineBlocks.xhtml">drawLineBlocks</a>()
                     </li><li>public FireGento_Pdf_Model_Engine_Abstract <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/setMode.xhtml">setMode</a>()
@@ -92,6 +94,7 @@
                     </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertLogoFullWidth.xhtml">_insertLogoFullWidth</a>()
                     </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertAddressesAndHeader.xhtml">insertAddressesAndHeader</a>()
                     </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertCustomerAddress.xhtml">_insertCustomerAddress</a>()
+                    </li><li>protected int <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getHeaderblockOffset.xhtml">getHeaderblockOffset</a>()
                     </li><li>protected void <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertHeader.xhtml">insertHeader</a>()
                     </li><li>protected int|false <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_putOrderId.xhtml">_putOrderId</a>()
                     </li><li>protected bool <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_showCustomerNumber.xhtml">_showCustomerNumber</a>()
@@ -111,6 +114,16 @@
                     </li><li>public Zend_Pdf_Resource_Font <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getFontItalic.xhtml">getFontItalic</a>()
                     </li><li>protected Zend_Pdf_Resource_Font <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_setFontItalic.xhtml">_setFontItalic</a>()
                     </li><li>public array <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_prepareText.xhtml">_prepareText</a>()
+                    </li><li>private string <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/fixNumberFormat.xhtml">fixNumberFormat</a>()
+                    </li><li>private string <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getBoldFontFile.xhtml">getBoldFontFile</a>()
+                    </li><li>private string <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getBoldFont.xhtml">getBoldFont</a>()
+                    </li><li>private bool <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/regularFontFileExists.xhtml">regularFontFileExists</a>()
+                    </li><li>private string <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getItalicFont.xhtml">getItalicFont</a>()
+                    </li><li>private bool <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/ItalicFontFileExists.xhtml">ItalicFontFileExists</a>()
+                    </li><li>private string <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getItalicFontFile.xhtml">getItalicFontFile</a>()
+                    </li><li>private string <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getRegularFont.xhtml">getRegularFont</a>()
+                    </li><li>private bool <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/regularFontFileExists.xhtml">regularFontFileExists</a>()
+                    </li><li>private string <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getRegularFontFile.xhtml">getRegularFontFile</a>()
                     </li></ul>
 
             }<br/></div>
@@ -139,12 +152,12 @@
         <table class="styled">
           <thead>
             <tr>
-              <th>Line</th>
+              <th style="width:3em;">Line</th>
               <th>Task</th>
             </tr>
           </thead>
           <tr>
-            <td class="nummeric">305+</td>
+            <td class="nummeric">342+</td>
             <td>merge _insertLogoPositioned and _insertLogoFullWidth</td>
           </tr>
         </table>
@@ -180,6 +193,29 @@
         </div>
         <h2 id="methods">Methods</h2>
         <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="ItalicFontFileExists"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/ItalicFontFileExists.xhtml">ItalicFontFileExists()</a>
+                — check whether italic font file exists</li>
+            <li id="fixNumberFormat"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/fixNumberFormat.xhtml">fixNumberFormat()</a>
+                — Fix the percentage for taxes which come with four decimal places from magento core.</li>
+            <li id="getBoldFont"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getBoldFont.xhtml">getBoldFont()</a>
+                — get bold font path</li>
+            <li id="getBoldFontFile"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getBoldFontFile.xhtml">getBoldFontFile()</a>
+                — get bold font file</li>
+            <li id="getItalicFont"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getItalicFont.xhtml">getItalicFont()</a>
+                — get italic font path</li>
+            <li id="getItalicFontFile"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getItalicFontFile.xhtml">getItalicFontFile()</a>
+                — get italic font file</li>
+            <li id="getRegularFont"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getRegularFont.xhtml">getRegularFont()</a>
+                — get the regular font path</li>
+            <li id="getRegularFontFile"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getRegularFontFile.xhtml">getRegularFontFile()</a>
+                — get the path to the font file for regular font</li>
+            <li id="regularFontFileExists"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/regularFontFileExists.xhtml">regularFontFileExists()</a>
+                — check whether font file exists for bold font</li>
+            <li id="regularFontFileExists"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/regularFontFileExists.xhtml">regularFontFileExists()</a>
+                — check whether font file exists for regular font</li>
+          </ul>
           <h4>protected</h4>
           <ul>
             <li id="Ln"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/Ln.xhtml">Ln()</a>
@@ -193,7 +229,7 @@
             <li id="_insertFooter"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertFooter.xhtml">_insertFooter()</a>
                 — Insert footer</li>
             <li id="_insertFooterAddress"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertFooterAddress.xhtml">_insertFooterAddress()</a>
-                — Insert addess of store owner</li>
+                — Insert address of store owner</li>
             <li id="_insertFooterBlock"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertFooterBlock.xhtml">_insertFooterBlock()</a>
                 — Insert footer block</li>
             <li id="_insertLogoFullWidth"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertLogoFullWidth.xhtml">_insertLogoFullWidth()</a>
@@ -206,9 +242,8 @@
                 — Insert page counter</li>
             <li id="_insertSenderAddessBar"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_insertSenderAddessBar.xhtml">_insertSenderAddessBar()</a>
                 — Insert sender address bar</li>
-            <li id="_isLogoFullWidth">
-              <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_isLogoFullWidth.xhtml">_isLogoFullWidth()</a>
-            </li>
+            <li id="_isLogoFullWidth"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_isLogoFullWidth.xhtml">_isLogoFullWidth()</a>
+                — is the setting to show the logo full width?</li>
             <li id="_putOrderId"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_putOrderId.xhtml">_putOrderId()</a>
                 — Return the order id or false if order id should not be displayed on document.</li>
             <li id="_setFontBold"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_setFontBold.xhtml">_setFontBold()</a>
@@ -217,12 +252,12 @@
                 — Set italic font</li>
             <li id="_setFontRegular"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_setFontRegular.xhtml">_setFontRegular()</a>
                 — Set default font</li>
-            <li id="_showCustomerNumber">
-              <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_showCustomerNumber.xhtml">_showCustomerNumber()</a>
-            </li>
-            <li id="insertAddressesAndHeader">
-              <a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertAddressesAndHeader.xhtml">insertAddressesAndHeader()</a>
-            </li>
+            <li id="_showCustomerNumber"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/_showCustomerNumber.xhtml">_showCustomerNumber()</a>
+                — do we show the customber number on this document</li>
+            <li id="getHeaderblockOffset"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/getHeaderblockOffset.xhtml">getHeaderblockOffset()</a>
+                — get the offset to position the address block left or right</li>
+            <li id="insertAddressesAndHeader"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertAddressesAndHeader.xhtml">insertAddressesAndHeader()</a>
+                — insert customer address and all header like customer number, etc.</li>
             <li id="insertHeader"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertHeader.xhtml">insertHeader()</a>
                 — Insert Header</li>
             <li id="insertLogo"><a title="FireGento_Pdf_Model_Engine_Abstract" href="../classes/FireGento_Pdf_Model_Engine_Abstract/insertLogo.xhtml">insertLogo()</a>

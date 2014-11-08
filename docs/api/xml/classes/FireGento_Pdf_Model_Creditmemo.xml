@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Creditmemo" namespace="" name="FireGento_Pdf_Model_Creditmemo" abstract="false" final="false" start="34" end="77">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Creditmemo.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Creditmemo.php" size="2224" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="b8e0801d1d5bd527c42cad394f50f2083bab897a"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Creditmemo" namespace="" name="FireGento_Pdf_Model_Creditmemo" abstract="false" final="false" start="34" end="77">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Creditmemo.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Creditmemo.php" size="2247" time="2014-10-26T15:00:57+01:00" unixtime="1414332057" sha1="0ad7c076bbdd9c9bfae2aacb01ce633e5919e3e6" relative="app/code/community/FireGento/Pdf/Model/Creditmemo.php"/>
   <docblock>
     <description compact="Creditmemo model rewrite."/>
     <category value="FireGento"/>
@@ -33,7 +33,9 @@
   <method name="getPdf" start="72" end="75" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="get pdf object"/>
-      <param description="creditmemos to render" type="array" variable="$creditmemos"/>
+      <param description="creditmemos to render" type="object" variable="$creditmemos">
+        <type full="array|Varien_Data_Collection" namespace="" name="array|Varien_Data_Collection"/>
+      </param>
       <return type="object">
         <type full="Zend_Pdf" namespace="" name="Zend_Pdf"/>
       </return>

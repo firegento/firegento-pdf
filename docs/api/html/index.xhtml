@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pdx="http://xml.phpdox.net/src#" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:git="http://xml.phpdox.net/gitlog" xmlns:pdx="http://xml.phpdox.net/src" xmlns:pdxf="http://xml.phpdox.net/functions" lang="en">
   <head>
     <title>phpDox - Overview</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   </head>
   <body>
     <nav class="topnav">
@@ -16,7 +16,13 @@
           <a href="index.xhtml">Overview</a>
         </li>
         <li class="separator">
-          <a href="reports.xhtml">Reports</a>
+          <a href="namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="source/index.xhtml">Source</a>
         </li>
       </ul>
     </nav>
@@ -40,250 +46,6 @@
     <div id="mainstage">
       <div class="unavailable">
         <p><strong>Warning:</strong> PHPLoc enrichment not enabled or phploc.xml not found.</p>
-      </div>
-      <div class="column">
-        <div class="container">
-          <h2>Structure</h2>
-          <table class="styled overview">
-            <tr>
-              <td>Namespaces</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td>Interfaces</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td>Traits</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td>Classes</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Abstract Classes</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Concrete Classes</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Methods</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Scope</td>
-              <td/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent2">Non-Static Methods</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent2">Static Methods</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Visibility</td>
-              <td/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent2">Public Method</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent2">Non-Public Methods</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Functions</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Named Functions</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Anonymous Functions</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Constants</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Global Constants</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Class Constants</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-          </table>
-        </div>
-        <div class="container">
-          <h2>Tests</h2>
-          <table class="styled overview">
-            <tr>
-              <td>Classes</td>
-              <td class="nummeric"/>
-              <td class="percent"/>
-            </tr>
-            <tr>
-              <td>Methods</td>
-              <td class="nummeric"/>
-              <td class="percent"/>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="column">
-        <div class="container">
-          <h2>Size</h2>
-          <table class="styled overview">
-            <tr>
-              <td>Lines of Code (LOC)</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td>Comment Lines of Code (CLOC)</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Non-Comment Lines of Code (NCLOC)</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Logical Lines of Code (LLOC)</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Classes</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Average Class Length</td>
-              <td class="nummeric">NaN</td>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Average Method Length</td>
-              <td class="nummeric">NaN</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>Functions</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Average Function Length</td>
-              <td class="nummeric">NaN</td>
-              <td/>
-            </tr>
-            <tr>
-              <td>Not in classes or functions</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-          </table>
-        </div>
-        <div class="container">
-          <h2>Complexity</h2>
-          <table class="styled overview">
-            <tr>
-              <td>Cyclomatic Complexity / LLOC</td>
-              <td class="nummeric">NaN</td>
-              <td class="percent"/>
-            </tr>
-            <tr>
-              <td>Cyclomatic Complexity / Number of Methods</td>
-              <td class="nummeric">NaN</td>
-              <td class="percent"/>
-            </tr>
-          </table>
-        </div>
-        <div class="container">
-          <h2>Dependencies</h2>
-          <table class="styled overview">
-            <tr>
-              <td>Global Accesses</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Global Constants</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Global Variables</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Super-Global Variables</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Attribute Accesses</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Non-Static</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Static</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td>Method Calls</td>
-              <td class="nummeric"/>
-              <td/>
-            </tr>
-            <tr>
-              <td class="indent">Non-Static</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-            <tr>
-              <td class="indent">Static</td>
-              <td class="nummeric"/>
-              <td class="percent">(NaN%)</td>
-            </tr>
-          </table>
-        </div>
       </div>
     </div>
     <footer>

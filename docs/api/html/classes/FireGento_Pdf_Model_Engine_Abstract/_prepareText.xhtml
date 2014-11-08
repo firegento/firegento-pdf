@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
   <head>
     <title>phpDox - Test Method</title>
     <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   </head>
   <body>
     <nav class="topnav">
@@ -16,7 +16,13 @@
           <a href="../../index.xhtml">Overview</a>
         </li>
         <li class="separator">
-          <a href="../../reports.xhtml">Reports</a>
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
         </li>
       </ul>
     </nav>
@@ -46,6 +52,15 @@
           <li>
             <a href="#synopsis">Synopsis</a>
           </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="../../source/app/code/community/FireGento/Pdf/Model/Engine/Abstract.php.xhtml#line1271">Source</a>
+          </li>
         </ul>
       </nav>
       <section>
@@ -53,7 +68,7 @@
         <h4>Prepares the text so that it fits to the given page's width.</h4>
         <p/>
         <ul/>
-        <h2>Signature</h2>
+        <h2 id="signature">Signature</h2>
         <div class="styled synopsis">
           <code>public function _prepareText(string
         $text,
@@ -67,30 +82,30 @@
         $width = null]]]] )
             </code>
         </div>
-        <h2>Parameters</h2>
+        <h2 id="parameterlist">Parameters</h2>
         <dl class="styled">
-          <dt>
-            <code>$text</code>
-          </dt>
+          <dt><code>$text</code>
+                —
+                string</dt>
           <dd>the text which should be prepared</dd>
-          <dt>
-            <code>$page</code>
-          </dt>
-          <dd>the page on which the text will be rendered</dd>
-          <dt>
-            <code>$font</code>
-          </dt>
-          <dd>the font with which the text will be rendered</dd>
-          <dt>
-            <code>$fontSize</code>
-          </dt>
+          <dt><code>$page</code>
+                —
+                object</dt>
+          <dd>the page on which the text will be rendered<br/><br/><br/>      </dd>
+          <dt><code>$font</code>
+                —
+                object</dt>
+          <dd>the font with which the text will be rendered<br/><br/><br/>      </dd>
+          <dt><code>$fontSize</code>
+                —
+                int</dt>
           <dd>the font size with which the text will be rendered</dd>
-          <dt>
-            <code>$width</code>
-          </dt>
+          <dt><code>$width</code>
+                —
+                int</dt>
           <dd>[optional] the width for the given text, defaults to the page width</dd>
         </dl>
-        <h2>Returns</h2>
+        <h2 id="return">Returns</h2>
         <dl class="styled">
           <dt>array</dt>
           <dd>the given text in an array where each item represents a new line</dd>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Helper_Data" namespace="" name="FireGento_Pdf_Helper_Data" abstract="false" final="false" start="34" end="147">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="5375" time="2013-12-05T15:01:08+01:00" unixtime="1386252068" sha1="028489b7cede5c31d24861976f3ff23a901600b6"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Helper_Data" namespace="" name="FireGento_Pdf_Helper_Data" abstract="false" final="false" start="35" end="281">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="10520" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="e87eaea4c8f3372a82db2c902fe36aee5d2321b7" relative="app/code/community/FireGento/Pdf/Helper/Data.php"/>
   <docblock>
     <description compact="Dummy data helper for translation issues."/>
     <category value="FireGento"/>
@@ -16,7 +16,14 @@
   <constant name="XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/invoice/show_customer_number'"/>
   <constant name="XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/shipment/show_customer_number'"/>
   <constant name="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/creditmemo/show_customer_number'"/>
-  <method name="putOrderId" start="49" end="83" abstract="false" final="false" static="false" visibility="public">
+  <constant name="XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN" value="'sales_pdf/invoice/filename_export_pattern'"/>
+  <constant name="XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN" value="'sales_pdf/shipment/filename_export_pattern'"/>
+  <constant name="XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN" value="'sales_pdf/creditmemo/filename_export_pattern'"/>
+  <constant name="XML_PATH_REGULAR_FONT" value="'sales_pdf/firegento_pdf_fonts/regular_font'"/>
+  <constant name="XML_PATH_BOLD_FONT" value="'sales_pdf/firegento_pdf_fonts/bold_font'"/>
+  <constant name="XML_PATH_ITALIC_FONT" value="'sales_pdf/firegento_pdf_fonts/italic_font'"/>
+  <constant name="FONT_PATH_IN_MEDIA" value="'/firegento_pdf/fonts'"/>
+  <method name="putOrderId" start="59" end="93" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return the order id or false if order id should not be displayed on document."/>
       <param description="order to get id from" type="object" variable="$order">
@@ -30,29 +37,29 @@
     </parameter>
     <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
   </method>
-  <method name="isLogoFullWidth" start="90" end="94" abstract="false" final="false" static="false" visibility="public">
+  <method name="isLogoFullWidth" start="102" end="109" abstract="false" final="false" static="false" visibility="public">
     <docblock>
-      <description compact=""/>
-      <param type="mixed" variable="$store"/>
-      <return type="object">
+      <description compact="Whether the logo should be shown in full width."/>
+      <param description="store to get information from" type="mixed" variable="$store"/>
+      <return description="whether the logo should be shown in full width" type="object">
         <type full="bool" namespace="" name="bool"/>
       </return>
     </docblock>
     <parameter name="store" byreference="false" type="{unknown}"/>
   </method>
-  <method name="showCustomerNumber" start="102" end="113" abstract="false" final="false" static="false" visibility="public">
+  <method name="showCustomerNumber" start="119" end="139" abstract="false" final="false" static="false" visibility="public">
     <docblock>
-      <description compact=""/>
-      <param type="string" variable="$mode"/>
-      <param type="mixed" variable="$store"/>
-      <return type="object">
+      <description compact="Whether the customer number should be shown."/>
+      <param description="the mode of this document like invoice, shipment or creditmemo" type="string" variable="$mode"/>
+      <param description="store to get information from" type="mixed" variable="$store"/>
+      <return description="whether the customer number should be shown" type="object">
         <type full="bool" namespace="" name="bool"/>
       </return>
     </docblock>
     <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
     <parameter name="store" byreference="false" type="{unknown}"/>
   </method>
-  <method name="getScaledImageSize" start="124" end="146" abstract="false" final="false" static="false" visibility="public">
+  <method name="getScaledImageSize" start="150" end="172" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return scaled image sizes based on an path to an image file."/>
       <param description="Url to image file." type="string" variable="$image"/>
@@ -64,9 +71,45 @@
     <parameter name="maxWidth" byreference="false" type="{unknown}"/>
     <parameter name="maxHeight" byreference="false" type="{unknown}"/>
     <inline>
-      <comment value="Calculate max variance to match dimensions." line="129"/>
-      <comment value="Calculate scale factor to match dimensions." line="133"/>
-      <comment value="Calculate new dimensions." line="140"/>
+      <comment value="Calculate max variance to match dimensions." line="155"/>
+      <comment value="Calculate scale factor to match dimensions." line="159"/>
+      <comment value="Calculate new dimensions." line="166"/>
     </inline>
+  </method>
+  <method name="getExportPattern" start="181" end="198" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return export pattern config value"/>
+      <param description="the type of this document like invoice, shipment or creditmemo" type="string" variable="$type"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getModelVars" start="207" end="244" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the variables which can be used as a placeholder in the filename."/>
+      <param description="the model instance" type="object" variable="$model">
+        <type full="Mage_Core_Model_Abstract" namespace="" name="Mage_Core_Model_Abstract"/>
+      </param>
+      <return description="with the variables which can be use as placeholders in the filename" type="array"/>
+    </docblock>
+    <parameter name="model" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getExportFilename" start="254" end="270" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The filename of the exported file."/>
+      <param description="the type of this document like invoice, shipment or creditmemo" type="string" variable="$type"/>
+      <param description="the model instance" type="object" variable="$model">
+        <type full="Mage_Core_Model_Abstract" namespace="" name="Mage_Core_Model_Abstract"/>
+      </param>
+      <return description="the filename of the exported file" type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+    <parameter name="model" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFontPath" start="277" end="280" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the path where the fonts reside."/>
+      <return description="the path where the fonts reside" type="string"/>
+    </docblock>
   </method>
 </class>

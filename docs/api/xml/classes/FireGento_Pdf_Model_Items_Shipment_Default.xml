@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Items_Shipment_Default" namespace="" name="FireGento_Pdf_Model_Items_Shipment_Default" abstract="false" final="false" start="34" end="108">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Default.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Default.php" size="3553" time="2013-12-05T15:26:12+01:00" unixtime="1386253572" sha1="7a2ac89bf3f79ceaf359c25ba07e0b4197f1fb15"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Shipment_Default" namespace="" name="FireGento_Pdf_Model_Items_Shipment_Default" abstract="false" final="false" start="34" end="108">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Default.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Default.php" size="3553" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="7a2ac89bf3f79ceaf359c25ba07e0b4197f1fb15" relative="app/code/community/FireGento/Pdf/Model/Items/Shipment/Default.php"/>
   <docblock>
     <description compact="Shipment default item model."/>
     <category value="FireGento"/>

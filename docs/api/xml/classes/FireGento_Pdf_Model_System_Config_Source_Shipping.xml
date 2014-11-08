@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_System_Config_Source_Shipping" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Shipping" abstract="false" final="false" start="34" end="60">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Shipping.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipping.php" size="1939" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="0b02ec6a31da9b0344ea35b925508e32427eb0ca"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Shipping" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Shipping" abstract="false" final="false" start="34" end="60">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Shipping.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipping.php" size="1939" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="0b02ec6a31da9b0344ea35b925508e32427eb0ca" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipping.php"/>
   <docblock>
     <description compact="Shipping method position source model."/>
     <category value="FireGento"/>

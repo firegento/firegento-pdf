@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Items_Shipment_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Shipment_Bundle" abstract="false" final="false" start="32" end="184">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Bundle.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php" size="6253" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="11539cba5ad9bfa03b92e2caba74084a04b4fd6a"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Shipment_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Shipment_Bundle" abstract="false" final="false" start="32" end="184">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Bundle.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php" size="6253" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="11539cba5ad9bfa03b92e2caba74084a04b4fd6a" relative="app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php"/>
   <docblock>
     <description compact="Shipment bundle item model."/>
     <category value="FireGento"/>

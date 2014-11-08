@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Test_Model_InvoiceTest" namespace="" name="FireGento_Pdf_Test_Model_InvoiceTest" abstract="false" final="false" start="4" end="22">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Test/Model" file="InvoiceTest.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Test/Model/InvoiceTest.php" size="501" time="2014-10-26T15:00:57+01:00" unixtime="1414332057" sha1="2fa997078b679fe593f31b078734bd9ce1e775f2" relative="app/code/community/FireGento/Pdf/Test/Model/InvoiceTest.php"/>
+  <extends full="FireGento_Pdf_Test_Model_SalesObjectTestAbstract" namespace="" name="FireGento_Pdf_Test_Model_SalesObjectTestAbstract"/>
+  <member name="class" type="string" default="'FireGento_Pdf_Model_Invoice'" visibility="protected" line="6"/>
+  <method name="getEngineXmlConfigPath" start="8" end="11" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getExpectedDefaultEngineClass" start="13" end="16" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getOrderObjectClassName" start="18" end="21" abstract="false" final="false" static="false" visibility="public"/>
+  <parent full="FireGento_Pdf_Test_Model_SalesObjectTestAbstract" namespace="" name="FireGento_Pdf_Test_Model_SalesObjectTestAbstract">
+    <extends full="EcomDev_PHPUnit_Test_Case" namespace="" name="EcomDev_PHPUnit_Test_Case"/>
+    <member name="class" type="string" default="''" visibility="protected" line="7"/>
+    <method name="itShouldExist" start="12" end="15" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <test/>
+      </docblock>
+    </method>
+    <method name="itShouldHaveAMethodGetEngine" start="21" end="28" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <test/>
+        <depends value="itShouldExist"/>
+      </docblock>
+    </method>
+    <method name="getEngineXmlConfigPath" start="30" end="30" abstract="true" final="false" static="false" visibility="public"/>
+    <method name="getExpectedDefaultEngineClass" start="32" end="32" abstract="true" final="false" static="false" visibility="public"/>
+    <method name="getOrderObjectClassName" start="34" end="34" abstract="true" final="false" static="false" visibility="public"/>
+    <method name="itShouldReturnADefaultEngineModel" start="40" end="46" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <test/>
+        <depends value="itShouldHaveAMethodGetEngine"/>
+      </docblock>
+    </method>
+    <method name="itShouldhaveAMethodGetPdf" start="52" end="56" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <test/>
+        <depends value="itShouldExist"/>
+      </docblock>
+    </method>
+    <method name="itShouldReturnAZendPdf" start="62" end="99" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description/>
+        <test/>
+        <depends value="itShouldhaveAMethodGetPdf"/>
+      </docblock>
+    </method>
+    <method name="callMethod" start="102" end="111" abstract="false" final="false" static="false" visibility="protected">
+      <parameter name="object" byreference="false" type="{unknown}"/>
+      <parameter name="method" byreference="false" type="{unknown}"/>
+      <parameter name="args" byreference="false" type="array" default="null"/>
+    </method>
+  </parent>
+</class>

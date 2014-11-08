@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Headerblocks" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Headerblocks" abstract="false" final="false" start="34" end="59">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Headerblocks.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Headerblocks.php" size="1821" time="2014-11-01T14:33:47+01:00" unixtime="1414848827" sha1="e4fe1ca9d960ac965a61f9d0d640138bc7c014f4" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Headerblocks.php"/>
+  <docblock>
+    <description compact="Logo position source model."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+    <version value="$Id:$"/>
+    <since value="0.1.0"/>
+  </docblock>
+  <constant name="LEFT" value="'left'"/>
+  <constant name="RIGHT" value="'right'"/>
+  <method name="toOptionArray" start="44" end="58" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return array of possible positions."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

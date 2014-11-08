@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Adminhtml_Sales_Order_CreditmemoController" namespace="" name="FireGento_Pdf_Adminhtml_Sales_Order_CreditmemoController" abstract="false" final="false" start="30" end="58">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/Order" file="CreditmemoController.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/Order/CreditmemoController.php" size="2026" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="ae6bb47eb8b6f25f5a92b011292d771092f02a25" relative="app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/Order/CreditmemoController.php"/>
+  <docblock>
+    <description compact="Class FireGento_Pdf_Adminhtml_Sales_Order_CreditmemoController"/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+  </docblock>
+  <extends full="Mage_Adminhtml_Sales_Order_CreditmemoController" namespace="" name="Mage_Adminhtml_Sales_Order_CreditmemoController"/>
+  <method name="printAction" start="37" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create pdf for current creditmemo"/>
+    </docblock>
+    <inline>
+      <comment value="@see Mage_Adminhtml_Sales_Order_InvoiceController" line="40"/>
+    </inline>
+  </method>
+</class>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_System_Config_Source_Invoice_Engine" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Invoice_Engine" abstract="false" final="false" start="34" end="74">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Invoice" file="Engine.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Invoice/Engine.php" size="2572" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="5c69a603a8ba7aac0c51c717ca3b9210db270299"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Invoice_Engine" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Invoice_Engine" abstract="false" final="false" start="34" end="74">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Invoice" file="Engine.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Invoice/Engine.php" size="2572" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="5c69a603a8ba7aac0c51c717ca3b9210db270299" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Invoice/Engine.php"/>
   <docblock>
     <description compact="Pdf creation engine source model."/>
     <category value="FireGento"/>

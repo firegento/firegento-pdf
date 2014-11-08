@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Sales_OrderController" namespace="" name="FireGento_Pdf_Sales_OrderController" abstract="false" final="false" start="36" end="85">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales" file="OrderController.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales/OrderController.php" size="3094" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="f8575000d3521cf1c19163bc5b05ed267175322c"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Sales_OrderController" namespace="" name="FireGento_Pdf_Sales_OrderController" abstract="false" final="false" start="37" end="140">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales" file="OrderController.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Sales/OrderController.php" size="4619" time="2014-11-08T19:25:48+01:00" unixtime="1415471148" sha1="f3747ad7cffc6a8c8f467e37d49e97ecd474cb01" relative="app/code/community/FireGento/Pdf/controllers/Sales/OrderController.php"/>
   <docblock>
     <description compact="Sales orders controller"/>
     <category value="FireGento"/>
@@ -12,17 +12,41 @@
     <since value="0.1.0"/>
   </docblock>
   <extends full="Mage_Sales_OrderController" namespace="" name="Mage_Sales_OrderController"/>
-  <method name="printInvoiceAction" start="43" end="84" abstract="false" final="false" static="false" visibility="public">
+  <member name="_types" type="array" visibility="protected" line="39"/>
+  <method name="printInvoiceAction" start="51" end="54" abstract="false" final="false" static="false" visibility="public">
     <docblock>
-      <description compact="Print PDF Invoice Action"/>
+      <description compact="Print PDF Invoice Action">it changes the standard action with html output to pdf output</description>
       <return type="object">
         <type full="void" namespace="" name="void"/>
       </return>
     </docblock>
+  </method>
+  <method name="printCreditmemoAction" start="64" end="67" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Print PDF Creditmemo action">it changes the standard action with html output to pdf output</description>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="printShipmentAction" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Print PDF Shipment Action">it changes the standard action with html output to pdf output</description>
+      <return type="object">
+        <type full="void" namespace="" name="void"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="printDocument" start="86" end="139" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create invoice, creditmemo or shipment pdf"/>
+      <param description="which document should be created? invoice, creditmemo or shipment" type="string" variable="$type"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
     <inline>
-      <comment value="Create a pdf file from all invoices of requested order." line="56"/>
-      <comment value="Store current area and set to adminhtml for invoice generation." line="66"/>
-      <comment value="Restore area." line="74"/>
+      <comment value="Create a pdf file from all $type s of requested order." line="106"/>
+      <comment value="Store current area and set to adminhtml for $type generation." line="118"/>
+      <comment value="Restore area." line="129"/>
     </inline>
   </method>
 </class>

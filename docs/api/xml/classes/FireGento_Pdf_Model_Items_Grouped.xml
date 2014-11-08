@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Items_Grouped" namespace="" name="FireGento_Pdf_Model_Items_Grouped" abstract="false" final="false" start="30" end="51">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Grouped.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Grouped.php" size="1770" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="75e7f2d0b6e329e050d2685b32f3aa0764cd0d6f"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Grouped" namespace="" name="FireGento_Pdf_Model_Items_Grouped" abstract="false" final="false" start="30" end="51">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Grouped.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Grouped.php" size="1770" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="75e7f2d0b6e329e050d2685b32f3aa0764cd0d6f" relative="app/code/community/FireGento/Pdf/Model/Items/Grouped.php"/>
   <docblock>
     <description compact="Default item model rewrite."/>
     <category value="FireGento"/>

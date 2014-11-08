@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Adminhtml_Sales_Order_InvoiceController" namespace="" name="FireGento_Pdf_Adminhtml_Sales_Order_InvoiceController" abstract="false" final="false" start="31" end="58">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/Order" file="InvoiceController.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/Order/InvoiceController.php" size="1917" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="6682f25edd69035e12d746f98c5b5f18afdd42d1" relative="app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/Order/InvoiceController.php"/>
+  <docblock>
+    <description compact="Class FireGento_Pdf_Adminhtml_Sales_Order_InvoiceController"/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+  </docblock>
+  <extends full="Mage_Adminhtml_Sales_Order_InvoiceController" namespace="" name="Mage_Adminhtml_Sales_Order_InvoiceController"/>
+  <method name="printAction" start="38" end="56" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create pdf for current invoice"/>
+    </docblock>
+  </method>
+</class>

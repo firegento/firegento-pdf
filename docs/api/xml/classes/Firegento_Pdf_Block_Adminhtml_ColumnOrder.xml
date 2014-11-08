@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="Firegento_Pdf_Block_Adminhtml_ColumnOrder" namespace="" name="Firegento_Pdf_Block_Adminhtml_ColumnOrder" abstract="false" final="false" start="30" end="154">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml" file="ColumnOrder.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php" size="6438" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="dc7e02a469b9e9b9bbf7b9b436b5732a6024d867"/>
+<class xmlns="http://xml.phpdox.net/src" full="Firegento_Pdf_Block_Adminhtml_ColumnOrder" namespace="" name="Firegento_Pdf_Block_Adminhtml_ColumnOrder" abstract="false" final="false" start="30" end="154">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml" file="ColumnOrder.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php" size="6438" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="dc7e02a469b9e9b9bbf7b9b436b5732a6024d867" relative="app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php"/>
   <docblock>
     <description compact="Firegento"/>
     <category value="FireGento"/>

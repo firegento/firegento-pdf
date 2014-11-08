@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Shipment" namespace="" name="FireGento_Pdf_Model_Shipment" abstract="false" final="false" start="34" end="78">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Shipment.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Shipment.php" size="2220" time="2013-12-05T12:58:58+01:00" unixtime="1386244738" sha1="6d21bdceb7556306fc64cf20a1ba3855cfa301c4"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Shipment" namespace="" name="FireGento_Pdf_Model_Shipment" abstract="false" final="false" start="34" end="78">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Shipment.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Shipment.php" size="2243" time="2014-10-26T15:00:57+01:00" unixtime="1414332057" sha1="e855c02c21d02aa3c0b2d963156299bf8ca89d91" relative="app/code/community/FireGento/Pdf/Model/Shipment.php"/>
   <docblock>
     <description compact="Shipment model rewrite."/>
     <category value="FireGento"/>
@@ -33,7 +33,9 @@
   <method name="getPdf" start="73" end="76" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="get PDF object"/>
-      <param description="shipments to generate pdfs for" type="array" variable="$shipments"/>
+      <param description="shipments to generate pdfs for" type="object" variable="$shipments">
+        <type full="array|Varien_Data_Collection" namespace="" name="array|Varien_Data_Collection"/>
+      </param>
       <return type="mixed"/>
     </docblock>
     <parameter name="shipments" byreference="false" type="array"/>

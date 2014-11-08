@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src#" full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer" abstract="false" final="false" start="34" end="222">
-  <file path="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Observer.php" realpath="/var/www/magento170/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" size="7457" time="2014-01-27T14:37:03+00:00" unixtime="1390833423" sha1="993d20c6a66680e4a41be2a0b3c900da4afef2ab"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer" abstract="false" final="false" start="34" end="222">
+  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Observer.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Observer.php" size="7539" time="2014-11-08T19:25:48+01:00" unixtime="1415471148" sha1="8e2350bed43c258999b9d64028b632bcde37fd26" relative="app/code/community/FireGento/Pdf/Model/Observer.php"/>
   <docblock>
     <description compact="FireGento Pdf observer."/>
     <category value="FireGento"/>
@@ -27,7 +27,7 @@
   </method>
   <method name="addInvoiceDateNotice" start="61" end="72" abstract="false" final="false" static="false" visibility="public">
     <docblock>
-      <description compact="add inovoice date notice to pdf"/>
+      <description compact="add invoice date notice to pdf"/>
       <param description="observer object" type="object" variable="$observer">
         <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
       </param>
@@ -88,7 +88,7 @@
         <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
       </param>
       <return type="object">
-        <type full="$this" namespace="" name="$this"/>
+        <type full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer"/>
       </return>
     </docblock>
     <parameter name="observer" byreference="false" type="object">
@@ -98,11 +98,11 @@
   <method name="addBarcode" start="193" end="221" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Adds a barcode representing the order number to the shipment if activated."/>
-      <param type="object" variable="$observer">
+      <param description="observer which is passed by magento" type="object" variable="$observer">
         <type full="Varien_Event_Observer" namespace="" name="Varien_Event_Observer"/>
       </param>
       <return type="object">
-        <type full="$this" namespace="" name="$this"/>
+        <type full="FireGento_Pdf_Model_Observer" namespace="" name="FireGento_Pdf_Model_Observer"/>
       </return>
     </docblock>
     <parameter name="observer" byreference="false" type="object">
