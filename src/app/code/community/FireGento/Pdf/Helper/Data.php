@@ -20,6 +20,7 @@
  * @version   $Id:$
  * @since     0.1.0
  */
+
 /**
  * Dummy data helper for translation issues.
  *
@@ -110,7 +111,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Whether the customer number should be shown.
      *
-     * @param  string $mode the mode of this document like invoice, shipment or creditmemo
+     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo
      * @param  mixed  $store store to get information from
      *
      * @return bool whether the customer number should be shown
@@ -174,6 +175,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
      * Return export pattern config value
      *
      * @param  string $type the type of this document like invoice, shipment or creditmemo
+     *
      * @return string
      */
     public function getExportPattern($type)
@@ -208,35 +210,35 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
             switch ($model) {
                 case $model instanceof Mage_Sales_Model_Order_Invoice:
                     $specificVars = array(
-                        '{{invoice_id}}'            => $model->getIncrementId()
+                        '{{invoice_id}}' => $model->getIncrementId()
                     );
                     break;
                 case $model instanceof Mage_Sales_Model_Order_Shipment:
                     $specificVars = array(
-                        '{{shipment_id}}'           => $model->getIncrementId()
+                        '{{shipment_id}}' => $model->getIncrementId()
                     );
                     break;
                 case $model instanceof Mage_Sales_Model_Order_Creditmemo:
                     $specificVars = array(
-                        '{{creditmemo_id}}'         => $model->getIncrementId()
+                        '{{creditmemo_id}}' => $model->getIncrementId()
                     );
             }
             $order = $model->getOrder();
             $commonVars = array(
-                '{{order_id}}'              => $order->getIncrementId(),
-                '{{customer_id}}'           => $order->getCustomerId(),
-                '{{customer_name}}'         => $order->getCustomerName(),
-                '{{customer_firstname}}'    => $order->getCustomerFirstname(),
-                '{{customer_lastname}}'     => $order->getCustomerLastname()
+                '{{order_id}}'           => $order->getIncrementId(),
+                '{{customer_id}}'        => $order->getCustomerId(),
+                '{{customer_name}}'      => $order->getCustomerName(),
+                '{{customer_firstname}}' => $order->getCustomerFirstname(),
+                '{{customer_lastname}}'  => $order->getCustomerLastname()
             );
             return array_merge($specificVars, $commonVars);
         } else {
             return array(
-                '{{order_id}}'              => $model->getIncrementId(),
-                '{{customer_id}}'           => $model->getCustomerId(),
-                '{{customer_name}}'         => $model->getCustomerName(),
-                '{{customer_firstname}}'    => $model->getCustomerFirstname(),
-                '{{customer_lastname}}'     => $model->getCustomerLastname()
+                '{{order_id}}'           => $model->getIncrementId(),
+                '{{customer_id}}'        => $model->getCustomerId(),
+                '{{customer_name}}'      => $model->getCustomerName(),
+                '{{customer_firstname}}' => $model->getCustomerFirstname(),
+                '{{customer_lastname}}'  => $model->getCustomerLastname()
             );
         }
     }
@@ -244,8 +246,9 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * The filename of the exported file.
      *
-     * @param  string $type the type of this document like invoice, shipment or creditmemo
+     * @param  string                   $type  the type of this document like invoice, shipment or creditmemo
      * @param  Mage_Core_Model_Abstract $model the model instance
+     *
      * @return string the filename of the exported file
      */
     public function getExportFilename($type, $model)
