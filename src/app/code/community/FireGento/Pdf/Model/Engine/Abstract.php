@@ -96,10 +96,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                         if (!is_array($column['text'])) {
                             $column['text'] = array($column['text']);
                         }
-                        $top = 0;
-                        foreach ($column['text'] as $part) {
-                            $top += $lineSpacing;
-                        }
+                        $top = count($column['text']) * $lineSpacing;
 
                         $maxHeight = $top > $maxHeight ? $top : $maxHeight;
                     }
