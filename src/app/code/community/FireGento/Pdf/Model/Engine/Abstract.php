@@ -1354,7 +1354,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return bool
      */
-    private function regularFontFileExists()
+    private function boldFontFileExists()
     {
         return file_exists($this->getBoldFontFile());
     }
