@@ -734,6 +734,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         $this->_addFooter($page, Mage::app()->getStore());
 
+        // set the font because it may not be set, see https://github.com/firegento/firegento-pdf/issues/184
+        $this->_setFontRegular($page, 9);
+
         // provide the possibility to add random stuff to the page
         Mage::dispatchEvent(
             'firegento_pdf_' . $this->getMode() . '_edit_page',
