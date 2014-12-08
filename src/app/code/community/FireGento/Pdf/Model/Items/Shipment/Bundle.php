@@ -148,7 +148,7 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
                         'feed'  => 60
                     );
 
-                    if ($option['value']) {
+                    if (isset($option['value'])) {
                         $text = array();
                         $_printValue = isset($option['print_value'])
                             ? $option['print_value']

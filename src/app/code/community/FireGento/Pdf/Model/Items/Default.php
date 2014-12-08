@@ -73,7 +73,7 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
             foreach ($options as $option) {
                 $optionTxt = $option['label'] . ': ';
                 // append option value
-                if ($option['value']) {
+                if (isset($option['value'])) {
                     $optionTxt .= isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
                 }
                 $optionArray = $pdf->_prepareText($optionTxt, $page, $pdf->getFontRegular(), $fontSize, 215);

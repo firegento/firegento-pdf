@@ -211,7 +211,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                         'feed' => 35
                     );
 
-                    if ($option['value']) {
+                    if (isset($option['value'])) {
                         $text = array();
                         $_printValue = isset($option['print_value'])
                             ? $option['print_value']

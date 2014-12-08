@@ -78,7 +78,7 @@ class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_
                 );
 
                 // draw options value
-                if ($option['value']) {
+                if (isset($option['value'])) {
                     $_printVal = isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
                     $values = explode(', ', $_printVal);
                     foreach ($values as $value) {
