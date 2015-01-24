@@ -48,8 +48,8 @@ class FireGento_Pdf_Model_System_Config_Source_Shipment_Engine
     {
         // load default engines shipped with Mage_Sales and FireGento_Pdf
         $engines = array(
-            ''                                     => Mage::helper('firegento_pdf')->__('Standard Magento'),
-            'firegento_pdf/engine_shipment_default' => Mage::helper('firegento_pdf')->__('Standard Germany')
+            'firegento_pdf/engine_shipment_default' => Mage::helper('firegento_pdf')->__('Standard Germany'),
+            ''                                      => Mage::helper('firegento_pdf')->__('Standard Magento'),
         );
 
         // load additional engines provided by third party extensions
