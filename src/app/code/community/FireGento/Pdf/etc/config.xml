@@ -116,7 +116,7 @@
     <default>
         <sales_pdf>
             <invoice>
-                <engine>firegento_pdf/engine_shipment_default</engine>
+                <engine>firegento_pdf/engine_invoice_default</engine>
                 <show_customer_number>1</show_customer_number>
                 <show_date_notice>0</show_date_notice>
                 <maturity/>
@@ -135,7 +135,7 @@
                 <order_id_as_barcode>0</order_id_as_barcode>
             </shipment>
             <creditmemo>
-                <engine>firegento_pdf/engine_shipment_default</engine>
+                <engine>firegento_pdf/engine_creditmemo_default</engine>
                 <show_customer_number>1</show_customer_number>
                 <note/>
             </creditmemo>
