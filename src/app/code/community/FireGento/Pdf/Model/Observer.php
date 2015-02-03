@@ -144,7 +144,6 @@ class FireGento_Pdf_Model_Observer
         return $this;
     }
 
-
     /**
      * Add the invoice comments
      *
@@ -170,6 +169,99 @@ class FireGento_Pdf_Model_Observer
 
         foreach ($commentsCollection as $comment) {
             /** @var $comment Mage_Sales_Model_Order_Invoice_Comment */
+            $notes[] = $comment->getComment();
+        }
+
+        $result->setNotes($notes);
+        return $this;
+    }
+
+    /**
+     * Add notes to shipment document.
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addShipmentNotes(Varien_Event_Observer $observer)
+    {
+        $this->addShippingMethod($observer);
+        $this->addShipmentComments($observer);
+
+        return $this;
+    }
+
+    /**
+     * Add the shipment comments
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addShipmentComments(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/show_comments')) {
+            return $this;
+        }
+
+        /** @var Mage_Sales_Model_Order_Shipment $shipment */
+        $shipment = $observer->getShipment();
+
+        /** @var Mage_Sales_Model_Resource_Order_Shipment_Comment_Collection $commentsCollection */
+        $commentsCollection = $shipment->getCommentsCollection();
+        $commentsCollection->addVisibleOnFrontFilter();
+
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+
+        foreach ($commentsCollection as $comment) {
+            /** @var $comment Mage_Sales_Model_Order_Shipment_Comment */
+            $notes[] = $comment->getComment();
+        }
+
+        $result->setNotes($notes);
+        return $this;
+    }
+
+    /**
+     * Add notes to credit memo document.
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addCreditmemoNotes(Varien_Event_Observer $observer)
+    {
+        $this->addCreditmemoComments($observer);
+
+        return $this;
+    }
+
+    /**
+     * Add the credit memo comments
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addCreditmemoComments(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/creditmemo/show_comments')) {
+            return $this;
+        }
+
+        /** @var Mage_Sales_Model_Order_Creditmemo $creditmemo */
+        $creditmemo = $observer->getCreditmemo();
+
+        /** @var Mage_Sales_Model_Resource_Order_Creditmemo_Comment_Collection $commentsCollection */
+        $commentsCollection = $creditmemo->getCommentsCollection();
+        $commentsCollection->addVisibleOnFrontFilter();
+
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+
+        foreach ($commentsCollection as $comment) {
+            /** @var $comment Mage_Sales_Model_Order_Creditmemo_Comment */
             $notes[] = $comment->getComment();
         }
 

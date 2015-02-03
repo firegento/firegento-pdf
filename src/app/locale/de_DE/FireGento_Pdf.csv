@@ -70,6 +70,8 @@
 "Position of shipping method on shipment.","Position der Versandart auf dem Lieferschein."
 "not to be listed","nicht aufzulisten"
 "Show Invoice Comments","Rechnungskommentare anzeigen"
+"Show Shipment Comments","Lieferscheinkommentare anzeigen"
+"Show Credit Memo Comments","Gutschriftenkommentare anzeigen"
 "Show Item Discount","Rabatt auf Artikelebene anzeigen"
 "You get a discount of %s.","Sie erhalten einen Rabatt von %s."
 "Tax amount","Steuerbetrag"

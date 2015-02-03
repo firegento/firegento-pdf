@@ -72,10 +72,18 @@
                 <observers>
                     <firegento_pdf>
                         <class>firegento_pdf/observer</class>
-                        <method>addShippingMethod</method>
+                        <method>addShipmentNotes</method>
                     </firegento_pdf>
                 </observers>
             </firegento_pdf_shipment_insert_note>
+            <firegento_pdf_creditmemo_insert_note>
+                <observers>
+                    <firegento_pdf>
+                        <class>firegento_pdf/observer</class>
+                        <method>addCreditmemoNotes</method>
+                    </firegento_pdf>
+                </observers>
+            </firegento_pdf_creditmemo_insert_note>
             <firegento_pdf_shipment_edit_page>
                 <observers>
                     <firegento_pdf>
