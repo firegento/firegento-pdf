@@ -287,11 +287,12 @@ class FireGento_Pdf_Model_Observer
         $barcodeConfig = array(
             'drawText' => false,
             'orientation' => 90,
+            'barHeight' => 25,
             'text' => $order->getIncrementId()
         );
         $rendererConfig = array(
             'verticalPosition' => 'middle',
-            'moduleSize' => 0.9
+            'moduleSize' => 1
         );
         // create dummy Zend_Pdf object, which just stores the current page, so that we can pass it in
         // Zend_Barcode_Renderer_Pdf->setResource()
