@@ -38,8 +38,6 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
         $pdf    = $this->getPdf();
         $page   = $this->getPage();
 
-        $this->_setFontRegular();
-
         $shipItems = $this->getChilds($item);
         $items = array_merge(array($item->getOrderItem()), $item->getOrderItem()->getChildrenItems());
 

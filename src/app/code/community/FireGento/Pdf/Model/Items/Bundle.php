@@ -43,7 +43,6 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
         $fontSize = 9;
 
-        $this->_setFontRegular();
         $items = $this->getChilds($item);
 
         $_prevOptionId = '';
