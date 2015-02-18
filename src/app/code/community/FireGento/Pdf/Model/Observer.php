@@ -320,7 +320,7 @@ class FireGento_Pdf_Model_Observer
             'text' => $order->getIncrementId()
         );
         $rendererConfig = array(
-            'verticalPosition' => 'middle',
+            'verticalPosition' => 'top',
             'moduleSize' => 1
         );
         // create dummy Zend_Pdf object, which just stores the current page, so that we can pass it in
