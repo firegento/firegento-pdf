@@ -270,17 +270,46 @@ class FireGento_Pdf_Model_Observer
     }
 
     /**
-     * Adds a barcode representing the order number to the shipment if activated.
+     * Adds a barcode representing the order number to the invoice if activated
+     *
+     * @param Varien_Event_Observer $observer observer which is passed by magento
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addInvoiceBarcode(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/invoice/order_id_as_barcode')) {
+            return $this;
+        }
+
+        return $this->addBarcode($observer);
+    }
+
+    /**
+     * Adds a barcode representing the order number to the shipment if activated
+     *
+     * @param Varien_Event_Observer $observer observer which is passed by magento
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addShipmentBarcode(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/order_id_as_barcode')) {
+            return $this;
+        }
+
+        return $this->addBarcode($observer);
+    }
+
+    /**
+     * Adds a barcode representing the order number to a PDF
      *
      * @param  Varien_Event_Observer $observer observer which is passed by magento
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    public function addBarcode(Varien_Event_Observer $observer)
+    protected function addBarcode(Varien_Event_Observer $observer)
     {
-        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/order_id_as_barcode')) {
-            return $this;
-        }
         $page = $observer->getPage();
         $order = $observer->getOrder();
 
