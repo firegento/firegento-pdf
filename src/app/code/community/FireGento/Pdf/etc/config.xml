@@ -84,11 +84,19 @@
                     </firegento_pdf>
                 </observers>
             </firegento_pdf_creditmemo_insert_note>
+            <firegento_pdf_invoice_edit_page>
+                <observers>
+                    <firegento_pdf>
+                        <class>firegento_pdf/observer</class>
+                        <method>addInvoiceBarcode</method>
+                    </firegento_pdf>
+                </observers>
+            </firegento_pdf_invoice_edit_page>
             <firegento_pdf_shipment_edit_page>
                 <observers>
                     <firegento_pdf>
                         <class>firegento_pdf/observer</class>
-                        <method>addBarcode</method>
+                        <method>addShipmentBarcode</method>
                     </firegento_pdf>
                 </observers>
             </firegento_pdf_shipment_edit_page>
@@ -167,6 +175,7 @@
                 <note/>
                 <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
                 <show_item_discount>0</show_item_discount>
+                <order_id_as_barcode>0</order_id_as_barcode>
             </invoice>
             <shipment>
                 <engine>firegento_pdf/engine_shipment_default</engine>
