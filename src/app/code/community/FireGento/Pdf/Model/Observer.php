@@ -332,6 +332,7 @@ class FireGento_Pdf_Model_Observer
         // calculate left offset so that barcode is printed on the right with a little margin
         $leftOffset = $page->getWidth() - $renderer->getBarcode()->getWidth(true) * $renderer->getModuleSize() - 10;
         $renderer->setLeftOffset($leftOffset);
+        $renderer->setTopOffset(50);
         $renderer->draw();
         return $this;
     }
