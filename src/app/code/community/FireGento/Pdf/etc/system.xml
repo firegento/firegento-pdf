@@ -350,7 +350,7 @@
                     <fields>
                         <upload_fonts translate="label comment">
                             <label>Upload own fonts</label>
-                            <comment><![CDATA[You can upload your own fonts (*.ttf, *.otf) instead of using Zends Helvetica]]></comment>
+                            <comment><![CDATA[You can upload your own fonts (*.ttf) instead of using Zends Helvetica]]></comment>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <frontend_type>select</frontend_type>
                             <sort_order>400</sort_order>
