@@ -162,6 +162,15 @@
                             <show_in_store>1</show_in_store>
                             <comment>available placeholders: {{invoice_id}}, {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
                         </filename_export_pattern>
+                        <filename_export_pattern_for_multiple_documents translate ="label comment">
+                            <label>Filename Export Pattern for Multiple Documents</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholder: strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern_for_multiple_documents>
                     </fields>
                 </invoice>
                 <shipment>
@@ -232,6 +241,15 @@
                             <show_in_store>1</show_in_store>
                             <comment>available placeholders: {{shipment_id}}, {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
                         </filename_export_pattern>
+                        <filename_export_pattern_for_multiple_documents translate ="label comment">
+                            <label>Filename Export Pattern for Multiple Documents</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholder: strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern_for_multiple_documents>
                     </fields>
                 </shipment>
                 <creditmemo>
@@ -282,6 +300,15 @@
                             <show_in_store>1</show_in_store>
                             <comment>available placeholders: {{creditmemo_id}}, {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
                         </filename_export_pattern>
+                        <filename_export_pattern_for_multiple_documents translate ="label comment">
+                            <label>Filename Export Pattern for Multiple Documents</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholder: strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern_for_multiple_documents>
                     </fields>
                 </creditmemo>
                 <firegento_pdf translate="label">
