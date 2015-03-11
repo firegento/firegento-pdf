@@ -35,6 +35,9 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
+    const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
 
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
@@ -192,6 +195,32 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Return export pattern for multiple documents config value
+     *
+     * @param  string $type the type of this document like invoice, shipment or creditmemo
+     *
+     * @return string
+     */
+    public function getExportPatternForMultipleDocuments($type)
+    {
+        switch ($type) {
+            case 'invoice':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+                );
+            case 'shipment':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+                );
+            case 'creditmemo':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+                );
+        }
+        return true;
+    }
+
+    /**
      * Gets the variables which can be used as a placeholder in the filename.
      *
      * @param  Mage_Core_Model_Abstract $model the model instance
@@ -261,6 +290,27 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         $vars = $this->getModelVars($model);
 
         return strtr($path, $vars);
+    }
+
+    /**
+     * The filename of the exported file if multiple documents are printed at once.
+     *
+     * @param string $type the type of this document like invoice, shipment or creditmemo
+     *
+     * @return string the filename of the exported file
+     */
+    public function getExportFilenameForMultipleDocuments($type)
+    {
+        $type = (!$type) ? 'invoice' : $type;
+        $pattern = $this->getExportPatternForMultipleDocuments($type);
+        if (!$pattern) {
+            $date = Mage::getSingleton('core/date');
+            $pattern = $type . $date->date('Y-m-d_H-i-s');
+        }
+        if (substr($pattern, -4) != '.pdf') {
+            $pattern = $pattern . '.pdf';
+        }
+        return strftime($pattern);
     }
 
     /**
