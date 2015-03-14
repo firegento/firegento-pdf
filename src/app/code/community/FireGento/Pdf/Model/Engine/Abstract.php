@@ -626,10 +626,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 $order->getPayment()->getMethodInstance()->getTitle(), $page,
                 $font, 10, $width
             );
+            $paymentMethod = array_shift($paymentMethodArray);
             $page->drawText(
-                array_shift($paymentMethodArray),
-                ($this->margin['right'] - $valueRightOffset - $width), $this->y,
-                $this->encoding
+                $paymentMethod,
+                ($this->margin['right'] - $valueRightOffset
+                    - $this->widthForStringUsingFontSize($paymentMethod, $font, 10)),
+                $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
@@ -663,10 +665,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $shippingMethodArray
                 = $this->_prepareText($order->getShippingDescription(), $page,
                 $font, 10, $width);
+            $shippingMethod = array_shift($shippingMethodArray);
             $page->drawText(
-                array_shift($shippingMethodArray),
-                ($this->margin['right'] - $valueRightOffset - $width), $this->y,
-                $this->encoding
+                $shippingMethod,
+                ($this->margin['right'] - $valueRightOffset
+                    - $this->widthForStringUsingFontSize($shippingMethod, $font, 10)),
+                $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
