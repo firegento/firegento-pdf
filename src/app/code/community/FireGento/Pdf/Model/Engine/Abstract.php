@@ -1307,7 +1307,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return string
      */
-    private function fixNumberFormat($label)
+    protected function fixNumberFormat($label)
     {
         $pattern = "/(.*)\((\d{1,2}\.\d{4}%)\)/";
         if (preg_match($pattern, $label, $matches)) {
@@ -1328,7 +1328,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return string
      */
-    private function getBoldFontFile()
+    protected function getBoldFontFile()
     {
         return Mage::helper('firegento_pdf')->getFontPath() . DS
         . $this->getBoldFont();
@@ -1339,7 +1339,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return string
      */
-    private function getBoldFont()
+    protected function getBoldFont()
     {
         return Mage::getStoreConfig(
             FireGento_Pdf_Helper_Data::XML_PATH_BOLD_FONT
@@ -1351,7 +1351,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return bool
      */
-    private function boldFontFileExists()
+    protected function boldFontFileExists()
     {
         return file_exists($this->getBoldFontFile());
     }
@@ -1361,7 +1361,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return string
      */
-    private function getItalicFont()
+    protected function getItalicFont()
     {
         return Mage::getStoreConfig(
             FireGento_Pdf_Helper_Data::XML_PATH_ITALIC_FONT
@@ -1373,7 +1373,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return bool
      */
-    private function ItalicFontFileExists()
+    protected function ItalicFontFileExists()
     {
         return file_exists($this->getItalicFontFile());
     }
@@ -1383,7 +1383,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return string
      */
-    private function getItalicFontFile()
+    protected function getItalicFontFile()
     {
         return Mage::helper('firegento_pdf')->getFontPath() . DS
         . $this->getItalicFont();
@@ -1395,7 +1395,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return string
      */
-    private function getRegularFont()
+    protected function getRegularFont()
     {
         return Mage::getStoreConfig(
             FireGento_Pdf_Helper_Data::XML_PATH_REGULAR_FONT
@@ -1407,7 +1407,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return bool
      */
-    private function regularFontFileExists()
+    protected function regularFontFileExists()
     {
         return file_exists($this->getRegularFontFile());
     }
@@ -1417,7 +1417,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return string
      */
-    private function getRegularFontFile()
+    protected function getRegularFontFile()
     {
         return Mage::helper('firegento_pdf')->getFontPath() . DS
         . $this->getRegularFont();
