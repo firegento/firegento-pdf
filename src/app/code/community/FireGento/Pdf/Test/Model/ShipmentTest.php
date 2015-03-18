@@ -31,7 +31,7 @@ class FireGento_Pdf_Test_Model_ShipmentTest extends FireGento_Pdf_Test_Model_Sal
 
     public function getEngineXmlConfigPath()
     {
-        return 'sales_pdf/invoice/shipment';
+        return 'sales_pdf/shipment/engine';
     }
 
     public function getExpectedDefaultEngineClass()
