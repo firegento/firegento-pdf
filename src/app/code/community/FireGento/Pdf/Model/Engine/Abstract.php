@@ -573,6 +573,26 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             }
         }
 
+	/** print VAT ID */
+	if ($this->_showCustomerVATNumber($order->getStore())) {
+            $page->drawText(
+                Mage::helper('firegento_pdf')->__('VAT-ID:'),
+                ($this->margin['right'] - $labelRightOffset),
+                $this->y, $this->encoding
+            );
+            $customerVatId = ($order->getCustomerTaxvat()) ? $order->getCustomerTaxvat() : '-';
+            $font = $this->_setFontRegular($page, 10);
+            $page->drawText(
+                $customerVatId, ($this->margin['right'] - $valueRightOffset
+                    - $this->widthForStringUsingFontSize(
+                        $customerVatId, $font, 10
+                    )), $this->y, $this->encoding
+            );
+            $this->Ln();
+            $numberOfLines++;
+	}
+	/** end VAT ID print*/
+
         // Customer IP
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip',
             $order->getStoreId())
@@ -712,6 +732,19 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         return Mage::helper('firegento_pdf')
             ->showCustomerNumber($this->mode, $store);
+    }
+
+    /**
+     * do we show the customber VAT number on this document
+     *
+     * @param  mixed $store store from whom we need the config setting
+     *
+     * @return bool
+     */
+    protected function _showCustomerVATNumber($store)
+    {
+        return Mage::helper('firegento_pdf')
+            ->showCustomerVATNumber($this->mode, $store);
     }
 
     /**
