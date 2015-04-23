@@ -32,6 +32,9 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';
+    const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/invoice/show_customer_vatnumber';
+    const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/shipment/show_customer_vatnumber';
+    const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/creditmemo/show_customer_vatnumber';
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
@@ -135,6 +138,35 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         return true; // backwards compatibility
     }
 
+    /**
+     * Whether the customer VAT number should be shown.
+     *
+     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo
+     * @param  mixed  $store store to get information from
+     *
+     * @return bool whether the customer number should be shown
+     */
+    public function showCustomerVATNumber($mode = 'invoice', $store)
+    {
+        switch ($mode) {
+            case 'invoice':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER,
+                    $store
+                );
+            case 'shipment':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER,
+                    $store
+                );
+            case 'creditmemo':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER,
+                    $store
+                );
+        }
+        return true; // backwards compatibility
+    }
     /**
      * Return scaled image sizes based on an path to an image file.
      *
