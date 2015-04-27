@@ -104,9 +104,15 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
                     ->addAttributeToSelect('*')
                     ->addAttributeToFilter('order_id', $orderId)
                     ->load();
+                if (count($documentsCollection) == 1) {
+                    $filename = Mage::helper('firegento_pdf')->getExportFilename($type, $documentsCollection->getFirstItem());
+                } else {
+                    $filename = Mage::helper('firegento_pdf')->getExportFilenameForMultipleDocuments($type);
+                }
             } else {
                 // Create a single $type pdf.
                 $documentsCollection = array($document);
+                $filename = Mage::helper('firegento_pdf')->getExportFilename($type, $document);
             }
 
             // Store current area and set to adminhtml for $type generation.
@@ -117,7 +123,7 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
             $pdfGenerator = Mage::getModel('sales/order_pdf_' . $type);
             $pdf = $pdfGenerator->getPdf($documentsCollection);
             $this->_prepareDownloadResponse(
-                Mage::helper('firegento_pdf')->getExportFilename($type, $document), $pdf->render(), 'application/pdf'
+                $filename, $pdf->render(), 'application/pdf'
             );
 
             // Restore area.
