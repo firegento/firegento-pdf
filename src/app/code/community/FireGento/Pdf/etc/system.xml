@@ -48,6 +48,122 @@
         </tax>
         <sales_pdf>
             <groups>
+                <firegento_pdf translate="label">
+                    <label>PDF Creation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>0</expanded>
+                    <fields>
+                        <sender_address_bar translate="label comment">
+                            <label>Sender Address Bar</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show address above shipping/invoice address</comment>
+                        </sender_address_bar>
+                        <show_footer translate="label comment">
+                            <label>Show Footer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Show Imprint. Compatible with <a href="http://www.magentocommerce.com/magento-connect/firegento-magesetup.html">MageSetup</a> or GermanSetup (not anymore maintained, replaced by MageSetup)]]></comment>
+                        </show_footer>
+                        <logo_position translate="label comment">
+                            <label>Logo Position</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_logo</source_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
+                        </logo_position>
+                        <logo_ratio translate="label comment">
+                            <label>Logo Ratio</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_class>validate-number-range number-range-1-100</frontend_class>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Resize or not the size of your logo in the header. Value possible from 1 (minimum size) to 100 (full size). Values in percent.]]></comment>
+                        </logo_ratio>
+                        <headerblocks_position translate="label comment">
+                            <label>Header Blocks Position</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_headerblocks</source_model>
+                            <sort_order>500</sort_order>
+                            <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>
+                        </headerblocks_position>
+                    </fields>
+                </firegento_pdf>
+                <firegento_pdf_fonts>
+                    <label>Fonts for PDF Creation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <upload_fonts translate="label comment">
+                            <label>Upload own fonts</label>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[You can upload your own fonts (*.ttf) instead of using Zends Helvetica]]></comment>
+                        </upload_fonts>
+                        <regular_font translate="label">
+                            <label>Regular font</label>
+                            <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
+                            <sort_order>500</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </regular_font>
+                        <bold_font translate="label">
+                            <label>Bold font</label>
+                            <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
+                            <sort_order>600</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </bold_font>
+                        <italic_font translate="label">
+                            <label>Italic font</label>
+                            <frontend_type>file</frontend_type>
+                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
+                            <upload_dir scope_info="1">media/firegento_pdf/fonts</upload_dir>
+                            <sort_order>700</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <upload_fonts>1</upload_fonts>
+                            </depends>
+                        </italic_font>
+                    </fields>
+                </firegento_pdf_fonts>
                 <invoice>
                     <sort_order>300</sort_order>
                     <fields>
@@ -78,7 +194,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_customer_vatnumber>
-                        <show_date_notice translate="label">
+                        <show_date_notice translate="label comment">
                             <label>Show Date Notice</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -117,7 +233,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>Position of shipping method on invoice.</comment>
                         </shipping_method_position>
-                        <show_comments>
+                        <show_comments translate="label">
                             <label>Show Invoice Comments</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -135,7 +251,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>Printed on every invoice.</comment>
                         </note>
-                        <item_price_column_order translate="label comment">
+                        <item_price_column_order translate="label">
                             <label>Order of price columns of items</label>
                             <frontend_model>firegento_pdf/adminhtml_columnOrder</frontend_model>
                             <sort_order>80</sort_order>
@@ -222,7 +338,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>Position of shipping method on shipment.</comment>
                         </shipping_method_position>
-                        <show_comments>
+                        <show_comments translate="label comment">
                             <label>Show Shipment Comments</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -300,7 +416,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_customer_vatnumber>
-                        <show_comments>
+                        <show_comments translate="label">
                             <label>Show Credit Memo Comments</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -338,121 +454,6 @@
                         </filename_export_pattern_for_multiple_documents>
                     </fields>
                 </creditmemo>
-                <firegento_pdf translate="label">
-                    <label>PDF Creation</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>100</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <expanded>0</expanded>
-                    <fields>
-                        <sender_address_bar translate="label">
-                            <label>Sender Address Bar</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>100</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>Show address above shipping/invoice address</comment>
-                        </sender_address_bar>
-                        <show_footer translate="label comment">
-                            <label>Show Footer</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <comment><![CDATA[Show Imprint. Compatible with <a href="http://www.magentocommerce.com/magento-connect/firegento-magesetup.html">MageSetup</a> or GermanSetup (not anymore maintained, replaced by MageSetup)]]></comment>
-                            <sort_order>200</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </show_footer>
-                        <logo_position translate="label comment">
-                            <label>Logo Position</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>firegento_pdf/system_config_source_logo</source_model>
-                            <sort_order>300</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment><![CDATA[Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.]]></comment>
-                        </logo_position>
-                        <logo_ratio translate="label">
-                            <label>Logo Ratio</label>
-                            <frontend_type>text</frontend_type>
-                            <frontend_class>validate-number-range number-range-1-100</frontend_class>
-                            <sort_order>400</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment><![CDATA[Resize or not the size of your logo in the header. Value possible from 1 (minimum size) to 100 (full size). Values in percent.]]></comment>
-                        </logo_ratio>
-                        <headerblocks_position translate="label">
-                            <label>Header Blocks Position</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>firegento_pdf/system_config_source_headerblocks</source_model>
-                            <comment><![CDATA[Left: Customer address left, Invoice details right. Right: Invoice details left, Customer address right.]]></comment>
-                        </headerblocks_position>
-                    </fields>
-                </firegento_pdf>
-                <firegento_pdf_fonts>
-                    <label>Fonts for PDF Creation</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>200</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <upload_fonts translate="label comment">
-                            <label>Upload own fonts</label>
-                            <comment><![CDATA[You can upload your own fonts (*.ttf) instead of using Zends Helvetica]]></comment>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>400</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </upload_fonts>
-                        <regular_font translate="label">
-                            <label>Regular font</label>
-                            <frontend_type>file</frontend_type>
-                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
-                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
-                            <sort_order>500</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <depends>
-                                <upload_fonts>1</upload_fonts>
-                            </depends>
-                        </regular_font>
-                        <bold_font translate="label">
-                            <label>Bold font</label>
-                            <frontend_type>file</frontend_type>
-                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
-                            <upload_dir>media/firegento_pdf/fonts</upload_dir>
-                            <sort_order>600</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <depends>
-                                <upload_fonts>1</upload_fonts>
-                            </depends>
-                        </bold_font>
-                        <italic_font translate="label">
-                            <label>Italic font</label>
-                            <frontend_type>file</frontend_type>
-                            <backend_model>firegento_pdf/system_config_backend_font</backend_model>
-                            <upload_dir scope_info="1">media/firegento_pdf/fonts</upload_dir>
-                            <sort_order>700</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <depends>
-                                <upload_fonts>1</upload_fonts>
-                            </depends>
-                        </italic_font>
-                    </fields>
-                </firegento_pdf_fonts>
             </groups>
         </sales_pdf>
     </sections>
