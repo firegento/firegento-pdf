@@ -273,7 +273,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         $imageRatio
             = (int)Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_ratio',
             $store);
-        $imageRatio = (empty($imageRatio)) ? 1 : $imageRatio;
+        $imageRatio = (empty($imageRatio)) ? 100 : $imageRatio;
 
         $maxwidth
             = ($this->margin['right'] - $this->margin['left']) * $imageRatio
