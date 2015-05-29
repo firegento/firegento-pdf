@@ -759,7 +759,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $pdf = $this->_getPdf();
 
-        $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
+        $page = $pdf->newPage($this->getPageSize());
         $this->pagecounter++;
         $pdf->pages[] = $page;
 
@@ -1467,5 +1467,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         return Mage::helper('firegento_pdf')->getFontPath() . DS
         . $this->getRegularFont();
+    }
+
+    /**
+     * @return string
+     */
+    private function getPageSize()
+    {
+        return Mage::helper('firegento_pdf')->getPageSizeConfigPath();
     }
 }

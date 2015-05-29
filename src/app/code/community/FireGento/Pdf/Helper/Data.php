@@ -41,6 +41,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE = 'sales_pdf/firegento_pdf/page_size';
 
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
@@ -362,5 +363,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getFontPath()
     {
         return Mage::getBaseDir('media') . self::FONT_PATH_IN_MEDIA;
+    }
+
+    public function getPageSizeConfigPath()
+    {
+        return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE);
     }
 }
