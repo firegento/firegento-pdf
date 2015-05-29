@@ -89,6 +89,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                 }
                 break;
         }
+
         return false;
     }
 
@@ -105,6 +106,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
             self::XML_PATH_FIREGENTO_PDF_LOGO_POSITION, $store
         );
         $fullWidth = FireGento_Pdf_Model_System_Config_Source_Logo::FULL_WIDTH;
+
         return $configSetting == $fullWidth;
     }
 
@@ -135,6 +137,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     $store
                 );
         }
+
         return true; // backwards compatibility
     }
 
@@ -165,8 +168,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     $store
                 );
         }
+
         return true; // backwards compatibility
     }
+
     /**
      * Return scaled image sizes based on an path to an image file.
      *
@@ -223,6 +228,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN
                 );
         }
+
         return true;
     }
 
@@ -249,6 +255,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
                 );
         }
+
         return true;
     }
 
@@ -286,6 +293,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                 '{{customer_firstname}}' => $order->getCustomerFirstname(),
                 '{{customer_lastname}}'  => $order->getCustomerLastname()
             );
+
             return array_merge($specificVars, $commonVars);
         } else {
             return array(
@@ -342,6 +350,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
         }
+
         return strftime($pattern);
     }
 
