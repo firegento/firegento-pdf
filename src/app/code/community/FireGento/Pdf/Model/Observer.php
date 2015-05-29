@@ -36,12 +36,43 @@ class FireGento_Pdf_Model_Observer
      */
     public function addInvoiceNotes(Varien_Event_Observer $observer)
     {
+        $this->addShippingCountryNotes($observer);
         $this->addInvoiceDateNotice($observer);
         $this->addInvoiceMaturity($observer);
         $this->addPaymentMethod($observer);
         $this->addShippingMethod($observer);
         $this->addInvoiceComments($observer);
 
+        return $this;
+    }
+
+    /**
+     * Add notes based on shipping country
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return $this
+     */
+    public function addShippingCountryNotes(Varien_Event_Observer $observer)
+    {
+        $order = $observer->getOrder();
+        $shippingCountryId = $order->getShippingAddress()->getCountryId();
+        $countryNotes = unserialize(Mage::getStoreConfig('sales_pdf/invoice/shipping_country_notes'));
+
+        $note = '';
+        foreach ($countryNotes as $countryNote) {
+            if ($countryNote['country'] == $shippingCountryId) {
+                $note = $countryNote['note'];
+                break;
+            }
+        }
+
+        if (!empty($note)) {
+            $result  = $observer->getResult();
+            $notes   = $result->getNotes();
+            $notes[] = $note;
+            $result->setNotes($notes);
+        }
         return $this;
     }
 

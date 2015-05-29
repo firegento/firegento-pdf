@@ -182,6 +182,7 @@
                 <order_id_as_barcode>0</order_id_as_barcode>
                 <filename_export_pattern/>
                 <filename_export_pattern_for_multiple_documents/>
+                <shipping_country_notes/>
             </invoice>
             <shipment>
                 <engine>firegento_pdf/engine_shipment_default</engine>
