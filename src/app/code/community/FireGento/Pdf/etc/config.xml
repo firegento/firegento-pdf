@@ -177,6 +177,7 @@
                 <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
                 <show_item_discount>0</show_item_discount>
                 <order_id_as_barcode>0</order_id_as_barcode>
+                <serve_as_zip>0</serve_as_zip>
             </invoice>
             <shipment>
                 <engine>firegento_pdf/engine_shipment_default</engine>
