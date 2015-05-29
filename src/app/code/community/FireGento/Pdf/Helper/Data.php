@@ -22,9 +22,9 @@
 /**
  * Dummy data helper for translation issues.
  *
- * @category  FireGento
- * @package   FireGento_Pdf
- * @author    FireGento Team <team@firegento.com>
+ * @category FireGento
+ * @package  FireGento_Pdf
+ * @author   FireGento Team <team@firegento.com>
  */
 class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 {
@@ -38,9 +38,13 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
-    const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';
-    const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';
-    const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+        = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+        = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+        = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_INVOICE_SERVE_AS_ZIP = 'sales_pdf/invoice/serve_as_zip';
 
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
@@ -335,7 +339,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * The filename of the exported file if multiple documents are printed at once.
      *
-     * @param string $type the type of this document like invoice, shipment or creditmemo
+     * @param  string $type the type of this document like invoice, shipment or creditmemo
      *
      * @return string the filename of the exported file
      */
@@ -362,5 +366,15 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getFontPath()
     {
         return Mage::getBaseDir('media') . self::FONT_PATH_IN_MEDIA;
+    }
+
+    /**
+     * Returns whether the invoice should be served as zip (or (multi-page) pdf)
+     *
+     * @return bool
+     */
+    public function isServeInvoiceAsZip()
+    {
+        return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_INVOICE_SERVE_AS_ZIP);
     }
 }
