@@ -18,6 +18,7 @@
  * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
+
 /**
  * Abstract pdf model.
  *
@@ -185,6 +186,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     public function setMode($mode)
     {
         $this->mode = $mode;
+
         return $this;
     }
 
@@ -450,6 +452,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         } else {
             $offsetAdjustment = 315;
         }
+
         return $offsetAdjustment;
     }
 
@@ -805,6 +808,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         $renderer->setRenderedModel($this);
 
         $renderer->draw($position);
+
         return $renderer->getPage();
     }
 
@@ -923,6 +927,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             }
         }
         $page = $this->drawLineBlocks($page, array($lineBlock));
+
         return $page;
     }
 
@@ -980,6 +985,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 $this->Ln(15);
             }
         }
+
         return $page;
     }
 
@@ -1211,6 +1217,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getRegularFont() && $this->regularFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getRegularFontFile());
         }
+
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
     }
 
@@ -1226,6 +1233,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $font = $this->getFontRegular();
         $object->setFont($font, $size);
+
         return $font;
     }
 
@@ -1239,6 +1247,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getBoldFont() && $this->boldFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getBoldFontFile());
         }
+
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
     }
 
@@ -1254,6 +1263,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $font = $this->getFontBold();
         $object->setFont($font, $size);
+
         return $font;
     }
 
@@ -1267,6 +1277,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getItalicFont() && $this->italicFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getItalicFontFile());
         }
+
         return Zend_Pdf_Font::fontWithName(
             Zend_Pdf_Font::FONT_HELVETICA_ITALIC
         );
@@ -1284,6 +1295,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $font = $this->getFontItalic();
         $object->setFont($font, $size);
+
         return $font;
     }
 
@@ -1329,6 +1341,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         }
         // append the last line
         $lines .= $currentLine;
+
         return explode("\n", $lines);
     }
 
@@ -1351,8 +1364,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                     'precision' => 2,
                 )
             );
+
             return $matches[1] . '(' . $percentage . '%)';
         }
+
         return $label;
     }
 
