@@ -46,6 +46,8 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_INVOICE_SERVE_AS_ZIP = 'sales_pdf/invoice/serve_as_zip';
 
+    const XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE = 'sales_pdf/firegento_pdf/page_size';
+
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
     const XML_PATH_ITALIC_FONT = 'sales_pdf/firegento_pdf_fonts/italic_font';
@@ -376,5 +378,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function isServeInvoiceAsZip()
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_INVOICE_SERVE_AS_ZIP);
+    }
+
+    public function getPageSizeConfigPath()
+    {
+        return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE);
     }
 }

@@ -1474,6 +1474,6 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      */
     private function getPageSize()
     {
-        return Zend_Pdf_Page::SIZE_A4;
+        return Mage::helper('firegento_pdf')->getPageSizeConfigPath();
     }
 }
