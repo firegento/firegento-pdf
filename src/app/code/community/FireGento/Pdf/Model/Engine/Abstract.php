@@ -528,9 +528,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             );
             $page->drawText(
                 $putOrderId, ($this->margin['right'] - $valueRightOffset
-                    - $this->widthForStringUsingFontSize(
-                        $putOrderId, $font, 10
-                    )), $this->y, $this->encoding
+                - $this->widthForStringUsingFontSize(
+                    $putOrderId, $font, 10
+                )), $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
@@ -558,9 +558,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
                 $page->drawText(
                     $customerid, ($this->margin['right'] - $valueRightOffset
-                        - $this->widthForStringUsingFontSize(
-                            $customerid, $font, 10
-                        )), $this->y, $this->encoding
+                    - $this->widthForStringUsingFontSize(
+                        $customerid, $font, 10
+                    )), $this->y, $this->encoding
                 );
                 $this->Ln();
                 $numberOfLines++;
@@ -576,8 +576,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             }
         }
 
-	/** print VAT ID */
-	if ($this->_showCustomerVATNumber($order->getStore())) {
+        /** print VAT ID */
+        if ($this->_showCustomerVATNumber($order->getStore())) {
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('VAT-ID:'),
                 ($this->margin['right'] - $labelRightOffset),
@@ -587,14 +587,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $font = $this->_setFontRegular($page, 10);
             $page->drawText(
                 $customerVatId, ($this->margin['right'] - $valueRightOffset
-                    - $this->widthForStringUsingFontSize(
-                        $customerVatId, $font, 10
-                    )), $this->y, $this->encoding
+                - $this->widthForStringUsingFontSize(
+                    $customerVatId, $font, 10
+                )), $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
-	}
-	/** end VAT ID print*/
+        }
+        /** end VAT ID print*/
 
         // Customer IP
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip',
@@ -609,9 +609,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $font = $this->_setFontRegular($page, 10);
             $page->drawText(
                 $customerIP, ($this->margin['right'] - $valueRightOffset
-                    - $this->widthForStringUsingFontSize(
-                        $customerIP, $font, 10
-                    )), $this->y, $this->encoding
+                - $this->widthForStringUsingFontSize(
+                    $customerIP, $font, 10
+                )), $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
@@ -672,12 +672,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         // Shipping method.
         $putShippingMethod = ($mode == 'invoice'
-            &&
-            Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
+            && Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER
             || $mode == 'shipment'
-            &&
-            Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
+            && Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
         if ($putShippingMethod) {
             $page->drawText(
