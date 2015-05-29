@@ -18,6 +18,7 @@
  * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
+
 /**
  * Abstract pdf model.
  *
@@ -185,6 +186,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     public function setMode($mode)
     {
         $this->mode = $mode;
+
         return $this;
     }
 
@@ -450,6 +452,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         } else {
             $offsetAdjustment = 315;
         }
+
         return $offsetAdjustment;
     }
 
@@ -525,9 +528,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             );
             $page->drawText(
                 $putOrderId, ($this->margin['right'] - $valueRightOffset
-                    - $this->widthForStringUsingFontSize(
-                        $putOrderId, $font, 10
-                    )), $this->y, $this->encoding
+                - $this->widthForStringUsingFontSize(
+                    $putOrderId, $font, 10
+                )), $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
@@ -555,9 +558,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
                 $page->drawText(
                     $customerid, ($this->margin['right'] - $valueRightOffset
-                        - $this->widthForStringUsingFontSize(
-                            $customerid, $font, 10
-                        )), $this->y, $this->encoding
+                    - $this->widthForStringUsingFontSize(
+                        $customerid, $font, 10
+                    )), $this->y, $this->encoding
                 );
                 $this->Ln();
                 $numberOfLines++;
@@ -573,8 +576,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             }
         }
 
-	/** print VAT ID */
-	if ($this->_showCustomerVATNumber($order->getStore())) {
+        /** print VAT ID */
+        if ($this->_showCustomerVATNumber($order->getStore())) {
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('VAT-ID:'),
                 ($this->margin['right'] - $labelRightOffset),
@@ -584,14 +587,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $font = $this->_setFontRegular($page, 10);
             $page->drawText(
                 $customerVatId, ($this->margin['right'] - $valueRightOffset
-                    - $this->widthForStringUsingFontSize(
-                        $customerVatId, $font, 10
-                    )), $this->y, $this->encoding
+                - $this->widthForStringUsingFontSize(
+                    $customerVatId, $font, 10
+                )), $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
-	}
-	/** end VAT ID print*/
+        }
+        /** end VAT ID print*/
 
         // Customer IP
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip',
@@ -606,9 +609,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $font = $this->_setFontRegular($page, 10);
             $page->drawText(
                 $customerIP, ($this->margin['right'] - $valueRightOffset
-                    - $this->widthForStringUsingFontSize(
-                        $customerIP, $font, 10
-                    )), $this->y, $this->encoding
+                - $this->widthForStringUsingFontSize(
+                    $customerIP, $font, 10
+                )), $this->y, $this->encoding
             );
             $this->Ln();
             $numberOfLines++;
@@ -669,12 +672,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         // Shipping method.
         $putShippingMethod = ($mode == 'invoice'
-            &&
-            Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
+            && Mage::getStoreConfig('sales_pdf/invoice/shipping_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER
             || $mode == 'shipment'
-            &&
-            Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
+            && Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
         if ($putShippingMethod) {
             $page->drawText(
@@ -758,7 +759,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $pdf = $this->_getPdf();
 
-        $page = $pdf->newPage(Zend_Pdf_Page::SIZE_A4);
+        $page = $pdf->newPage($this->getPageSize());
         $this->pagecounter++;
         $pdf->pages[] = $page;
 
@@ -805,6 +806,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         $renderer->setRenderedModel($this);
 
         $renderer->draw($position);
+
         return $renderer->getPage();
     }
 
@@ -923,6 +925,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             }
         }
         $page = $this->drawLineBlocks($page, array($lineBlock));
+
         return $page;
     }
 
@@ -980,6 +983,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 $this->Ln(15);
             }
         }
+
         return $page;
     }
 
@@ -1211,6 +1215,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getRegularFont() && $this->regularFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getRegularFontFile());
         }
+
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
     }
 
@@ -1226,6 +1231,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $font = $this->getFontRegular();
         $object->setFont($font, $size);
+
         return $font;
     }
 
@@ -1239,6 +1245,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getBoldFont() && $this->boldFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getBoldFontFile());
         }
+
         return Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
     }
 
@@ -1254,6 +1261,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $font = $this->getFontBold();
         $object->setFont($font, $size);
+
         return $font;
     }
 
@@ -1267,6 +1275,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->getItalicFont() && $this->italicFontFileExists()) {
             return Zend_Pdf_Font::fontWithPath($this->getItalicFontFile());
         }
+
         return Zend_Pdf_Font::fontWithName(
             Zend_Pdf_Font::FONT_HELVETICA_ITALIC
         );
@@ -1284,6 +1293,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         $font = $this->getFontItalic();
         $object->setFont($font, $size);
+
         return $font;
     }
 
@@ -1331,6 +1341,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         }
         // append the last line
         $lines .= $currentLine;
+
         return explode("\n", $lines);
     }
 
@@ -1353,8 +1364,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                     'precision' => 2,
                 )
             );
+
             return $matches[1] . '(' . $percentage . '%)';
         }
+
         return $label;
     }
 
@@ -1456,5 +1469,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         return Mage::helper('firegento_pdf')->getFontPath() . DS
         . $this->getRegularFont();
+    }
+
+    /**
+     * @return string
+     */
+    private function getPageSize()
+    {
+        return Mage::helper('firegento_pdf')->getPageSizeConfigPath();
     }
 }

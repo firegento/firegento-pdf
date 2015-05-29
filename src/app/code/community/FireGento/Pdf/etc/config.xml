@@ -164,6 +164,8 @@
             <firegento_pdf>
                 <logo_ratio>100</logo_ratio>
                 <headerblocks_position>left</headerblocks_position>
+                <!-- This is Zend_Pdf_Page::SIZE_A4 -->
+                <page_size>595:842:</page_size>
             </firegento_pdf>
             <invoice>
                 <engine>firegento_pdf/engine_invoice_default</engine>

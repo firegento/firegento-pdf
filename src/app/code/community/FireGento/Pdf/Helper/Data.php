@@ -41,6 +41,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE = 'sales_pdf/firegento_pdf/page_size';
 
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
@@ -89,6 +90,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                 }
                 break;
         }
+
         return false;
     }
 
@@ -105,6 +107,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
             self::XML_PATH_FIREGENTO_PDF_LOGO_POSITION, $store
         );
         $fullWidth = FireGento_Pdf_Model_System_Config_Source_Logo::FULL_WIDTH;
+
         return $configSetting == $fullWidth;
     }
 
@@ -135,6 +138,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     $store
                 );
         }
+
         return true; // backwards compatibility
     }
 
@@ -165,8 +169,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     $store
                 );
         }
+
         return true; // backwards compatibility
     }
+
     /**
      * Return scaled image sizes based on an path to an image file.
      *
@@ -223,6 +229,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN
                 );
         }
+
         return true;
     }
 
@@ -249,6 +256,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
                 );
         }
+
         return true;
     }
 
@@ -286,6 +294,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                 '{{customer_firstname}}' => $order->getCustomerFirstname(),
                 '{{customer_lastname}}'  => $order->getCustomerLastname()
             );
+
             return array_merge($specificVars, $commonVars);
         } else {
             return array(
@@ -342,6 +351,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
         }
+
         return strftime($pattern);
     }
 
@@ -353,5 +363,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getFontPath()
     {
         return Mage::getBaseDir('media') . self::FONT_PATH_IN_MEDIA;
+    }
+
+    public function getPageSizeConfigPath()
+    {
+        return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE);
     }
 }
