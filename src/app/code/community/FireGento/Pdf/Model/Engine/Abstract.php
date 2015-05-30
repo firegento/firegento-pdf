@@ -1321,8 +1321,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 = $page->getWidth() - $this->margin['left'] - ($page->getWidth()
                     - $this->margin['right']);
         }
-        $textChunks = explode(' ', $text);
+        // regular expression that splits on whitespaces and dashes based on http://stackoverflow.com/a/11758732/719023
+        $textChunks = preg_split('/([^\s-]+[\s-]+)/', $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
         foreach ($textChunks as $textChunk) {
+            $textChunk = trim($textChunk);
             if ($this->widthForStringUsingFontSize($currentLine . ' '
                     . $textChunk, $font, $fontSize) < $width
             ) {
