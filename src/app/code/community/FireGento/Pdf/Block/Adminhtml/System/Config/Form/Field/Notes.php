@@ -26,6 +26,9 @@ class FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes
         return $this->_countryRenderer;
     }
 
+    /**
+     * Add columns, change button labels etc.
+     */
     protected function _prepareToRender()
     {
         $this->addColumn(
