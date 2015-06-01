@@ -170,6 +170,7 @@
             <invoice>
                 <engine>firegento_pdf/engine_invoice_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <show_customer_vatnumber>0</show_customer_vatnumber>
                 <show_date_notice>0</show_date_notice>
                 <maturity/>
                 <payment_method_position/>
@@ -179,18 +180,29 @@
                 <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
                 <show_item_discount>0</show_item_discount>
                 <order_id_as_barcode>0</order_id_as_barcode>
+                <filename_export_pattern/>
+                <filename_export_pattern_for_multiple_documents/>
+                <shipping_country_notes/>
             </invoice>
             <shipment>
                 <engine>firegento_pdf/engine_shipment_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <show_customer_vatnumber>0</show_customer_vatnumber>
                 <shipping_method_position/>
+                <show_comments>0</show_comments>
                 <note/>
                 <order_id_as_barcode>0</order_id_as_barcode>
+                <filename_export_pattern/>
+                <filename_export_pattern_for_multiple_documents/>
             </shipment>
             <creditmemo>
                 <engine>firegento_pdf/engine_creditmemo_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <show_customer_vatnumber>0</show_customer_vatnumber>
+                <show_comments>0</show_comments>
                 <note/>
+                <filename_export_pattern/>
+                <filename_export_pattern_for_multiple_documents/>
             </creditmemo>
         </sales_pdf>
         <tax>
