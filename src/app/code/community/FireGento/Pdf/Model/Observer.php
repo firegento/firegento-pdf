@@ -56,15 +56,7 @@ class FireGento_Pdf_Model_Observer
     private function _addShippingCountryNotes(Varien_Event_Observer $observer)
     {
         $order = $observer->getOrder();
-        $shippingCountryId = $order->getShippingAddress()->getCountryId();
-        $countryNotes = unserialize(Mage::getStoreConfig('sales_pdf/invoice/shipping_country_notes'));
-
-        $shippingCountryNotes = '';
-        foreach ($countryNotes as $countryNote) {
-            if ($countryNote['country'] == $shippingCountryId) {
-                $shippingCountryNotes[] = $countryNote['note'];
-            }
-        }
+        $shippingCountryNotes = Mage::helper('firegento_pdf/invoice')->getShippingCountryNotes($order);
 
         if (!empty($shippingCountryNotes)) {
             $result  = $observer->getResult();
