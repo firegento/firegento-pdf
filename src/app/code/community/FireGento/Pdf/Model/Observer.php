@@ -59,18 +59,17 @@ class FireGento_Pdf_Model_Observer
         $shippingCountryId = $order->getShippingAddress()->getCountryId();
         $countryNotes = unserialize(Mage::getStoreConfig('sales_pdf/invoice/shipping_country_notes'));
 
-        $note = '';
+        $shippingCountryNotes = '';
         foreach ($countryNotes as $countryNote) {
             if ($countryNote['country'] == $shippingCountryId) {
-                $note = $countryNote['note'];
-                break;
+                $shippingCountryNotes[] = $countryNote['note'];
             }
         }
 
-        if (!empty($note)) {
+        if (!empty($shippingCountryNotes)) {
             $result  = $observer->getResult();
             $notes   = $result->getNotes();
-            $notes[] = $note;
+            $notes = array_merge($notes, $shippingCountryNotes);
             $result->setNotes($notes);
         }
         return $this;
