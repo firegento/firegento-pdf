@@ -167,6 +167,12 @@
                 <!-- This is Zend_Pdf_Page::SIZE_A4 -->
                 <page_size>595:842:</page_size>
             </firegento_pdf>
+            <firegento_pdf_fonts>
+                <upload_fonts>0</upload_fonts>
+                <regular_font/>
+                <bold_font/>
+                <italic_font/>
+            </firegento_pdf_fonts>
             <invoice>
                 <engine>firegento_pdf/engine_invoice_default</engine>
                 <show_customer_number>1</show_customer_number>
