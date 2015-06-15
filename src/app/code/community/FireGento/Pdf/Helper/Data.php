@@ -47,6 +47,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
     const XML_PATH_ITALIC_FONT = 'sales_pdf/firegento_pdf_fonts/italic_font';
 
+    const DEFAULT_FONT_PATH_IN_LIB = '/ubuntu-font-family/';
     const FONT_PATH_IN_MEDIA = '/firegento_pdf/fonts';
 
     /**
@@ -353,6 +354,16 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         return strftime($pattern);
+    }
+
+    /**
+     * Returns the path where the default fonts reside.
+     *
+     * @return string the path where the default fonts reside
+     */
+    public function getDefaultFontPath()
+    {
+        return Mage::getBaseDir('lib') . self::DEFAULT_FONT_PATH_IN_LIB;
     }
 
     /**

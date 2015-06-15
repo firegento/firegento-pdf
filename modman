@@ -4,3 +4,4 @@ src/app/locale/de_DE/*                      app/locale/de_DE/
 src/app/locale/de_AT/*                      app/locale/de_AT/
 src/app/locale/nl_NL/*                      app/locale/nl_NL/
 src/app/locale/fr_FR/*                      app/locale/fr_FR/
+src/lib/ubuntu-font-family/                 lib/ubuntu-font-family/
