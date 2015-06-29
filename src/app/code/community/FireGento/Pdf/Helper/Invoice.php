@@ -38,17 +38,21 @@ class FireGento_Pdf_Helper_Invoice extends Mage_Core_Helper_Abstract
      */
     public function getShippingCountryNotes(Mage_Sales_Model_Order $order)
     {
-        $shippingCountryId = $order->getShippingAddress()->getCountryId();
-        $countryNotes = unserialize(Mage::getStoreConfig('sales_pdf/invoice/shipping_country_notes'));
+        if (!$order->getIsVirtual()) {
+            $shippingCountryId = $order->getShippingAddress()->getCountryId();
+            $countryNotes = unserialize(Mage::getStoreConfig('sales_pdf/invoice/shipping_country_notes'));
 
-        $shippingCountryNotes = array();
-        foreach ($countryNotes as $countryNote) {
-            if ($countryNote['country'] == $shippingCountryId) {
-                $shippingCountryNotes[] = $countryNote['note'];
+            $shippingCountryNotes = array();
+            foreach ($countryNotes as $countryNote) {
+                if ($countryNote['country'] == $shippingCountryId) {
+                    $shippingCountryNotes[] = $countryNote['note'];
+                }
             }
+
+            return $shippingCountryNotes;
         }
 
-        return $shippingCountryNotes;
+        return array();
     }
 
 }
