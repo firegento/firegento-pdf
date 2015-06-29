@@ -677,7 +677,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             || $mode == 'shipment'
             && Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
-        if ($putShippingMethod) {
+        if ($putShippingMethod && $order->getIsNotVirtual()) {
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Shipping method:'),
                 ($this->margin['right'] - $labelRightOffset),
