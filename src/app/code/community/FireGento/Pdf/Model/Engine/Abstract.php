@@ -911,13 +911,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                     $lineBlock['lines'][] = array(
                         array(
                             'text'      => $label,
-                            'feed'      => 470,
+                            'feed'      => $this->margin['right'] - 70,
                             'align'     => 'right',
                             'font_size' => $totalData['font_size']
                         ),
                         array(
                             'text'      => $totalData['amount'],
-                            'feed'      => 540,
+                            'feed'      => $this->margin['right'],
                             'align'     => 'right',
                             'font_size' => $totalData['font_size']
                         ),
