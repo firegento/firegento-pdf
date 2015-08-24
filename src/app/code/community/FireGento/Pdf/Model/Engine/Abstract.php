@@ -583,7 +583,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
             );
-            $customerVatId = ($order->getCustomerTaxvat()) ? $order->getCustomerTaxvat() : '-';
+            if ($order->getBillingAddress()->getVatId()) {
+                $customerVatId = $order->getBillingAddress()->getVatId();
+            } elseif ($order->getCustomerTaxvat()) {
+                $customerVatId = $order->getCustomerTaxvat();
+            } else {
+                $customerVatId = '-';
+            }
             $font = $this->_setFontRegular($page, 10);
             $page->drawText(
                 $customerVatId, ($this->margin['right'] - $valueRightOffset
