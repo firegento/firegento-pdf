@@ -476,7 +476,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($mode == 'invoice') {
             $title = 'Invoice';
         } elseif ($mode == 'shipment') {
-            $title = 'Shipment';
+            $title = 'Packingslip';
         } else {
             $title = 'Creditmemo';
         }
