@@ -320,8 +320,13 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         $type = (!$type) ? 'invoice' : $type;
         $pattern = $this->getExportPattern($type);
         if (!$pattern) {
+            if ($type == 'shipment') {
+                $pattern = 'packingslip';
+            } else {
+                $pattern = $type;
+            }
             $date = Mage::getSingleton('core/date');
-            $pattern = $type . $date->date('Y-m-d_H-i-s');
+            $pattern .= $date->date('Y-m-d_H-i-s');
         }
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
@@ -345,8 +350,13 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         $type = (!$type) ? 'invoice' : $type;
         $pattern = $this->getExportPatternForMultipleDocuments($type);
         if (!$pattern) {
+            if ($type == 'shipment') {
+                $pattern = 'packingslip';
+            } else {
+                $pattern = $type;
+            }
             $date = Mage::getSingleton('core/date');
-            $pattern = $type . $date->date('Y-m-d_H-i-s');
+            $pattern .= $date->date('Y-m-d_H-i-s');
         }
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
