@@ -156,6 +156,12 @@
             <firegento_pdf>
                 <logo_ratio>100</logo_ratio>
             </firegento_pdf>
+            <firegento_pdf_colors>
+                <text>000000</text>
+                <labels>666666</labels>
+                <table_header>eeeeee</table_header>
+                <footer>888888</footer>
+            </firegento_pdf_colors>
         </sales_pdf>
         <tax>
             <sales_display>
