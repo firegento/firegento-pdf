@@ -35,6 +35,9 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/invoice/show_customer_vatnumber';
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/shipment/show_customer_vatnumber';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/creditmemo/show_customer_vatnumber';
+    const XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/invoice/guestorder_customer_number';
+    const XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/shipment/guestorder_customer_number';
+    const XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/guestorder_customer_number';
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
@@ -170,6 +173,36 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                 );
         }
 
+        return true; // backwards compatibility
+    }
+
+    /**
+     * Get customer number for guest orders.
+     *
+     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo
+     * @param  mixed  $store store to get information from
+     *
+     * @return string customer number for guest orders
+     */
+    public function getGuestorderCustomerNo($mode = 'invoice', $store)
+    {
+        switch ($mode) {
+            case 'invoice':
+                return trim(Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER,
+                    $store
+                ));
+            case 'shipment':
+                return trim(Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER,
+                    $store
+                ));
+            case 'creditmemo':
+                return trim(Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER,
+                    $store
+                ));
+        }
         return true; // backwards compatibility
     }
 

@@ -177,6 +177,7 @@
                 <engine>firegento_pdf/engine_invoice_default</engine>
                 <show_customer_number>1</show_customer_number>
                 <show_customer_vatnumber>0</show_customer_vatnumber>
+                <customer_number_guestorder>-</customer_number_guestorder>
                 <show_date_notice>0</show_date_notice>
                 <maturity/>
                 <payment_method_position/>
