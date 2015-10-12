@@ -1080,7 +1080,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             'swift'              => Mage::helper('firegento_pdf')->__('SWIFT:'),
             'iban'               => Mage::helper('firegento_pdf')->__('IBAN:')
         );
-        $this->_insertFooterBlock($page, $fields, 215, 50, 140);
+        $this->_insertFooterBlock($page, $fields, 195, 50, 150);
 
         $fields = array(
             'tax_number'      => Mage::helper('firegento_pdf')
