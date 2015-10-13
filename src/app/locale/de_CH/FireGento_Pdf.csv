@@ -82,6 +82,8 @@
 "Show Date Notice","Anzeige des Datum im Notizbereich"
 "Show Notice: Invoice date is equal to delivery date.","Zeige im Notizbereich: Rechnungsdatum ist gleich dem Lieferdatum."
 "Show Customer Number","Kundennummer andrucken"
+"Customer number for guest orders","Kundennummer für Gastbestellungen"
+"Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.","Gastbestellungen haben keine Kundennummer, dieser Text wird stattdessen angezeigt. Leer lassen, um keine Kundennummer anzuzeigen."
 "Full width","volle Breite"
 "Full width means that the logo starts at the upper left corner and is drawn to the right edge. There is no left or right margin for printing.","""volle Breite"" bedeutet, dass das Logo über die komplette Seite von oben links bis zum rechten Rand gezogen wird. Es verbleibt kein Druckrand."
 "Show Order ID as Barcode","Bestellnummer als Barcode anzeigen"

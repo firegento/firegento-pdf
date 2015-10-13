@@ -197,6 +197,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_customer_number>
+                        <guestorder_customer_number translate="label">
+                            <label>Customer number for guest orders</label>
+                            <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><show_customer_number>1</show_customer_number></depends>
+                        </guestorder_customer_number>
                         <show_customer_vatnumber translate="label">
                             <label>Show Customer TAX/VAT Number</label>
                             <frontend_type>select</frontend_type>
@@ -341,6 +350,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_customer_number>
+                        <guestorder_customer_number translate="label">
+                            <label>Customer number for guest orders</label>
+                            <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><show_customer_number>1</show_customer_number></depends>
+                        </guestorder_customer_number>
                         <show_customer_vatnumber translate="label">
                             <label>Show Customer TAX/VAT Number</label>
                             <frontend_type>select</frontend_type>
@@ -429,6 +447,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_customer_number>
+                        <guestorder_customer_number translate="label">
+                            <label>Customer number for guest orders</label>
+                            <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><show_customer_number>1</show_customer_number></depends>
+                        </guestorder_customer_number>
                         <show_customer_vatnumber translate="label">
                             <label>Show Customer TAX/VAT Number</label>
                             <frontend_type>select</frontend_type>
