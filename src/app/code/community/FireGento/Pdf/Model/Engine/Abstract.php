@@ -538,12 +538,15 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         // Customer Number
         if ($this->_showCustomerNumber($order->getStore())) {
-            $page->drawText(
-                Mage::helper('firegento_pdf')->__('Customer number:'),
-                ($this->margin['right'] - $labelRightOffset),
-                $this->y, $this->encoding
-            );
-            $numberOfLines++;
+            $guestorderCustomerNo = $this->_getGuestorderCustomerNo();
+            if ($order->getCustomerId() != '' || $guestorderCustomerNo != '') {
+                $page->drawText(
+                    Mage::helper('firegento_pdf')->__('Customer number:'),
+                    ($this->margin['right'] - $labelRightOffset),
+                    $this->y, $this->encoding
+                );
+                $numberOfLines++;
+            }
 
             if ($order->getCustomerId() != '') {
 
@@ -564,9 +567,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 );
                 $this->Ln();
                 $numberOfLines++;
-            } else {
+            } elseif ($guestorderCustomerNo != '') {
                 $page->drawText(
-                    '-',
+                    $guestorderCustomerNo,
                     ($this->margin['right'] - $valueRightOffset
                         - $this->widthForStringUsingFontSize('-', $font, 10)),
                     $this->y, $this->encoding
@@ -753,6 +756,19 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         return Mage::helper('firegento_pdf')
             ->showCustomerVATNumber($this->mode, $store);
+    }
+
+    /**
+     * which customer number should be displayed for guest orders
+     *
+     * @param  mixed $store store from whom we need the config setting
+     *
+     * @return string
+     */
+    protected function _getGuestorderCustomerNo($store)
+    {
+        return Mage::helper('firegento_pdf')
+            ->getGuestorderCustomerNo($this->mode, $store);
     }
 
     /**
