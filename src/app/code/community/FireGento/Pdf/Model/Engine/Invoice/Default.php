@@ -98,6 +98,10 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
 
             // Add footer
             $this->_addFooter($page, $invoice->getStore());
+
+            if ($invoice->getStoreId()) {
+                Mage::app()->getLocale()->revert();
+            }
         }
 
         $this->_afterGetPdf();

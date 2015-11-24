@@ -94,13 +94,14 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
 
             // Add footer
             $this->_addFooter($page, $creditmemo->getStore());
+
+            if ($creditmemo->getStoreId()) {
+                Mage::app()->getLocale()->revert();
+            }
         }
 
         $this->_afterGetPdf();
 
-        if ($creditmemo->getStoreId()) {
-            Mage::app()->getLocale()->revert();
-        }
         return $pdf;
     }
 
