@@ -50,6 +50,5 @@ script:
 notifications:
   email:
     recipients:
-      - contact@firegento.com
       - mail@simonsprankel.de
     on_failure: always
