@@ -538,7 +538,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         // Customer Number
         if ($this->_showCustomerNumber($order->getStore())) {
-            $guestorderCustomerNo = $this->_getGuestorderCustomerNo();
+            $guestorderCustomerNo = $this->_getGuestorderCustomerNo($order->getStore());
             if ($order->getCustomerId() != '' || $guestorderCustomerNo != '') {
                 $page->drawText(
                     Mage::helper('firegento_pdf')->__('Customer number:'),
