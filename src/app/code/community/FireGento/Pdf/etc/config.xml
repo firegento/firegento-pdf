@@ -108,6 +108,7 @@
                     <sort_order>650</sort_order>
                 </tax>
             </totals>
+            <order/>
         </pdf>
     </global>
     <frontend>
@@ -140,6 +141,17 @@
                 </FireGento_Pdf>
             </modules>
         </translate>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <firegento_pdf>
+                        <type>singleton</type>
+                        <class>FireGento_Pdf_Model_Observer</class>
+                        <method>adminhtmlBlockHtmlBefore</method>
+                    </firegento_pdf>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
     </adminhtml>
     <admin>
         <routers>

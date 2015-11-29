@@ -32,8 +32,13 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
 {
     protected $_types
         = array(
-            'invoice', 'creditmemo', 'shipment'
+            'order', 'invoice', 'creditmemo', 'shipment'
         );
+
+    public function printOrderAction()
+    {
+        $this->printDocument('order');
+    }
 
     /**
      * Print PDF Invoice Action
