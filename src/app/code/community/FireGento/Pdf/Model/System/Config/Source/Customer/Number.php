@@ -17,8 +17,6 @@
  * @author    FireGento Team <team@firegento.com>
  * @copyright 2015 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     x.x.x
  */
 /**
  * Customer number source model.
@@ -28,8 +26,6 @@
  * @author    FireGento Team <team@firegento.com>
  * @copyright 2015 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     x.x.x
  */
 class FireGento_Pdf_Model_System_Config_Source_Customer_Number
 {
