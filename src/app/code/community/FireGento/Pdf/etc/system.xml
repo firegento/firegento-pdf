@@ -215,6 +215,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </show_customer_vatnumber>
+                        <customer_number_field translate="label">
+                            <label>Which customer number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_customer_number</source_model>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_number_field>
                         <show_date_notice translate="label comment">
                             <label>Show Date Notice</label>
                             <frontend_type>select</frontend_type>
