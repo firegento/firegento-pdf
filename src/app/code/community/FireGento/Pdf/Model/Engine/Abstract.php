@@ -548,15 +548,31 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 $numberOfLines++;
             }
 
+            $customerNumber = '';
+            $customerNumberFieldName = Mage::getStoreConfig('sales_pdf/invoice/customer_number_field', $order->getStoreId());
+            if($customerNumberFieldName === FireGento_Pdf_Model_System_Config_Source_Customer_Number::CUSTOMER_NUMBER_FIELD_INCREMENT_ID) {
+                try {
+                    $customer = Mage::getModel('customer/customer')->load($order->getData('customer_id'));
+                    $customerNumber = $customer->getData($customerNumberFieldName);
+                } catch (\Exception $e) {
+                    Mage::logException($e);
+                    //Use default
+                    $customerNumber = $order->getCustomerId();
+                }
+            } else {
+                //Use default 'entity_id'
+                $customerNumber = $order->getCustomerId();
+            }
+
             if ($order->getCustomerId() != '') {
 
                 $prefix
                     = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
 
                 if (!empty($prefix)) {
-                    $customerid = $prefix . $order->getCustomerId();
+                    $customerid = $prefix . $customerNumber;
                 } else {
-                    $customerid = $order->getCustomerId();
+                    $customerid = $customerNumber;
                 }
 
                 $page->drawText(
