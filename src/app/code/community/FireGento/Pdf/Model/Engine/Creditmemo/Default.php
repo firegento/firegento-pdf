@@ -46,6 +46,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
      */
     public function getPdf($creditmemos = array())
     {
+        $currentStore = Mage::app()->getStore()->getCode();
         $this->_beforeGetPdf();
         $this->_initRenderer('creditmemo');
 
@@ -99,6 +100,9 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 Mage::app()->getLocale()->revert();
             }
         }
+
+        // Revert back to the original current store
+        Mage::app()->setCurrentStore($currentStore);
 
         $this->_afterGetPdf();
 
