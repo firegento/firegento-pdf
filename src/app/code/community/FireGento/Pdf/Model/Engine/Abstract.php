@@ -476,7 +476,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($mode == 'invoice') {
             $title = 'Invoice';
         } elseif ($mode == 'shipment') {
-            $title = 'Shipment';
+            $title = 'Packingslip';
         } else {
             $title = 'Creditmemo';
         }
@@ -538,12 +538,31 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         // Customer Number
         if ($this->_showCustomerNumber($order->getStore())) {
-            $page->drawText(
-                Mage::helper('firegento_pdf')->__('Customer number:'),
-                ($this->margin['right'] - $labelRightOffset),
-                $this->y, $this->encoding
-            );
-            $numberOfLines++;
+            $guestorderCustomerNo = $this->_getGuestorderCustomerNo($order->getStore());
+            if ($order->getCustomerId() != '' || $guestorderCustomerNo != '') {
+                $page->drawText(
+                    Mage::helper('firegento_pdf')->__('Customer number:'),
+                    ($this->margin['right'] - $labelRightOffset),
+                    $this->y, $this->encoding
+                );
+                $numberOfLines++;
+            }
+
+            $customerNumber = '';
+            $customerNumberFieldName = Mage::getStoreConfig('sales_pdf/invoice/customer_number_field', $order->getStoreId());
+            if($customerNumberFieldName === FireGento_Pdf_Model_System_Config_Source_Customer_Number::CUSTOMER_NUMBER_FIELD_INCREMENT_ID) {
+                try {
+                    $customer = Mage::getModel('customer/customer')->load($order->getData('customer_id'));
+                    $customerNumber = $customer->getData($customerNumberFieldName);
+                } catch (\Exception $e) {
+                    Mage::logException($e);
+                    //Use default
+                    $customerNumber = $order->getCustomerId();
+                }
+            } else {
+                //Use default 'entity_id'
+                $customerNumber = $order->getCustomerId();
+            }
 
             if ($order->getCustomerId() != '') {
 
@@ -551,9 +570,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                     = Mage::getStoreConfig('sales_pdf/invoice/customeridprefix');
 
                 if (!empty($prefix)) {
-                    $customerid = $prefix . $order->getCustomerId();
+                    $customerid = $prefix . $customerNumber;
                 } else {
-                    $customerid = $order->getCustomerId();
+                    $customerid = $customerNumber;
                 }
 
                 $page->drawText(
@@ -564,9 +583,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 );
                 $this->Ln();
                 $numberOfLines++;
-            } else {
+            } elseif ($guestorderCustomerNo != '') {
                 $page->drawText(
-                    '-',
+                    $guestorderCustomerNo,
                     ($this->margin['right'] - $valueRightOffset
                         - $this->widthForStringUsingFontSize('-', $font, 10)),
                     $this->y, $this->encoding
@@ -583,7 +602,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
             );
-            $customerVatId = ($order->getCustomerTaxvat()) ? $order->getCustomerTaxvat() : '-';
+            if ($order->getBillingAddress()->getVatId()) {
+                $customerVatId = $order->getBillingAddress()->getVatId();
+            } elseif ($order->getCustomerTaxvat()) {
+                $customerVatId = $order->getCustomerTaxvat();
+            } else {
+                $customerVatId = '-';
+            }
             $font = $this->_setFontRegular($page, 10);
             $page->drawText(
                 $customerVatId, ($this->margin['right'] - $valueRightOffset
@@ -677,7 +702,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             || $mode == 'shipment'
             && Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
-        if ($putShippingMethod) {
+
+        if ($putShippingMethod && $order->getIsNotVirtual()) {
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Shipping method:'),
                 ($this->margin['right'] - $labelRightOffset),
@@ -746,6 +772,19 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         return Mage::helper('firegento_pdf')
             ->showCustomerVATNumber($this->mode, $store);
+    }
+
+    /**
+     * which customer number should be displayed for guest orders
+     *
+     * @param  mixed $store store from whom we need the config setting
+     *
+     * @return string
+     */
+    protected function _getGuestorderCustomerNo($store)
+    {
+        return Mage::helper('firegento_pdf')
+            ->getGuestorderCustomerNo($this->mode, $store);
     }
 
     /**
@@ -910,13 +949,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                     $lineBlock['lines'][] = array(
                         array(
                             'text'      => $label,
-                            'feed'      => 470,
+                            'feed'      => $this->margin['right'] - 70,
                             'align'     => 'right',
                             'font_size' => $totalData['font_size']
                         ),
                         array(
                             'text'      => $totalData['amount'],
-                            'feed'      => 540,
+                            'feed'      => $this->margin['right'],
                             'align'     => 'right',
                             'font_size' => $totalData['font_size']
                         ),

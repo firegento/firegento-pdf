@@ -46,6 +46,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
      */
     public function getPdf($invoices = array())
     {
+        $currentStore = Mage::app()->getStore()->getCode();
         $this->_beforeGetPdf();
         $this->_initRenderer('invoice');
 
@@ -98,7 +99,14 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
 
             // Add footer
             $this->_addFooter($page, $invoice->getStore());
+
+            if ($invoice->getStoreId()) {
+                Mage::app()->getLocale()->revert();
+            }
         }
+
+        // Revert back to the original current store
+        Mage::app()->setCurrentStore($currentStore);
 
         $this->_afterGetPdf();
 
