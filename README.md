@@ -1,5 +1,7 @@
 FireGento PDF
 =============
+[![Build Status](https://travis-ci.org/firegento/firegento-pdf.svg?branch=development)](https://travis-ci.org/firegento/firegento-pdf/)
+
 FireGento PDF overwrites standard PDF layouts for invoices, shipments and creditmemos.
 
 Facts

@@ -15,36 +15,31 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2014 FireGento Team (http://www.firegento.com)
+ * @copyright 2015 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
+
 /**
- * Logo position source model.
+ * Page size source model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
  */
-class FireGento_Pdf_Model_System_Config_Source_Logo
+class FireGento_Pdf_Model_System_Config_Source_PageSize
 {
-    const LEFT = 'left';
-    const CENTER = 'center';
-    const RIGHT = 'right';
-    const FULL_WIDTH = 'full_width';
-
     /**
-     * Return array of possible positions.
+     * Return array of possible sizes.
      *
      * @return array
      */
     public function toOptionArray()
     {
         $positions = array(
-            self::LEFT       => Mage::helper('firegento_pdf')->__('Left'),
-            self::CENTER     => Mage::helper('firegento_pdf')->__('Center'),
-            self::RIGHT      => Mage::helper('firegento_pdf')->__('Right'),
-            self::FULL_WIDTH => Mage::helper('firegento_pdf')->__('Full width')
+            Zend_Pdf_Page::SIZE_A4     => Mage::helper('firegento_pdf')->__('DIN A4'),
+            Zend_Pdf_Page::SIZE_LETTER => Mage::helper('firegento_pdf')->__('Letter')
         );
+
         $options = array();
         foreach ($positions as $k => $v) {
             $options[] = array(
@@ -52,6 +47,7 @@ class FireGento_Pdf_Model_System_Config_Source_Logo
                 'label' => $v
             );
         }
+
         return $options;
     }
 }

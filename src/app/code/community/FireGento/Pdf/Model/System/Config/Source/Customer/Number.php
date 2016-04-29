@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of a FireGento e.V. module.
+ * This file is part of the FIREGENTO project.
  *
- * This FireGento e.V. module is free software; you can redistribute it and/or
+ * FireGento_Pdf is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,23 +15,24 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2014 FireGento Team (http://www.firegento.com)
+ * @copyright 2015 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
 /**
- * Logo position source model.
+ * Customer number source model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
+ * @copyright 2015 FireGento Team (http://www.firegento.com)
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
-class FireGento_Pdf_Model_System_Config_Source_Logo
+class FireGento_Pdf_Model_System_Config_Source_Customer_Number
 {
-    const LEFT = 'left';
-    const CENTER = 'center';
-    const RIGHT = 'right';
-    const FULL_WIDTH = 'full_width';
-
+    /**
+     * Databasefield name for customers increment_id
+     */
+    const CUSTOMER_NUMBER_FIELD_INCREMENT_ID = 'increment_id';
     /**
      * Return array of possible positions.
      *
@@ -39,14 +40,12 @@ class FireGento_Pdf_Model_System_Config_Source_Logo
      */
     public function toOptionArray()
     {
-        $positions = array(
-            self::LEFT       => Mage::helper('firegento_pdf')->__('Left'),
-            self::CENTER     => Mage::helper('firegento_pdf')->__('Center'),
-            self::RIGHT      => Mage::helper('firegento_pdf')->__('Right'),
-            self::FULL_WIDTH => Mage::helper('firegento_pdf')->__('Full width')
+        $selectOptions = array(
+            '' => Mage::helper('firegento_pdf')->__('Standard (entity_id)'),
+            self::CUSTOMER_NUMBER_FIELD_INCREMENT_ID => Mage::helper('firegento_pdf')->__('Customer Increment ID (increment_id)')
         );
         $options = array();
-        foreach ($positions as $k => $v) {
+        foreach ($selectOptions as $k => $v) {
             $options[] = array(
                 'value' => $k,
                 'label' => $v

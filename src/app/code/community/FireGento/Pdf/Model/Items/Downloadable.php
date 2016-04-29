@@ -15,10 +15,9 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
-
 /**
  * Class FireGento_Pdf_Model_Items_Downloadable
  *
@@ -77,7 +76,7 @@ class FireGento_Pdf_Model_Items_Downloadable
             foreach ($options as $option) {
                 $optionTxt = $option['label'] . ': ';
                 // append option value
-                if ($option['value']) {
+                if (isset($option['value'])) {
                     $optionTxt .= isset($option['print_value'])
                         ? $option['print_value'] : strip_tags($option['value']);
                 }

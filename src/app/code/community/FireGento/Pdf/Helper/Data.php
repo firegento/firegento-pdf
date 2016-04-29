@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 
 /**
@@ -27,10 +25,6 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 {
@@ -38,9 +32,19 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';
+    const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/invoice/show_customer_vatnumber';
+    const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/shipment/show_customer_vatnumber';
+    const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/creditmemo/show_customer_vatnumber';
+    const XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/invoice/guestorder_customer_number';
+    const XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/shipment/guestorder_customer_number';
+    const XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/guestorder_customer_number';
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
+    const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
+    const XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE = 'sales_pdf/firegento_pdf/page_size';
 
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
@@ -89,6 +93,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                 }
                 break;
         }
+
         return false;
     }
 
@@ -105,6 +110,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
             self::XML_PATH_FIREGENTO_PDF_LOGO_POSITION, $store
         );
         $fullWidth = FireGento_Pdf_Model_System_Config_Source_Logo::FULL_WIDTH;
+
         return $configSetting == $fullWidth;
     }
 
@@ -134,6 +140,68 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER,
                     $store
                 );
+        }
+
+        return true; // backwards compatibility
+    }
+
+    /**
+     * Whether the customer VAT number should be shown.
+     *
+     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo
+     * @param  mixed  $store store to get information from
+     *
+     * @return bool whether the customer number should be shown
+     */
+    public function showCustomerVATNumber($mode = 'invoice', $store)
+    {
+        switch ($mode) {
+            case 'invoice':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER,
+                    $store
+                );
+            case 'shipment':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER,
+                    $store
+                );
+            case 'creditmemo':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER,
+                    $store
+                );
+        }
+
+        return true; // backwards compatibility
+    }
+
+    /**
+     * Get customer number for guest orders.
+     *
+     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo
+     * @param  mixed  $store store to get information from
+     *
+     * @return string customer number for guest orders
+     */
+    public function getGuestorderCustomerNo($mode = 'invoice', $store)
+    {
+        switch ($mode) {
+            case 'invoice':
+                return trim(Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER,
+                    $store
+                ));
+            case 'shipment':
+                return trim(Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER,
+                    $store
+                ));
+            case 'creditmemo':
+                return trim(Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER,
+                    $store
+                ));
         }
         return true; // backwards compatibility
     }
@@ -194,6 +262,34 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                     self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN
                 );
         }
+
+        return true;
+    }
+
+    /**
+     * Return export pattern for multiple documents config value
+     *
+     * @param  string $type the type of this document like invoice, shipment or creditmemo
+     *
+     * @return string
+     */
+    public function getExportPatternForMultipleDocuments($type)
+    {
+        switch ($type) {
+            case 'invoice':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+                );
+            case 'shipment':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+                );
+            case 'creditmemo':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+                );
+        }
+
         return true;
     }
 
@@ -231,6 +327,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                 '{{customer_firstname}}' => $order->getCustomerFirstname(),
                 '{{customer_lastname}}'  => $order->getCustomerLastname()
             );
+
             return array_merge($specificVars, $commonVars);
         } else {
             return array(
@@ -256,8 +353,13 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
         $type = (!$type) ? 'invoice' : $type;
         $pattern = $this->getExportPattern($type);
         if (!$pattern) {
+            if ($type == 'shipment') {
+                $pattern = 'packingslip';
+            } else {
+                $pattern = $type;
+            }
             $date = Mage::getSingleton('core/date');
-            $pattern = $type . $date->date('Y-m-d_H-i-s');
+            $pattern .= $date->date('Y-m-d_H-i-s');
         }
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
@@ -270,6 +372,33 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * The filename of the exported file if multiple documents are printed at once.
+     *
+     * @param string $type the type of this document like invoice, shipment or creditmemo
+     *
+     * @return string the filename of the exported file
+     */
+    public function getExportFilenameForMultipleDocuments($type)
+    {
+        $type = (!$type) ? 'invoice' : $type;
+        $pattern = $this->getExportPatternForMultipleDocuments($type);
+        if (!$pattern) {
+            if ($type == 'shipment') {
+                $pattern = 'packingslip';
+            } else {
+                $pattern = $type;
+            }
+            $date = Mage::getSingleton('core/date');
+            $pattern .= $date->date('Y-m-d_H-i-s');
+        }
+        if (substr($pattern, -4) != '.pdf') {
+            $pattern = $pattern . '.pdf';
+        }
+
+        return strftime($pattern);
+    }
+
+    /**
      * Returns the path where the fonts reside.
      *
      * @return string the path where the fonts reside
@@ -277,5 +406,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getFontPath()
     {
         return Mage::getBaseDir('media') . self::FONT_PATH_IN_MEDIA;
+    }
+
+    public function getPageSizeConfigPath()
+    {
+        return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE);
     }
 }
