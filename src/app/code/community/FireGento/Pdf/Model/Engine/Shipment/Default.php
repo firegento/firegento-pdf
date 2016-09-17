@@ -91,7 +91,9 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
                 $position++;
                 $page = $this->_drawItem($item, $page, $order, $position);
             }
-
+            /* add shipment tracks */
+            $page = $this->_printShipmentTracks($page, $order, $shipment);
+            
             /* add note */
             $page = $this->_insertNote($page, $order, $shipment);
 
@@ -210,4 +212,47 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
         );
     }
 
+    /**
+     * This will print all the shipment tracks.
+     *
+     * @param $page
+     * @param $order
+     * @param $shipment
+     * @return Zend_Pdf_Page
+     */
+    protected function _printShipmentTracks($page, $order, $shipment)
+    {
+        if ($order->getIsVirtual()) return $page;
+
+        $tracks = array();
+        if ($shipment) {
+            $tracks = $shipment->getAllTracks();
+        }
+        if (!count($tracks)) return $page;
+
+        $this->y -= 20;
+        $page->setFillColor($this->colors['grey1']);
+        $page->setLineColor($this->colors['grey1']);
+        $page->setLineWidth(1);
+        $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
+
+        $page->setFillColor($this->colors['black']);
+        $this->_setFontRegular($page, 9);
+
+        $this->y -= 11;
+        $page->drawText(Mage::helper('sales')->__('Title'), $this->margin['left'], $this->y, 'UTF-8');
+        $page->drawText(Mage::helper('sales')->__('Number'), 290, $this->y, 'UTF-8');
+
+        $this->y -= 18;
+        foreach ($tracks as $track) {
+            $maxTitleLen = 45;
+            $endOfTitle = strlen($track->getTitle()) > $maxTitleLen ? '...' : '';
+            $truncatedTitle = substr($track->getTitle(), 0, $maxTitleLen) . $endOfTitle;
+            $page->drawText($truncatedTitle, $this->margin['left'], $this->y, 'UTF-8');
+            $page->drawText($track->getNumber(), 290, $this->y, 'UTF-8');
+            $this->y -= 18;
+        }
+
+        return $page;
+    }
 }
