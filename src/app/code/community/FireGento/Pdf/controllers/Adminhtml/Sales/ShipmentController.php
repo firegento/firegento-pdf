@@ -29,7 +29,7 @@ class FireGento_Pdf_Adminhtml_Sales_ShipmentController
             if ($shipment = Mage::getModel('sales/order_shipment')
                 ->load($shipmentId)
             ) {
-                $pdf = Mage::getModel('sales/order_pdf_invoice')
+                $pdf = Mage::getModel('sales/order_pdf_shipment')
                     ->getPdf(array($shipment));
                 return $this->_prepareDownloadResponse(
                     Mage::helper('firegento_pdf')
