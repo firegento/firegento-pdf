@@ -208,6 +208,10 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
             'model'    => 'firegento_pdf/items_shipment_bundle',
             'renderer' => null
         );
+        $this->_renderers['ugiftcert'] = array(
+            'model'    => 'firegento_pdf/items_unirgy_shipment_default',
+            'renderer' => null
+        );
     }
 
 }

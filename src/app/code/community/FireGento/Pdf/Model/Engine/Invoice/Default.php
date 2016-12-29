@@ -216,6 +216,10 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
             'model'    => 'firegento_pdf/items_downloadable',
             'renderer' => null
         );
+        $this->_renderers['ugiftcert'] = array(
+            'model'    => 'firegento_pdf/items_unirgy_default',
+            'renderer' => null
+        );
     }
 
 }
