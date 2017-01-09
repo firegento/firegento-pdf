@@ -119,7 +119,7 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
         }
 
         $this->_addListItems($activeItems);
-        $this->_sortableListHtml .= '<li id="pdf-column-disabled" data-column="disabled" style="list-style:none">
+        $this->_sortableListHtml .= '<li id="pdf_column-disabled" data-column="disabled" style="list-style:none">
             <div id="' . $element->getHtmlId() . '_warning" style="display:none" class="validation-advice"></div>
             <br />
             ' . $this->__('not to be listed') . '
@@ -140,7 +140,7 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
     {
         foreach ($items as $name=>$item) {
             $this->_sortableListHtml .= sprintf(
-                '<li id="pdf-column-%s" data-column="%s" data-width="%s">%s</li>',
+                '<li id="pdf_column-%s" data-column="%s" data-width="%s">%s</li>',
                 $name,
                 $name,
                 $item['width'],
