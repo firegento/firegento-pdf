@@ -225,7 +225,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             != ''
         ) {
             $this->_setFontRegular($page, 6);
-            $page->drawText(
+            $this->drawTextWithUnderline($page,
                 trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')),
                 $this->margin['left'] + $this->getHeaderblockOffset(),
                 $this->y, $this->encoding
@@ -1096,7 +1096,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             'swift'              => Mage::helper('firegento_pdf')->__('SWIFT:'),
             'iban'               => Mage::helper('firegento_pdf')->__('IBAN:')
         );
-        $this->_insertFooterBlock($page, $fields, 215, 50, 140);
+        $this->_insertFooterBlock($page, $fields, 195, 50, 150);
 
         $fields = array(
             'tax_number'      => Mage::helper('firegento_pdf')
@@ -1516,5 +1516,65 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     private function getPageSize()
     {
         return Mage::helper('firegento_pdf')->getPageSizeConfigPath();
+    }
+
+    /**
+     * Draw an underline below text
+     *
+     * @TODO: Use Zend_Pdf_Style class wide to get/set colors and use
+     * text fill color instead of parameter
+     *
+     * @param Zend_Pdf_Page $page Page
+     * @param string $text Text that should be underlined
+     * @param float $x Left position of text
+     * @param float $y Top position of text
+     * @param string $encoding Character encoding
+     * @param Zend_Pdf_Color|string $color Line color, default: black
+     * @param float $width Line width, default: 0.25
+     * @param float $offset Line offset, default: 2
+     */
+    public function drawTextWithUnderline(&$page, $text, $x, $y, $encoding, $color = 'black', $width = 0.25, $offset = 2)
+    {
+        $page->drawText($text, $x, $y, $encoding);
+
+        if (is_object($color) && $color instanceof Zend_Pdf_Color) {
+            $page->setLineColor($color);
+        } else {
+            if (isset($this->colors[$color])) {
+                $color = $this->colors[$color];
+            } else {
+                $color = new Zend_Pdf_Color_GrayScale(0);
+            }
+            $page->setLineColor($color);
+        }
+        $page->setLineWidth((float) $width);
+
+        $textWidth = $this->getTextWidth($text, $page->getFont(), $page->getFontSize());
+        $page->drawLine($x, $y-$offset, $x+$textWidth, $y-$offset);
+        $page->setLineColor($this->colors['black']);
+    }
+
+    /**
+     * Return the width of generated string in points
+     *
+     * @param string $text text
+     * @param Zend_Pdf_Resource_Font $font font
+     * @param integer $fontSize font size
+     *
+     * @return float text width
+     */
+    protected function getTextWidth($text, Zend_Pdf_Resource_Font $font, $fontSize)
+    {
+        $text = iconv('UTF-8', 'UTF-16BE//IGNORE', $text);
+
+        $chars = array();
+
+        for ($i = 0; $i < strlen($text); $i++) {
+            $chars[] = (ord($text[$i++]) << 8) | ord($text[$i]);
+        }
+
+        $glyphs = $font->glyphNumbersForCharacters($chars);
+        $widths = $font->widthsForGlyphs($glyphs);
+        return (array_sum($widths) / $font->getUnitsPerEm()) * $fontSize;
     }
 }
