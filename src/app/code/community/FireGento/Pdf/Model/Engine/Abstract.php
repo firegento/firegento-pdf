@@ -475,11 +475,18 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         if ($mode == 'invoice') {
             $title = 'Invoice';
+            $numberTitle = 'Invoice number:';
         } elseif ($mode == 'shipment') {
             $title = 'Packingslip';
-        } else {
+            $numberTitle = 'Shipment number:';
+        } elseif($mode == 'creditmemo') {
             $title = 'Creditmemo';
+            $numberTitle = 'Creditmemo number:';
+        } else {
+            $title = 'Order';
+            $numberTitle = 'Order number:';
         }
+
         $page->drawText(Mage::helper('firegento_pdf')->__($title),
             $this->margin['left'], $this->y, $this->encoding);
 
@@ -493,15 +500,6 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         $width = 80;
         $numberOfLines = 0;
 
-
-        // Invoice/shipment/creditmemo Number
-        if ($mode == 'invoice') {
-            $numberTitle = 'Invoice number:';
-        } elseif ($mode == 'shipment') {
-            $numberTitle = 'Shipment number:';
-        } else {
-            $numberTitle = 'Creditmemo number:';
-        }
         $page->drawText(
             Mage::helper('firegento_pdf')->__($numberTitle),
             ($this->margin['right'] - $labelRightOffset), $this->y,

@@ -28,6 +28,55 @@
 class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items_Invoice_Default
 {
     /**
+     * Return item Sku
+     *
+     * @param  $item
+     * @return mixed
+     */
+    public function getSku($item)
+    {
+        if($item->getSku())
+        {
+            return $item->getSku();
+
+        } elseif($item->getOrderItem()->getProductOptionByCode('simple_sku')) {
+
+            return $item->getOrderItem()->getProductOptionByCode('simple_sku');
+        }
+    }
+
+    /**
+     * Retrieve item options
+     *
+     * @return array
+     */
+    public function getItemOptions()
+    {
+        $result = array();
+
+        if(is_object($this->getItem()->getOrderItem()))
+        {
+            $options = $this->getItem()->getOrderItem()->getProductOptions();
+        } else {
+            $options = $this->getItem()->getProductOptions();
+        }
+
+        if (is_array($options))
+        {
+            if (isset($options['options'])) {
+                $result = array_merge($result, $options['options']);
+            }
+            if (isset($options['additional_options'])) {
+                $result = array_merge($result, $options['additional_options']);
+            }
+            if (isset($options['attributes_info'])) {
+                $result = array_merge($result, $options['attributes_info']);
+            }
+        }
+        return $result;
+    }
+
+    /**
      * Draw item line.
      *
      * @param  int $position position of the product
@@ -36,12 +85,15 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
      */
     public function draw($position = 1)
     {
-        $order = $this->getOrder();
-        $item = $this->getItem();
         $pdf = $this->getPdf();
         $page = $this->getPage();
+        $order = $this->getOrder();
+        $item = $this->getItem();
+        if(!is_object($item->getOrderItem())) {
+            $item->setOrderItem($item);
+            $item->setQty($item->getQtyOrdered());
+        }
         $lines = array();
-
         $fontSize = 9;
 
         // draw Position Number
