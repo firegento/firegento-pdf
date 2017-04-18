@@ -34,7 +34,7 @@ Installation Instructions
 2. Clear the cache, logout from the admin panel and then login again.
 3. Configure the extension under System - Configuration - Sales - PDF Print-outs.
 
-###Recommendation
+### Recommendation
 If you use this extension for an austrian shop or Austrian locale (de_AT), please make sure to install [Hackathon_LocaleFallback](https://github.com/magento-hackathon/Hackathon_LocaleFallback) as well, because we only maintain the strings which differ between German locales, so you need this plugin (or have to copy all the strings over). 
 
 Uninstallation
