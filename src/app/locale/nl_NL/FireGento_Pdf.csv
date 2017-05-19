@@ -99,7 +99,7 @@
 "Show Date Notice","Toon opmerking omtrent datum"
 "Show Footer","Toon Footer"
 "Show Imprint. Compatible with <a href=""http://www.magentocommerce.com/magento-connect/firegento-magesetup.html"">MageSetup</a> or GermanSetup (not anymore maintained, replaced by MageSetup)","Toon afdruk, compatibel met <a href=""http://www.magentocommerce.com/magento-connect/firegento-magesetup.html"">MageSetup</a> of GermanSetup (wordt niet meer doorontwikkeld en wordt vervangen door MageSetup)"
-"Show Invoice Comments","Toon notities voor factuur"
+"Show Invoice Comments For Methods","Toon factuurnotities voor methoden"
 "Show Item Discount","Toon korting van item"
 "Show Notice: Invoice date is equal to delivery date.","Toon opmerking: Factuurdatum is gelijk aan de verzenddatum."
 "Show Order ID as Barcode","Toon bestelnummer als barcode"

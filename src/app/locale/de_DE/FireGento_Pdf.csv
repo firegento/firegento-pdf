@@ -99,7 +99,7 @@
 "Show Date Notice","Anzeige des Datums im Notizbereich"
 "Show Footer","Zeige Footer"
 "Show Imprint. Compatible with <a href=""http://www.magentocommerce.com/magento-connect/firegento-magesetup.html"">MageSetup</a> or GermanSetup (not anymore maintained, replaced by MageSetup)","Zeige Impressum, kompatibel mit <a href=""http://www.magentocommerce.com/magento-connect/firegento-magesetup.html"">MageSetup</a> oder GermanSetup (wird nicht mehr weiterentwickelt und wurde ersetzt durch MageSetup)"
-"Show Invoice Comments","Rechnungskommentare anzeigen"
+"Show Invoice Comments For Methods","Rechnungskommentare bei folgenden Zahlarten anzeigen"
 "Show Item Discount","Rabatt auf Artikelebene anzeigen"
 "Show Notice: Invoice date is equal to delivery date.","Zeige im Notizbereich: Rechnungsdatum ist gleich dem Lieferdatum."
 "Show Order ID as Barcode","Bestellnummer als Barcode anzeigen."

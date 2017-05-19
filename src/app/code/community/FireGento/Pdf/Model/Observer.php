@@ -175,7 +175,9 @@ class FireGento_Pdf_Model_Observer
      */
     private function _addInvoiceComments(Varien_Event_Observer $observer)
     {
-        if (!Mage::getStoreConfigFlag('sales_pdf/invoice/show_comments')) {
+        $paymentMethod = $observer->getOrder()->getPayment()->getMethodInstance()->getCode();
+
+        if (!in_array($paymentMethod, explode(',',Mage::getStoreConfig('sales_pdf/invoice/show_comments_for_methods')))) {
             return $this;
         }
 
