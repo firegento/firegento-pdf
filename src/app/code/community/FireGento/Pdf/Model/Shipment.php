@@ -33,7 +33,7 @@ class FireGento_Pdf_Model_Shipment
      *
      * @var Mage_Sales_Model_Order_Pdf_Abstract
      */
-    private $_engine;
+    protected $_engine;
 
     /**
      * get pdf rendering engine
@@ -48,7 +48,7 @@ class FireGento_Pdf_Model_Shipment
 
             if (!$engine || $engine instanceof FireGento_Pdf_Model_Shipment) {
                 // Fallback to Magento standard shipment layout.
-                $engine = new Mage_Sales_Model_Order_Pdf_Shipment();
+                $engine = Mage::getModel('sales/order_pdf_shipment');
             }
 
             $this->_engine = $engine;

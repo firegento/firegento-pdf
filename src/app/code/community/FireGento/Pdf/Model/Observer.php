@@ -53,7 +53,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return $this
      */
-    private function _addShippingCountryNotes(Varien_Event_Observer $observer)
+    protected function _addShippingCountryNotes(Varien_Event_Observer $observer)
     {
         $order = $observer->getOrder();
         $shippingCountryNotes = Mage::helper('firegento_pdf/invoice')->getShippingCountryNotes($order);
@@ -64,6 +64,7 @@ class FireGento_Pdf_Model_Observer
             $notes = array_merge($notes, $shippingCountryNotes);
             $result->setNotes($notes);
         }
+
         return $this;
     }
 
@@ -74,7 +75,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return $this
      */
-    private function _addInvoiceDateNotice(Varien_Event_Observer $observer)
+    protected function _addInvoiceDateNotice(Varien_Event_Observer $observer)
     {
         if (!Mage::getStoreConfigFlag('sales_pdf/invoice/show_date_notice')) {
             return $this;
@@ -94,7 +95,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    private function _addInvoiceMaturity(Varien_Event_Observer $observer)
+    protected function _addInvoiceMaturity(Varien_Event_Observer $observer)
     {
         $result = $observer->getResult();
         $notes = $result->getNotes();
@@ -120,7 +121,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    private function _addPaymentMethod(Varien_Event_Observer $observer)
+    protected function _addPaymentMethod(Varien_Event_Observer $observer)
     {
         if (Mage::getStoreConfig('sales_pdf/invoice/payment_method_position')
             != FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_NOTE
@@ -144,7 +145,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    private function _addShippingMethod(Varien_Event_Observer $observer)
+    protected function _addShippingMethod(Varien_Event_Observer $observer)
     {
         $invoice = $observer->getInvoice();
         $shipment = $observer->getShipment();
@@ -173,7 +174,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    private function _addInvoiceComments(Varien_Event_Observer $observer)
+    protected function _addInvoiceComments(Varien_Event_Observer $observer)
     {
         if (!Mage::getStoreConfigFlag('sales_pdf/invoice/show_comments')) {
             return $this;
@@ -220,7 +221,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    private function _addShipmentComments(Varien_Event_Observer $observer)
+    protected function _addShipmentComments(Varien_Event_Observer $observer)
     {
         if (!Mage::getStoreConfigFlag('sales_pdf/shipment/show_comments')) {
             return $this;
@@ -266,7 +267,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    private function _addCreditmemoComments(Varien_Event_Observer $observer)
+    protected function _addCreditmemoComments(Varien_Event_Observer $observer)
     {
         if (!Mage::getStoreConfigFlag('sales_pdf/creditmemo/show_comments')) {
             return $this;
@@ -330,7 +331,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    private function _addBarcode(Varien_Event_Observer $observer)
+    protected function _addBarcode(Varien_Event_Observer $observer)
     {
         $page = $observer->getPage();
         $order = $observer->getOrder();
@@ -346,7 +347,6 @@ class FireGento_Pdf_Model_Observer
             'moduleSize' => 1
         );
         // create dummy Zend_Pdf object, which just stores the current page, so that we can pass it in
-        // Zend_Barcode_Renderer_Pdf->setResource()
         $pdf = new Zend_Pdf();
         $pdf->pages[] = $page;
         /** @var $renderer Zend_Barcode_Renderer_Pdf */

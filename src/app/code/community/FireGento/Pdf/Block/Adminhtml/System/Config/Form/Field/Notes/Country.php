@@ -24,7 +24,7 @@ class FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes_Country
      */
     public function _toHtml()
     {
-        if ( ! $this->getOptions()) {
+        if (!$this->getOptions()) {
             $countryModel = Mage::getModel('adminhtml/system_config_source_country');
             foreach ($countryModel->toOptionArray() as $country) {
                 $this->addOption($country['value'], $country['label']);

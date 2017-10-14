@@ -32,7 +32,7 @@ class FireGento_Pdf_Model_Creditmemo
      * The actual PDF engine responsible for rendering the file.
      * @var Mage_Sales_Model_Order_Pdf_Abstract
      */
-    private $_engine;
+    protected $_engine;
 
     /**
      * get pdf renderer engine
@@ -47,7 +47,7 @@ class FireGento_Pdf_Model_Creditmemo
 
             if (!$engine || $engine instanceof FireGento_Pdf_Model_Creditmemo) {
                 // Fallback to Magento standard creditmemo layout.
-                $engine = new Mage_Sales_Model_Order_Pdf_Creditmemo();
+                $engine = Mage::getModel('sales/order_pdf_creditmemo');
             }
 
             $this->_engine = $engine;

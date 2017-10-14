@@ -28,7 +28,7 @@
 class FireGento_Pdf_Model_System_Config_Backend_Font
     extends Mage_Adminhtml_Model_System_Config_Backend_File
 {
-    private $_allowedExtensions
+    protected $_allowedExtensions
         = array(
             'otf',
             'ttf',

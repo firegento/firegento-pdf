@@ -113,6 +113,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
             } else {
                 $name = $_item->getName();
             }
+
             $line[] = array(
                 'text'  => Mage::helper('core/string')->str_split($name, 35, true, true),
                 'feed'  => $pdf->margin['left'] + 130,

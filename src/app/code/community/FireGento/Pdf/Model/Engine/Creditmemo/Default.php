@@ -60,6 +60,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 Mage::app()->getLocale()->emulate($creditmemo->getStoreId());
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
             }
+
             $order = $creditmemo->getOrder();
             $this->setOrder($order);
 
@@ -78,6 +79,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
+
                 /* Draw item */
                 $position++;
                 $this->_drawItem($item, $page, $order, $position);

@@ -63,6 +63,7 @@ class FireGento_Pdf_Model_System_Config_Source_Creditmemo_Engine
                 'label' => $v
             );
         }
+
         return $options;
     }
 }

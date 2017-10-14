@@ -18,6 +18,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                 if ($invoices->getSize() == 1) {
                     $invoice = $invoices->getFirstItem();
                 }
+
                 if ($invoices->getSize() > 0) {
                     $flag = true;
                     if (!isset($pdf)) {
@@ -30,6 +31,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                     }
                 }
             }
+
             if ($flag) {
                 if ($invoice != null) {
                     return $this->_prepareDownloadResponse(
@@ -38,6 +40,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                         $pdf->render(), 'application/pdf'
                     );
                 }
+
                 return $this->_prepareDownloadResponse(
                     Mage::helper('firegento_pdf')
                         ->getExportFilenameForMultipleDocuments('invoice'),
@@ -50,6 +53,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                 $this->_redirect('*/*/');
             }
         }
+
         $this->_redirect('*/*/');
     }
 
@@ -66,6 +70,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                 if ($shipments->getSize() == 1) {
                     $shipment = $shipments->getFirstItem();
                 }
+
                 if ($shipments->getSize() > 0) {
                     $flag = true;
                     if (!isset($pdf)) {
@@ -78,6 +83,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                     }
                 }
             }
+
             if ($flag) {
                 if ($shipment != null) {
                     return $this->_prepareDownloadResponse(
@@ -86,6 +92,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                         $pdf->render(), 'application/pdf'
                     );
                 }
+
                 return $this->_prepareDownloadResponse(
                     Mage::helper('firegento_pdf')
                         ->getExportFilenameForMultipleDocuments('shipment'),
@@ -98,6 +105,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                 $this->_redirect('*/*/');
             }
         }
+
         $this->_redirect('*/*/');
     }
 
@@ -114,6 +122,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                 if ($creditmemos->getSize() == 1) {
                     $creditmemo = $creditmemos->getFirstItem();
                 }
+
                 if ($creditmemos->getSize() > 0) {
                     $flag = true;
                     if (!isset($pdf)) {
@@ -126,6 +135,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                     }
                 }
             }
+
             if ($flag) {
                 if ($creditmemo != null) {
                     return $this->_prepareDownloadResponse(
@@ -134,6 +144,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                         $pdf->render(), 'application/pdf'
                     );
                 }
+
                 return $this->_prepareDownloadResponse(
                     Mage::helper('firegento_pdf')
                         ->getExportFilenameForMultipleDocuments('creditmemo'),
@@ -146,6 +157,7 @@ class FireGento_Pdf_Adminhtml_Sales_OrderController
                 $this->_redirect('*/*/');
             }
         }
+
         $this->_redirect('*/*/');
     }
 }
