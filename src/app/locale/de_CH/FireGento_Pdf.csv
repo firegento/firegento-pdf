@@ -64,6 +64,7 @@
 "Header","Dokumenten-Kopf"
 "Notes area","Notizbereich"
 "Position of payment method on invoice.","Position der Zahlungart auf der Rechnung."
+"Position of payment method on creditmemo.","Position der Zahlungart auf der Gutschrift."
 "Show Shipping Method","Versandart andrucken"
 "Hide shipping method","Nicht andrucken"
 "Position of shipping method on invoice.","Position der Versandart auf der Rechnung."

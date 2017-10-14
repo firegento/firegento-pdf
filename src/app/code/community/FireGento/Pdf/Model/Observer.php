@@ -39,7 +39,7 @@ class FireGento_Pdf_Model_Observer
         $this->_addShippingCountryNotes($observer);
         $this->_addInvoiceDateNotice($observer);
         $this->_addInvoiceMaturity($observer);
-        $this->_addPaymentMethod($observer);
+        $this->_addPaymentMethod($observer, 'invoice');
         $this->_addShippingMethod($observer);
         $this->_addInvoiceComments($observer);
 
@@ -115,15 +115,15 @@ class FireGento_Pdf_Model_Observer
     }
 
     /**
-     * Add payment method to invoice notes.
+     * Add payment method to invoice / creditmemo notes.
      *
      * @param  Varien_Event_Observer $observer observer object
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    protected function _addPaymentMethod(Varien_Event_Observer $observer)
+    protected function _addPaymentMethod(Varien_Event_Observer $observer, $mode)
     {
-        if (Mage::getStoreConfig('sales_pdf/invoice/payment_method_position')
+        if (Mage::getStoreConfig('sales_pdf/' . $mode . '/payment_method_position')
             != FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_NOTE
         ) {
             return $this;
@@ -255,6 +255,7 @@ class FireGento_Pdf_Model_Observer
      */
     public function addCreditmemoNotes(Varien_Event_Observer $observer)
     {
+        $this->_addPaymentMethod($observer, 'creditmemo');
         $this->_addCreditmemoComments($observer);
 
         return $this;
