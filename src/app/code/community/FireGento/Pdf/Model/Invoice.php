@@ -49,7 +49,7 @@ class FireGento_Pdf_Model_Invoice
             $modelClass = Mage::getStoreConfig('sales_pdf/invoice/engine');
             $engine = Mage::getModel($modelClass);
 
-            if (!$engine) {
+            if (!$engine || $engine instanceof FireGento_Pdf_Model_Invoice) {
                 // Fallback to Magento standard invoice layout.
                 $engine = new Mage_Sales_Model_Order_Pdf_Invoice();
             }

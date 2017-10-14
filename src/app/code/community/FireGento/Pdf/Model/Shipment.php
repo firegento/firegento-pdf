@@ -46,7 +46,7 @@ class FireGento_Pdf_Model_Shipment
             $modelClass = Mage::getStoreConfig('sales_pdf/shipment/engine');
             $engine = Mage::getModel($modelClass);
 
-            if (!$engine) {
+            if (!$engine || $engine instanceof FireGento_Pdf_Model_Shipment) {
                 // Fallback to Magento standard shipment layout.
                 $engine = new Mage_Sales_Model_Order_Pdf_Shipment();
             }
