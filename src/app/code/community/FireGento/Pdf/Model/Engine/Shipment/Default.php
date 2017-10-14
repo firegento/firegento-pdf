@@ -100,10 +100,6 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
 
             // Add footer
             $this->_addFooter($page, $shipment->getStore());
-
-            if ($shipment->getStoreId()) {
-                Mage::app()->getLocale()->revert();
-            }
         }
 
         // Revert back to the original current store

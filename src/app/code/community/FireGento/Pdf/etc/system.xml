@@ -176,6 +176,70 @@
                         </italic_font>
                     </fields>
                 </firegento_pdf_fonts>
+                <order>
+                    <label>Order PDF</label>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>250</sort_order>
+                    <fields>
+                        <engine translate="label">
+                            <label>PDF Engine</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>firegento_pdf/system_config_source_order_engine</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </engine>
+                        <show_customer_number translate="label">
+                            <label>Show Customer Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_customer_number>
+                        <guestorder_customer_number translate="label">
+                            <label>Customer number for guest orders</label>
+                            <comment><![CDATA[Guest orders don't have a customer no., this text is displayed instead. Leave blank to hide customer no. completely.]]></comment>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><show_customer_number>1</show_customer_number></depends>
+                        </guestorder_customer_number>
+                        <show_customer_vatnumber translate="label">
+                            <label>Show Customer VAT Number</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_customer_vatnumber>
+                        <filename_export_pattern translate="label comment">
+                            <label>Filename Export Pattern</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholders: {{invoice_id}}, {{order_id}}, {{customer_id}}, {{customer_name}}, {{customer_firstname}}, {{customer_lastname}} and strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern>
+                        <filename_export_pattern_for_multiple_documents translate="label comment">
+                            <label>Filename Export Pattern for Multiple Documents</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>available placeholder: strftime() date formats like "%Y"</comment>
+                        </filename_export_pattern_for_multiple_documents>
+                    </fields>
+                </order>
                 <invoice>
                     <sort_order>300</sort_order>
                     <fields>
@@ -207,7 +271,7 @@
                             <depends><show_customer_number>1</show_customer_number></depends>
                         </guestorder_customer_number>
                         <show_customer_vatnumber translate="label">
-                            <label>Show Customer TAX/VAT Number</label>
+                            <label>Show Customer VAT Number</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>45</sort_order>

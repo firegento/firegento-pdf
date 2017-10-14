@@ -27,6 +27,21 @@
  */
 class FireGento_Pdf_Model_Observer
 {
+    public function adminhtmlBlockHtmlBefore(Varien_Event_Observer $observer)
+    {
+        $block = $observer->getEvent()->getBlock();
+        if ($block instanceof Mage_Adminhtml_Block_Sales_Order_View)
+        {
+            $onClick = "setLocation('".Mage::helper("adminhtml")->getUrl('adminhtml/sales_order_pdf/print/order_id/'.$block->getOrderId())."')";
+            $block->addButton('print_order_pdf', array(
+                'label'     => Mage::helper('sales')->__('Print'),
+                'onclick'   => $onClick,
+                'class'     => 'save'
+            ));
+        }
+    }
+
+
     /**
      * Add notes to invoice document.
      *

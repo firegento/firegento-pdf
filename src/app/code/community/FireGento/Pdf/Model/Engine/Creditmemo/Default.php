@@ -95,10 +95,6 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
 
             // Add footer
             $this->_addFooter($page, $creditmemo->getStore());
-
-            if ($creditmemo->getStoreId()) {
-                Mage::app()->getLocale()->revert();
-            }
         }
 
         // Revert back to the original current store
@@ -106,6 +102,9 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
 
         $this->_afterGetPdf();
 
+        if ($creditmemo->getStoreId()) {
+            Mage::app()->getLocale()->revert();
+        }
         return $pdf;
     }
 

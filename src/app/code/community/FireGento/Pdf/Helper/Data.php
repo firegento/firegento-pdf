@@ -29,21 +29,32 @@
 class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
 {
     const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';
+
+    const XML_PATH_SALES_PDF_ORDER_SHOW_CUSTOMER_NUMBER = 'sales_pdf/order/show_customer_number';
     const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';
+
+    const XML_PATH_SALES_PDF_ORDER_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/order/show_customer_vatnumber';
     const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/invoice/show_customer_vatnumber';
     const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/shipment/show_customer_vatnumber';
     const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/creditmemo/show_customer_vatnumber';
+
+    const XML_PATH_SALES_PDF_ORDER_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/order/guestorder_customer_number';
     const XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/invoice/guestorder_customer_number';
     const XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/shipment/guestorder_customer_number';
     const XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/guestorder_customer_number';
+
+    const XML_PATH_SALES_PDF_ORDER_FILENAME_EXPORT_PATTERN = 'sales_pdf/order/filename_export_pattern';
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';
+
+    const XML_PATH_SALES_PDF_INVOICE_ORDER_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/order/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
+
     const XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE = 'sales_pdf/firegento_pdf/page_size';
 
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
@@ -125,21 +136,30 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function showCustomerNumber($mode = 'invoice', $store)
     {
         switch ($mode) {
+            case 'order':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_ORDER_SHOW_CUSTOMER_NUMBER,
+                    $store
+                );
+                break;
             case 'invoice':
                 return Mage::getStoreConfigFlag(
                     self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER,
                     $store
                 );
+                break;
             case 'shipment':
                 return Mage::getStoreConfigFlag(
                     self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER,
                     $store
                 );
+                break;
             case 'creditmemo':
                 return Mage::getStoreConfigFlag(
                     self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER,
                     $store
                 );
+                break;
         }
 
         return true; // backwards compatibility
@@ -156,21 +176,30 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function showCustomerVATNumber($mode = 'invoice', $store)
     {
         switch ($mode) {
+            case 'order':
+                return Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_ORDER_SHOW_CUSTOMER_VATNUMBER,
+                    $store
+                );
+                break;
             case 'invoice':
                 return Mage::getStoreConfigFlag(
                     self::XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER,
                     $store
                 );
+                break;
             case 'shipment':
                 return Mage::getStoreConfigFlag(
                     self::XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER,
                     $store
                 );
+                break;
             case 'creditmemo':
                 return Mage::getStoreConfigFlag(
                     self::XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER,
                     $store
                 );
+                break;
         }
 
         return true; // backwards compatibility
@@ -187,6 +216,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getGuestorderCustomerNo($mode = 'invoice', $store)
     {
         switch ($mode) {
+            case 'order':
+                return trim(Mage::getStoreConfigFlag(
+                    self::XML_PATH_SALES_PDF_ORDER_GUEST_ORDER_CUSTOMER_NUMBER,
+                    $store
+                ));
             case 'invoice':
                 return trim(Mage::getStoreConfigFlag(
                     self::XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER,
@@ -249,6 +283,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getExportPattern($type)
     {
         switch ($type) {
+            case 'order':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_ORDER_FILENAME_EXPORT_PATTERN
+                );
             case 'invoice':
                 return Mage::getStoreConfig(
                     self::XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN
@@ -276,6 +314,10 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getExportPatternForMultipleDocuments($type)
     {
         switch ($type) {
+            case 'order':
+                return Mage::getStoreConfig(
+                    self::XML_PATH_SALES_PDF_ORDER_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
+                );
             case 'invoice':
                 return Mage::getStoreConfig(
                     self::XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS
