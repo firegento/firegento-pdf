@@ -212,6 +212,7 @@
             <creditmemo>
                 <engine>firegento_pdf/engine_creditmemo_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <payment_method_position/>
                 <show_customer_vatnumber>0</show_customer_vatnumber>
                 <show_comments>0</show_comments>
                 <note/>

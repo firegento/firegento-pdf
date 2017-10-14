@@ -78,6 +78,7 @@
 "PDF Engine","PDF Engine"
 "Pos","Pos."
 "Position of payment method on invoice.","Position der Zahlungart auf der Rechnung."
+"Position of payment method on creditmemo.","Position der Zahlungart auf der Gutschrift."
 "Position of shipping method on invoice.","Position der Versandart auf der Rechnung."
 "Position of shipping method on shipment.","Position der Versandart auf dem Lieferschein."
 "Price","Preis"

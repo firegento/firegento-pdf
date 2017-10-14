@@ -691,10 +691,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
 
         // Payment method.
-        $putPaymentMethod = ($mode == 'invoice'
-            && Mage::getStoreConfig('sales_pdf/invoice/payment_method_position')
-            == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER);
-        if ($putPaymentMethod) {
+        if ($this->_showPaymentMethod($order->getStore())) {
             $page->setFillColor($this->colors['labels']);
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Payment method:'),
@@ -808,6 +805,20 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     {
         return Mage::helper('firegento_pdf')
             ->showCustomerVATNumber($this->mode, $store);
+    }
+
+    /**
+     * @param $store
+     *
+     * @return bool whether to show the payment method on this document
+     */
+    protected function _showPaymentMethod($store)
+    {
+        $mode = $this->getMode();
+
+        return (($mode === 'invoice' || $mode === 'creditmemo')
+            && Mage::getStoreConfig('sales_pdf/' . $mode . '/payment_method_position', $store)
+            == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER);
     }
 
     /**
