@@ -61,6 +61,7 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
                 Mage::app()->getLocale()->emulate($shipment->getStoreId());
                 Mage::app()->setCurrentStore($shipment->getStoreId());
             }
+
             $order = $shipment->getOrder();
             $this->setOrder($order);
 
@@ -125,11 +126,9 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
     protected function _insertCustomerAddress($page, $order)
     {
         $this->_setFontRegular($page, 9);
-        $shipping = $this->_formatAddress($order->getShippingAddress()
-                ->format('pdf'));
+        $shipping = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
         foreach ($shipping as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'],
-                $this->y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
             $this->Ln(12);
         }
     }
@@ -144,8 +143,7 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
         $page->setFillColor($this->colors['header']);
         $page->setLineColor($this->colors['header']);
         $page->setLineWidth(1);
-        $page->drawRectangle($this->margin['left'], $this->y,
-            $this->margin['right'] - 10, $this->y - 15);
+        $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
 
         $page->setFillColor($this->colors['black']);
         $this->_setFontRegular($page, 9);
@@ -182,12 +180,10 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
     {
         $this->_setFontRegular($page, 9);
 
-        $billing = $this->_formatAddress($order->getShippingAddress()
-                ->format('pdf'));
+        $billing = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
 
         foreach ($billing as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'],
-                $this->y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
             $this->Ln(12);
         }
     }
@@ -203,16 +199,19 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
      */
     protected function _printShipmentTracks($page, $order, $shipment)
     {
-        if ( ! Mage::getStoreConfigFlag('sales_pdf/shipment/show_tracking_numbers') || $order->getIsVirtual()) {
+        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/show_tracking_numbers') || $order->getIsVirtual()) {
             return $page;
         }
+
         $tracks = array();
         if ($shipment) {
             $tracks = $shipment->getAllTracks();
         }
+
         if (empty($tracks)) {
             return $page;
         }
+
         $this->y -= 20;
         $page->setFillColor($this->colors['header']);
         $page->setLineColor($this->colors['header']);

@@ -16,7 +16,7 @@ class FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes
      */
     protected function _getCountryRenderer()
     {
-        if ( ! $this->_countryRenderer) {
+        if (!$this->_countryRenderer) {
             $this->_countryRenderer = $this->getLayout()->createBlock(
                 'firegento_pdf/adminhtml_system_config_form_field_notes_country', '',
                 array('is_render_to_js_template' => true)

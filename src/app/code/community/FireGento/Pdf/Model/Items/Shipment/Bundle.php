@@ -86,6 +86,7 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
                 foreach (Mage::helper('core/string')->str_split($_item->getSku(), 20) as $part) {
                     $text[] = $part;
                 }
+
                 $line[] = array(
                     'text'  => $text,
                     'feed' => 45,
@@ -99,10 +100,12 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
             } else {
                 $name = $_item->getName();
             }
+
             $text = array();
             foreach (Mage::helper('core/string')->str_split($name, 60, true, true) as $part) {
                 $text[] = $part;
             }
+
             $line[] = array(
                 'text'  => $text,
                 'feed'  => 150,

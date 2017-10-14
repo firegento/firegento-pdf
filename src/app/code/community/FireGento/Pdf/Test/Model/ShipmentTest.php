@@ -27,7 +27,7 @@
  */
 class FireGento_Pdf_Test_Model_ShipmentTest extends FireGento_Pdf_Test_Model_SalesObjectTestAbstract
 {
-    protected $class = 'FireGento_Pdf_Model_Shipment';
+    protected $_class = 'FireGento_Pdf_Model_Shipment';
 
     public function getEngineXmlConfigPath()
     {

@@ -48,6 +48,7 @@ class FireGento_Pdf_Model_System_Config_Source_Headerblocks
                 'label' => $v
             );
         }
+
         return $options;
     }
 }

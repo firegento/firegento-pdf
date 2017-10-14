@@ -127,7 +127,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool whether the customer number should be shown
      */
-    public function showCustomerNumber($mode = 'invoice', $store)
+    public function showCustomerNumber($mode = 'invoice', $store = null)
     {
         switch ($mode) {
             case 'invoice':
@@ -158,7 +158,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return bool whether the customer number should be shown
      */
-    public function showCustomerVATNumber($mode = 'invoice', $store)
+    public function showCustomerVATNumber($mode = 'invoice', $store = null)
     {
         switch ($mode) {
             case 'invoice':
@@ -189,25 +189,32 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
      *
      * @return string customer number for guest orders
      */
-    public function getGuestorderCustomerNo($mode = 'invoice', $store)
+    public function getGuestorderCustomerNo($mode = 'invoice', $store = null)
     {
         switch ($mode) {
             case 'invoice':
-                return trim(Mage::getStoreConfigFlag(
-                    self::XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER,
-                    $store
-                ));
+                return trim(
+                    Mage::getStoreConfigFlag(
+                        self::XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER,
+                        $store
+                    )
+                );
             case 'shipment':
-                return trim(Mage::getStoreConfigFlag(
-                    self::XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER,
-                    $store
-                ));
+                return trim(
+                    Mage::getStoreConfigFlag(
+                        self::XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER,
+                        $store
+                    )
+                );
             case 'creditmemo':
-                return trim(Mage::getStoreConfigFlag(
-                    self::XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER,
-                    $store
-                ));
+                return trim(
+                    Mage::getStoreConfigFlag(
+                        self::XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER,
+                        $store
+                    )
+                );
         }
+
         return true; // backwards compatibility
     }
 
@@ -324,6 +331,7 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
                         '{{creditmemo_id}}' => $model->getIncrementId()
                     );
             }
+
             $order = $model->getOrder();
             $commonVars = array(
                 '{{order_id}}'           => $order->getIncrementId(),
@@ -363,9 +371,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
             } else {
                 $pattern = $type;
             }
+
             $date = Mage::getSingleton('core/date');
             $pattern .= $date->date('Y-m-d_H-i-s');
         }
+
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
         }
@@ -393,9 +403,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
             } else {
                 $pattern = $type;
             }
+
             $date = Mage::getSingleton('core/date');
             $pattern .= $date->date('Y-m-d_H-i-s');
         }
+
         if (substr($pattern, -4) != '.pdf') {
             $pattern = $pattern . '.pdf';
         }
