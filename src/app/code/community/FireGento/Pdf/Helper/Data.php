@@ -46,6 +46,11 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';
     const XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE = 'sales_pdf/firegento_pdf/page_size';
 
+    const XML_PATH_COLOR_TEXT         = 'sales_pdf/firegento_pdf_colors/text';
+    const XML_PATH_COLOR_LABELS       = 'sales_pdf/firegento_pdf_colors/labels';
+    const XML_PATH_COLOR_TABLE_HEADER = 'sales_pdf/firegento_pdf_colors/table_header';
+    const XML_PATH_COLOR_FOOTER       = 'sales_pdf/firegento_pdf_colors/footer';
+
     const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';
     const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';
     const XML_PATH_ITALIC_FONT = 'sales_pdf/firegento_pdf_fonts/italic_font';
@@ -411,5 +416,52 @@ class FireGento_Pdf_Helper_Data extends Mage_Core_Helper_Abstract
     public function getPageSizeConfigPath()
     {
         return Mage::getStoreConfig(self::XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE);
+    }
+
+    /**
+     * Get configured PDF color
+     *
+     * @param string $path System config path
+     * @return Zend_Pdf_Color_Html
+     */
+    protected function getColor($path)
+    {
+        return new Zend_Pdf_Color_Html('#' . trim($path), '#');
+    }
+    /**
+     * Get text color
+     *
+     * @return Zend_Pdf_Color_Html
+     */
+    public function getTextColor()
+    {
+        return $this->getColor(Mage::getStoreConfig(self::XML_PATH_COLOR_TEXT));
+    }
+    /**
+     * Get table header color
+     *
+     * @return Zend_Pdf_Color_Html
+     */
+    public function getHeaderColor()
+    {
+        return $this->getColor(Mage::getStoreConfig(self::XML_PATH_COLOR_TABLE_HEADER));
+    }
+    /**
+     * Get footer color
+     *
+     * @return Zend_Pdf_Color_Html
+     */
+    public function getFooterColor()
+    {
+        return $this->getColor(Mage::getStoreConfig(self::XML_PATH_COLOR_FOOTER));
+    }
+    /**
+     * Get label color
+     *
+     * @return Zend_Pdf_Color_Html
+     */
+    public function getLabelColor()
+    {
+        return $this->getColor(Mage::getStoreConfig(self::XML_PATH_COLOR_LABELS));
     }
 }

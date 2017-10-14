@@ -176,6 +176,50 @@
                         </italic_font>
                     </fields>
                 </firegento_pdf_fonts>
+                <firegento_pdf_colors>
+                    <label>Colors for PDF Creation</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>210</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <text translate="label comment">
+                            <label>Base text color</label>
+                            <comment><![CDATA[6 digit HEX-code, eg. FF0000 for red]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </text>
+                        <labels translate="label comment">
+                            <label>Label color</label>
+                            <comment><![CDATA[Labels like Customer No., Customer IP, Order number, etc.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </labels>
+                        <table_header translate="label">
+                            <label>Table header background</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </table_header>
+                        <footer translate="label">
+                            <label>Footer</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer>
+                    </fields>
+                </firegento_pdf_colors>
                 <invoice>
                     <sort_order>300</sort_order>
                     <fields>

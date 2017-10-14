@@ -54,6 +54,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         $this->colors['black'] = new Zend_Pdf_Color_GrayScale(0);
         $this->colors['grey1'] = new Zend_Pdf_Color_GrayScale(0.9);
 
+        $helper = Mage::helper('firegento_pdf');
+
+        $this->colors['text']   = $helper->getTextColor();
+        $this->colors['labels'] = $helper->getLabelColor();
+        $this->colors['header'] = $helper->getHeaderColor();
+        $this->colors['footer'] = $helper->getFooterColor();
+
         // get the default imprint
         $this->_imprint = Mage::getStoreConfig('general/imprint');
     }
@@ -163,7 +170,11 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                                 }
                                 break;
                         }
+                        if (isset($column['color'])) {
+                            $page->setFillColor($column['color']);
+                        }
                         $page->drawText($part, $feed, $this->y - $top, 'UTF-8');
+                        $page->setFillColor($this->colors['text']);
                         $top += $lineSpacing;
                     }
 
@@ -225,11 +236,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             != ''
         ) {
             $this->_setFontRegular($page, 6);
+            $page->setFillColor($this->colors['labels']);
             $page->drawText(
                 trim(Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')),
                 $this->margin['left'] + $this->getHeaderblockOffset(),
                 $this->y, $this->encoding
             );
+            $page->setFillColor($this->colors['text']);
         }
     }
 
@@ -467,7 +480,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      */
     protected function insertHeader(&$page, $order, $document)
     {
-        $page->setFillColor($this->colors['black']);
+        $page->setFillColor($this->colors['text']);
 
         $mode = $this->getMode();
 
@@ -502,11 +515,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         } else {
             $numberTitle = 'Creditmemo number:';
         }
+        $page->setFillColor($this->colors['labels']);
         $page->drawText(
             Mage::helper('firegento_pdf')->__($numberTitle),
             ($this->margin['right'] - $labelRightOffset), $this->y,
             $this->encoding
         );
+        $page->setFillColor($this->colors['text']);
 
         $incrementId = $document->getIncrementId();
         $page->drawText(
@@ -521,11 +536,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         // Order Number
         $putOrderId = $this->_putOrderId($order);
         if ($putOrderId) {
+            $page->setFillColor($this->colors['labels']);
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Order number:'),
                 ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
             );
+            $page->setFillColor($this->colors['text']);
             $page->drawText(
                 $putOrderId, ($this->margin['right'] - $valueRightOffset
                 - $this->widthForStringUsingFontSize(
@@ -540,11 +557,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if ($this->_showCustomerNumber($order->getStore())) {
             $guestorderCustomerNo = $this->_getGuestorderCustomerNo($order->getStore());
             if ($order->getCustomerId() != '' || $guestorderCustomerNo != '') {
+                $page->setFillColor($this->colors['labels']);
                 $page->drawText(
                     Mage::helper('firegento_pdf')->__('Customer number:'),
                     ($this->margin['right'] - $labelRightOffset),
                     $this->y, $this->encoding
                 );
+                $page->setFillColor($this->colors['text']);
                 $numberOfLines++;
             }
 
@@ -585,7 +604,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
                 $numberOfLines++;
             } elseif ($guestorderCustomerNo != '') {
                 $page->drawText(
-                    $guestorderCustomerNo,
+                    '-',
                     ($this->margin['right'] - $valueRightOffset
                         - $this->widthForStringUsingFontSize('-', $font, 10)),
                     $this->y, $this->encoding
@@ -597,11 +616,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         /** print VAT ID */
         if ($this->_showCustomerVATNumber($order->getStore())) {
+            $page->setFillColor($this->colors['labels']);
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('VAT-ID:'),
                 ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
             );
+            $page->setFillColor($this->colors['text']);
             if ($order->getBillingAddress()->getVatId()) {
                 $customerVatId = $order->getBillingAddress()->getVatId();
             } elseif ($order->getCustomerTaxvat()) {
@@ -625,11 +646,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         if (!Mage::getStoreConfigFlag('sales/general/hide_customer_ip',
             $order->getStoreId())
         ) {
+            $page->setFillColor($this->colors['labels']);
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Customer IP:'),
                 ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
             );
+            $page->setFillColor($this->colors['text']);
             $customerIP = $order->getData('remote_ip');
             $font = $this->_setFontRegular($page, 10);
             $page->drawText(
@@ -642,12 +665,14 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $numberOfLines++;
         }
 
+        $page->setFillColor($this->colors['labels']);
         $page->drawText(
             Mage::helper('firegento_pdf')->__(($mode == 'invoice')
                 ? 'Invoice date:' : 'Date:'),
             ($this->margin['right'] - $labelRightOffset), $this->y,
             $this->encoding
         );
+        $page->setFillColor($this->colors['text']);
         $documentDate = Mage::helper('core')
             ->formatDate($document->getCreatedAtDate(), 'medium', false);
         $page->drawText(
@@ -665,11 +690,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             && Mage::getStoreConfig('sales_pdf/invoice/payment_method_position')
             == FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_HEADER);
         if ($putPaymentMethod) {
+            $page->setFillColor($this->colors['labels']);
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Payment method:'),
                 ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
             );
+            $page->setFillColor($this->colors['text']);
             $paymentMethodArray = $this->_prepareText(
                 $order->getPayment()->getMethodInstance()->getTitle(), $page,
                 $font, 10, $width
@@ -704,11 +731,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             == FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER);
 
         if ($putShippingMethod && $order->getIsNotVirtual()) {
+            $page->setFillColor($this->colors['labels']);
             $page->drawText(
                 Mage::helper('firegento_pdf')->__('Shipping method:'),
                 ($this->margin['right'] - $labelRightOffset),
                 $this->y, $this->encoding
             );
+            $page->setFillColor($this->colors['text']);
             $shippingMethodArray
                 = $this->_prepareText($order->getShippingDescription(), $page,
                 $font, 10, $width);
@@ -734,6 +763,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         }
         $this->y -= ($numberOfLines * 2);
+
+        $page->setFillColor($this->colors['text']);
     }
 
     /**
@@ -1068,7 +1099,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      */
     protected function _insertFooter(&$page)
     {
-        $page->setLineColor($this->colors['black']);
+        $page->setLineColor($this->colors['footer']);
+        $page->setFillColor($this->colors['footer']);
         $page->setLineWidth(0.5);
         $page->drawLine($this->margin['left'] - 20, $this->y - 5,
             $this->margin['right'] + 30, $this->y - 5);
@@ -1112,6 +1144,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         );
         $this->_insertFooterBlock($page, $fields, 365, 60,
             $this->margin['right'] - 375 - 10);
+
+        $page->setLineColor($this->colors['black']);
+        $page->setFillColor($this->colors['text']);
     }
 
     /**
@@ -1234,6 +1269,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     protected function _insertPageCounter(&$page)
     {
         $font = $this->_setFontRegular($page, 9);
+        $page->setFillColor($this->colors['labels']);
         $page->drawText(
             Mage::helper('firegento_pdf')->__('Page') . ' '
             . $this->pagecounter,
@@ -1242,6 +1278,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $this->y,
             $this->encoding
         );
+        $page->setFillColor($this->colors['text']);
     }
 
     /**

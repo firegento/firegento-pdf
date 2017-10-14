@@ -141,8 +141,8 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
      */
     protected function insertTableHeader($page)
     {
-        $page->setFillColor($this->colors['grey1']);
-        $page->setLineColor($this->colors['grey1']);
+        $page->setFillColor($this->colors['header']);
+        $page->setLineColor($this->colors['header']);
         $page->setLineWidth(1);
         $page->drawRectangle($this->margin['left'], $this->y,
             $this->margin['right'] - 10, $this->y - 15);
@@ -214,8 +214,8 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
             return $page;
         }
         $this->y -= 20;
-        $page->setFillColor($this->colors['grey1']);
-        $page->setLineColor($this->colors['grey1']);
+        $page->setFillColor($this->colors['header']);
+        $page->setLineColor($this->colors['header']);
         $page->setLineWidth(1);
         $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
         $page->setFillColor($this->colors['black']);
@@ -223,6 +223,7 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
         $this->y -= 11;
         $page->drawText(Mage::helper('sales')->__('Carrier'), $this->margin['left'], $this->y, 'UTF-8');
         $page->drawText(Mage::helper('sales')->__('Number'), 290, $this->y, 'UTF-8');
+        $page->setFillColor($this->colors['text']);
         $this->y -= 18;
         foreach ($tracks as $track) {
             $maxTitleLen    = 45;
