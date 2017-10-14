@@ -47,7 +47,8 @@ class FireGento_Pdf_Model_Creditmemo
 
             if (!$engine || $engine instanceof FireGento_Pdf_Model_Creditmemo) {
                 // Fallback to Magento standard creditmemo layout.
-                $engine = Mage::getModel('sales/order_pdf_creditmemo');
+                // use new here to circumvent our own rewrite
+                $engine = new Mage_Sales_Model_Order_Pdf_Creditmemo();
             }
 
             $this->_engine = $engine;
