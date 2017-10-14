@@ -127,55 +127,62 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
         $font = $this->_setFontRegular($page, 9);
 
         $this->y -= 11;
+        $page->drawText(Mage::helper('firegento_pdf')->__('Pos'), $this->margin['left'] + 3, $this->y, $this->encoding);
         $page->drawText(
-            Mage::helper('firegento_pdf')->__('Pos'),
-            $this->margin['left'] + 3,
-            $this->y,
-            $this->encoding
+            Mage::helper('firegento_pdf')->__('No.'), $this->margin['left'] + 25, $this->y, $this->encoding
         );
         $page->drawText(
-            Mage::helper('firegento_pdf')->__('No.'),
-            $this->margin['left'] + 25,
-            $this->y,
-            $this->encoding
-        );
-        $page->drawText(
-            Mage::helper('firegento_pdf')->__('Description'),
-            $this->margin['left'] + 120,
-            $this->y,
-            $this->encoding
+            Mage::helper('firegento_pdf')->__('Description'), $this->margin['left'] + 130, $this->y, $this->encoding
         );
 
-        $singlePrice = Mage::helper('firegento_pdf')->__('Price (excl. tax)');
-        $page->drawText(
-            $singlePrice,
-            $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9),
-            $this->y,
-            $this->encoding
+        $columns = array();
+        $columns['price'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Price'),
+            '_width' => 60
         );
-
-        $page->drawText(
-            Mage::helper('firegento_pdf')->__('Qty'),
-            $this->margin['left'] + 360,
-            $this->y,
-            $this->encoding
+        $columns['price_incl_tax'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Price (incl. tax)'),
+            '_width' => 60
         );
-
-        $taxLabel = Mage::helper('firegento_pdf')->__('Tax');
-        $page->drawText(
-            $taxLabel,
-            $this->margin['right'] - 65 - $this->widthForStringUsingFontSize($taxLabel, $font, 9),
-            $this->y,
-            $this->encoding
+        $columns['qty'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Qty'),
+            '_width' => 40
         );
-
-        $totalLabel = Mage::helper('firegento_pdf')->__('Total');
-        $page->drawText(
-            $totalLabel,
-            $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),
-            $this->y,
-            $this->encoding
+        $columns['tax'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Tax'),
+            '_width' => 50
         );
+        $columns['tax_rate'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Tax rate'),
+            '_width' => 50
+        );
+        $columns['subtotal'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Total'),
+            '_width' => 50
+        );
+        $columns['subtotal_incl_tax'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Total (incl. tax)'),
+            '_width' => 70
+        );
+        // draw price, tax, and subtotal in specified order
+        $columnsOrder = explode(',', Mage::getStoreConfig('sales_pdf/invoice/item_price_column_order'));
+        // draw starting from right
+        $columnsOrder = array_reverse($columnsOrder);
+        $columnOffset = 0;
+        foreach ($columnsOrder as $columnName) {
+            $columnName = trim($columnName);
+            if (array_key_exists($columnName, $columns)) {
+                $column = $columns[$columnName];
+                $labelWidth = $this->widthForStringUsingFontSize($column['label'], $font, 9);
+                $page->drawText(
+                    $column['label'],
+                    $this->margin['right'] - $columnOffset - $labelWidth,
+                    $this->y,
+                    $this->encoding
+                );
+                $columnOffset += $column['_width'];
+            }
+        }
     }
 
     /**
