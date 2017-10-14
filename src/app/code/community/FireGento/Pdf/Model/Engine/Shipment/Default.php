@@ -117,12 +117,12 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
     /**
      * Inserts the customer's shipping address.
      *
-     * @param  Zend_Pdf_Page          &$page current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page          $page current page object of Zend_Pdf
      * @param  Mage_Sales_Model_Order $order order object
      *
      * @return void
      */
-    protected function _insertCustomerAddress(&$page, $order)
+    protected function _insertCustomerAddress($page, $order)
     {
         $this->_setFontRegular($page, 9);
         $shipping = $this->_formatAddress($order->getShippingAddress()

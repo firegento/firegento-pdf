@@ -116,11 +116,11 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
     /**
      * Insert Table Header for Items
      *
-     * @param  Zend_Pdf_Page &$page current page object of Zend_PDF
+     * @param  Zend_Pdf_Page $page current page object of Zend_PDF
      *
      * @return void
      */
-    protected function insertTableHeader(&$page)
+    protected function insertTableHeader($page)
     {
         $page->setFillColor($this->colors['grey1']);
         $page->setLineColor($this->colors['grey1']);

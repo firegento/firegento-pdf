@@ -215,11 +215,11 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Insert sender address bar
      *
-     * @param  Zend_Pdf_Page &$page Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page $page Current page object of Zend_Pdf
      *
      * @return void
      */
-    protected function _insertSenderAddessBar(&$page)
+    protected function _insertSenderAddessBar($page)
     {
         if (Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar')
             != ''
@@ -236,12 +236,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Insert logo
      *
-     * @param  Zend_Pdf_Page &$page Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page $page Current page object of Zend_Pdf
      * @param  mixed         $store store to get data from
      *
      * @return void
      */
-    protected function insertLogo(&$page, $store = null)
+    protected function insertLogo($page, $store = null)
     {
         if ($this->_isLogoFullWidth($store)) {
             $this->_insertLogoFullWidth($page, $store);
@@ -265,12 +265,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Inserts the logo if it is positioned left, center or right.
      *
-     * @param  Zend_Pdf_Page &$page Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page $page Current page object of Zend_Pdf
      * @param  mixed         $store store to get data from
      *
      * @return void
      */
-    protected function _insertLogoPositioned(&$page, $store = null)
+    protected function _insertLogoPositioned($page, $store = null)
     {
         $imageRatio
             = (int)Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_ratio',
@@ -326,12 +326,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * inserts the logo from complete left to right
      *
-     * @param Zend_Pdf_Page &$page current Zend_Pdf_Page object
+     * @param Zend_Pdf_Page $page current Zend_Pdf_Page object
      * @param mixed         $store store we need the config setting from
      *
      * @todo merge _insertLogoPositioned and _insertLogoFullWidth
      */
-    protected function _insertLogoFullWidth(&$page, $store = null)
+    protected function _insertLogoFullWidth($page, $store = null)
     {
         $imageRatio
             = (int)Mage::getStoreConfig('sales_pdf/firegento_pdf/logo_ratio',
@@ -420,12 +420,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Inserts the customer address. The default address is the billing address.
      *
-     * @param  Zend_Pdf_Page          &$page Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page          $page Current page object of Zend_Pdf
      * @param  Mage_Sales_Model_Order $order Order object
      *
      * @return void
      */
-    protected function _insertCustomerAddress(&$page, $order)
+    protected function _insertCustomerAddress($page, $order)
     {
         $this->_setFontRegular($page, 9);
         $billing = $this->_formatAddress($order->getBillingAddress()
@@ -459,13 +459,13 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Insert Header
      *
-     * @param  Zend_Pdf_Page          &$page    Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page          $page    Current page object of Zend_Pdf
      * @param  Mage_Sales_Model_Order $order    Order object
      * @param  object                 $document Document object
      *
      * @return void
      */
-    protected function insertHeader(&$page, $order, $document)
+    protected function insertHeader($page, $order, $document)
     {
         $page->setFillColor($this->colors['black']);
 
@@ -972,12 +972,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      * Insert Notes
      *
      * @param  Zend_Pdf_Page             $page   Current Page Object of Zend_PDF
-     * @param  Mage_Sales_Model_Order    &$order order to get note from
-     * @param  Mage_Sales_Model_Abstract &$model invoice/shipment/creditmemo
+     * @param  Mage_Sales_Model_Order    $order order to get note from
+     * @param  Mage_Sales_Model_Abstract $model invoice/shipment/creditmemo
      *
      * @return \Zend_Pdf_Page
      */
-    protected function _insertNote($page, &$order, &$model)
+    protected function _insertNote($page, $order, $model)
     {
         $fontSize = 10;
         $font = $this->_setFontRegular($page, $fontSize);
@@ -1029,10 +1029,10 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * draw footer on pdf
      *
-     * @param Zend_Pdf_Page &$page page to draw on
+     * @param Zend_Pdf_Page $page page to draw on
      * @param mixed         $store store to get infos from
      */
-    protected function _addFooter(&$page, $store = null)
+    protected function _addFooter($page, $store = null)
     {
         // get the imprint of the store if a store is set
         if (!empty($store)) {
@@ -1062,11 +1062,11 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Insert footer
      *
-     * @param  Zend_Pdf_Page &$page Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page $page Current page object of Zend_Pdf
      *
      * @return void
      */
-    protected function _insertFooter(&$page)
+    protected function _insertFooter($page)
     {
         $page->setLineColor($this->colors['black']);
         $page->setLineWidth(0.5);
@@ -1117,7 +1117,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Insert footer block
      *
-     * @param  Zend_Pdf_Page &$page       Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page $page       Current page object of Zend_Pdf
      * @param  array         $fields      Fields of footer
      * @param  int           $colposition Starting colposition
      * @param  int           $valadjust   Margin between label and value
@@ -1127,7 +1127,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      * @return void
      */
     protected function _insertFooterBlock(
-        &$page,
+        $page,
         $fields,
         $colposition = 0,
         $valadjust = 30,
@@ -1171,12 +1171,12 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Insert address of store owner
      *
-     * @param  Zend_Pdf_Page &$page Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page $page Current page object of Zend_Pdf
      * @param  mixed         $store store to get info from
      *
      * @return void
      */
-    protected function _insertFooterAddress(&$page, $store = null)
+    protected function _insertFooterAddress($page, $store = null)
     {
         $fontSize = 7;
         $font = $this->_setFontRegular($page, $fontSize);
@@ -1227,11 +1227,11 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
     /**
      * Insert page counter
      *
-     * @param  Zend_Pdf_Page &$page Current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page $page Current page object of Zend_Pdf
      *
      * @return void
      */
-    protected function _insertPageCounter(&$page)
+    protected function _insertPageCounter($page)
     {
         $font = $this->_setFontRegular($page, 9);
         $page->drawText(
