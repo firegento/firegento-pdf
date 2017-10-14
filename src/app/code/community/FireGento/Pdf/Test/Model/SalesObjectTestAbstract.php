@@ -63,7 +63,7 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
      */
     public function itShouldReturnADefaultEngineModel()
     {
-        $this->app()->getStore()->setConfig($this->getEngineXmlConfigPath(), 'invalid');
+        static::app()->getStore()->setConfig($this->getEngineXmlConfigPath(), 'invalid');
         $instance = new $this->_class;
         $result = $this->callMethod($instance, 'getEngine');
         $this->assertInstanceOf($this->getExpectedDefaultEngineClass(), $result);
