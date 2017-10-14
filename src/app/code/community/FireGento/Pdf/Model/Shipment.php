@@ -25,7 +25,7 @@
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
  */
-class FireGento_Pdf_Model_Shipment
+class FireGento_Pdf_Model_Shipment extends Mage_Sales_Model_Order_Pdf_Shipment
 {
 
     /**
