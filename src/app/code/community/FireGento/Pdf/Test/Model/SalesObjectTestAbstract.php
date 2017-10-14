@@ -86,11 +86,14 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
     public function itShouldReturnAZendPdf()
     {
         $instance = new $this->_class;
-        
+
         $mockAddress = $this->getMock('Mage_Sales_Model_Order_Address');
 
-        $mockPaymentMethod = $this->getMockForAbstractClass('Mage_Payment_Model_Method_Abstract');
-        
+        $mockPaymentMethod = $this->getMock('Mage_Payment_Model_Method_Abstract');
+        $mockPaymentMethod->expects($this->any())
+            ->method('getInfoBlockType')
+            ->will($this->returnValue('payment/info'));
+
         $mockPaymentInfo = $this->getMock('Mage_Sales_Model_Order_Payment');
         $mockPaymentInfo->expects($this->any())
             ->method('getMethodInstance')
@@ -103,7 +106,7 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
         $mockOrder->expects($this->any())
             ->method('getShippingAddress')
             ->will($this->returnValue($mockAddress));
-        
+
         $mockOrder->expects($this->any())
             ->method('getPayment')
             ->will($this->returnValue($mockPaymentInfo));
@@ -117,8 +120,11 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
         $mockObj->expects($this->any())
             ->method('getAllItems')
             ->will($this->returnValue(array()));
-        
+
+        $currentArea = Mage::getDesign()->getArea();
+        Mage::getDesign()->setArea('adminhtml');
         $result = $instance->getPdf(array($mockObj));
+        Mage::getDesign()->setArea($currentArea);
         $this->assertInstanceOf('Zend_Pdf', $result);
     }
 
