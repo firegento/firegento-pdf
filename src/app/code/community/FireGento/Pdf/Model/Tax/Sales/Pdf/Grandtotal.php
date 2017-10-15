@@ -18,6 +18,7 @@
  * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
+
 /**
  * Shipment bundle item model.
  *
@@ -45,27 +46,27 @@ class FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal extends Mage_Tax_Model_Sales_
      */
     public function getTotalsForDisplay()
     {
-        $store = $this->getOrder()->getStore();
-        $config = Mage::getSingleton('tax/config');
+        $store                 = $this->getOrder()->getStore();
+        $config                = Mage::getSingleton('tax/config');
         $noDisplaySumOnDetails = Mage::getStoreConfig(self::NO_SUM_ON_DETAILS, $store);
         $hideGrandTotalExclTax = Mage::getStoreConfig(self::HIDE_GRANDTOTAL_EXCL_TAX, $store);
         if (!$config->displaySalesTaxWithGrandTotal($store)) {
             return parent::getTotalsForDisplay();
         }
 
-        $amount = $this->getOrder()->formatPriceTxt($this->getAmount());
+        $amount        = $this->getOrder()->formatPriceTxt($this->getAmount());
         $amountExclTax = $this->getAmount() - $this->getSource()->getTaxAmount();
         $amountExclTax = ($amountExclTax > 0) ? $amountExclTax : 0;
         $amountExclTax = $this->getOrder()->formatPriceTxt($amountExclTax);
-        $tax = $this->getOrder()->formatPriceTxt($this->getSource()->getTaxAmount());
-        $fontSize = $this->getFontSize() ? $this->getFontSize() : 7;
+        $tax           = $this->getOrder()->formatPriceTxt($this->getSource()->getTaxAmount());
+        $fontSize      = $this->getFontSize() ? $this->getFontSize() : 7;
 
         $totals = array();
         if (!$hideGrandTotalExclTax) {
             $totals[] = array(
-                'amount' => $this->getAmountPrefix() . $amountExclTax,
-                'label' => Mage::helper('tax')->__('Grand Total (Excl. Tax)') . ':',
-                'font_size' => $fontSize
+                'amount'    => $this->getAmountPrefix() . $amountExclTax,
+                'label'     => Mage::helper('tax')->__('Grand Total (Excl. Tax)') . ':',
+                'font_size' => $fontSize,
             );
         }
 
@@ -79,24 +80,34 @@ class FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal extends Mage_Tax_Model_Sales_
             $totals = array_merge($totals, $this->getFullTaxInfo());
             if (!$noDisplaySumOnDetails) {
                 $totals[] = array(
-                    'amount' => $this->getAmountPrefix() . $tax,
-                    'label' => Mage::helper('tax')->__('Tax') . ':',
-                    'font_size' => $fontSize
+                    'amount'    => $this->getAmountPrefix() . $tax,
+                    'label'     => Mage::helper('tax')->__('Tax') . ':',
+                    'font_size' => $fontSize,
                 );
             }
         } else {
             $totals[] = array(
-                'amount' => $this->getAmountPrefix() . $tax,
-                'label' => Mage::helper('tax')->__('Tax') . ':',
-                'font_size' => $fontSize
+                'amount'    => $this->getAmountPrefix() . $tax,
+                'label'     => Mage::helper('tax')->__('Tax') . ':',
+                'font_size' => $fontSize,
             );
         }
 
         $totals[] = array(
-            'amount' => $this->getAmountPrefix() . $amount,
-            'label' => Mage::helper('tax')->__('Grand Total (Incl. Tax)') . ':',
-            'font_size' => $fontSize
+            'amount'    => $this->getAmountPrefix() . $amount,
+            'label'     => Mage::helper('tax')->__('Grand Total (Incl. Tax)') . ':',
+            'font_size' => $fontSize,
         );
         return $totals;
+    }
+
+    public function _getShippingTax()
+    {
+        return array();
+    }
+
+    public function _getCalculatedTaxes()
+    {
+        return array();
     }
 }
