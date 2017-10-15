@@ -42,7 +42,8 @@ class FireGento_Pdf_Model_System_Config_Source_Customer_Number
     {
         $selectOptions = array(
             '' => Mage::helper('firegento_pdf')->__('Standard (entity_id)'),
-            self::CUSTOMER_NUMBER_FIELD_INCREMENT_ID => Mage::helper('firegento_pdf')->__('Customer Increment ID (increment_id)')
+            self::CUSTOMER_NUMBER_FIELD_INCREMENT_ID => Mage::helper('firegento_pdf')
+                ->__('Customer Increment ID (increment_id)')
         );
         $options = array();
         foreach ($selectOptions as $k => $v) {
@@ -51,6 +52,7 @@ class FireGento_Pdf_Model_System_Config_Source_Customer_Number
                 'label' => $v
             );
         }
+
         return $options;
     }
 }

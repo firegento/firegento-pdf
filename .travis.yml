@@ -9,17 +9,6 @@ php:
   - hhvm
 
 env:
-  - MAGENTO_VERSION="magento-mirror-1.7.0.2"
-  - MAGENTO_VERSION="magento-mirror-1.8.1.0"
-  - MAGENTO_VERSION="magento-mirror-1.9.0.1"
-  - MAGENTO_VERSION="magento-mirror-1.9.1.1"
-  - MAGENTO_VERSION="magento-mirror-1.9.2.1"
-  - MAGENTO_VERSION="magento-mirror-1.9.2.2"
-  - MAGENTO_VERSION="magento-mirror-1.9.2.3"
-  - MAGENTO_VERSION="magento-mirror-1.9.2.4"
-  - MAGENTO_VERSION="magento-mirror-1.9.3.0"
-  - MAGENTO_VERSION="magento-mirror-1.9.3.1"
-  - MAGENTO_VERSION="magento-mirror-1.9.3.2"
   - MAGENTO_VERSION="magento-mirror-1.9.3.4"
 
 matrix:
@@ -28,10 +17,6 @@ matrix:
     - php: 7.0
     - php: 7.1
     - php: hhvm
-  exclude:
-    # Old Magento Versions are not officially supported to run with PHP 5.5
-    - php: 5.6
-      env: MAGENTO_VERSION="magento-mirror-1.7.0.2"
 
 script:
   - curl -sSL https://raw.githubusercontent.com/AOEpeople/MageTestStand/master/setup.sh | bash

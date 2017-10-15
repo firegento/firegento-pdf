@@ -27,7 +27,7 @@
  */
 class FireGento_Pdf_Test_Model_InvoiceTest extends FireGento_Pdf_Test_Model_SalesObjectTestAbstract
 {
-    protected $class = 'FireGento_Pdf_Model_Invoice';
+    protected $_class = 'FireGento_Pdf_Model_Invoice';
     
     public function getEngineXmlConfigPath()
     {

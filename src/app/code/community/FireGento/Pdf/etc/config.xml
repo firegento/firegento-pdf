@@ -173,6 +173,12 @@
                 <bold_font/>
                 <italic_font/>
             </firegento_pdf_fonts>
+            <firegento_pdf_colors>
+                <text>000000</text>
+                <labels>666666</labels>
+                <table_header>eeeeee</table_header>
+                <footer>888888</footer>
+            </firegento_pdf_colors>
             <invoice>
                 <engine>firegento_pdf/engine_invoice_default</engine>
                 <show_customer_number>1</show_customer_number>
@@ -206,6 +212,7 @@
             <creditmemo>
                 <engine>firegento_pdf/engine_creditmemo_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <payment_method_position/>
                 <show_customer_vatnumber>0</show_customer_vatnumber>
                 <show_comments>0</show_comments>
                 <note/>

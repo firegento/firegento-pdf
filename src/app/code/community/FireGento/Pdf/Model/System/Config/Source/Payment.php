@@ -49,6 +49,7 @@ class FireGento_Pdf_Model_System_Config_Source_Payment
                 'label' => $v
             );
         }
+
         return $options;
     }
 }

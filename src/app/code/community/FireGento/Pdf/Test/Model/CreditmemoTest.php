@@ -27,7 +27,7 @@
  */
 class FireGento_Pdf_Test_Model_CreditmemoTest extends FireGento_Pdf_Test_Model_SalesObjectTestAbstract
 {
-    protected $class = 'FireGento_Pdf_Model_Creditmemo';
+    protected $_class = 'FireGento_Pdf_Model_Creditmemo';
     
     public function getEngineXmlConfigPath()
     {

@@ -60,6 +60,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 Mage::app()->getLocale()->emulate($creditmemo->getStoreId());
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
             }
+
             $order = $creditmemo->getOrder();
             $this->setOrder($order);
 
@@ -78,6 +79,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
+
                 /* Draw item */
                 $position++;
                 $this->_drawItem($item, $page, $order, $position);
@@ -118,8 +120,8 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
      */
     protected function _drawHeader(Zend_Pdf_Page $page)
     {
-        $page->setFillColor($this->colors['grey1']);
-        $page->setLineColor($this->colors['grey1']);
+        $page->setFillColor($this->colors['header']);
+        $page->setLineColor($this->colors['header']);
         $page->setLineWidth(1);
         $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'], $this->y - 15);
 

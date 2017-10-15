@@ -82,6 +82,7 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
         if (!in_array($type, $this->_types)) {
             Mage::throwException('Type not found in type table.');
         }
+
         /* @var $order Mage_Sales_Model_Order */
         $documentId = (int)$this->getRequest()->getParam($type . '_id');
         $document = null;
@@ -105,7 +106,8 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
                     ->addAttributeToFilter('order_id', $orderId)
                     ->load();
                 if (count($documentsCollection) == 1) {
-                    $filename = Mage::helper('firegento_pdf')->getExportFilename($type, $documentsCollection->getFirstItem());
+                    $filename = Mage::helper('firegento_pdf')
+                        ->getExportFilename($type, $documentsCollection->getFirstItem());
                 } else {
                     $filename = Mage::helper('firegento_pdf')->getExportFilenameForMultipleDocuments($type);
                 }
@@ -128,7 +130,6 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
 
             // Restore area.
             Mage::getDesign()->setArea($currentArea);
-
         } else {
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                 $this->_redirect('*/*/history');

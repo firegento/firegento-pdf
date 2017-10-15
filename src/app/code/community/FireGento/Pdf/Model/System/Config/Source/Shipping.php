@@ -49,6 +49,7 @@ class FireGento_Pdf_Model_System_Config_Source_Shipping
                 'label' => $v
             );
         }
+
         return $options;
     }
 }

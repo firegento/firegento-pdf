@@ -40,6 +40,7 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
         $item = $this->getItem();
         $pdf = $this->getPdf();
         $page = $this->getPage();
+        $helper = Mage::helper('firegento_pdf');
         $lines = array();
 
         $fontSize = 9;
@@ -76,10 +77,12 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
                 if (isset($option['value'])) {
                     $optionTxt .= isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
                 }
+
                 $optionArray = $pdf->_prepareText($optionTxt, $page, $pdf->getFontRegular(), $fontSize, 215);
                 $lines[][] = array(
-                    'text' => $optionArray,
-                    'feed' => $pdf->margin['left'] + 135
+                    'text'  => $optionArray,
+                    'feed'  => $pdf->margin['left'] + 135,
+                    'color' => $helper->getLabelColor(),
                 );
             }
         }

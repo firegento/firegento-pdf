@@ -52,6 +52,7 @@ class FireGento_Pdf_Model_System_Config_Source_Logo
                 'label' => $v
             );
         }
+
         return $options;
     }
 }

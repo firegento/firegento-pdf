@@ -28,14 +28,14 @@
 abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
     extends EcomDev_PHPUnit_Test_Case
 {
-    protected $class = '';
+    protected $_class = '';
 
     /**
      * @test
      */
     public function itShouldExist()
     {
-        $this->assertTrue(class_exists($this->class));
+        $this->assertTrue(class_exists($this->_class));
     }
 
     /**
@@ -45,15 +45,15 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
     public function itShouldHaveAMethodGetEngine()
     {
         try {
-            new ReflectionMethod($this->class, 'getEngine');
+            new ReflectionMethod($this->_class, 'getEngine');
         } catch (ReflectionException $e) {
             $this->fail($e->getMessage());
         }
     }
     
-    abstract function getEngineXmlConfigPath();
+    abstract public function getEngineXmlConfigPath();
     
-    abstract function getExpectedDefaultEngineClass();
+    abstract public function getExpectedDefaultEngineClass();
 
     abstract public function getOrderObjectClassName();
 
@@ -64,7 +64,7 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
     public function itShouldReturnADefaultEngineModel()
     {
         $this->app()->getStore()->setConfig($this->getEngineXmlConfigPath(), 'invalid');
-        $instance = new $this->class;
+        $instance = new $this->_class;
         $result = $this->callMethod($instance, 'getEngine');
         $this->assertInstanceOf($this->getExpectedDefaultEngineClass(), $result);
     }
@@ -75,7 +75,7 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
      */
     public function itShouldhaveAMethodGetPdf()
     {
-        $instance = new $this->class;
+        $instance = new $this->_class;
         $this->assertTrue(is_callable(array($instance, 'getPdf')));
     }
 
@@ -85,7 +85,7 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
      */
     public function itShouldReturnAZendPdf()
     {
-        $instance = new $this->class;
+        $instance = new $this->_class;
         
         $mockAddress = $this->getMock('Mage_Sales_Model_Order_Address');
 

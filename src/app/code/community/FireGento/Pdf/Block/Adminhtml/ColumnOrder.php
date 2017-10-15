@@ -147,6 +147,7 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
                 $item['label']
             );
         }
+
         return $this;
     }
 }

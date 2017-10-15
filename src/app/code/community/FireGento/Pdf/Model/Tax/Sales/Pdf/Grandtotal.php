@@ -52,6 +52,7 @@ class FireGento_Pdf_Model_Tax_Sales_Pdf_Grandtotal extends Mage_Tax_Model_Sales_
         if (!$config->displaySalesTaxWithGrandTotal($store)) {
             return parent::getTotalsForDisplay();
         }
+
         $amount = $this->getOrder()->formatPriceTxt($this->getAmount());
         $amountExclTax = $this->getAmount() - $this->getSource()->getTaxAmount();
         $amountExclTax = ($amountExclTax > 0) ? $amountExclTax : 0;
