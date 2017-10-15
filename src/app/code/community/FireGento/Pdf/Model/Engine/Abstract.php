@@ -240,7 +240,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      *
      * @return void
      */
-    protected function _insertSenderAddessBar($page)
+    protected function _insertSenderAddressBar($page)
     {
         if (Mage::getStoreConfig('sales_pdf/firegento_pdf/sender_address_bar') != '') {
             $this->_setFontRegular($page, 6);
@@ -404,22 +404,25 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         // Add sender address
         $this->y = 705 - $this->_marginTop;
-        $this->_insertSenderAddessBar($page);
+        $this->_insertSenderAddressBar($page);
 
+        // Add head
+        $this->y = 592 - $this->_marginTop;
         // make sure that header does not overlap address bar
         $headOffset = 0;
         if ($this->y > 592 - $this->_marginTop) {
             $headOffset = 40;
         }
-
-        // Add head
-        $this->y = 592 - $this->_marginTop;
+        $this->y = 592 - $headOffset - $this->_marginTop;
         $this->insertHeader($page, $order, $source);
 
         /* Add table head */
         // make sure that item table does not overlap heading
         if ($this->y > 575 - $this->_marginTop) {
             $this->y = 575 - $this->_marginTop;
+            if ($this->y > 575 - $headOffset - $this->_marginTop) {
+                $this->y = 575 - $headOffset - $this->_marginTop;
+            }
         }
     }
 

@@ -1662,7 +1662,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_FUNCTION">function</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_STRING">_insertSenderAddessBar</token>
+    <token name="T_STRING">_insertSenderAddressBar</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_AMPERSAND">&amp;</token>
     <token name="T_VARIABLE">$page</token>
@@ -3164,7 +3164,7 @@
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
-    <token name="T_STRING">_insertSenderAddessBar</token>
+    <token name="T_STRING">_insertSenderAddressBar</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_VARIABLE">$page</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
