@@ -407,7 +407,6 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         $this->_insertSenderAddressBar($page);
 
         // Add head
-        $this->y = 592 - $this->_marginTop;
         // make sure that header does not overlap address bar
         $headOffset = 0;
         if ($this->y > 592 - $this->_marginTop) {
@@ -418,11 +417,8 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
 
         /* Add table head */
         // make sure that item table does not overlap heading
-        if ($this->y > 575 - $this->_marginTop) {
-            $this->y = 575 - $this->_marginTop;
-            if ($this->y > 575 - $headOffset - $this->_marginTop) {
-                $this->y = 575 - $headOffset - $this->_marginTop;
-            }
+        if ($this->y > 575 - $headOffset - $this->_marginTop) {
+            $this->y = 575 - $headOffset - $this->_marginTop;
         }
     }
 
