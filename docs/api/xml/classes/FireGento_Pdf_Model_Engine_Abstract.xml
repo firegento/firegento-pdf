@@ -76,7 +76,7 @@
     </docblock>
     <parameter name="height" byreference="false" type="integer" default="15"/>
   </method>
-  <method name="_insertSenderAddessBar" start="230" end="242" abstract="false" final="false" static="false" visibility="protected">
+  <method name="_insertSenderAddressBar" start="230" end="242" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="Insert sender address bar"/>
       <param description="&amp;$page Current page object of Zend_Pdf" type="object">
