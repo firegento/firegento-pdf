@@ -650,6 +650,9 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             && Mage::getStoreConfig('sales_pdf/shipment/shipping_method_position')
             === FireGento_Pdf_Model_System_Config_Source_Shipping::POSITION_HEADER;
         if (($invoiceAndShippingHeader || $shipmentAndShippingHeader) && $order->getIsNotVirtual()) {
+            $font = $bold ?
+                $this->_setFontRegular($page, $fontSize ? $fontSize : $this->defaultFontSize)
+                : $this->_setFontBold($page, $fontSize ? $fontSize : $this->defaultFontSize);
             $shippingMethodArray  = $this->_prepareText($order->getShippingDescription(), $page, $font,
                 $this->defaultFontSize, $width);
             $shippingMethod       = array_shift($shippingMethodArray);
