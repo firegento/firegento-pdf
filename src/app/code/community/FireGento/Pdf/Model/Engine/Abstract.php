@@ -717,6 +717,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             $this->Ln();
         }
         $this->y -= (count($this->_headerLines) * 2);
+        $this->_headerLines ="";
     }
 
     /**
