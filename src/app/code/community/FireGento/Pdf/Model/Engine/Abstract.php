@@ -467,6 +467,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
      */
     protected function insertHeader($page, $order, $document)
     {
+        $this->_headerLines = array();
         $page->setFillColor($this->colors['text']);
 
         $mode = $this->getMode();
