@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Bundle.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php" size="6253" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="11539cba5ad9bfa03b92e2caba74084a04b4fd6a" relative="app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Bundle.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php" size="6043" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="66032d82975bb81c95a97142bc0cba301ba7b993" relative="app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -8,13 +8,13 @@
     <token name="T_DOC_COMMENT">/**</token>
   </line>
   <line no="3">
-    <token name="T_DOC_COMMENT"> * This file is part of the FIREGENTO project.</token>
+    <token name="T_DOC_COMMENT"> * This file is part of a FireGento e.V. module.</token>
   </line>
   <line no="4">
     <token name="T_DOC_COMMENT"> *</token>
   </line>
   <line no="5">
-    <token name="T_DOC_COMMENT"> * FireGento_Pdf is free software; you can redistribute it and/or</token>
+    <token name="T_DOC_COMMENT"> * This FireGento e.V. module is free software; you can redistribute it and/or</token>
   </line>
   <line no="6">
     <token name="T_DOC_COMMENT"> * modify it under the terms of the GNU General Public License version 3 as</token>
@@ -53,7 +53,7 @@
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
   <line no="18">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
+    <token name="T_DOC_COMMENT"> * @copyright 2014 FireGento Team (http://www.firegento.com)</token>
   </line>
   <line no="19">
     <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
@@ -80,21 +80,9 @@
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
   <line no="27">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
-  </line>
-  <line no="28">
-    <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
-  </line>
-  <line no="29">
-    <token name="T_DOC_COMMENT"> * @version   $Id:$</token>
-  </line>
-  <line no="30">
-    <token name="T_DOC_COMMENT"> * @since     0.1.0</token>
-  </line>
-  <line no="31">
     <token name="T_DOC_COMMENT"> */</token>
   </line>
-  <line no="32">
+  <line no="28">
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">FireGento_Pdf_Model_Items_Shipment_Bundle</token>
@@ -103,26 +91,26 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">Mage_Bundle_Model_Sales_Order_Pdf_Items_Shipment</token>
   </line>
-  <line no="33">
+  <line no="29">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="34">
+  <line no="30">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="35">
+  <line no="31">
     <token name="T_DOC_COMMENT">     * Draw item line.</token>
   </line>
-  <line no="36">
+  <line no="32">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="37">
+  <line no="33">
     <token name="T_DOC_COMMENT">     * @return void</token>
   </line>
-  <line no="38">
+  <line no="34">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="39">
+  <line no="35">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -132,11 +120,11 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="40">
+  <line no="36">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="41">
+  <line no="37">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$item</token>
     <token name="T_WHITESPACE">   </token>
@@ -149,7 +137,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="42">
+  <line no="38">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$pdf</token>
     <token name="T_WHITESPACE">    </token>
@@ -162,7 +150,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="43">
+  <line no="39">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$page</token>
     <token name="T_WHITESPACE">   </token>
@@ -175,18 +163,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="44"/>
-  <line no="45">
-    <token name="T_WHITESPACE">        </token>
-    <token name="T_VARIABLE">$this</token>
-    <token name="T_OBJECT_OPERATOR">-&gt;</token>
-    <token name="T_STRING">_setFontRegular</token>
-    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
-    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
-    <token name="T_PHPDOX_SEMICOLON">;</token>
-  </line>
-  <line no="46"/>
-  <line no="47">
+  <line no="40"/>
+  <line no="41">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$shipItems</token>
     <token name="T_WHITESPACE"> </token>
@@ -200,7 +178,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="48">
+  <line no="42">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$items</token>
     <token name="T_WHITESPACE"> </token>
@@ -230,8 +208,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="49"/>
-  <line no="50">
+  <line no="43"/>
+  <line no="44">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$_prevOptionId</token>
     <token name="T_WHITESPACE"> </token>
@@ -240,7 +218,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="51">
+  <line no="45">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$drawItems</token>
     <token name="T_WHITESPACE"> </token>
@@ -251,8 +229,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="52"/>
-  <line no="53">
+  <line no="46"/>
+  <line no="47">
     <token name="T_WHITESPACE">        </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -266,7 +244,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="54">
+  <line no="48">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$line</token>
     <token name="T_WHITESPACE">   </token>
@@ -277,8 +255,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="55"/>
-  <line no="56">
+  <line no="49"/>
+  <line no="50">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$attributes</token>
     <token name="T_WHITESPACE"> </token>
@@ -292,7 +270,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="57">
+  <line no="51">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -305,7 +283,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="58">
+  <line no="52">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$optionId</token>
     <token name="T_WHITESPACE">   </token>
@@ -317,7 +295,7 @@
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="59">
+  <line no="53">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
     <token name="T_WHITESPACE"> </token>
@@ -325,7 +303,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="60">
+  <line no="54">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$optionId</token>
     <token name="T_WHITESPACE"> </token>
@@ -334,12 +312,12 @@
     <token name="T_LNUMBER">0</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="61">
+  <line no="55">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="62"/>
-  <line no="63">
+  <line no="56"/>
+  <line no="57">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -356,7 +334,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="64">
+  <line no="58">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$drawItems</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -368,7 +346,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="65">
+  <line no="59">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'lines'</token>
     <token name="T_WHITESPACE">  </token>
@@ -379,7 +357,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="66">
+  <line no="60">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'height'</token>
     <token name="T_WHITESPACE"> </token>
@@ -387,17 +365,17 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">15</token>
   </line>
-  <line no="67">
+  <line no="61">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="68">
+  <line no="62">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="69"/>
-  <line no="70">
+  <line no="63"/>
+  <line no="64">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -411,7 +389,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="71">
+  <line no="65">
     <token name="T_WHITESPACE">                </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -428,7 +406,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="72">
+  <line no="66">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$line</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -440,7 +418,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="73">
+  <line no="67">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'font'</token>
     <token name="T_WHITESPACE">  </token>
@@ -449,7 +427,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'italic'</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="74">
+  <line no="68">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'text'</token>
     <token name="T_WHITESPACE">  </token>
@@ -480,7 +458,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="75">
+  <line no="69">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'feed'</token>
     <token name="T_WHITESPACE">  </token>
@@ -488,13 +466,13 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">150</token>
   </line>
-  <line no="76">
+  <line no="70">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="77"/>
-  <line no="78">
+  <line no="71"/>
+  <line no="72">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$drawItems</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -506,7 +484,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="79">
+  <line no="73">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'lines'</token>
     <token name="T_WHITESPACE">  </token>
@@ -518,7 +496,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="80">
+  <line no="74">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'height'</token>
     <token name="T_WHITESPACE"> </token>
@@ -526,13 +504,13 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">15</token>
   </line>
-  <line no="81">
+  <line no="75">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="82"/>
-  <line no="83">
+  <line no="76"/>
+  <line no="77">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$line</token>
     <token name="T_WHITESPACE"> </token>
@@ -543,8 +521,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="84"/>
-  <line no="85">
+  <line no="78"/>
+  <line no="79">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$_prevOptionId</token>
     <token name="T_WHITESPACE"> </token>
@@ -556,20 +534,20 @@
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="86">
+  <line no="80">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="87">
+  <line no="81">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="88"/>
-  <line no="89">
+  <line no="82"/>
+  <line no="83">
     <token name="T_WHITESPACE">            </token>
     <token name="T_COMMENT">// draw SKUs</token>
   </line>
-  <line no="90">
+  <line no="84">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -584,7 +562,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="91">
+  <line no="85">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$text</token>
     <token name="T_WHITESPACE"> </token>
@@ -595,7 +573,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="92">
+  <line no="86">
     <token name="T_WHITESPACE">                </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -626,7 +604,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="93">
+  <line no="87">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$text</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -637,11 +615,12 @@
     <token name="T_VARIABLE">$part</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="94">
+  <line no="88">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="95">
+  <line no="89"/>
+  <line no="90">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$line</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -652,7 +631,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="96">
+  <line no="91">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'text'</token>
     <token name="T_WHITESPACE">  </token>
@@ -661,7 +640,7 @@
     <token name="T_VARIABLE">$text</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="97">
+  <line no="92">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'feed'</token>
     <token name="T_WHITESPACE"> </token>
@@ -670,7 +649,7 @@
     <token name="T_LNUMBER">45</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="98">
+  <line no="93">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'width'</token>
     <token name="T_WHITESPACE"> </token>
@@ -678,21 +657,21 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">85</token>
   </line>
-  <line no="99">
+  <line no="94">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="100">
+  <line no="95">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="101"/>
-  <line no="102">
+  <line no="96"/>
+  <line no="97">
     <token name="T_WHITESPACE">            </token>
     <token name="T_COMMENT">// draw Name</token>
   </line>
-  <line no="103">
+  <line no="98">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -706,7 +685,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="104">
+  <line no="99">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$name</token>
     <token name="T_WHITESPACE"> </token>
@@ -720,7 +699,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="105">
+  <line no="100">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
     <token name="T_WHITESPACE"> </token>
@@ -728,7 +707,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="106">
+  <line no="101">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$name</token>
     <token name="T_WHITESPACE"> </token>
@@ -741,11 +720,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="107">
+  <line no="102">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="108">
+  <line no="103"/>
+  <line no="104">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$text</token>
     <token name="T_WHITESPACE"> </token>
@@ -756,7 +736,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="109">
+  <line no="105">
     <token name="T_WHITESPACE">            </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -789,7 +769,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="110">
+  <line no="106">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$text</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -800,11 +780,12 @@
     <token name="T_VARIABLE">$part</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="111">
+  <line no="107">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="112">
+  <line no="108"/>
+  <line no="109">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$line</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -815,7 +796,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="113">
+  <line no="110">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'text'</token>
     <token name="T_WHITESPACE">  </token>
@@ -824,7 +805,7 @@
     <token name="T_VARIABLE">$text</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="114">
+  <line no="111">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'feed'</token>
     <token name="T_WHITESPACE">  </token>
@@ -833,7 +814,7 @@
     <token name="T_LNUMBER">150</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="115">
+  <line no="112">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'align'</token>
     <token name="T_WHITESPACE"> </token>
@@ -842,7 +823,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'left'</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="116">
+  <line no="113">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'width'</token>
     <token name="T_WHITESPACE"> </token>
@@ -850,13 +831,13 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">375</token>
   </line>
-  <line no="117">
+  <line no="114">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="118"/>
-  <line no="119">
+  <line no="115"/>
+  <line no="116">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -877,7 +858,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="120">
+  <line no="117">
     <token name="T_WHITESPACE">                </token>
     <token name="T_BOOLEAN_OR">||</token>
     <token name="T_WHITESPACE"> </token>
@@ -899,13 +880,13 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="121">
+  <line no="118">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="122">
+  <line no="119">
     <token name="T_WHITESPACE">                </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -925,7 +906,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="123">
+  <line no="120">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$qty</token>
     <token name="T_WHITESPACE"> </token>
@@ -947,7 +928,7 @@
     <token name="T_LNUMBER">1</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="124">
+  <line no="121">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
     <token name="T_WHITESPACE"> </token>
@@ -963,7 +944,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="125">
+  <line no="122">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$qty</token>
     <token name="T_WHITESPACE"> </token>
@@ -982,7 +963,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="126">
+  <line no="123">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
     <token name="T_WHITESPACE"> </token>
@@ -990,7 +971,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="127">
+  <line no="124">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$qty</token>
     <token name="T_WHITESPACE"> </token>
@@ -999,11 +980,11 @@
     <token name="T_LNUMBER">0</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="128">
+  <line no="125">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="129">
+  <line no="126">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
     <token name="T_WHITESPACE"> </token>
@@ -1011,7 +992,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="130">
+  <line no="127">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$qty</token>
     <token name="T_WHITESPACE"> </token>
@@ -1020,12 +1001,12 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="131">
+  <line no="128">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="132"/>
-  <line no="133">
+  <line no="129"/>
+  <line no="130">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$line</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -1036,7 +1017,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="134">
+  <line no="131">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'text'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1045,7 +1026,7 @@
     <token name="T_VARIABLE">$qty</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="135">
+  <line no="132">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'feed'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1054,7 +1035,7 @@
     <token name="T_LNUMBER">505</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="136">
+  <line no="133">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'align'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1063,7 +1044,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'left'</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="137">
+  <line no="134">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'width'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1071,13 +1052,13 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">10</token>
   </line>
-  <line no="138">
+  <line no="135">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="139"/>
-  <line no="140">
+  <line no="136"/>
+  <line no="137">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$drawItems</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -1094,16 +1075,16 @@
     <token name="T_VARIABLE">$line</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="141">
+  <line no="138">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="142"/>
-  <line no="143">
+  <line no="139"/>
+  <line no="140">
     <token name="T_WHITESPACE">        </token>
     <token name="T_COMMENT">// custom options</token>
   </line>
-  <line no="144">
+  <line no="141">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$options</token>
     <token name="T_WHITESPACE"> </token>
@@ -1120,7 +1101,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="145">
+  <line no="142">
     <token name="T_WHITESPACE">        </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -1130,7 +1111,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="146">
+  <line no="143">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -1146,7 +1127,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="147">
+  <line no="144">
     <token name="T_WHITESPACE">                </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -1163,7 +1144,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="148">
+  <line no="145">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$lines</token>
     <token name="T_WHITESPACE"> </token>
@@ -1174,7 +1155,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="149">
+  <line no="146">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$lines</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -1187,7 +1168,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="150">
+  <line no="147">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'text'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1221,7 +1202,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="151">
+  <line no="148">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'font'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1230,7 +1211,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'italic'</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="152">
+  <line no="149">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'feed'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1238,26 +1219,29 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">60</token>
   </line>
-  <line no="153">
+  <line no="150">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="154"/>
-  <line no="155">
+  <line no="151"/>
+  <line no="152">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_ISSET">isset</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_VARIABLE">$option</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'value'</token>
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="156">
+  <line no="153">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_VARIABLE">$text</token>
     <token name="T_WHITESPACE"> </token>
@@ -1268,7 +1252,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="157">
+  <line no="154">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_VARIABLE">$_printValue</token>
     <token name="T_WHITESPACE"> </token>
@@ -1282,7 +1266,7 @@
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="158">
+  <line no="155">
     <token name="T_WHITESPACE">                            </token>
     <token name="T_PHPDOX_QUESTION_MARK">?</token>
     <token name="T_WHITESPACE"> </token>
@@ -1291,7 +1275,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'print_value'</token>
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
   </line>
-  <line no="159">
+  <line no="156">
     <token name="T_WHITESPACE">                            </token>
     <token name="T_PHPDOX_COLON">:</token>
     <token name="T_WHITESPACE"> </token>
@@ -1304,7 +1288,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="160">
+  <line no="157">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_VARIABLE">$values</token>
     <token name="T_WHITESPACE"> </token>
@@ -1319,7 +1303,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="161">
+  <line no="158">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -1333,7 +1317,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="162">
+  <line no="159">
     <token name="T_WHITESPACE">                            </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -1366,7 +1350,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="163">
+  <line no="160">
     <token name="T_WHITESPACE">                                </token>
     <token name="T_VARIABLE">$text</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -1377,16 +1361,16 @@
     <token name="T_VARIABLE">$_value</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="164">
+  <line no="161">
     <token name="T_WHITESPACE">                            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="165">
+  <line no="162">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="166"/>
-  <line no="167">
+  <line no="163"/>
+  <line no="164">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_VARIABLE">$lines</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -1399,7 +1383,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="168">
+  <line no="165">
     <token name="T_WHITESPACE">                            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'text'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1408,7 +1392,7 @@
     <token name="T_VARIABLE">$text</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="169">
+  <line no="166">
     <token name="T_WHITESPACE">                            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'feed'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1416,17 +1400,17 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">65</token>
   </line>
-  <line no="170">
+  <line no="167">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="171">
+  <line no="168">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="172"/>
-  <line no="173">
+  <line no="169"/>
+  <line no="170">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$drawItems</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -1437,7 +1421,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="174">
+  <line no="171">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'lines'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1446,7 +1430,7 @@
     <token name="T_VARIABLE">$lines</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="175">
+  <line no="172">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'height'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1454,25 +1438,25 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_LNUMBER">15</token>
   </line>
-  <line no="176">
+  <line no="173">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="177">
+  <line no="174">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="178">
+  <line no="175">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="179">
+  <line no="176">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="180"/>
-  <line no="181">
+  <line no="177"/>
+  <line no="178">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$page</token>
     <token name="T_WHITESPACE"> </token>
@@ -1499,7 +1483,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="182">
+  <line no="179">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -1509,12 +1493,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="183">
+  <line no="180">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="184">
+  <line no="181">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="185"/>
+  <line no="182"/>
 </source>

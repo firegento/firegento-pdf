@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="10520" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="e87eaea4c8f3372a82db2c902fe36aee5d2321b7" relative="app/code/community/FireGento/Pdf/Helper/Data.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="17424" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="8f8ccf5572b0880e4d6746441caf4a7f2cc05b39" relative="app/code/community/FireGento/Pdf/Helper/Data.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -8,13 +8,13 @@
     <token name="T_DOC_COMMENT">/**</token>
   </line>
   <line no="3">
-    <token name="T_DOC_COMMENT"> * This file is part of the FIREGENTO project.</token>
+    <token name="T_DOC_COMMENT"> * This file is part of a FireGento e.V. module.</token>
   </line>
   <line no="4">
     <token name="T_DOC_COMMENT"> *</token>
   </line>
   <line no="5">
-    <token name="T_DOC_COMMENT"> * FireGento_Pdf is free software; you can redistribute it and/or</token>
+    <token name="T_DOC_COMMENT"> * This FireGento e.V. module is free software; you can redistribute it and/or</token>
   </line>
   <line no="6">
     <token name="T_DOC_COMMENT"> * modify it under the terms of the GNU General Public License version 3 as</token>
@@ -53,55 +53,37 @@
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
   <line no="18">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
+    <token name="T_DOC_COMMENT"> * @copyright 2014 FireGento Team (http://www.firegento.com)</token>
   </line>
   <line no="19">
     <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
   </line>
   <line no="20">
-    <token name="T_DOC_COMMENT"> * @version   $Id:$</token>
-  </line>
-  <line no="21">
-    <token name="T_DOC_COMMENT"> * @since     0.1.0</token>
-  </line>
-  <line no="22">
     <token name="T_DOC_COMMENT"> */</token>
   </line>
-  <line no="23"/>
-  <line no="24">
+  <line no="21"/>
+  <line no="22">
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="25">
+  <line no="23">
     <token name="T_DOC_COMMENT"> * Dummy data helper for translation issues.</token>
   </line>
-  <line no="26">
+  <line no="24">
     <token name="T_DOC_COMMENT"> *</token>
   </line>
-  <line no="27">
+  <line no="25">
     <token name="T_DOC_COMMENT"> * @category  FireGento</token>
   </line>
-  <line no="28">
+  <line no="26">
     <token name="T_DOC_COMMENT"> * @package   FireGento_Pdf</token>
   </line>
-  <line no="29">
+  <line no="27">
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
-  <line no="30">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
-  </line>
-  <line no="31">
-    <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
-  </line>
-  <line no="32">
-    <token name="T_DOC_COMMENT"> * @version   $Id:$</token>
-  </line>
-  <line no="33">
-    <token name="T_DOC_COMMENT"> * @since     0.1.0</token>
-  </line>
-  <line no="34">
+  <line no="28">
     <token name="T_DOC_COMMENT"> */</token>
   </line>
-  <line no="35">
+  <line no="29">
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">FireGento_Pdf_Helper_Data</token>
@@ -110,10 +92,10 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">Mage_Core_Helper_Abstract</token>
   </line>
-  <line no="36">
+  <line no="30">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="37">
+  <line no="31">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -124,7 +106,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf/logo_position'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="38">
+  <line no="32">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -135,7 +117,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/invoice/show_customer_number'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="39">
+  <line no="33">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -146,7 +128,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/shipment/show_customer_number'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="40">
+  <line no="34">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -155,6 +137,72 @@
     <token name="T_PHPDOX_EQUAL">=</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/creditmemo/show_customer_number'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="35">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/invoice/show_customer_vatnumber'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="36">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/shipment/show_customer_vatnumber'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="37">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/creditmemo/show_customer_vatnumber'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="38">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/invoice/guestorder_customer_number'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="39">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/shipment/guestorder_customer_number'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="40">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/creditmemo/guestorder_customer_number'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
   <line no="41">
@@ -190,8 +238,97 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/creditmemo/filename_export_pattern'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="44"/>
+  <line no="44">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/invoice/filename_export_pattern_for_multiple_documents'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
   <line no="45">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/shipment/filename_export_pattern_for_multiple_documents'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="46">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="47">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf/page_size'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="48"/>
+  <line no="49">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_COLOR_TEXT</token>
+    <token name="T_WHITESPACE">         </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf_colors/text'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="50">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_COLOR_LABELS</token>
+    <token name="T_WHITESPACE">       </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf_colors/labels'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="51">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_COLOR_TABLE_HEADER</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf_colors/table_header'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="52">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">XML_PATH_COLOR_FOOTER</token>
+    <token name="T_WHITESPACE">       </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf_colors/footer'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="53"/>
+  <line no="54">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -202,7 +339,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf_fonts/regular_font'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="46">
+  <line no="55">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -213,7 +350,7 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf_fonts/bold_font'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="47">
+  <line no="56">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -224,8 +361,8 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'sales_pdf/firegento_pdf_fonts/italic_font'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="48"/>
-  <line no="49">
+  <line no="57"/>
+  <line no="58">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -236,33 +373,33 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'/firegento_pdf/fonts'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="50"/>
-  <line no="51">
+  <line no="59"/>
+  <line no="60">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="52">
+  <line no="61">
     <token name="T_DOC_COMMENT">     * Return the order id or false if order id should not be displayed on document.</token>
   </line>
-  <line no="53">
+  <line no="62">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="54">
+  <line no="63">
     <token name="T_DOC_COMMENT">     * @param  Mage_Sales_Model_Order $order order to get id from</token>
   </line>
-  <line no="55">
+  <line no="64">
     <token name="T_DOC_COMMENT">     * @param  string                 $mode  differ between creditmemo, invoice, etc.</token>
   </line>
-  <line no="56">
+  <line no="65">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="57">
+  <line no="66">
     <token name="T_DOC_COMMENT">     * @return mixed</token>
   </line>
-  <line no="58">
+  <line no="67">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="59">
+  <line no="68">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -282,11 +419,11 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="60">
+  <line no="69">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="61">
+  <line no="70">
     <token name="T_WHITESPACE">        </token>
     <token name="T_SWITCH">switch</token>
     <token name="T_WHITESPACE"> </token>
@@ -296,14 +433,14 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="62">
+  <line no="71">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="63">
+  <line no="72">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$putOrderIdOnInvoice</token>
     <token name="T_WHITESPACE"> </token>
@@ -314,14 +451,14 @@
     <token name="T_STRING">getStoreConfigFlag</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="64">
+  <line no="73">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">Mage_Sales_Model_Order_Pdf_Abstract</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_PUT_ORDER_ID</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="65">
+  <line no="74">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$order</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -329,12 +466,12 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="66">
+  <line no="75">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="67">
+  <line no="76">
     <token name="T_WHITESPACE">                </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -344,7 +481,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="68">
+  <line no="77">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -355,24 +492,24 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="69">
+  <line no="78">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="70">
+  <line no="79">
     <token name="T_WHITESPACE">                </token>
     <token name="T_BREAK">break</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="71"/>
-  <line no="72">
+  <line no="80"/>
+  <line no="81">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="73">
+  <line no="82">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$putOrderIdOnShipment</token>
     <token name="T_WHITESPACE"> </token>
@@ -383,14 +520,14 @@
     <token name="T_STRING">getStoreConfigFlag</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="74">
+  <line no="83">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">Mage_Sales_Model_Order_Pdf_Abstract</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_PUT_ORDER_ID</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="75">
+  <line no="84">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$order</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -398,12 +535,12 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="76">
+  <line no="85">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="77">
+  <line no="86">
     <token name="T_WHITESPACE">                </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -413,7 +550,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="78">
+  <line no="87">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -424,24 +561,24 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="79">
+  <line no="88">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="80">
+  <line no="89">
     <token name="T_WHITESPACE">                </token>
     <token name="T_BREAK">break</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="81"/>
-  <line no="82">
+  <line no="90"/>
+  <line no="91">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'creditmemo'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="83">
+  <line no="92">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$putOrderIdOnCreditmemo</token>
     <token name="T_WHITESPACE"> </token>
@@ -452,14 +589,14 @@
     <token name="T_STRING">getStoreConfigFlag</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="84">
+  <line no="93">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">Mage_Sales_Model_Order_Pdf_Abstract</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_PUT_ORDER_ID</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="85">
+  <line no="94">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$order</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -467,12 +604,12 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="86">
+  <line no="95">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="87">
+  <line no="96">
     <token name="T_WHITESPACE">                </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -482,7 +619,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="88">
+  <line no="97">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -493,54 +630,55 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="89">
+  <line no="98">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="90">
+  <line no="99">
     <token name="T_WHITESPACE">                </token>
     <token name="T_BREAK">break</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="91">
+  <line no="100">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="92">
+  <line no="101"/>
+  <line no="102">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">false</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="93">
+  <line no="103">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="94"/>
-  <line no="95">
+  <line no="104"/>
+  <line no="105">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="96">
+  <line no="106">
     <token name="T_DOC_COMMENT">     * Whether the logo should be shown in full width.</token>
   </line>
-  <line no="97">
+  <line no="107">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="98">
+  <line no="108">
     <token name="T_DOC_COMMENT">     * @param  mixed $store store to get information from</token>
   </line>
-  <line no="99">
+  <line no="109">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="100">
+  <line no="110">
     <token name="T_DOC_COMMENT">     * @return bool whether the logo should be shown in full width</token>
   </line>
-  <line no="101">
+  <line no="111">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="102">
+  <line no="112">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -551,11 +689,11 @@
     <token name="T_VARIABLE">$store</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="103">
+  <line no="113">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="104">
+  <line no="114">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$configSetting</token>
     <token name="T_WHITESPACE"> </token>
@@ -566,7 +704,7 @@
     <token name="T_STRING">getStoreConfig</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="105">
+  <line no="115">
     <token name="T_WHITESPACE">            </token>
     <token name="T_STRING">self</token>
     <token name="T_DOUBLE_COLON">::</token>
@@ -575,12 +713,12 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$store</token>
   </line>
-  <line no="106">
+  <line no="116">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="107">
+  <line no="117">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$fullWidth</token>
     <token name="T_WHITESPACE"> </token>
@@ -591,7 +729,8 @@
     <token name="T_STRING">FULL_WIDTH</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="108">
+  <line no="118"/>
+  <line no="119">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -602,37 +741,37 @@
     <token name="T_VARIABLE">$fullWidth</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="109">
+  <line no="120">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="110"/>
-  <line no="111">
+  <line no="121"/>
+  <line no="122">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="112">
+  <line no="123">
     <token name="T_DOC_COMMENT">     * Whether the customer number should be shown.</token>
   </line>
-  <line no="113">
+  <line no="124">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="114">
+  <line no="125">
     <token name="T_DOC_COMMENT">     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo</token>
   </line>
-  <line no="115">
+  <line no="126">
     <token name="T_DOC_COMMENT">     * @param  mixed  $store store to get information from</token>
   </line>
-  <line no="116">
+  <line no="127">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="117">
+  <line no="128">
     <token name="T_DOC_COMMENT">     * @return bool whether the customer number should be shown</token>
   </line>
-  <line no="118">
+  <line no="129">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="119">
+  <line no="130">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -648,13 +787,17 @@
     <token name="T_PHPDOX_COMMA">,</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$store</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">null</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="120">
+  <line no="131">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="121">
+  <line no="132">
     <token name="T_WHITESPACE">        </token>
     <token name="T_SWITCH">switch</token>
     <token name="T_WHITESPACE"> </token>
@@ -664,14 +807,14 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="122">
+  <line no="133">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="123">
+  <line no="134">
     <token name="T_WHITESPACE">                </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -680,30 +823,30 @@
     <token name="T_STRING">getStoreConfigFlag</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="124">
+  <line no="135">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">self</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="125">
+  <line no="136">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$store</token>
   </line>
-  <line no="126">
+  <line no="137">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="127">
+  <line no="138">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="128">
+  <line no="139">
     <token name="T_WHITESPACE">                </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -712,30 +855,30 @@
     <token name="T_STRING">getStoreConfigFlag</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="129">
+  <line no="140">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">self</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="130">
+  <line no="141">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$store</token>
   </line>
-  <line no="131">
+  <line no="142">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="132">
+  <line no="143">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'creditmemo'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="133">
+  <line no="144">
     <token name="T_WHITESPACE">                </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -744,27 +887,28 @@
     <token name="T_STRING">getStoreConfigFlag</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="134">
+  <line no="145">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">self</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="135">
+  <line no="146">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$store</token>
   </line>
-  <line no="136">
+  <line no="147">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="137">
+  <line no="148">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="138">
+  <line no="149"/>
+  <line no="150">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -773,40 +917,419 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_COMMENT">// backwards compatibility</token>
   </line>
-  <line no="139">
+  <line no="151">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="140"/>
-  <line no="141">
+  <line no="152"/>
+  <line no="153">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="142">
-    <token name="T_DOC_COMMENT">     * Return scaled image sizes based on an path to an image file.</token>
+  <line no="154">
+    <token name="T_DOC_COMMENT">     * Whether the customer VAT number should be shown.</token>
   </line>
-  <line no="143">
+  <line no="155">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="144">
-    <token name="T_DOC_COMMENT">     * @param  string $image     Url to image file.</token>
+  <line no="156">
+    <token name="T_DOC_COMMENT">     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo</token>
   </line>
-  <line no="145">
-    <token name="T_DOC_COMMENT">     * @param  int    $maxWidth  max width the image can have</token>
+  <line no="157">
+    <token name="T_DOC_COMMENT">     * @param  mixed  $store store to get information from</token>
   </line>
-  <line no="146">
-    <token name="T_DOC_COMMENT">     * @param  int    $maxHeight max height the image can have</token>
-  </line>
-  <line no="147">
+  <line no="158">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="148">
-    <token name="T_DOC_COMMENT">     * @return array  with 2 elements - width and height.</token>
+  <line no="159">
+    <token name="T_DOC_COMMENT">     * @return bool whether the customer number should be shown</token>
   </line>
-  <line no="149">
+  <line no="160">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="150">
+  <line no="161">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">showCustomerVATNumber</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$mode</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$store</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">null</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="162">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="163">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_SWITCH">switch</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$mode</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="164">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="165">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfigFlag</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="166">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="167">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_VARIABLE">$store</token>
+  </line>
+  <line no="168">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="169">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="170">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfigFlag</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="171">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="172">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_VARIABLE">$store</token>
+  </line>
+  <line no="173">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="174">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'creditmemo'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="175">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfigFlag</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="176">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="177">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_VARIABLE">$store</token>
+  </line>
+  <line no="178">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="179">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="180"/>
+  <line no="181">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_COMMENT">// backwards compatibility</token>
+  </line>
+  <line no="182">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="183"/>
+  <line no="184">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="185">
+    <token name="T_DOC_COMMENT">     * Get customer number for guest orders.</token>
+  </line>
+  <line no="186">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="187">
+    <token name="T_DOC_COMMENT">     * @param  string $mode  the mode of this document like invoice, shipment or creditmemo</token>
+  </line>
+  <line no="188">
+    <token name="T_DOC_COMMENT">     * @param  mixed  $store store to get information from</token>
+  </line>
+  <line no="189">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="190">
+    <token name="T_DOC_COMMENT">     * @return string customer number for guest orders</token>
+  </line>
+  <line no="191">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="192">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getGuestorderCustomerNo</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$mode</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$store</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">null</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="193">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="194">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_SWITCH">switch</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$mode</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="195">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="196">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">trim</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="197">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfigFlag</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="198">
+    <token name="T_WHITESPACE">                        </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="199">
+    <token name="T_WHITESPACE">                        </token>
+    <token name="T_VARIABLE">$store</token>
+  </line>
+  <line no="200">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="201">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="202">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="203">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">trim</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="204">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfigFlag</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="205">
+    <token name="T_WHITESPACE">                        </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="206">
+    <token name="T_WHITESPACE">                        </token>
+    <token name="T_VARIABLE">$store</token>
+  </line>
+  <line no="207">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="208">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="209">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'creditmemo'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="210">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">trim</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="211">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfigFlag</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="212">
+    <token name="T_WHITESPACE">                        </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="213">
+    <token name="T_WHITESPACE">                        </token>
+    <token name="T_VARIABLE">$store</token>
+  </line>
+  <line no="214">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="215">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="216">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="217"/>
+  <line no="218">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_COMMENT">// backwards compatibility</token>
+  </line>
+  <line no="219">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="220"/>
+  <line no="221">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="222">
+    <token name="T_DOC_COMMENT">     * Return scaled image sizes based on an path to an image file.</token>
+  </line>
+  <line no="223">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="224">
+    <token name="T_DOC_COMMENT">     * @param  string $image     Url to image file.</token>
+  </line>
+  <line no="225">
+    <token name="T_DOC_COMMENT">     * @param  int    $maxWidth  max width the image can have</token>
+  </line>
+  <line no="226">
+    <token name="T_DOC_COMMENT">     * @param  int    $maxHeight max height the image can have</token>
+  </line>
+  <line no="227">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="228">
+    <token name="T_DOC_COMMENT">     * @return array  with 2 elements - width and height.</token>
+  </line>
+  <line no="229">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="230">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -823,11 +1346,11 @@
     <token name="T_VARIABLE">$maxHeight</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="151">
+  <line no="231">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="152">
+  <line no="232">
     <token name="T_WHITESPACE">        </token>
     <token name="T_LIST">list</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
@@ -845,8 +1368,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="153"/>
-  <line no="154">
+  <line no="233"/>
+  <line no="234">
     <token name="T_WHITESPACE">        </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -868,11 +1391,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="155">
+  <line no="235">
     <token name="T_WHITESPACE">            </token>
     <token name="T_COMMENT">// Calculate max variance to match dimensions.</token>
   </line>
-  <line no="156">
+  <line no="236">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$widthVar</token>
     <token name="T_WHITESPACE"> </token>
@@ -885,7 +1408,7 @@
     <token name="T_VARIABLE">$maxWidth</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="157">
+  <line no="237">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$heightVar</token>
     <token name="T_WHITESPACE"> </token>
@@ -898,12 +1421,12 @@
     <token name="T_VARIABLE">$maxHeight</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="158"/>
-  <line no="159">
+  <line no="238"/>
+  <line no="239">
     <token name="T_WHITESPACE">            </token>
     <token name="T_COMMENT">// Calculate scale factor to match dimensions.</token>
   </line>
-  <line no="160">
+  <line no="240">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -917,7 +1440,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="161">
+  <line no="241">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$scale</token>
     <token name="T_WHITESPACE"> </token>
@@ -930,7 +1453,7 @@
     <token name="T_VARIABLE">$width</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="162">
+  <line no="242">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
     <token name="T_WHITESPACE"> </token>
@@ -938,7 +1461,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="163">
+  <line no="243">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$scale</token>
     <token name="T_WHITESPACE"> </token>
@@ -951,16 +1474,16 @@
     <token name="T_VARIABLE">$height</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="164">
+  <line no="244">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="165"/>
-  <line no="166">
+  <line no="245"/>
+  <line no="246">
     <token name="T_WHITESPACE">            </token>
     <token name="T_COMMENT">// Calculate new dimensions.</token>
   </line>
-  <line no="167">
+  <line no="247">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$height</token>
     <token name="T_WHITESPACE"> </token>
@@ -976,7 +1499,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="168">
+  <line no="248">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$width</token>
     <token name="T_WHITESPACE"> </token>
@@ -992,12 +1515,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="169">
+  <line no="249">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="170"/>
-  <line no="171">
+  <line no="250"/>
+  <line no="251">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -1010,34 +1533,34 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="172">
+  <line no="252">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="173"/>
-  <line no="174">
+  <line no="253"/>
+  <line no="254">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="175">
+  <line no="255">
     <token name="T_DOC_COMMENT">     * Return export pattern config value</token>
   </line>
-  <line no="176">
+  <line no="256">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="177">
+  <line no="257">
     <token name="T_DOC_COMMENT">     * @param  string $type the type of this document like invoice, shipment or creditmemo</token>
   </line>
-  <line no="178">
+  <line no="258">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="179">
+  <line no="259">
     <token name="T_DOC_COMMENT">     * @return string</token>
   </line>
-  <line no="180">
+  <line no="260">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="181">
+  <line no="261">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -1048,11 +1571,11 @@
     <token name="T_VARIABLE">$type</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="182">
+  <line no="262">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="183">
+  <line no="263">
     <token name="T_WHITESPACE">        </token>
     <token name="T_SWITCH">switch</token>
     <token name="T_WHITESPACE"> </token>
@@ -1062,14 +1585,14 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="184">
+  <line no="264">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="185">
+  <line no="265">
     <token name="T_WHITESPACE">                </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -1078,25 +1601,25 @@
     <token name="T_STRING">getStoreConfig</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="186">
+  <line no="266">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">self</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN</token>
   </line>
-  <line no="187">
+  <line no="267">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="188">
+  <line no="268">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="189">
+  <line no="269">
     <token name="T_WHITESPACE">                </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -1105,25 +1628,25 @@
     <token name="T_STRING">getStoreConfig</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="190">
+  <line no="270">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">self</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN</token>
   </line>
-  <line no="191">
+  <line no="271">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="192">
+  <line no="272">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'creditmemo'</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="193">
+  <line no="273">
     <token name="T_WHITESPACE">                </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -1132,56 +1655,202 @@
     <token name="T_STRING">getStoreConfig</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="194">
+  <line no="274">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_STRING">self</token>
     <token name="T_DOUBLE_COLON">::</token>
     <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN</token>
   </line>
-  <line no="195">
+  <line no="275">
     <token name="T_WHITESPACE">                </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="196">
+  <line no="276">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="197">
+  <line no="277"/>
+  <line no="278">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">true</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="198">
+  <line no="279">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="199"/>
-  <line no="200">
+  <line no="280"/>
+  <line no="281">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="201">
-    <token name="T_DOC_COMMENT">     * Gets the variables which can be used as a placeholder in the filename.</token>
+  <line no="282">
+    <token name="T_DOC_COMMENT">     * Return export pattern for multiple documents config value</token>
   </line>
-  <line no="202">
+  <line no="283">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="203">
-    <token name="T_DOC_COMMENT">     * @param  Mage_Core_Model_Abstract $model the model instance</token>
+  <line no="284">
+    <token name="T_DOC_COMMENT">     * @param  string $type the type of this document like invoice, shipment or creditmemo</token>
   </line>
-  <line no="204">
+  <line no="285">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="205">
-    <token name="T_DOC_COMMENT">     * @return array with the variables which can be use as placeholders in the filename</token>
+  <line no="286">
+    <token name="T_DOC_COMMENT">     * @return string</token>
   </line>
-  <line no="206">
+  <line no="287">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="207">
+  <line no="288">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getExportPatternForMultipleDocuments</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="289">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="290">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_SWITCH">switch</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="291">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="292">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="293">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</token>
+  </line>
+  <line no="294">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="295">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="296">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="297">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</token>
+  </line>
+  <line no="298">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="299">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_CASE">case</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'creditmemo'</token>
+    <token name="T_PHPDOX_COLON">:</token>
+  </line>
+  <line no="300">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+  </line>
+  <line no="301">
+    <token name="T_WHITESPACE">                    </token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</token>
+  </line>
+  <line no="302">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="303">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="304"/>
+  <line no="305">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">true</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="306">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="307"/>
+  <line no="308">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="309">
+    <token name="T_DOC_COMMENT">     * Gets the variables which can be used as a placeholder in the filename.</token>
+  </line>
+  <line no="310">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="311">
+    <token name="T_DOC_COMMENT">     * @param  Mage_Core_Model_Abstract $model the model instance</token>
+  </line>
+  <line no="312">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="313">
+    <token name="T_DOC_COMMENT">     * @return array with the variables which can be use as placeholders in the filename</token>
+  </line>
+  <line no="314">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="315">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -1192,11 +1861,11 @@
     <token name="T_VARIABLE">$model</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="208">
+  <line no="316">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="209">
+  <line no="317">
     <token name="T_WHITESPACE">        </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -1211,7 +1880,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="210">
+  <line no="318">
     <token name="T_WHITESPACE">            </token>
     <token name="T_SWITCH">switch</token>
     <token name="T_WHITESPACE"> </token>
@@ -1221,7 +1890,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="211">
+  <line no="319">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
@@ -1232,7 +1901,7 @@
     <token name="T_STRING">Mage_Sales_Model_Order_Invoice</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="212">
+  <line no="320">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$specificVars</token>
     <token name="T_WHITESPACE"> </token>
@@ -1241,7 +1910,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="213">
+  <line no="321">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{invoice_id}}'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1253,17 +1922,17 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="214">
+  <line no="322">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="215">
+  <line no="323">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_BREAK">break</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="216">
+  <line no="324">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
@@ -1274,7 +1943,7 @@
     <token name="T_STRING">Mage_Sales_Model_Order_Shipment</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="217">
+  <line no="325">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$specificVars</token>
     <token name="T_WHITESPACE"> </token>
@@ -1283,7 +1952,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="218">
+  <line no="326">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{shipment_id}}'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1295,17 +1964,17 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="219">
+  <line no="327">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="220">
+  <line no="328">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_BREAK">break</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="221">
+  <line no="329">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CASE">case</token>
     <token name="T_WHITESPACE"> </token>
@@ -1316,7 +1985,7 @@
     <token name="T_STRING">Mage_Sales_Model_Order_Creditmemo</token>
     <token name="T_PHPDOX_COLON">:</token>
   </line>
-  <line no="222">
+  <line no="330">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_VARIABLE">$specificVars</token>
     <token name="T_WHITESPACE"> </token>
@@ -1325,7 +1994,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="223">
+  <line no="331">
     <token name="T_WHITESPACE">                        </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{creditmemo_id}}'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1337,16 +2006,17 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="224">
+  <line no="332">
     <token name="T_WHITESPACE">                    </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="225">
+  <line no="333">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="226">
+  <line no="334"/>
+  <line no="335">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$order</token>
     <token name="T_WHITESPACE"> </token>
@@ -1359,7 +2029,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="227">
+  <line no="336">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$commonVars</token>
     <token name="T_WHITESPACE"> </token>
@@ -1368,7 +2038,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="228">
+  <line no="337">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{order_id}}'</token>
     <token name="T_WHITESPACE">           </token>
@@ -1381,7 +2051,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="229">
+  <line no="338">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_id}}'</token>
     <token name="T_WHITESPACE">        </token>
@@ -1394,7 +2064,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="230">
+  <line no="339">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_name}}'</token>
     <token name="T_WHITESPACE">      </token>
@@ -1407,7 +2077,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="231">
+  <line no="340">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_firstname}}'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1420,7 +2090,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="232">
+  <line no="341">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_lastname}}'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1432,12 +2102,13 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="233">
+  <line no="342">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="234">
+  <line no="343"/>
+  <line no="344">
     <token name="T_WHITESPACE">            </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -1450,7 +2121,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="235">
+  <line no="345">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
     <token name="T_WHITESPACE"> </token>
@@ -1458,14 +2129,14 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="236">
+  <line no="346">
     <token name="T_WHITESPACE">            </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="237">
+  <line no="347">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{order_id}}'</token>
     <token name="T_WHITESPACE">           </token>
@@ -1478,7 +2149,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="238">
+  <line no="348">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_id}}'</token>
     <token name="T_WHITESPACE">        </token>
@@ -1491,7 +2162,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="239">
+  <line no="349">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_name}}'</token>
     <token name="T_WHITESPACE">      </token>
@@ -1504,7 +2175,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="240">
+  <line no="350">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_firstname}}'</token>
     <token name="T_WHITESPACE"> </token>
@@ -1517,7 +2188,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="241">
+  <line no="351">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'{{customer_lastname}}'</token>
     <token name="T_WHITESPACE">  </token>
@@ -1529,46 +2200,46 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="242">
+  <line no="352">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="243">
+  <line no="353">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="244">
+  <line no="354">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="245"/>
-  <line no="246">
+  <line no="355"/>
+  <line no="356">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="247">
+  <line no="357">
     <token name="T_DOC_COMMENT">     * The filename of the exported file.</token>
   </line>
-  <line no="248">
+  <line no="358">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="249">
+  <line no="359">
     <token name="T_DOC_COMMENT">     * @param  string                   $type  the type of this document like invoice, shipment or creditmemo</token>
   </line>
-  <line no="250">
+  <line no="360">
     <token name="T_DOC_COMMENT">     * @param  Mage_Core_Model_Abstract $model the model instance</token>
   </line>
-  <line no="251">
+  <line no="361">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="252">
+  <line no="362">
     <token name="T_DOC_COMMENT">     * @return string the filename of the exported file</token>
   </line>
-  <line no="253">
+  <line no="363">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="254">
+  <line no="364">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -1582,11 +2253,11 @@
     <token name="T_VARIABLE">$model</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="255">
+  <line no="365">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="256">
+  <line no="366">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$type</token>
     <token name="T_WHITESPACE"> </token>
@@ -1606,7 +2277,7 @@
     <token name="T_VARIABLE">$type</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="257">
+  <line no="367">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$pattern</token>
     <token name="T_WHITESPACE"> </token>
@@ -1620,7 +2291,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="258">
+  <line no="368">
     <token name="T_WHITESPACE">        </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -1631,7 +2302,52 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="259">
+  <line no="369">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_IS_EQUAL">==</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="370">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'packingslip'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="371">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_ELSE">else</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="372">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="373">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="374"/>
+  <line no="375">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$date</token>
     <token name="T_WHITESPACE"> </token>
@@ -1645,15 +2361,11 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="260">
+  <line no="376">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$pattern</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_PHPDOX_EQUAL">=</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$type</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_PHPDOX_DOT">.</token>
+    <token name="T_CONCAT_EQUAL">.=</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$date</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -1663,11 +2375,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="261">
+  <line no="377">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="262">
+  <line no="378"/>
+  <line no="379">
     <token name="T_WHITESPACE">        </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -1688,7 +2401,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="263">
+  <line no="380">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$pattern</token>
     <token name="T_WHITESPACE"> </token>
@@ -1701,12 +2414,12 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'.pdf'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="264">
+  <line no="381">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="265"/>
-  <line no="266">
+  <line no="382"/>
+  <line no="383">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$path</token>
     <token name="T_WHITESPACE"> </token>
@@ -1728,7 +2441,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="267">
+  <line no="384">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$vars</token>
     <token name="T_WHITESPACE"> </token>
@@ -1742,8 +2455,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="268"/>
-  <line no="269">
+  <line no="385"/>
+  <line no="386">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -1756,28 +2469,242 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="270">
+  <line no="387">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="271"/>
-  <line no="272">
+  <line no="388"/>
+  <line no="389">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="273">
-    <token name="T_DOC_COMMENT">     * Returns the path where the fonts reside.</token>
+  <line no="390">
+    <token name="T_DOC_COMMENT">     * The filename of the exported file if multiple documents are printed at once.</token>
   </line>
-  <line no="274">
+  <line no="391">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="275">
-    <token name="T_DOC_COMMENT">     * @return string the path where the fonts reside</token>
+  <line no="392">
+    <token name="T_DOC_COMMENT">     * @param string $type the type of this document like invoice, shipment or creditmemo</token>
   </line>
-  <line no="276">
+  <line no="393">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="394">
+    <token name="T_DOC_COMMENT">     * @return string the filename of the exported file</token>
+  </line>
+  <line no="395">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="277">
+  <line no="396">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getExportFilenameForMultipleDocuments</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="397">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="398">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_EXCLAMATION_MARK">!</token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_QUESTION_MARK">?</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'invoice'</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_COLON">:</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="399">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getExportPatternForMultipleDocuments</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="400">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_EXCLAMATION_MARK">!</token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="401">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_IS_EQUAL">==</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'shipment'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="402">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'packingslip'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="403">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_ELSE">else</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="404">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$type</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="405">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="406"/>
+  <line no="407">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_VARIABLE">$date</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getSingleton</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'core/date'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="408">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONCAT_EQUAL">.=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$date</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">date</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'Y-m-d_H-i-s'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="409">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="410"/>
+  <line no="411">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_IF">if</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">substr</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_MINUS">-</token>
+    <token name="T_LNUMBER">4</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_IS_NOT_EQUAL">!=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'.pdf'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="412">
+    <token name="T_WHITESPACE">            </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_DOT">.</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'.pdf'</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="413">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="414"/>
+  <line no="415">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">strftime</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$pattern</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="416">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="417"/>
+  <line no="418">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="419">
+    <token name="T_DOC_COMMENT">     * Returns the path where the fonts reside.</token>
+  </line>
+  <line no="420">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="421">
+    <token name="T_DOC_COMMENT">     * @return string the path where the fonts reside</token>
+  </line>
+  <line no="422">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="423">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -1787,11 +2714,11 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="278">
+  <line no="424">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="279">
+  <line no="425">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -1809,12 +2736,318 @@
     <token name="T_STRING">FONT_PATH_IN_MEDIA</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="280">
+  <line no="426">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="281">
+  <line no="427"/>
+  <line no="428">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getPageSizeConfigPath</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="429">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="430">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="431">
+    <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="282"/>
+  <line no="432"/>
+  <line no="433">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="434">
+    <token name="T_DOC_COMMENT">     * Get configured PDF color</token>
+  </line>
+  <line no="435">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="436">
+    <token name="T_DOC_COMMENT">     * @param string $path System config path</token>
+  </line>
+  <line no="437">
+    <token name="T_DOC_COMMENT">     * @return Zend_Pdf_Color_Html</token>
+  </line>
+  <line no="438">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="439">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PROTECTED">protected</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$path</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="440">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="441">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_NEW">new</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Zend_Pdf_Color_Html</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'#'</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_DOT">.</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">trim</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$path</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'#'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="442">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="443">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="444">
+    <token name="T_DOC_COMMENT">     * Get text color</token>
+  </line>
+  <line no="445">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="446">
+    <token name="T_DOC_COMMENT">     * @return Zend_Pdf_Color_Html</token>
+  </line>
+  <line no="447">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="448">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getTextColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="449">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="450">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_COLOR_TEXT</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="451">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="452">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="453">
+    <token name="T_DOC_COMMENT">     * Get table header color</token>
+  </line>
+  <line no="454">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="455">
+    <token name="T_DOC_COMMENT">     * @return Zend_Pdf_Color_Html</token>
+  </line>
+  <line no="456">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="457">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getHeaderColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="458">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="459">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_COLOR_TABLE_HEADER</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="460">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="461">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="462">
+    <token name="T_DOC_COMMENT">     * Get footer color</token>
+  </line>
+  <line no="463">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="464">
+    <token name="T_DOC_COMMENT">     * @return Zend_Pdf_Color_Html</token>
+  </line>
+  <line no="465">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="466">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getFooterColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="467">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="468">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_COLOR_FOOTER</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="469">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="470">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="471">
+    <token name="T_DOC_COMMENT">     * Get label color</token>
+  </line>
+  <line no="472">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="473">
+    <token name="T_DOC_COMMENT">     * @return Zend_Pdf_Color_Html</token>
+  </line>
+  <line no="474">
+    <token name="T_DOC_COMMENT">     */</token>
+  </line>
+  <line no="475">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getLabelColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="476">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="477">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getColor</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getStoreConfig</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">self</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">XML_PATH_COLOR_LABELS</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="478">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="479">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="480"/>
 </source>

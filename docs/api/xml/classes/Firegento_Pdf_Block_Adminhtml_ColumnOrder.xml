@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="Firegento_Pdf_Block_Adminhtml_ColumnOrder" namespace="" name="Firegento_Pdf_Block_Adminhtml_ColumnOrder" abstract="false" final="false" start="30" end="154">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml" file="ColumnOrder.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php" size="6438" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="dc7e02a469b9e9b9bbf7b9b436b5732a6024d867" relative="app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="Firegento_Pdf_Block_Adminhtml_ColumnOrder" namespace="" name="Firegento_Pdf_Block_Adminhtml_ColumnOrder" abstract="false" final="false" start="28" end="153">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml" file="ColumnOrder.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php" size="6355" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="e29aa7dc37e131a97ddf2cc0e23aff996606dc70" relative="app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php"/>
   <docblock>
-    <description compact="Firegento"/>
+    <description compact="Block which enables the user to change the column order in the admin via drag &amp; drop."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
   </docblock>
-  <extends full="Mage_Adminhtml_Block_System_Config_Form_Field" namespace="" name="Mage_Adminhtml_Block_System_Config_Form_Field"/>
-  <member name="_sortableListHtml" type="string" default="''" visibility="protected" line="33"/>
-  <method name="_getElementHtml" start="42" end="94" abstract="false" final="false" static="false" visibility="protected">
+  <extends full="Mage_Adminhtml_Block_System_Config_Form_Field" namespace="" name="Mage_Adminhtml_Block_System_Config_Form_Field" unresolved="true"/>
+  <member name="_sortableListHtml" default="''" type="string" visibility="protected" static="false" line="31"/>
+  <method name="_getElementHtml" start="40" end="92" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="generate html for orderable list"/>
       <param description="form element to render" type="object" variable="$element">
@@ -20,10 +18,10 @@
       <return type="string"/>
     </docblock>
     <parameter name="element" byreference="false" type="object">
-      <type full="\\Varien_Data_Form_Element_Abstract" namespace="\" name="Varien_Data_Form_Element_Abstract"/>
+      <type full="Varien_Data_Form_Element_Abstract" namespace="" name="Varien_Data_Form_Element_Abstract"/>
     </parameter>
   </method>
-  <method name="_getSortableListHtml" start="103" end="132" abstract="false" final="false" static="false" visibility="protected">
+  <method name="_getSortableListHtml" start="101" end="130" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="get html for list"/>
       <param description="form element to render" type="object" variable="$element">
@@ -32,10 +30,10 @@
       <return type="string"/>
     </docblock>
     <parameter name="element" byreference="false" type="object">
-      <type full="\\Varien_Data_Form_Element_Abstract" namespace="\" name="Varien_Data_Form_Element_Abstract"/>
+      <type full="Varien_Data_Form_Element_Abstract" namespace="" name="Varien_Data_Form_Element_Abstract"/>
     </parameter>
   </method>
-  <method name="_addListItems" start="141" end="153" abstract="false" final="false" static="false" visibility="protected">
+  <method name="_addListItems" start="139" end="152" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="add items to list"/>
       <param description="items to add" type="array" variable="$items"/>

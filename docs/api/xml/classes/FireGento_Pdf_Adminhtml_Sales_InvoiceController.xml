@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Adminhtml_Sales_InvoiceController" namespace="" name="FireGento_Pdf_Adminhtml_Sales_InvoiceController" abstract="false" final="false" start="5" end="45">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales" file="InvoiceController.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/InvoiceController.php" size="1742" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="c27c2974103f55e140df4d703a4eb35a7cd1942f" relative="app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/InvoiceController.php"/>
+  <extends full="Mage_Adminhtml_Sales_InvoiceController" namespace="" name="Mage_Adminhtml_Sales_InvoiceController" unresolved="true"/>
+  <method name="pdfinvoicesAction" start="8" end="44" abstract="false" final="false" static="false" visibility="public"/>
+</class>

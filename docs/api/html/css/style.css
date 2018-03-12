@@ -111,6 +111,14 @@ h3 {
     min-height: 14em;
 }
 
+.styled #index {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  color: #000;
+  margin: 0;
+  min-height: 0;
+  padding: 0;
+}
+
 #index h1 {
     text-shadow: 0px -1px 0 #555555;
 }
@@ -161,6 +169,25 @@ h3 {
 
 .nummeric {
     text-align: right;
+}
+
+.nummeric a {
+    display: block;
+    background-color: #CCD;
+    padding: 0 0.5em;
+}
+
+.nummeric a:hover, .nummeric a:focus, .nummeric a:active {
+    background-color: #DDE;
+    outline: dotted 2px #AAB;
+}
+
+.nummeric a:hover {
+    outline-style: solid;
+}
+
+.nummeric a:active {
+    outline: solid 2px #667;
 }
 
 .percent {

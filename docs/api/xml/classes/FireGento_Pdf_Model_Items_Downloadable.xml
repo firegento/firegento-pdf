@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Downloadable" namespace="" name="FireGento_Pdf_Model_Items_Downloadable" abstract="false" final="false" start="29" end="215">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Downloadable.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Downloadable.php" size="7059" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="d49014021cd0248e24e57a543894ac9ed04c8718" relative="app/code/community/FireGento/Pdf/Model/Items/Downloadable.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Downloadable" namespace="" name="FireGento_Pdf_Model_Items_Downloadable" abstract="false" final="false" start="28" end="210">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Downloadable.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Downloadable.php" size="7054" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="a50bf7a40a77ae7b13c88a553bcbeb45937759f8" relative="app/code/community/FireGento/Pdf/Model/Items/Downloadable.php"/>
   <docblock>
     <description compact="Class FireGento_Pdf_Model_Items_Downloadable"/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
   </docblock>
-  <extends full="Mage_Downloadable_Model_Sales_Order_Pdf_Items_Invoice" namespace="" name="Mage_Downloadable_Model_Sales_Order_Pdf_Items_Invoice"/>
-  <method name="draw" start="39" end="214" abstract="false" final="false" static="false" visibility="public">
+  <extends full="Mage_Downloadable_Model_Sales_Order_Pdf_Items_Invoice" namespace="" name="Mage_Downloadable_Model_Sales_Order_Pdf_Items_Invoice" unresolved="true"/>
+  <method name="draw" start="38" end="209" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Draw item line."/>
       <param description="position of the product" type="int" variable="$position"/>
@@ -21,7 +21,6 @@
       <comment value="draw Position Number" line="49"/>
       <comment value="draw SKU" line="59"/>
       <comment value="draw Product name" line="67"/>
-      <comment value="append option value" line="79"/>
       <comment value="downloadable Items" line="93"/>
       <comment value="draw Links title" line="96"/>
       <comment value="draw Links" line="104"/>
@@ -30,11 +29,10 @@
       <comment value="prepare price_incl_tax" line="131"/>
       <comment value="prepare tax" line="139"/>
       <comment value="prepare tax_rate" line="147"/>
-      <comment value="prepare subtotal" line="156"/>
-      <comment value="prepare subtotal_incl_tax" line="165"/>
-      <comment value="draw columns in specified order" line="174"/>
-      <comment value="draw starting from right" line="177"/>
-      <comment value="print discount" line="194"/>
+      <comment value="prepare subtotal" line="155"/>
+      <comment value="prepare subtotal_incl_tax" line="163"/>
+      <comment value="draw columns in specified order" line="171"/>
+      <comment value="draw starting from right" line="173"/>
     </inline>
   </method>
 </class>

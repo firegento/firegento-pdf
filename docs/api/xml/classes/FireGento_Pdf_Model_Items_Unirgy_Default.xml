@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Unirgy_Default" namespace="" name="FireGento_Pdf_Model_Items_Unirgy_Default" abstract="false" final="false" start="28" end="38">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Unirgy" file="Default.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Unirgy/Default.php" size="1239" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="399db3f28879117d67f9cc5950d59811fa0c0d84" relative="app/code/community/FireGento/Pdf/Model/Items/Unirgy/Default.php"/>
+  <docblock>
+    <description compact="Default item model rewrite."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+  </docblock>
+  <extends full="FireGento_Pdf_Model_Items_Default" namespace="" name="FireGento_Pdf_Model_Items_Default"/>
+  <method name="getItemOptions" start="31" end="36" abstract="false" final="false" static="false" visibility="public"/>
+  <parent full="FireGento_Pdf_Model_Items_Default" namespace="" name="FireGento_Pdf_Model_Items_Default">
+    <extends full="Mage_Sales_Model_Order_Pdf_Items_Invoice_Default" namespace="" name="Mage_Sales_Model_Order_Pdf_Items_Invoice_Default" unresolved="true"/>
+    <method name="draw" start="37" end="183" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Draw item line."/>
+        <param description="position of the product" type="int" variable="$position"/>
+        <return type="object">
+          <type full="void" namespace="" name="void"/>
+        </return>
+      </docblock>
+      <parameter name="position" byreference="false" type="integer" default="1"/>
+      <inline>
+        <comment value="draw Position Number" line="48"/>
+        <comment value="draw SKU" line="58"/>
+        <comment value="draw Product name" line="65"/>
+        <comment value="prepare qty" line="91"/>
+        <comment value="prepare price" line="99"/>
+        <comment value="prepare price_incl_tax" line="107"/>
+        <comment value="prepare tax" line="115"/>
+        <comment value="prepare tax_rate" line="123"/>
+        <comment value="prepare subtotal" line="131"/>
+        <comment value="prepare subtotal_incl_tax" line="139"/>
+        <comment value="draw columns in specified order" line="147"/>
+        <comment value="draw starting from right" line="149"/>
+      </inline>
+    </method>
+  </parent>
+</class>

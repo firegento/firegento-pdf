@@ -47,13 +47,16 @@
             <a href="#synopsis">Synopsis</a>
           </li>
           <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
             <a href="#members">Members</a>
           </li>
           <li>
             <a href="#methods">Methods</a>
           </li>
           <li>
-            <a href="../source/app/code/community/FireGento/Pdf/Model/Shipment.php.xhtml#line34">Source</a>
+            <a href="../source/app/code/community/FireGento/Pdf/Model/Shipment.php.xhtml#line28">Source</a>
           </li>
         </ul>
       </nav>
@@ -63,24 +66,30 @@
         <p/>
         <ul>
           <li>Author: FireGento Team &lt;team@firegento.com&gt;</li>
-          <li>Copyright: 2013 FireGento Team (http://www.firegento.com)</li>
-          <li>License: http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</li>
         </ul>
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class FireGento_Pdf_Model_Shipment
-            {<br/><ul class="none"><li>// members</li><li>private <span title="Mage_Sales_Model_Order_Pdf_Abstract">Mage_Sales_Model_Order_Pdf_Abstract</span> <a href="#members">$_engine</a>;
+                extends Mage_Sales_Model_Order_Pdf_Shipment
+            {<br/><ul class="none"><li>// members</li><li>protected <span title="Mage_Sales_Model_Order_Pdf_Abstract">Mage_Sales_Model_Order_Pdf_Abstract</span> <a href="#members">$_engine</a>;
                     </li></ul><ul class="none"><li>// methods</li><li>protected Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Shipment <a title="FireGento_Pdf_Model_Shipment" href="../classes/FireGento_Pdf_Model_Shipment/getEngine.xhtml">getEngine</a>()
                     </li><li>public mixed <a title="FireGento_Pdf_Model_Shipment" href="../classes/FireGento_Pdf_Model_Shipment/getPdf.xhtml">getPdf</a>()
                     </li></ul>
 
             }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>Mage_Sales_Model_Order_Pdf_Shipment</li>
+          </ul>
+        </div>
         <h2 id="members">Members</h2>
         <div class="styled members">
-          <h4>private</h4>
+          <h4>protected</h4>
           <ul class="members">
             <li id="_engine"><strong>$_engine</strong>
                 —
-                <a href="#">Mage_Sales_Model_Order_Pdf_Abstract</a><br/><span class="indent">The actual PDF engine responsible for rendering the file.</span></li>
+                <a title="Mage_Sales_Model_Order_Pdf_Abstract" href="../classes/Mage_Sales_Model_Order_Pdf_Abstract.xhtml">Mage_Sales_Model_Order_Pdf_Abstract</a><br/><span class="indent">The actual PDF engine responsible for rendering the file.</span></li>
           </ul>
         </div>
         <h2 id="methods">Methods</h2>
@@ -99,7 +108,7 @@
       </section>
     </div>
     <footer>
-      <span/>
+      <span>Generated using phpDox 0.11.0 - Copyright (C) 2010 - 2018 by Arne Blankerts and Contributors</span>
     </footer>
   </body>
 </html>

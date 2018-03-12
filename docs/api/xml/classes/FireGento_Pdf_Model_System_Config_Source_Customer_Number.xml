@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Customer_Number" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Customer_Number" abstract="false" final="false" start="30" end="58">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Customer" file="Number.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Customer/Number.php" size="1907" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="3dd362f90f8f7a87c436ec7bea4d5286ae72da53" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Customer/Number.php"/>
+  <docblock>
+    <description compact="Customer number source model."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+    <copyright value="2015 FireGento Team (http://www.firegento.com)"/>
+    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
+  </docblock>
+  <constant type="string" name="CUSTOMER_NUMBER_FIELD_INCREMENT_ID" value="'increment_id'">
+    <docblock>
+      <description compact="Databasefield name for customers increment_id"/>
+    </docblock>
+  </constant>
+  <method name="toOptionArray" start="41" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return array of possible positions."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>

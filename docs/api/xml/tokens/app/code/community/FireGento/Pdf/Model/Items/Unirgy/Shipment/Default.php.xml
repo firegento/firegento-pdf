@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Unirgy/Shipment" file="Default.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Unirgy/Shipment/Default.php" size="1257" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="6f05c513cc0f435c5ac3cb7d2190b3feb6fb0e63" relative="app/code/community/FireGento/Pdf/Model/Items/Unirgy/Shipment/Default.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="3">
+    <token name="T_DOC_COMMENT"> * This file is part of a FireGento e.V. module.</token>
+  </line>
+  <line no="4">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT"> * This FireGento e.V. module is free software; you can redistribute it and/or</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT"> * modify it under the terms of the GNU General Public License version 3 as</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * published by the Free Software Foundation.</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> * This script is distributed in the hope that it will be useful, but WITHOUT</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * PHP version 5</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> * @category  FireGento</token>
+  </line>
+  <line no="16">
+    <token name="T_DOC_COMMENT"> * @package   FireGento_Pdf</token>
+  </line>
+  <line no="17">
+    <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
+  </line>
+  <line no="18">
+    <token name="T_DOC_COMMENT"> * @copyright 2014 FireGento Team (http://www.firegento.com)</token>
+  </line>
+  <line no="19">
+    <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
+  </line>
+  <line no="20">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="21">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="22">
+    <token name="T_DOC_COMMENT"> * Default item model rewrite.</token>
+  </line>
+  <line no="23">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="24">
+    <token name="T_DOC_COMMENT"> * @category  FireGento</token>
+  </line>
+  <line no="25">
+    <token name="T_DOC_COMMENT"> * @package   FireGento_Pdf</token>
+  </line>
+  <line no="26">
+    <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
+  </line>
+  <line no="27">
+    <token name="T_DOC_COMMENT"> */</token>
+  </line>
+  <line no="28">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">FireGento_Pdf_Model_Items_Unirgy_Shipment_Default</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">FireGento_Pdf_Model_Items_Shipment_Default</token>
+  </line>
+  <line no="29">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="30"/>
+  <line no="31">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">getItemOptions</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+  </line>
+  <line no="32">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="33">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_VARIABLE">$result</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">parent</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">getItemOptions</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="34">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_STRING">Mage</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">helper</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'ugiftcert'</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">addOrderItemCertOptions</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$result</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">getItem</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="35">
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$result</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="36">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="37"/>
+  <line no="38">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="39"/>
+</source>

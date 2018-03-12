@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Default" namespace="" name="FireGento_Pdf_Model_Items_Default" abstract="false" final="false" start="34" end="187">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Default.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Default.php" size="6355" time="2014-10-26T15:00:57+01:00" unixtime="1414332057" sha1="c2cfe8b0ecfee491baf8b108065d760196aa2e49" relative="app/code/community/FireGento/Pdf/Model/Items/Default.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Default" namespace="" name="FireGento_Pdf_Model_Items_Default" abstract="false" final="false" start="28" end="184">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Default.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Default.php" size="6247" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="66c94a81e03bcb24f0c3b24d645f6959be2e66d6" relative="app/code/community/FireGento/Pdf/Model/Items/Default.php"/>
   <docblock>
     <description compact="Default item model rewrite."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
-    <version value="$Id:$"/>
-    <since value="0.1.0"/>
   </docblock>
-  <extends full="Mage_Sales_Model_Order_Pdf_Items_Invoice_Default" namespace="" name="Mage_Sales_Model_Order_Pdf_Items_Invoice_Default"/>
-  <method name="draw" start="43" end="186" abstract="false" final="false" static="false" visibility="public">
+  <extends full="Mage_Sales_Model_Order_Pdf_Items_Invoice_Default" namespace="" name="Mage_Sales_Model_Order_Pdf_Items_Invoice_Default" unresolved="true"/>
+  <method name="draw" start="37" end="183" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Draw item line."/>
       <param description="position of the product" type="int" variable="$position"/>
@@ -22,20 +18,21 @@
     </docblock>
     <parameter name="position" byreference="false" type="integer" default="1"/>
     <inline>
-      <comment value="draw Position Number" line="53"/>
-      <comment value="draw SKU" line="63"/>
-      <comment value="draw Product name" line="70"/>
-      <comment value="append option value" line="81"/>
-      <comment value="prepare qty" line="94"/>
-      <comment value="prepare price" line="102"/>
-      <comment value="prepare price_incl_tax" line="110"/>
-      <comment value="prepare tax" line="118"/>
-      <comment value="prepare tax_rate" line="126"/>
-      <comment value="prepare subtotal" line="134"/>
-      <comment value="prepare subtotal_incl_tax" line="142"/>
-      <comment value="draw columns in specified order" line="150"/>
-      <comment value="draw starting from right" line="152"/>
-      <comment value="print discount" line="167"/>
+      <comment value="draw Position Number" line="48"/>
+      <comment value="draw SKU" line="58"/>
+      <comment value="draw Product name" line="65"/>
+      <comment value="prepare qty" line="91"/>
+      <comment value="prepare price" line="99"/>
+      <comment value="prepare price_incl_tax" line="107"/>
+      <comment value="prepare tax" line="115"/>
+      <comment value="prepare tax_rate" line="123"/>
+      <comment value="prepare subtotal" line="131"/>
+      <comment value="prepare subtotal_incl_tax" line="139"/>
+      <comment value="draw columns in specified order" line="147"/>
+      <comment value="draw starting from right" line="149"/>
     </inline>
   </method>
+  <extenders>
+    <extender full="FireGento_Pdf_Model_Items_Unirgy_Default" namespace="" name="FireGento_Pdf_Model_Items_Unirgy_Default"/>
+  </extenders>
 </class>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment" file="Engine.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php" size="2575" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="2f839a6e99672d5b2c91d892a09fafdd2681b2ba" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment" file="Engine.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php" size="2353" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="f6afea73813a6c298419cf640ac1872cd2094ece" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -8,13 +8,13 @@
     <token name="T_DOC_COMMENT">/**</token>
   </line>
   <line no="3">
-    <token name="T_DOC_COMMENT"> * This file is part of the FIREGENTO project.</token>
+    <token name="T_DOC_COMMENT"> * This file is part of a FireGento e.V. module.</token>
   </line>
   <line no="4">
     <token name="T_DOC_COMMENT"> *</token>
   </line>
   <line no="5">
-    <token name="T_DOC_COMMENT"> * FireGento_Pdf is free software; you can redistribute it and/or</token>
+    <token name="T_DOC_COMMENT"> * This FireGento e.V. module is free software; you can redistribute it and/or</token>
   </line>
   <line no="6">
     <token name="T_DOC_COMMENT"> * modify it under the terms of the GNU General Public License version 3 as</token>
@@ -53,75 +53,57 @@
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
   <line no="18">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
+    <token name="T_DOC_COMMENT"> * @copyright 2014 FireGento Team (http://www.firegento.com)</token>
   </line>
   <line no="19">
     <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
   </line>
   <line no="20">
-    <token name="T_DOC_COMMENT"> * @version   $Id:$</token>
+    <token name="T_DOC_COMMENT"> */</token>
   </line>
   <line no="21">
-    <token name="T_DOC_COMMENT"> * @since     0.1.0</token>
-  </line>
-  <line no="22">
-    <token name="T_DOC_COMMENT"> */</token>
-  </line>
-  <line no="23">
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="24">
+  <line no="22">
     <token name="T_DOC_COMMENT"> * Pdf creation engine source model.</token>
   </line>
-  <line no="25">
+  <line no="23">
     <token name="T_DOC_COMMENT"> *</token>
   </line>
-  <line no="26">
+  <line no="24">
     <token name="T_DOC_COMMENT"> * @category  FireGento</token>
   </line>
-  <line no="27">
+  <line no="25">
     <token name="T_DOC_COMMENT"> * @package   FireGento_Pdf</token>
   </line>
-  <line no="28">
+  <line no="26">
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
-  <line no="29">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
-  </line>
-  <line no="30">
-    <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
-  </line>
-  <line no="31">
-    <token name="T_DOC_COMMENT"> * @version   $Id:$</token>
-  </line>
-  <line no="32">
-    <token name="T_DOC_COMMENT"> * @since     0.1.0</token>
-  </line>
-  <line no="33">
+  <line no="27">
     <token name="T_DOC_COMMENT"> */</token>
   </line>
-  <line no="34">
+  <line no="28">
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">FireGento_Pdf_Model_System_Config_Source_Shipment_Engine</token>
   </line>
-  <line no="35">
+  <line no="29">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="36">
+  <line no="30">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="37">
+  <line no="31">
     <token name="T_DOC_COMMENT">     * Config xpath to pdf engine node</token>
   </line>
-  <line no="38">
+  <line no="32">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="39">
+  <line no="33">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="40">
+  <line no="34">
     <token name="T_WHITESPACE">    </token>
     <token name="T_CONST">const</token>
     <token name="T_WHITESPACE"> </token>
@@ -132,24 +114,24 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">'global/pdf/firegento_shipment_engines'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="41"/>
-  <line no="42">
+  <line no="35"/>
+  <line no="36">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="43">
+  <line no="37">
     <token name="T_DOC_COMMENT">     * Return array of possible engines.</token>
   </line>
-  <line no="44">
+  <line no="38">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="45">
+  <line no="39">
     <token name="T_DOC_COMMENT">     * @return array</token>
   </line>
-  <line no="46">
+  <line no="40">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="47">
+  <line no="41">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -159,15 +141,15 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="48">
+  <line no="42">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="49">
+  <line no="43">
     <token name="T_WHITESPACE">        </token>
     <token name="T_COMMENT">// load default engines shipped with Mage_Sales and FireGento_Pdf</token>
   </line>
-  <line no="50">
+  <line no="44">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$engines</token>
     <token name="T_WHITESPACE"> </token>
@@ -176,7 +158,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="51">
+  <line no="45">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
     <token name="T_WHITESPACE">                                     </token>
@@ -195,7 +177,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="52">
+  <line no="46">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'firegento_pdf/engine_shipment_default'</token>
     <token name="T_WHITESPACE"> </token>
@@ -210,20 +192,20 @@
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
     <token name="T_STRING">__</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
-    <token name="T_CONSTANT_ENCAPSED_STRING">'Standard Germany'</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'Standard FireGento'</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="53">
+  <line no="47">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="54"/>
-  <line no="55">
+  <line no="48"/>
+  <line no="49">
     <token name="T_WHITESPACE">        </token>
     <token name="T_COMMENT">// load additional engines provided by third party extensions</token>
   </line>
-  <line no="56">
+  <line no="50">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$engineNodes</token>
     <token name="T_WHITESPACE"> </token>
@@ -247,7 +229,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="57">
+  <line no="51">
     <token name="T_WHITESPACE">        </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -265,7 +247,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="58">
+  <line no="52">
     <token name="T_WHITESPACE">            </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -287,7 +269,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="59">
+  <line no="53">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$className</token>
     <token name="T_WHITESPACE">   </token>
@@ -300,7 +282,7 @@
     <token name="T_STRING">class</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="60">
+  <line no="54">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$engineLabel</token>
     <token name="T_WHITESPACE"> </token>
@@ -323,7 +305,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="61">
+  <line no="55">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$engines</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -335,16 +317,16 @@
     <token name="T_VARIABLE">$engineLabel</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="62">
+  <line no="56">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="63">
+  <line no="57">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="64"/>
-  <line no="65">
+  <line no="58"/>
+  <line no="59">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$options</token>
     <token name="T_WHITESPACE"> </token>
@@ -355,7 +337,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="66">
+  <line no="60">
     <token name="T_WHITESPACE">        </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -373,7 +355,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="67">
+  <line no="61">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$options</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -384,7 +366,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="68">
+  <line no="62">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'value'</token>
     <token name="T_WHITESPACE"> </token>
@@ -393,7 +375,7 @@
     <token name="T_VARIABLE">$k</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="69">
+  <line no="63">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'label'</token>
     <token name="T_WHITESPACE"> </token>
@@ -401,28 +383,29 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$v</token>
   </line>
-  <line no="70">
+  <line no="64">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="71">
+  <line no="65">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="72">
+  <line no="66"/>
+  <line no="67">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$options</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="73">
+  <line no="68">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="74">
+  <line no="69">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="75"/>
+  <line no="70"/>
 </source>

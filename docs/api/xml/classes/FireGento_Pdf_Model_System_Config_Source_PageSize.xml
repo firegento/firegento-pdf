@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_PageSize" namespace="" name="FireGento_Pdf_Model_System_Config_Source_PageSize" abstract="false" final="false" start="29" end="53">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="PageSize.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/PageSize.php" size="1556" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="2e33f0406ea760a84e36a09b7ac4a02a7bcfba8e" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/PageSize.php"/>
+  <docblock>
+    <description compact="Page size source model."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+  </docblock>
+  <method name="toOptionArray" start="36" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return array of possible sizes."/>
+      <return type="array"/>
+    </docblock>
+  </method>
+</class>
