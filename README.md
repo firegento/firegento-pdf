@@ -8,8 +8,6 @@ Facts
 -----
 - version: 1.3.0
 - extension key: FireGento_Pdf
-- [extension on Magento Connect](http://www.magentocommerce.com/magento-connect/firegento-pdf.html)
-- Magento Connect 2.0 extension key: http://connect20.magentocommerce.com/community/FireGento_Pdf
 - [extension on GitHub](https://github.com/firegento/firegento-pdf)
 - [direct download link](https://github.com/firegento/firegento-pdf/archive/master.zip)
 
@@ -30,7 +28,7 @@ Compatibility
 
 Installation Instructions
 -------------------------
-1. Install the extension via Magento Connect with the key shown above or copy all the files into your document root.
+1. Copy all the files into your document root.
 2. Clear the cache, logout from the admin panel and then login again.
 3. Configure the extension under System - Configuration - Sales - PDF Print-outs.
 
