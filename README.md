@@ -17,7 +17,7 @@ FireGento PDF overwrites standard PDF layouts for invoices, shipments and credit
 
 Requirements
 ------------
-- PHP >= 5.2.0
+- PHP >= 5.6.0
 - Mage_Core
 - Mage_Pdf
 - Mage_Sales
