@@ -56,7 +56,7 @@
             <a href="#methods">Methods</a>
           </li>
           <li>
-            <a href="../source/app/code/community/FireGento/Pdf/Helper/Data.php.xhtml#line35">Source</a>
+            <a href="../source/app/code/community/FireGento/Pdf/Helper/Data.php.xhtml#line29">Source</a>
           </li>
         </ul>
       </nav>
@@ -66,20 +66,28 @@
         <p/>
         <ul>
           <li>Author: FireGento Team &lt;team@firegento.com&gt;</li>
-          <li>Copyright: 2013 FireGento Team (http://www.firegento.com)</li>
-          <li>License: http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</li>
         </ul>
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class FireGento_Pdf_Helper_Data
-                extends <a title="Mage_Core_Helper_Abstract" href="../classes/Mage_Core_Helper_Abstract.xhtml">Mage_Core_Helper_Abstract</a>
-            {<br/><ul class="none"><li>// constants</li><li>const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';</li><li>const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';</li><li>const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';</li><li>const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';</li><li>const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';</li><li>const XML_PATH_ITALIC_FONT = 'sales_pdf/firegento_pdf_fonts/italic_font';</li><li>const FONT_PATH_IN_MEDIA = '/firegento_pdf/fonts';</li></ul><ul class="none"><li>// methods</li><li>public mixed <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId</a>()
+                extends Mage_Core_Helper_Abstract
+            {<br/><ul class="none"><li>// constants</li><li>const XML_PATH_FIREGENTO_PDF_LOGO_POSITION = 'sales_pdf/firegento_pdf/logo_position';</li><li>const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER = 'sales_pdf/invoice/show_customer_number';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER = 'sales_pdf/shipment/show_customer_number';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/show_customer_number';</li><li>const XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/invoice/show_customer_vatnumber';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/shipment/show_customer_vatnumber';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER = 'sales_pdf/creditmemo/show_customer_vatnumber';</li><li>const XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/invoice/guestorder_customer_number';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/shipment/guestorder_customer_number';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER = 'sales_pdf/creditmemo/guestorder_customer_number';</li><li>const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN = 'sales_pdf/invoice/filename_export_pattern';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN = 'sales_pdf/shipment/filename_export_pattern';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN = 'sales_pdf/creditmemo/filename_export_pattern';</li><li>const XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/invoice/filename_export_pattern_for_multiple_documents';</li><li>const XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/shipment/filename_export_pattern_for_multiple_documents';</li><li>const XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS = 'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents';</li><li>const XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE = 'sales_pdf/firegento_pdf/page_size';</li><li>const XML_PATH_COLOR_TEXT = 'sales_pdf/firegento_pdf_colors/text';</li><li>const XML_PATH_COLOR_LABELS = 'sales_pdf/firegento_pdf_colors/labels';</li><li>const XML_PATH_COLOR_TABLE_HEADER = 'sales_pdf/firegento_pdf_colors/table_header';</li><li>const XML_PATH_COLOR_FOOTER = 'sales_pdf/firegento_pdf_colors/footer';</li><li>const XML_PATH_REGULAR_FONT = 'sales_pdf/firegento_pdf_fonts/regular_font';</li><li>const XML_PATH_BOLD_FONT = 'sales_pdf/firegento_pdf_fonts/bold_font';</li><li>const XML_PATH_ITALIC_FONT = 'sales_pdf/firegento_pdf_fonts/italic_font';</li><li>const FONT_PATH_IN_MEDIA = '/firegento_pdf/fonts';</li></ul><ul class="none"><li>// methods</li><li>public mixed <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId</a>()
                     </li><li>public bool <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/isLogoFullWidth.xhtml">isLogoFullWidth</a>()
                     </li><li>public bool <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerNumber.xhtml">showCustomerNumber</a>()
+                    </li><li>public bool <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerVATNumber.xhtml">showCustomerVATNumber</a>()
+                    </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getGuestorderCustomerNo.xhtml">getGuestorderCustomerNo</a>()
                     </li><li>public array <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getScaledImageSize.xhtml">getScaledImageSize</a>()
                     </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportPattern.xhtml">getExportPattern</a>()
+                    </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportPatternForMultipleDocuments.xhtml">getExportPatternForMultipleDocuments</a>()
                     </li><li>public array <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getModelVars.xhtml">getModelVars</a>()
                     </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportFilename.xhtml">getExportFilename</a>()
+                    </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportFilenameForMultipleDocuments.xhtml">getExportFilenameForMultipleDocuments</a>()
                     </li><li>public string <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getFontPath.xhtml">getFontPath</a>()
+                    </li><li>public void <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getPageSizeConfigPath.xhtml">getPageSizeConfigPath</a>()
+                    </li><li>protected Zend_Pdf_Color_Html <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getColor.xhtml">getColor</a>()
+                    </li><li>public Zend_Pdf_Color_Html <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getTextColor.xhtml">getTextColor</a>()
+                    </li><li>public Zend_Pdf_Color_Html <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getHeaderColor.xhtml">getHeaderColor</a>()
+                    </li><li>public Zend_Pdf_Color_Html <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getFooterColor.xhtml">getFooterColor</a>()
+                    </li><li>public Zend_Pdf_Color_Html <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getLabelColor.xhtml">getLabelColor</a>()
                     </li></ul>
 
             }<br/></div>
@@ -87,9 +95,7 @@
         <div class="styled">
           <h4>Extends</h4>
           <ul>
-            <li>
-              <a href="../classes/Mage_Core_Helper_Abstract.xhtml">Mage_Core_Helper_Abstract</a>
-            </li>
+            <li>Mage_Core_Helper_Abstract</li>
           </ul>
         </div>
         <h2 id="constants">Constants</h2>
@@ -118,6 +124,30 @@
               <td>'sales_pdf/creditmemo/show_customer_number'</td>
             </tr>
             <tr>
+              <td id="XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER">XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER</td>
+              <td>'sales_pdf/invoice/show_customer_vatnumber'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER">XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER</td>
+              <td>'sales_pdf/shipment/show_customer_vatnumber'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER">XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER</td>
+              <td>'sales_pdf/creditmemo/show_customer_vatnumber'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER">XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER</td>
+              <td>'sales_pdf/invoice/guestorder_customer_number'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER">XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER</td>
+              <td>'sales_pdf/shipment/guestorder_customer_number'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER">XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER</td>
+              <td>'sales_pdf/creditmemo/guestorder_customer_number'</td>
+            </tr>
+            <tr>
               <td id="XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN">XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN</td>
               <td>'sales_pdf/invoice/filename_export_pattern'</td>
             </tr>
@@ -128,6 +158,38 @@
             <tr>
               <td id="XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN">XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN</td>
               <td>'sales_pdf/creditmemo/filename_export_pattern'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS">XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</td>
+              <td>'sales_pdf/invoice/filename_export_pattern_for_multiple_documents'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS">XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</td>
+              <td>'sales_pdf/shipment/filename_export_pattern_for_multiple_documents'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS">XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS</td>
+              <td>'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE">XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE</td>
+              <td>'sales_pdf/firegento_pdf/page_size'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_COLOR_TEXT">XML_PATH_COLOR_TEXT</td>
+              <td>'sales_pdf/firegento_pdf_colors/text'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_COLOR_LABELS">XML_PATH_COLOR_LABELS</td>
+              <td>'sales_pdf/firegento_pdf_colors/labels'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_COLOR_TABLE_HEADER">XML_PATH_COLOR_TABLE_HEADER</td>
+              <td>'sales_pdf/firegento_pdf_colors/table_header'</td>
+            </tr>
+            <tr>
+              <td id="XML_PATH_COLOR_FOOTER">XML_PATH_COLOR_FOOTER</td>
+              <td>'sales_pdf/firegento_pdf_colors/footer'</td>
             </tr>
             <tr>
               <td id="XML_PATH_REGULAR_FONT">XML_PATH_REGULAR_FONT</td>
@@ -149,30 +211,54 @@
         </table>
         <h2 id="methods">Methods</h2>
         <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="getColor"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getColor.xhtml">getColor()</a>
+                — Get configured PDF color</li>
+          </ul>
           <h4>public</h4>
           <ul>
             <li id="getExportFilename"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportFilename.xhtml">getExportFilename()</a>
                 — The filename of the exported file.</li>
+            <li id="getExportFilenameForMultipleDocuments"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportFilenameForMultipleDocuments.xhtml">getExportFilenameForMultipleDocuments()</a>
+                — The filename of the exported file if multiple documents are printed at once.</li>
             <li id="getExportPattern"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportPattern.xhtml">getExportPattern()</a>
                 — Return export pattern config value</li>
+            <li id="getExportPatternForMultipleDocuments"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getExportPatternForMultipleDocuments.xhtml">getExportPatternForMultipleDocuments()</a>
+                — Return export pattern for multiple documents config value</li>
             <li id="getFontPath"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getFontPath.xhtml">getFontPath()</a>
                 — Returns the path where the fonts reside.</li>
+            <li id="getFooterColor"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getFooterColor.xhtml">getFooterColor()</a>
+                — Get footer color</li>
+            <li id="getGuestorderCustomerNo"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getGuestorderCustomerNo.xhtml">getGuestorderCustomerNo()</a>
+                — Get customer number for guest orders.</li>
+            <li id="getHeaderColor"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getHeaderColor.xhtml">getHeaderColor()</a>
+                — Get table header color</li>
+            <li id="getLabelColor"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getLabelColor.xhtml">getLabelColor()</a>
+                — Get label color</li>
             <li id="getModelVars"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getModelVars.xhtml">getModelVars()</a>
                 — Gets the variables which can be used as a placeholder in the filename.</li>
+            <li id="getPageSizeConfigPath">
+              <a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getPageSizeConfigPath.xhtml">getPageSizeConfigPath()</a>
+            </li>
             <li id="getScaledImageSize"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getScaledImageSize.xhtml">getScaledImageSize()</a>
                 — Return scaled image sizes based on an path to an image file.</li>
+            <li id="getTextColor"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/getTextColor.xhtml">getTextColor()</a>
+                — Get text color</li>
             <li id="isLogoFullWidth"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/isLogoFullWidth.xhtml">isLogoFullWidth()</a>
                 — Whether the logo should be shown in full width.</li>
             <li id="putOrderId"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/putOrderId.xhtml">putOrderId()</a>
                 — Return the order id or false if order id should not be displayed on document.</li>
             <li id="showCustomerNumber"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerNumber.xhtml">showCustomerNumber()</a>
                 — Whether the customer number should be shown.</li>
+            <li id="showCustomerVATNumber"><a title="FireGento_Pdf_Helper_Data" href="../classes/FireGento_Pdf_Helper_Data/showCustomerVATNumber.xhtml">showCustomerVATNumber()</a>
+                — Whether the customer VAT number should be shown.</li>
           </ul>
         </div>
       </section>
     </div>
     <footer>
-      <span/>
+      <span>Generated using phpDox 0.11.0 - Copyright (C) 2010 - 2018 by Arne Blankerts and Contributors</span>
     </footer>
   </body>
 </html>

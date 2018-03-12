@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Shipment_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Shipment_Bundle" abstract="false" final="false" start="32" end="184">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Bundle.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php" size="6253" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="11539cba5ad9bfa03b92e2caba74084a04b4fd6a" relative="app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Shipment_Bundle" namespace="" name="FireGento_Pdf_Model_Items_Shipment_Bundle" abstract="false" final="false" start="28" end="181">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment" file="Bundle.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php" size="6043" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="66032d82975bb81c95a97142bc0cba301ba7b993" relative="app/code/community/FireGento/Pdf/Model/Items/Shipment/Bundle.php"/>
   <docblock>
     <description compact="Shipment bundle item model."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
-    <version value="$Id:$"/>
-    <since value="0.1.0"/>
   </docblock>
-  <extends full="Mage_Bundle_Model_Sales_Order_Pdf_Items_Shipment" namespace="" name="Mage_Bundle_Model_Sales_Order_Pdf_Items_Shipment"/>
-  <method name="draw" start="39" end="183" abstract="false" final="false" static="false" visibility="public">
+  <extends full="Mage_Bundle_Model_Sales_Order_Pdf_Items_Shipment" namespace="" name="Mage_Bundle_Model_Sales_Order_Pdf_Items_Shipment" unresolved="true"/>
+  <method name="draw" start="35" end="180" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Draw item line."/>
       <return type="object">
@@ -20,9 +16,7 @@
       </return>
     </docblock>
     <inline>
-      <comment value="draw SKUs" line="89"/>
-      <comment value="draw Name" line="102"/>
-      <comment value="custom options" line="143"/>
+      <comment value="custom options" line="140"/>
     </inline>
   </method>
 </class>

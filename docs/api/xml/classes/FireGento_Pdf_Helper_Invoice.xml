@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Helper_Invoice" namespace="" name="FireGento_Pdf_Helper_Invoice" abstract="false" final="false" start="29" end="59">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Invoice.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Invoice.php" size="1982" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="e2565ab34890b0b5d3978f17ebcd53e8708290c9" relative="app/code/community/FireGento/Pdf/Helper/Invoice.php"/>
+  <docblock>
+    <description compact="Helper for invoice creation."/>
+    <category value="FireGento"/>
+    <package value="FireGento_Pdf"/>
+    <author value="FireGento Team &lt;team@firegento.com&gt;"/>
+  </docblock>
+  <extends full="Mage_Core_Helper_Abstract" namespace="" name="Mage_Core_Helper_Abstract" unresolved="true"/>
+  <method name="getShippingCountryNotes" start="39" end="57" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the notes for the shipping country of the given order."/>
+      <param type="object" variable="$order">
+        <type full="Mage_Sales_Model_Order" namespace="" name="Mage_Sales_Model_Order"/>
+      </param>
+      <return description="the notes for the shipping country of the given order - may be empty!" type="array"/>
+    </docblock>
+    <parameter name="order" byreference="false" type="object">
+      <type full="Mage_Sales_Model_Order" namespace="" name="Mage_Sales_Model_Order"/>
+    </parameter>
+  </method>
+</class>

@@ -15,10 +15,9 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
-
 /**
  * Class FireGento_Pdf_Model_System_Config_Backend_Font
  *
@@ -29,7 +28,7 @@
 class FireGento_Pdf_Model_System_Config_Backend_Font
     extends Mage_Adminhtml_Model_System_Config_Backend_File
 {
-    private $_allowedExtensions
+    protected $_allowedExtensions
         = array(
             'otf',
             'ttf',

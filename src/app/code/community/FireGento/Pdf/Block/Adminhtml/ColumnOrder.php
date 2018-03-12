@@ -15,17 +15,15 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
 /**
- * Firegento
+ * Block which enables the user to change the column order in the admin via drag & drop.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
 class Firegento_Pdf_Block_Adminhtml_ColumnOrder
     extends Mage_Adminhtml_Block_System_Config_Form_Field
@@ -121,7 +119,7 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
         }
 
         $this->_addListItems($activeItems);
-        $this->_sortableListHtml .= '<li id="pdf-column-disabled" data-column="disabled" style="list-style:none">
+        $this->_sortableListHtml .= '<li id="pdf_column-disabled" data-column="disabled" style="list-style:none">
             <div id="' . $element->getHtmlId() . '_warning" style="display:none" class="validation-advice"></div>
             <br />
             ' . $this->__('not to be listed') . '
@@ -142,13 +140,14 @@ class Firegento_Pdf_Block_Adminhtml_ColumnOrder
     {
         foreach ($items as $name=>$item) {
             $this->_sortableListHtml .= sprintf(
-                '<li id="pdf-column-%s" data-column="%s" data-width="%s">%s</li>',
+                '<li id="pdf_column-%s" data-column="%s" data-width="%s">%s</li>',
                 $name,
                 $name,
                 $item['width'],
                 $item['label']
             );
         }
+
         return $this;
     }
 }

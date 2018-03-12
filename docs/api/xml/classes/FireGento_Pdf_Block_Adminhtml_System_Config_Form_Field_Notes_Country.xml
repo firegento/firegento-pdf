@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes_Country" namespace="" name="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes_Country" abstract="false" final="false" start="6" end="37">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/System/Config/Form/Field/Notes" file="Country.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/System/Config/Form/Field/Notes/Country.php" size="776" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="1484afc951a130dc368d8703f7d9f8cb767ab986" relative="app/code/community/FireGento/Pdf/Block/Adminhtml/System/Config/Form/Field/Notes/Country.php"/>
+  <docblock>
+    <description compact="HTML select element block with country options"/>
+  </docblock>
+  <extends full="Mage_Core_Block_Html_Select" namespace="" name="Mage_Core_Block_Html_Select" unresolved="true"/>
+  <method name="setInputName" start="15" end="18" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param variable="$value"/>
+      <return type="mixed"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="_toHtml" start="25" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Render block HTML"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+</class>

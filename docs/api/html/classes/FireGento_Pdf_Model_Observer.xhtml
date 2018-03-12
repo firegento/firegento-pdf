@@ -50,7 +50,7 @@
             <a href="#methods">Methods</a>
           </li>
           <li>
-            <a href="../source/app/code/community/FireGento/Pdf/Model/Observer.php.xhtml#line34">Source</a>
+            <a href="../source/app/code/community/FireGento/Pdf/Model/Observer.php.xhtml#line28">Source</a>
           </li>
         </ul>
       </nav>
@@ -60,45 +60,67 @@
         <p/>
         <ul>
           <li>Author: FireGento Team &lt;team@firegento.com&gt;</li>
-          <li>Copyright: 2013 FireGento Team (http://www.firegento.com)</li>
-          <li>License: http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</li>
         </ul>
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class FireGento_Pdf_Model_Observer
             {<br/><ul class="none"><li>// methods</li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceNotes.xhtml">addInvoiceNotes</a>()
-                    </li><li>public $this <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceDateNotice.xhtml">addInvoiceDateNotice</a>()
-                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceMaturity.xhtml">addInvoiceMaturity</a>()
-                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addPaymentMethod.xhtml">addPaymentMethod</a>()
-                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addShippingMethod.xhtml">addShippingMethod</a>()
-                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceComments.xhtml">addInvoiceComments</a>()
-                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addBarcode.xhtml">addBarcode</a>()
+                    </li><li>protected $this <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addShippingCountryNotes.xhtml">_addShippingCountryNotes</a>()
+                    </li><li>protected $this <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addInvoiceDateNotice.xhtml">_addInvoiceDateNotice</a>()
+                    </li><li>protected FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addInvoiceMaturity.xhtml">_addInvoiceMaturity</a>()
+                    </li><li>protected FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addPaymentMethod.xhtml">_addPaymentMethod</a>()
+                    </li><li>protected FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addShippingMethod.xhtml">_addShippingMethod</a>()
+                    </li><li>protected FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addInvoiceComments.xhtml">_addInvoiceComments</a>()
+                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addShipmentNotes.xhtml">addShipmentNotes</a>()
+                    </li><li>protected FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addShipmentComments.xhtml">_addShipmentComments</a>()
+                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addCreditmemoNotes.xhtml">addCreditmemoNotes</a>()
+                    </li><li>protected FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addCreditmemoComments.xhtml">_addCreditmemoComments</a>()
+                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceBarcode.xhtml">addInvoiceBarcode</a>()
+                    </li><li>public FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addShipmentBarcode.xhtml">addShipmentBarcode</a>()
+                    </li><li>protected FireGento_Pdf_Model_Observer <a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addBarcode.xhtml">_addBarcode</a>()
                     </li></ul>
 
             }<br/></div>
         <h2 id="methods">Methods</h2>
         <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="_addBarcode"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addBarcode.xhtml">_addBarcode()</a>
+                — Adds a barcode representing the order number to a PDF</li>
+            <li id="_addCreditmemoComments"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addCreditmemoComments.xhtml">_addCreditmemoComments()</a>
+                — Add the credit memo comments</li>
+            <li id="_addInvoiceComments"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addInvoiceComments.xhtml">_addInvoiceComments()</a>
+                — Add the invoice comments</li>
+            <li id="_addInvoiceDateNotice"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addInvoiceDateNotice.xhtml">_addInvoiceDateNotice()</a>
+                — add invoice date notice to pdf</li>
+            <li id="_addInvoiceMaturity"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addInvoiceMaturity.xhtml">_addInvoiceMaturity()</a>
+                — Add maturity to invoice notes.</li>
+            <li id="_addPaymentMethod"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addPaymentMethod.xhtml">_addPaymentMethod()</a>
+                — Add payment method to invoice / creditmemo notes.</li>
+            <li id="_addShipmentComments"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addShipmentComments.xhtml">_addShipmentComments()</a>
+                — Add the shipment comments</li>
+            <li id="_addShippingCountryNotes"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addShippingCountryNotes.xhtml">_addShippingCountryNotes()</a>
+                — Add notes based on shipping country</li>
+            <li id="_addShippingMethod"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/_addShippingMethod.xhtml">_addShippingMethod()</a>
+                — Add shipping method to invoice notes.</li>
+          </ul>
           <h4>public</h4>
           <ul>
-            <li id="addBarcode"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addBarcode.xhtml">addBarcode()</a>
-                — Adds a barcode representing the order number to the shipment if activated.</li>
-            <li id="addInvoiceComments"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceComments.xhtml">addInvoiceComments()</a>
-                — Add the invoice comments</li>
-            <li id="addInvoiceDateNotice"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceDateNotice.xhtml">addInvoiceDateNotice()</a>
-                — add invoice date notice to pdf</li>
-            <li id="addInvoiceMaturity"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceMaturity.xhtml">addInvoiceMaturity()</a>
-                — Add maturity to invoice notes.</li>
+            <li id="addCreditmemoNotes"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addCreditmemoNotes.xhtml">addCreditmemoNotes()</a>
+                — Add notes to credit memo document.</li>
+            <li id="addInvoiceBarcode"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceBarcode.xhtml">addInvoiceBarcode()</a>
+                — Adds a barcode representing the order number to the invoice if activated</li>
             <li id="addInvoiceNotes"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addInvoiceNotes.xhtml">addInvoiceNotes()</a>
                 — Add notes to invoice document.</li>
-            <li id="addPaymentMethod"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addPaymentMethod.xhtml">addPaymentMethod()</a>
-                — Add payment method to invoice notes.</li>
-            <li id="addShippingMethod"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addShippingMethod.xhtml">addShippingMethod()</a>
-                — Add shipping method to invoice notes.</li>
+            <li id="addShipmentBarcode"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addShipmentBarcode.xhtml">addShipmentBarcode()</a>
+                — Adds a barcode representing the order number to the shipment if activated</li>
+            <li id="addShipmentNotes"><a title="FireGento_Pdf_Model_Observer" href="../classes/FireGento_Pdf_Model_Observer/addShipmentNotes.xhtml">addShipmentNotes()</a>
+                — Add notes to shipment document.</li>
           </ul>
         </div>
       </section>
     </div>
     <footer>
-      <span/>
+      <span>Generated using phpDox 0.11.0 - Copyright (C) 2010 - 2018 by Arne Blankerts and Contributors</span>
     </footer>
   </body>
 </html>

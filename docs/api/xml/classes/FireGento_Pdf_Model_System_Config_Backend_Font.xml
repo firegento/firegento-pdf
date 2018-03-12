@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Backend_Font" namespace="" name="FireGento_Pdf_Model_System_Config_Backend_Font" abstract="false" final="false" start="29" end="47">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend" file="Font.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php" size="1407" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="042cb7230ed23f8de23a4a5b960089393a8d173a" relative="app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Backend_Font" namespace="" name="FireGento_Pdf_Model_System_Config_Backend_Font" abstract="false" final="false" start="28" end="46">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend" file="Font.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php" size="1408" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="f4470e232e7edeff7009acb0b055ebfdcedde687" relative="app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php"/>
   <docblock>
     <description compact="Class FireGento_Pdf_Model_System_Config_Backend_Font"/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
   </docblock>
-  <extends full="Mage_Adminhtml_Model_System_Config_Backend_File" namespace="" name="Mage_Adminhtml_Model_System_Config_Backend_File"/>
-  <member name="_allowedExtensions" type="array" visibility="private" line="32"/>
-  <method name="_getAllowedExtensions" start="43" end="46" abstract="false" final="false" static="false" visibility="protected">
+  <extends full="Mage_Adminhtml_Model_System_Config_Backend_File" namespace="" name="Mage_Adminhtml_Model_System_Config_Backend_File" unresolved="true"/>
+  <member name="_allowedExtensions" default="" type="array" visibility="protected" static="false" line="31"/>
+  <method name="_getAllowedExtensions" start="42" end="45" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="Returns the allowed font extensions."/>
       <return description="containing the allowed font extensions" type="array"/>

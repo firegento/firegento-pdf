@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Shipment" namespace="" name="FireGento_Pdf_Model_Shipment" abstract="false" final="false" start="34" end="78">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Shipment.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Shipment.php" size="2243" time="2014-10-26T15:00:57+01:00" unixtime="1414332057" sha1="e855c02c21d02aa3c0b2d963156299bf8ca89d91" relative="app/code/community/FireGento/Pdf/Model/Shipment.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Shipment" namespace="" name="FireGento_Pdf_Model_Shipment" abstract="false" final="false" start="28" end="73">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Shipment.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Shipment.php" size="2177" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="4fcb29e8e7745dfe64ab36505a0080c47eaee45c" relative="app/code/community/FireGento/Pdf/Model/Shipment.php"/>
   <docblock>
     <description compact="Shipment model rewrite."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
-    <version value="$Id:$"/>
-    <since value="0.1.0"/>
   </docblock>
-  <member name="_engine" type="{unknown}" visibility="private" line="42">
+  <extends full="Mage_Sales_Model_Order_Pdf_Shipment" namespace="" name="Mage_Sales_Model_Order_Pdf_Shipment" unresolved="true"/>
+  <member name="_engine" visibility="protected" static="false" line="36">
     <docblock>
       <description compact="The actual PDF engine responsible for rendering the file."/>
       <var type="object">
@@ -19,18 +16,15 @@
       </var>
     </docblock>
   </member>
-  <method name="getEngine" start="49" end="64" abstract="false" final="false" static="false" visibility="protected">
+  <method name="getEngine" start="43" end="59" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="get pdf rendering engine"/>
       <return type="object">
         <type full="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Shipment" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Shipment"/>
       </return>
     </docblock>
-    <inline>
-      <comment value="Fallback to Magento standard shipment layout." line="56"/>
-    </inline>
   </method>
-  <method name="getPdf" start="73" end="76" abstract="false" final="false" static="false" visibility="public">
+  <method name="getPdf" start="68" end="71" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="get PDF object"/>
       <param description="shipments to generate pdfs for" type="object" variable="$shipments">
@@ -38,6 +32,6 @@
       </param>
       <return type="mixed"/>
     </docblock>
-    <parameter name="shipments" byreference="false" type="array"/>
+    <parameter name="shipments" byreference="false" type="array" default=""/>
   </method>
 </class>

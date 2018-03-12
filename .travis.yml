@@ -1,0 +1,22 @@
+language: php
+sudo: false
+
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
+  - hhvm
+
+env:
+  - MAGENTO_VERSION="magento-mirror-1.9.3.4"
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: 7.0
+    - php: 7.1
+    - php: hhvm
+
+script:
+  - curl -sSL https://raw.githubusercontent.com/AOEpeople/MageTestStand/master/setup.sh | bash

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml" file="ColumnOrder.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php" size="6438" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="dc7e02a469b9e9b9bbf7b9b436b5732a6024d867" relative="app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml" file="ColumnOrder.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php" size="6355" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="e29aa7dc37e131a97ddf2cc0e23aff996606dc70" relative="app/code/community/FireGento/Pdf/Block/Adminhtml/ColumnOrder.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -53,7 +53,7 @@
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
   <line no="18">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
+    <token name="T_DOC_COMMENT"> * @copyright 2014 FireGento Team (http://www.firegento.com)</token>
   </line>
   <line no="19">
     <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
@@ -65,7 +65,7 @@
     <token name="T_DOC_COMMENT">/**</token>
   </line>
   <line no="22">
-    <token name="T_DOC_COMMENT"> * Firegento</token>
+    <token name="T_DOC_COMMENT"> * Block which enables the user to change the column order in the admin via drag &amp; drop.</token>
   </line>
   <line no="23">
     <token name="T_DOC_COMMENT"> *</token>
@@ -80,29 +80,23 @@
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
   <line no="27">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
-  </line>
-  <line no="28">
-    <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
-  </line>
-  <line no="29">
     <token name="T_DOC_COMMENT"> */</token>
   </line>
-  <line no="30">
+  <line no="28">
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">Firegento_Pdf_Block_Adminhtml_ColumnOrder</token>
   </line>
-  <line no="31">
+  <line no="29">
     <token name="T_WHITESPACE">    </token>
     <token name="T_EXTENDS">extends</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">Mage_Adminhtml_Block_System_Config_Form_Field</token>
   </line>
-  <line no="32">
+  <line no="30">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="33">
+  <line no="31">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PROTECTED">protected</token>
     <token name="T_WHITESPACE"> </token>
@@ -113,30 +107,30 @@
     <token name="T_CONSTANT_ENCAPSED_STRING">''</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="34"/>
-  <line no="35">
+  <line no="32"/>
+  <line no="33">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="36">
+  <line no="34">
     <token name="T_DOC_COMMENT">     * generate html for orderable list</token>
+  </line>
+  <line no="35">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="36">
+    <token name="T_DOC_COMMENT">     * @param  Varien_Data_Form_Element_Abstract $element form element to render</token>
   </line>
   <line no="37">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
   <line no="38">
-    <token name="T_DOC_COMMENT">     * @param  Varien_Data_Form_Element_Abstract $element form element to render</token>
-  </line>
-  <line no="39">
-    <token name="T_DOC_COMMENT">     *</token>
-  </line>
-  <line no="40">
     <token name="T_DOC_COMMENT">     * @return string</token>
   </line>
-  <line no="41">
+  <line no="39">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="42">
+  <line no="40">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PROTECTED">protected</token>
     <token name="T_WHITESPACE"> </token>
@@ -149,20 +143,20 @@
     <token name="T_VARIABLE">$element</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="43">
+  <line no="41">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="44">
+  <line no="42">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'</token>
   </line>
-  <line no="45">
+  <line no="43">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;style&gt;.orderable_config li {list-style: disc inside; cursor:move;}&lt;/style&gt;</token>
   </line>
-  <line no="46">
+  <line no="44">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;p&gt;'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -178,7 +172,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'&lt;p&gt;</token>
   </line>
-  <line no="47">
+  <line no="45">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;ul id="'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -193,7 +187,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_list" class="orderable_config"&gt;</token>
   </line>
-  <line no="48">
+  <line no="46">
     <token name="T_CONSTANT_ENCAPSED_STRING">            '</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -209,10 +203,10 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'</token>
   </line>
-  <line no="49">
+  <line no="47">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;/ul&gt;</token>
   </line>
-  <line no="50">
+  <line no="48">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;input type="hidden" value="'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -237,7 +231,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
   </line>
-  <line no="51">
+  <line no="49">
     <token name="T_WHITESPACE">                </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'" id="'</token>
     <token name="T_WHITESPACE"> </token>
@@ -253,10 +247,10 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'"&gt;</token>
   </line>
-  <line no="52">
+  <line no="50">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;script type="text/javascript"&gt;</token>
   </line>
-  <line no="53">
+  <line no="51">
     <token name="T_CONSTANT_ENCAPSED_STRING">                Sortable.create("'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -271,10 +265,10 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_list", {</token>
   </line>
-  <line no="54">
+  <line no="52">
     <token name="T_CONSTANT_ENCAPSED_STRING">                    onUpdate: function() {</token>
   </line>
-  <line no="55">
+  <line no="53">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        var inheritCheckbox = $("'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -289,28 +283,28 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_inherit");</token>
   </line>
-  <line no="56">
+  <line no="54">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        if (inheritCheckbox) {</token>
   </line>
-  <line no="57">
+  <line no="55">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            inheritCheckbox.checked=false;</token>
   </line>
-  <line no="58">
+  <line no="56">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        }</token>
   </line>
-  <line no="59">
+  <line no="57">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        var newOrder="";</token>
   </line>
-  <line no="60">
+  <line no="58">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        $A(this.element.children).each(function(item){</token>
   </line>
-  <line no="61">
+  <line no="59">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            var current = $(item).attributes["data-column"].value;</token>
   </line>
-  <line no="62">
+  <line no="60">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            if ("disabled" == current) {</token>
   </line>
-  <line no="63">
+  <line no="61">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                $("'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -325,43 +319,43 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'").value = newOrder;</token>
   </line>
-  <line no="64">
+  <line no="62">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            } else {</token>
   </line>
-  <line no="65">
+  <line no="63">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                if (0 &lt; newOrder.length) {</token>
   </line>
-  <line no="66">
+  <line no="64">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                    newOrder+=",";</token>
   </line>
-  <line no="67">
+  <line no="65">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                }</token>
   </line>
-  <line no="68">
+  <line no="66">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                newOrder+=current;</token>
   </line>
-  <line no="69">
+  <line no="67">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            }</token>
   </line>
-  <line no="70">
+  <line no="68">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        });</token>
   </line>
-  <line no="71">
+  <line no="69">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        validateSortableWidth();</token>
   </line>
-  <line no="72">
+  <line no="70">
     <token name="T_CONSTANT_ENCAPSED_STRING">                    }</token>
   </line>
-  <line no="73">
+  <line no="71">
     <token name="T_CONSTANT_ENCAPSED_STRING">                });</token>
   </line>
-  <line no="74">
+  <line no="72">
     <token name="T_CONSTANT_ENCAPSED_STRING">                validateSortableWidth = function () {</token>
   </line>
-  <line no="75">
+  <line no="73">
     <token name="T_CONSTANT_ENCAPSED_STRING">                    var newWidth=0;</token>
   </line>
-  <line no="76">
+  <line no="74">
     <token name="T_CONSTANT_ENCAPSED_STRING">                    $A($("'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -376,22 +370,22 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_list").children).each(function(item){</token>
   </line>
-  <line no="77">
+  <line no="75">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        var current = $(item).attributes["data-column"].value;</token>
   </line>
-  <line no="78">
+  <line no="76">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        if ($(item.attributes["data-width"])) {</token>
   </line>
-  <line no="79">
+  <line no="77">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            newWidth += parseInt($(item).attributes["data-width"].value);</token>
   </line>
-  <line no="80">
+  <line no="78">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        } else if ("disabled" == current) {</token>
   </line>
-  <line no="81">
+  <line no="79">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            if (240 &lt; newWidth) {</token>
   </line>
-  <line no="82">
+  <line no="80">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                $("'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -406,7 +400,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_warning").innerHTML = "'</token>
   </line>
-  <line no="83">
+  <line no="81">
     <token name="T_WHITESPACE">                                </token>
     <token name="T_PHPDOX_DOT">.</token>
     <token name="T_WHITESPACE"> </token>
@@ -421,7 +415,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'";</token>
   </line>
-  <line no="84">
+  <line no="82">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                $("'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -436,10 +430,10 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_warning").show();</token>
   </line>
-  <line no="85">
+  <line no="83">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            } else {</token>
   </line>
-  <line no="86">
+  <line no="84">
     <token name="T_CONSTANT_ENCAPSED_STRING">                                $("'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -454,56 +448,56 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_warning").hide();</token>
   </line>
-  <line no="87">
+  <line no="85">
     <token name="T_CONSTANT_ENCAPSED_STRING">                            }</token>
   </line>
-  <line no="88">
+  <line no="86">
     <token name="T_CONSTANT_ENCAPSED_STRING">                        }</token>
   </line>
-  <line no="89">
+  <line no="87">
     <token name="T_CONSTANT_ENCAPSED_STRING">                    });</token>
   </line>
-  <line no="90">
+  <line no="88">
     <token name="T_CONSTANT_ENCAPSED_STRING">                };</token>
   </line>
-  <line no="91">
+  <line no="89">
     <token name="T_CONSTANT_ENCAPSED_STRING">                validateSortableWidth();</token>
   </line>
-  <line no="92">
+  <line no="90">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;/script&gt;</token>
   </line>
-  <line no="93">
+  <line no="91">
     <token name="T_CONSTANT_ENCAPSED_STRING">        '</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="94">
+  <line no="92">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="95"/>
-  <line no="96">
+  <line no="93"/>
+  <line no="94">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="97">
+  <line no="95">
     <token name="T_DOC_COMMENT">     * get html for list</token>
+  </line>
+  <line no="96">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="97">
+    <token name="T_DOC_COMMENT">     * @param  Varien_Data_Form_Element_Abstract $element form element to render</token>
   </line>
   <line no="98">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
   <line no="99">
-    <token name="T_DOC_COMMENT">     * @param  Varien_Data_Form_Element_Abstract $element form element to render</token>
-  </line>
-  <line no="100">
-    <token name="T_DOC_COMMENT">     *</token>
-  </line>
-  <line no="101">
     <token name="T_DOC_COMMENT">     * @return string</token>
   </line>
-  <line no="102">
+  <line no="100">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="103">
+  <line no="101">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PROTECTED">protected</token>
     <token name="T_WHITESPACE"> </token>
@@ -516,11 +510,11 @@
     <token name="T_VARIABLE">$element</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="104">
+  <line no="102">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="105">
+  <line no="103">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$availableItems</token>
     <token name="T_WHITESPACE"> </token>
@@ -529,7 +523,7 @@
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="106">
+  <line no="104">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'price_incl_tax'</token>
     <token name="T_WHITESPACE">    </token>
@@ -557,7 +551,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="107">
+  <line no="105">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'price'</token>
     <token name="T_WHITESPACE">             </token>
@@ -585,7 +579,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="108">
+  <line no="106">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'qty'</token>
     <token name="T_WHITESPACE">               </token>
@@ -613,7 +607,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="109">
+  <line no="107">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'subtotal_incl_tax'</token>
     <token name="T_WHITESPACE"> </token>
@@ -641,7 +635,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="110">
+  <line no="108">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'subtotal'</token>
     <token name="T_WHITESPACE">          </token>
@@ -669,7 +663,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="111">
+  <line no="109">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'tax'</token>
     <token name="T_WHITESPACE">               </token>
@@ -697,7 +691,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="112">
+  <line no="110">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'tax_rate'</token>
     <token name="T_WHITESPACE">          </token>
@@ -725,12 +719,12 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="113">
+  <line no="111">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="114">
+  <line no="112">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$activeItems</token>
     <token name="T_WHITESPACE"> </token>
@@ -741,7 +735,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="115">
+  <line no="113">
     <token name="T_WHITESPACE">        </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -765,7 +759,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="116">
+  <line no="114">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$item</token>
     <token name="T_WHITESPACE"> </token>
@@ -777,7 +771,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="117">
+  <line no="115">
     <token name="T_WHITESPACE">            </token>
     <token name="T_IF">if</token>
     <token name="T_WHITESPACE"> </token>
@@ -793,7 +787,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="118">
+  <line no="116">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$activeItems</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -808,7 +802,7 @@
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="119">
+  <line no="117">
     <token name="T_WHITESPACE">                </token>
     <token name="T_UNSET">unset</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
@@ -819,16 +813,16 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="120">
+  <line no="118">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="121">
+  <line no="119">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="122"/>
-  <line no="123">
+  <line no="120"/>
+  <line no="121">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -838,7 +832,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="124">
+  <line no="122">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -846,9 +840,9 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONCAT_EQUAL">.=</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_CONSTANT_ENCAPSED_STRING">'&lt;li id="pdf-column-disabled" data-column="disabled" style="list-style:none"&gt;</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'&lt;li id="pdf_column-disabled" data-column="disabled" style="list-style:none"&gt;</token>
   </line>
-  <line no="125">
+  <line no="123">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;div id="'</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -863,10 +857,10 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'_warning" style="display:none" class="validation-advice"&gt;&lt;/div&gt;</token>
   </line>
-  <line no="126">
+  <line no="124">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;br /&gt;</token>
   </line>
-  <line no="127">
+  <line no="125">
     <token name="T_CONSTANT_ENCAPSED_STRING">            '</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_DOT">.</token>
@@ -882,11 +876,11 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'</token>
   </line>
-  <line no="128">
+  <line no="126">
     <token name="T_CONSTANT_ENCAPSED_STRING">            &lt;/li&gt;'</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="129">
+  <line no="127">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -896,8 +890,8 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="130"/>
-  <line no="131">
+  <line no="128"/>
+  <line no="129">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -906,34 +900,34 @@
     <token name="T_STRING">_sortableListHtml</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="132">
+  <line no="130">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="133"/>
-  <line no="134">
+  <line no="131"/>
+  <line no="132">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="135">
+  <line no="133">
     <token name="T_DOC_COMMENT">     * add items to list</token>
+  </line>
+  <line no="134">
+    <token name="T_DOC_COMMENT">     *</token>
+  </line>
+  <line no="135">
+    <token name="T_DOC_COMMENT">     * @param  array $items items to add</token>
   </line>
   <line no="136">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
   <line no="137">
-    <token name="T_DOC_COMMENT">     * @param  array $items items to add</token>
-  </line>
-  <line no="138">
-    <token name="T_DOC_COMMENT">     *</token>
-  </line>
-  <line no="139">
     <token name="T_DOC_COMMENT">     * @return $this</token>
   </line>
-  <line no="140">
+  <line no="138">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="141">
+  <line no="139">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PROTECTED">protected</token>
     <token name="T_WHITESPACE"> </token>
@@ -944,11 +938,11 @@
     <token name="T_VARIABLE">$items</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="142">
+  <line no="140">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="143">
+  <line no="141">
     <token name="T_WHITESPACE">        </token>
     <token name="T_FOREACH">foreach</token>
     <token name="T_WHITESPACE"> </token>
@@ -964,7 +958,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="144">
+  <line no="142">
     <token name="T_WHITESPACE">            </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -975,22 +969,22 @@
     <token name="T_STRING">sprintf</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
+  <line no="143">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'&lt;li id="pdf_column-%s" data-column="%s" data-width="%s"&gt;%s&lt;/li&gt;'</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
+  <line no="144">
+    <token name="T_WHITESPACE">                </token>
+    <token name="T_VARIABLE">$name</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+  </line>
   <line no="145">
     <token name="T_WHITESPACE">                </token>
-    <token name="T_CONSTANT_ENCAPSED_STRING">'&lt;li id="pdf-column-%s" data-column="%s" data-width="%s"&gt;%s&lt;/li&gt;'</token>
+    <token name="T_VARIABLE">$name</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
   <line no="146">
-    <token name="T_WHITESPACE">                </token>
-    <token name="T_VARIABLE">$name</token>
-    <token name="T_PHPDOX_COMMA">,</token>
-  </line>
-  <line no="147">
-    <token name="T_WHITESPACE">                </token>
-    <token name="T_VARIABLE">$name</token>
-    <token name="T_PHPDOX_COMMA">,</token>
-  </line>
-  <line no="148">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$item</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
@@ -998,35 +992,36 @@
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="149">
+  <line no="147">
     <token name="T_WHITESPACE">                </token>
     <token name="T_VARIABLE">$item</token>
     <token name="T_PHPDOX_OPEN_SQUARE">[</token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'label'</token>
     <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
   </line>
-  <line no="150">
+  <line no="148">
     <token name="T_WHITESPACE">            </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="151">
+  <line no="149">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="152">
+  <line no="150"/>
+  <line no="151">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="153">
+  <line no="152">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="154">
+  <line no="153">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="155"/>
+  <line no="154"/>
 </source>

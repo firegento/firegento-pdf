@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
 /**
@@ -24,10 +24,6 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf_Items_Shipment
 {
@@ -41,8 +37,6 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
         $item   = $this->getItem();
         $pdf    = $this->getPdf();
         $page   = $this->getPage();
-
-        $this->_setFontRegular();
 
         $shipItems = $this->getChilds($item);
         $items = array_merge(array($item->getOrderItem()), $item->getOrderItem()->getChildrenItems());
@@ -92,6 +86,7 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
                 foreach (Mage::helper('core/string')->str_split($_item->getSku(), 20) as $part) {
                     $text[] = $part;
                 }
+
                 $line[] = array(
                     'text'  => $text,
                     'feed' => 45,
@@ -105,10 +100,12 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
             } else {
                 $name = $_item->getName();
             }
+
             $text = array();
             foreach (Mage::helper('core/string')->str_split($name, 60, true, true) as $part) {
                 $text[] = $part;
             }
+
             $line[] = array(
                 'text'  => $text,
                 'feed'  => 150,
@@ -152,7 +149,7 @@ class FireGento_Pdf_Model_Items_Shipment_Bundle extends Mage_Bundle_Model_Sales_
                         'feed'  => 60
                     );
 
-                    if ($option['value']) {
+                    if (isset($option['value'])) {
                         $text = array();
                         $_printValue = isset($option['print_value'])
                             ? $option['print_value']

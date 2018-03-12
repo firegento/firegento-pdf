@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 /**
  * Creditmemo model rewrite.
@@ -26,19 +24,15 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
-class FireGento_Pdf_Model_Creditmemo
+class FireGento_Pdf_Model_Creditmemo extends Mage_Sales_Model_Order_Pdf_Creditmemo
 {
 
     /**
      * The actual PDF engine responsible for rendering the file.
      * @var Mage_Sales_Model_Order_Pdf_Abstract
      */
-    private $_engine;
+    protected $_engine;
 
     /**
      * get pdf renderer engine
@@ -51,8 +45,9 @@ class FireGento_Pdf_Model_Creditmemo
             $modelClass = Mage::getStoreConfig('sales_pdf/creditmemo/engine');
             $engine = Mage::getModel($modelClass);
 
-            if (!$engine) {
+            if (!$engine || $engine instanceof FireGento_Pdf_Model_Creditmemo) {
                 // Fallback to Magento standard creditmemo layout.
+                // use new here to circumvent our own rewrite
                 $engine = new Mage_Sales_Model_Order_Pdf_Creditmemo();
             }
 

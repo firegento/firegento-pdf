@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,22 +15,15 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
-
 /**
  * Shipment model rewrite.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Model_Engine_Shipment_Default
     extends FireGento_Pdf_Model_Engine_Abstract
@@ -54,6 +47,7 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
      */
     public function getPdf($shipments = array())
     {
+        $currentStore = Mage::app()->getStore()->getCode();
         $this->_beforeGetPdf();
         $this->_initRenderer('shipment');
 
@@ -67,6 +61,7 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
                 Mage::app()->getLocale()->emulate($shipment->getStoreId());
                 Mage::app()->setCurrentStore($shipment->getStoreId());
             }
+
             $order = $shipment->getOrder();
             $this->setOrder($order);
 
@@ -98,12 +93,22 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
                 $page = $this->_drawItem($item, $page, $order, $position);
             }
 
+            /* add shipment tracks */
+            $page = $this->_printShipmentTracks($page, $order, $shipment);
+
             /* add note */
             $page = $this->_insertNote($page, $order, $shipment);
 
             // Add footer
             $this->_addFooter($page, $shipment->getStore());
+
+            if ($shipment->getStoreId()) {
+                Mage::app()->getLocale()->revert();
+            }
         }
+
+        // Revert back to the original current store
+        Mage::app()->setCurrentStore($currentStore);
 
         $this->_afterGetPdf();
 
@@ -113,19 +118,17 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
     /**
      * Inserts the customer's shipping address.
      *
-     * @param  Zend_Pdf_Page          &$page current page object of Zend_Pdf
+     * @param  Zend_Pdf_Page          $page current page object of Zend_Pdf
      * @param  Mage_Sales_Model_Order $order order object
      *
      * @return void
      */
-    protected function _insertCustomerAddress(&$page, $order)
+    protected function _insertCustomerAddress($page, $order)
     {
         $this->_setFontRegular($page, 9);
-        $shipping = $this->_formatAddress($order->getShippingAddress()
-                ->format('pdf'));
+        $shipping = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
         foreach ($shipping as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'],
-                $this->y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
             $this->Ln(12);
         }
     }
@@ -137,11 +140,10 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
      */
     protected function insertTableHeader($page)
     {
-        $page->setFillColor($this->colors['grey1']);
-        $page->setLineColor($this->colors['grey1']);
+        $page->setFillColor($this->colors['header']);
+        $page->setLineColor($this->colors['header']);
         $page->setLineWidth(1);
-        $page->drawRectangle($this->margin['left'], $this->y,
-            $this->margin['right'] - 10, $this->y - 15);
+        $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
 
         $page->setFillColor($this->colors['black']);
         $this->_setFontRegular($page, 9);
@@ -178,14 +180,60 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
     {
         $this->_setFontRegular($page, 9);
 
-        $billing = $this->_formatAddress($order->getShippingAddress()
-                ->format('pdf'));
+        $billing = $this->_formatAddress($order->getShippingAddress()->format('pdf'));
 
         foreach ($billing as $line) {
-            $page->drawText(trim(strip_tags($line)), $this->margin['left'],
-                $this->y, $this->encoding);
+            $page->drawText(trim(strip_tags($line)), $this->margin['left'], $this->y, $this->encoding);
             $this->Ln(12);
         }
+    }
+
+    /**
+     * This will print all the shipment tracks.
+     *
+     * @param Zend_Pdf_Page $page
+     * @param Mage_Sales_Model_Order $order
+     * @param Mage_Sales_Model_Order_Shipment $shipment
+     *
+     * @return Zend_Pdf_Page
+     */
+    protected function _printShipmentTracks($page, $order, $shipment)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/show_tracking_numbers') || $order->getIsVirtual()) {
+            return $page;
+        }
+
+        $tracks = array();
+        if ($shipment) {
+            $tracks = $shipment->getAllTracks();
+        }
+
+        if (empty($tracks)) {
+            return $page;
+        }
+
+        $this->y -= 20;
+        $page->setFillColor($this->colors['header']);
+        $page->setLineColor($this->colors['header']);
+        $page->setLineWidth(1);
+        $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'] - 10, $this->y - 15);
+        $page->setFillColor($this->colors['black']);
+        $this->_setFontRegular($page, 9);
+        $this->y -= 11;
+        $page->drawText(Mage::helper('sales')->__('Carrier'), $this->margin['left'], $this->y, 'UTF-8');
+        $page->drawText(Mage::helper('sales')->__('Number'), 290, $this->y, 'UTF-8');
+        $page->setFillColor($this->colors['text']);
+        $this->y -= 18;
+        foreach ($tracks as $track) {
+            $maxTitleLen    = 45;
+            $endOfTitle     = strlen($track->getTitle()) > $maxTitleLen ? '...' : '';
+            $truncatedTitle = substr($track->getTitle(), 0, $maxTitleLen) . $endOfTitle;
+            $page->drawText($truncatedTitle, $this->margin['left'], $this->y, 'UTF-8');
+            $page->drawText($track->getNumber(), 290, $this->y, 'UTF-8');
+            $this->y -= 18;
+        }
+
+        return $page;
     }
 
     /**
@@ -205,6 +253,10 @@ class FireGento_Pdf_Model_Engine_Shipment_Default
         );
         $this->_renderers['bundle'] = array(
             'model'    => 'firegento_pdf/items_shipment_bundle',
+            'renderer' => null
+        );
+        $this->_renderers['ugiftcert'] = array(
+            'model'    => 'firegento_pdf/items_unirgy_shipment_default',
             'renderer' => null
         );
     }

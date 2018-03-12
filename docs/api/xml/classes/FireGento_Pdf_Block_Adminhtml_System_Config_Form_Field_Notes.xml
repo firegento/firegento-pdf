@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes" namespace="" name="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes" abstract="false" final="false" start="3" end="62">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/System/Config/Form/Field" file="Notes.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Block/Adminhtml/System/Config/Form/Field/Notes.php" size="1757" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="f131bc24b3f0e480d1015b5726b52d9d6938d4ff" relative="app/code/community/FireGento/Pdf/Block/Adminhtml/System/Config/Form/Field/Notes.php"/>
+  <extends full="Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract" namespace="" name="Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract" unresolved="true"/>
+  <member name="_countryRenderer" visibility="protected" static="false" line="10">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes_Country" namespace="" name="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes_Country"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="_getCountryRenderer" start="17" end="27" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Retrieve country column renderer"/>
+      <return type="object">
+        <type full="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes_Country" namespace="" name="FireGento_Pdf_Block_Adminhtml_System_Config_Form_Field_Notes_Country"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="_prepareToRender" start="32" end="47" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add columns, change button labels etc."/>
+    </docblock>
+  </method>
+  <method name="_prepareArrayRow" start="54" end="60" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Prepare existing row data object"/>
+      <param type="object">
+        <type full="Varien_Object" namespace="" name="Varien_Object"/>
+      </param>
+    </docblock>
+    <parameter name="row" byreference="false" type="object">
+      <type full="Varien_Object" namespace="" name="Varien_Object"/>
+    </parameter>
+  </method>
+</class>

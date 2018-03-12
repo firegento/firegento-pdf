@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Adminhtml_Sales_OrderController" namespace="" name="FireGento_Pdf_Adminhtml_Sales_OrderController" abstract="false" final="false" start="5" end="163">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales" file="OrderController.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/OrderController.php" size="6227" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="08869605fb3588decfdcce065f0a198a6fe1a394" relative="app/code/community/FireGento/Pdf/controllers/Adminhtml/Sales/OrderController.php"/>
+  <extends full="Mage_Adminhtml_Sales_OrderController" namespace="" name="Mage_Adminhtml_Sales_OrderController" unresolved="true"/>
+  <method name="pdfinvoicesAction" start="8" end="58" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="pdfshipmentsAction" start="60" end="110" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="pdfcreditmemosAction" start="112" end="162" abstract="false" final="false" static="false" visibility="public"/>
+</class>

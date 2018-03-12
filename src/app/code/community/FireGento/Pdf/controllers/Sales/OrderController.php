@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 
 require_once 'Mage/Sales/controllers/OrderController.php';
@@ -29,10 +27,6 @@ require_once 'Mage/Sales/controllers/OrderController.php';
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
 {
@@ -88,6 +82,7 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
         if (!in_array($type, $this->_types)) {
             Mage::throwException('Type not found in type table.');
         }
+
         /* @var $order Mage_Sales_Model_Order */
         $documentId = (int)$this->getRequest()->getParam($type . '_id');
         $document = null;
@@ -110,9 +105,16 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
                     ->addAttributeToSelect('*')
                     ->addAttributeToFilter('order_id', $orderId)
                     ->load();
+                if (count($documentsCollection) == 1) {
+                    $filename = Mage::helper('firegento_pdf')
+                        ->getExportFilename($type, $documentsCollection->getFirstItem());
+                } else {
+                    $filename = Mage::helper('firegento_pdf')->getExportFilenameForMultipleDocuments($type);
+                }
             } else {
                 // Create a single $type pdf.
                 $documentsCollection = array($document);
+                $filename = Mage::helper('firegento_pdf')->getExportFilename($type, $document);
             }
 
             // Store current area and set to adminhtml for $type generation.
@@ -123,12 +125,11 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
             $pdfGenerator = Mage::getModel('sales/order_pdf_' . $type);
             $pdf = $pdfGenerator->getPdf($documentsCollection);
             $this->_prepareDownloadResponse(
-                Mage::helper('firegento_pdf')->getExportFilename($type, $document), $pdf->render(), 'application/pdf'
+                $filename, $pdf->render(), 'application/pdf'
             );
 
             // Restore area.
             Mage::getDesign()->setArea($currentArea);
-
         } else {
             if (Mage::getSingleton('customer/session')->isLoggedIn()) {
                 $this->_redirect('*/*/history');

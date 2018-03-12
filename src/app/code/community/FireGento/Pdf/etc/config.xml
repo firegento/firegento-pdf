@@ -1,8 +1,27 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * This file is part of a FireGento e.V. module.
+ *
+ * This FireGento e.V. module is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ */
+ -->
 <config>
     <modules>
         <FireGento_Pdf>
-            <version>1.3.0</version>
+            <version>1.4.0</version>
         </FireGento_Pdf>
     </modules>
     <global>
@@ -53,15 +72,31 @@
                 <observers>
                     <firegento_pdf>
                         <class>firegento_pdf/observer</class>
-                        <method>addShippingMethod</method>
+                        <method>addShipmentNotes</method>
                     </firegento_pdf>
                 </observers>
             </firegento_pdf_shipment_insert_note>
+            <firegento_pdf_creditmemo_insert_note>
+                <observers>
+                    <firegento_pdf>
+                        <class>firegento_pdf/observer</class>
+                        <method>addCreditmemoNotes</method>
+                    </firegento_pdf>
+                </observers>
+            </firegento_pdf_creditmemo_insert_note>
+            <firegento_pdf_invoice_edit_page>
+                <observers>
+                    <firegento_pdf>
+                        <class>firegento_pdf/observer</class>
+                        <method>addInvoiceBarcode</method>
+                    </firegento_pdf>
+                </observers>
+            </firegento_pdf_invoice_edit_page>
             <firegento_pdf_shipment_edit_page>
                 <observers>
                     <firegento_pdf>
                         <class>firegento_pdf/observer</class>
-                        <method>addBarcode</method>
+                        <method>addShipmentBarcode</method>
                     </firegento_pdf>
                 </observers>
             </firegento_pdf_shipment_edit_page>
@@ -127,11 +162,29 @@
     <default>
         <sales_pdf>
             <firegento_pdf>
+                <logo_ratio>100</logo_ratio>
                 <headerblocks_position>left</headerblocks_position>
+                <!-- This is Zend_Pdf_Page::SIZE_A4 -->
+                <page_size>595:842:</page_size>
             </firegento_pdf>
+            <firegento_pdf_fonts>
+                <upload_fonts>0</upload_fonts>
+                <regular_font/>
+                <bold_font/>
+                <italic_font/>
+            </firegento_pdf_fonts>
+            <firegento_pdf_colors>
+                <text>000000</text>
+                <labels>666666</labels>
+                <table_header>eeeeee</table_header>
+                <footer>888888</footer>
+            </firegento_pdf_colors>
             <invoice>
-                <engine/>
+                <engine>firegento_pdf/engine_invoice_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <customer_number_field/>
+                <show_customer_vatnumber>0</show_customer_vatnumber>
+                <customer_number_guestorder>-</customer_number_guestorder>
                 <show_date_notice>0</show_date_notice>
                 <maturity/>
                 <payment_method_position/>
@@ -140,22 +193,32 @@
                 <note/>
                 <item_price_column_order>price_incl_tax,qty,tax,subtotal_incl_tax</item_price_column_order>
                 <show_item_discount>0</show_item_discount>
+                <order_id_as_barcode>0</order_id_as_barcode>
+                <filename_export_pattern/>
+                <filename_export_pattern_for_multiple_documents/>
+                <shipping_country_notes/>
             </invoice>
             <shipment>
-                <engine/>
+                <engine>firegento_pdf/engine_shipment_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <show_customer_vatnumber>0</show_customer_vatnumber>
                 <shipping_method_position/>
+                <show_comments>0</show_comments>
                 <note/>
                 <order_id_as_barcode>0</order_id_as_barcode>
+                <filename_export_pattern/>
+                <filename_export_pattern_for_multiple_documents/>
             </shipment>
             <creditmemo>
-                <engine/>
+                <engine>firegento_pdf/engine_creditmemo_default</engine>
                 <show_customer_number>1</show_customer_number>
+                <payment_method_position/>
+                <show_customer_vatnumber>0</show_customer_vatnumber>
+                <show_comments>0</show_comments>
                 <note/>
+                <filename_export_pattern/>
+                <filename_export_pattern_for_multiple_documents/>
             </creditmemo>
-            <firegento_pdf>
-                <logo_ratio>100</logo_ratio>
-            </firegento_pdf>
         </sales_pdf>
         <tax>
             <sales_display>

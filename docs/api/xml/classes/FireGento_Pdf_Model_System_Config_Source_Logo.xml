@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Logo" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Logo" abstract="false" final="false" start="34" end="63">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Logo.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php" size="2036" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="7432503ca9ecc54479534495f7df6b3617102f19" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Logo" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Logo" abstract="false" final="false" start="28" end="58">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source" file="Logo.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php" size="1812" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="c2d526afe9291e2a4f989e98b73371ec02fc7144" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Logo.php"/>
   <docblock>
     <description compact="Logo position source model."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
-    <version value="$Id:$"/>
-    <since value="0.1.0"/>
   </docblock>
-  <constant name="LEFT" value="'left'"/>
-  <constant name="CENTER" value="'center'"/>
-  <constant name="RIGHT" value="'right'"/>
-  <constant name="FULL_WIDTH" value="'full_width'"/>
-  <method name="toOptionArray" start="46" end="62" abstract="false" final="false" static="false" visibility="public">
+  <constant type="string" name="LEFT" value="'left'"/>
+  <constant type="string" name="CENTER" value="'center'"/>
+  <constant type="string" name="RIGHT" value="'right'"/>
+  <constant type="string" name="FULL_WIDTH" value="'full_width'"/>
+  <method name="toOptionArray" start="40" end="57" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return array of possible positions."/>
       <return type="array"/>

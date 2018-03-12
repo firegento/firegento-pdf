@@ -1,17 +1,41 @@
 <?php
-
-
+/**
+ * This file is part of a FireGento e.V. module.
+ *
+ * This FireGento e.V. module is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * PHP version 5
+ *
+ * @category  FireGento
+ * @package   FireGento_Pdf
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ */
+/**
+ * Abstract test class for the different engines.
+ *
+ * @category FireGento
+ * @package  FireGento_Pdf
+ * @author   FireGento Team <team@firegento.com>
+ */
 abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
     extends EcomDev_PHPUnit_Test_Case
 {
-    protected $class = '';
+    protected $_class = '';
 
     /**
      * @test
      */
     public function itShouldExist()
     {
-        $this->assertTrue(class_exists($this->class));
+        $this->assertTrue(class_exists($this->_class));
     }
 
     /**
@@ -21,15 +45,15 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
     public function itShouldHaveAMethodGetEngine()
     {
         try {
-            new ReflectionMethod($this->class, 'getEngine');
+            new ReflectionMethod($this->_class, 'getEngine');
         } catch (ReflectionException $e) {
             $this->fail($e->getMessage());
         }
     }
     
-    abstract function getEngineXmlConfigPath();
+    abstract public function getEngineXmlConfigPath();
     
-    abstract function getExpectedDefaultEngineClass();
+    abstract public function getExpectedDefaultEngineClass();
 
     abstract public function getOrderObjectClassName();
 
@@ -39,8 +63,8 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
      */
     public function itShouldReturnADefaultEngineModel()
     {
-        $this->app()->getStore()->setConfig($this->getEngineXmlConfigPath(), 'invalid');
-        $instance = new $this->class;
+        static::app()->getStore()->setConfig($this->getEngineXmlConfigPath(), 'invalid');
+        $instance = new $this->_class;
         $result = $this->callMethod($instance, 'getEngine');
         $this->assertInstanceOf($this->getExpectedDefaultEngineClass(), $result);
     }
@@ -51,7 +75,7 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
      */
     public function itShouldhaveAMethodGetPdf()
     {
-        $instance = new $this->class;
+        $instance = new $this->_class;
         $this->assertTrue(is_callable(array($instance, 'getPdf')));
     }
 
@@ -61,12 +85,15 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
      */
     public function itShouldReturnAZendPdf()
     {
-        $instance = new $this->class;
-        
+        $instance = new $this->_class;
+
         $mockAddress = $this->getMock('Mage_Sales_Model_Order_Address');
 
-        $mockPaymentMethod = $this->getMockForAbstractClass('Mage_Payment_Model_Method_Abstract');
-        
+        $mockPaymentMethod = $this->getMock('Mage_Payment_Model_Method_Abstract');
+        $mockPaymentMethod->expects($this->any())
+            ->method('getInfoBlockType')
+            ->will($this->returnValue('payment/info'));
+
         $mockPaymentInfo = $this->getMock('Mage_Sales_Model_Order_Payment');
         $mockPaymentInfo->expects($this->any())
             ->method('getMethodInstance')
@@ -79,7 +106,7 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
         $mockOrder->expects($this->any())
             ->method('getShippingAddress')
             ->will($this->returnValue($mockAddress));
-        
+
         $mockOrder->expects($this->any())
             ->method('getPayment')
             ->will($this->returnValue($mockPaymentInfo));
@@ -93,8 +120,11 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
         $mockObj->expects($this->any())
             ->method('getAllItems')
             ->will($this->returnValue(array()));
-        
+
+        $currentArea = Mage::getDesign()->getArea();
+        Mage::getDesign()->setArea('adminhtml');
         $result = $instance->getPdf(array($mockObj));
+        Mage::getDesign()->setArea($currentArea);
         $this->assertInstanceOf('Zend_Pdf', $result);
     }
 
@@ -109,4 +139,4 @@ abstract class FireGento_Pdf_Test_Model_SalesObjectTestAbstract
             return $method->invoke($object);
         }
     }
-} 
+}

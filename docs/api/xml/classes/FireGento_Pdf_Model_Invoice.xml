@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Invoice" namespace="" name="FireGento_Pdf_Model_Invoice" abstract="false" final="false" start="37" end="81">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Invoice.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" size="2341" time="2014-10-26T15:00:57+01:00" unixtime="1414332057" sha1="a46ba1d499fc1e5532a2b04dd1b5b117df797f51" relative="app/code/community/FireGento/Pdf/Model/Invoice.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Invoice" namespace="" name="FireGento_Pdf_Model_Invoice" abstract="false" final="false" start="31" end="76">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model" file="Invoice.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Invoice.php" size="2273" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="8e56bf58fc31c6340282f8090166b8b2bd09f4d1" relative="app/code/community/FireGento/Pdf/Model/Invoice.php"/>
   <docblock>
     <description compact="Invoice model rewrite.">The invoice model serves as a proxy to the actual PDF engine as set via
 backend configuration.</description>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
-    <version value="$Id:$"/>
-    <since value="0.1.0"/>
   </docblock>
-  <member name="_engine" type="{unknown}" visibility="private" line="45">
+  <extends full="Mage_Sales_Model_Order_Pdf_Invoice" namespace="" name="Mage_Sales_Model_Order_Pdf_Invoice" unresolved="true"/>
+  <member name="_engine" visibility="protected" static="false" line="39">
     <docblock>
       <description compact="The actual PDF engine responsible for rendering the file."/>
       <var type="object">
@@ -20,18 +17,15 @@ backend configuration.</description>
       </var>
     </docblock>
   </member>
-  <method name="getEngine" start="52" end="67" abstract="false" final="false" static="false" visibility="protected">
+  <method name="getEngine" start="46" end="62" abstract="false" final="false" static="false" visibility="protected">
     <docblock>
       <description compact="get pdf rendering engine"/>
       <return type="object">
         <type full="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice" namespace="" name="Mage_Sales_Model_Order_Pdf_Abstract|Mage_Sales_Model_Order_Pdf_Invoice"/>
       </return>
     </docblock>
-    <inline>
-      <comment value="Fallback to Magento standard invoice layout." line="59"/>
-    </inline>
   </method>
-  <method name="getPdf" start="76" end="79" abstract="false" final="false" static="false" visibility="public">
+  <method name="getPdf" start="71" end="74" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="get pdf for invoices"/>
       <param description="invoices to render pdfs for" type="object" variable="$invoices">
@@ -39,6 +33,6 @@ backend configuration.</description>
       </param>
       <return type="mixed"/>
     </docblock>
-    <parameter name="invoices" byreference="false" type="array"/>
+    <parameter name="invoices" byreference="false" type="array" default=""/>
   </method>
 </class>

@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" abstract="false" final="false" start="34" end="74">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment" file="Engine.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php" size="2575" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="2f839a6e99672d5b2c91d892a09fafdd2681b2ba" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" namespace="" name="FireGento_Pdf_Model_System_Config_Source_Shipment_Engine" abstract="false" final="false" start="28" end="69">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment" file="Engine.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php" size="2353" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="f6afea73813a6c298419cf640ac1872cd2094ece" relative="app/code/community/FireGento/Pdf/Model/System/Config/Source/Shipment/Engine.php"/>
   <docblock>
     <description compact="Pdf creation engine source model."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
-    <version value="$Id:$"/>
-    <since value="0.1.0"/>
   </docblock>
-  <constant name="XML_PATH_PDF_ENGINE" value="'global/pdf/firegento_shipment_engines'">
+  <constant type="string" name="XML_PATH_PDF_ENGINE" value="'global/pdf/firegento_shipment_engines'">
     <docblock>
       <description compact="Config xpath to pdf engine node"/>
     </docblock>
   </constant>
-  <method name="toOptionArray" start="47" end="73" abstract="false" final="false" static="false" visibility="public">
+  <method name="toOptionArray" start="41" end="68" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return array of possible engines."/>
       <return type="array"/>
     </docblock>
     <inline>
-      <comment value="load default engines shipped with Mage_Sales and FireGento_Pdf" line="49"/>
-      <comment value="load additional engines provided by third party extensions" line="55"/>
+      <comment value="load default engines shipped with Mage_Sales and FireGento_Pdf" line="43"/>
+      <comment value="load additional engines provided by third party extensions" line="49"/>
     </inline>
   </method>
 </class>

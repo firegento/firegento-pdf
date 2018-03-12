@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Helper_Data" namespace="" name="FireGento_Pdf_Helper_Data" abstract="false" final="false" start="35" end="281">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="10520" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="e87eaea4c8f3372a82db2c902fe36aee5d2321b7" relative="app/code/community/FireGento/Pdf/Helper/Data.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Helper_Data" namespace="" name="FireGento_Pdf_Helper_Data" abstract="false" final="false" start="29" end="479">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper" file="Data.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Helper/Data.php" size="17424" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="8f8ccf5572b0880e4d6746441caf4a7f2cc05b39" relative="app/code/community/FireGento/Pdf/Helper/Data.php"/>
   <docblock>
     <description compact="Dummy data helper for translation issues."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
-    <version value="$Id:$"/>
-    <since value="0.1.0"/>
   </docblock>
-  <extends full="Mage_Core_Helper_Abstract" namespace="" name="Mage_Core_Helper_Abstract"/>
-  <constant name="XML_PATH_FIREGENTO_PDF_LOGO_POSITION" value="'sales_pdf/firegento_pdf/logo_position'"/>
-  <constant name="XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/invoice/show_customer_number'"/>
-  <constant name="XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/shipment/show_customer_number'"/>
-  <constant name="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/creditmemo/show_customer_number'"/>
-  <constant name="XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN" value="'sales_pdf/invoice/filename_export_pattern'"/>
-  <constant name="XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN" value="'sales_pdf/shipment/filename_export_pattern'"/>
-  <constant name="XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN" value="'sales_pdf/creditmemo/filename_export_pattern'"/>
-  <constant name="XML_PATH_REGULAR_FONT" value="'sales_pdf/firegento_pdf_fonts/regular_font'"/>
-  <constant name="XML_PATH_BOLD_FONT" value="'sales_pdf/firegento_pdf_fonts/bold_font'"/>
-  <constant name="XML_PATH_ITALIC_FONT" value="'sales_pdf/firegento_pdf_fonts/italic_font'"/>
-  <constant name="FONT_PATH_IN_MEDIA" value="'/firegento_pdf/fonts'"/>
-  <method name="putOrderId" start="59" end="93" abstract="false" final="false" static="false" visibility="public">
+  <extends full="Mage_Core_Helper_Abstract" namespace="" name="Mage_Core_Helper_Abstract" unresolved="true"/>
+  <constant type="string" name="XML_PATH_FIREGENTO_PDF_LOGO_POSITION" value="'sales_pdf/firegento_pdf/logo_position'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/invoice/show_customer_number'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/shipment/show_customer_number'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_NUMBER" value="'sales_pdf/creditmemo/show_customer_number'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_INVOICE_SHOW_CUSTOMER_VATNUMBER" value="'sales_pdf/invoice/show_customer_vatnumber'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_SHIPMENT_SHOW_CUSTOMER_VATNUMBER" value="'sales_pdf/shipment/show_customer_vatnumber'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_CREDITMEMO_SHOW_CUSTOMER_VATNUMBER" value="'sales_pdf/creditmemo/show_customer_vatnumber'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_INVOICE_GUEST_ORDER_CUSTOMER_NUMBER" value="'sales_pdf/invoice/guestorder_customer_number'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_SHIPMENT_GUEST_ORDER_CUSTOMER_NUMBER" value="'sales_pdf/shipment/guestorder_customer_number'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_CREDITMEMO_GUEST_ORDER_CUSTOMER_NUMBER" value="'sales_pdf/creditmemo/guestorder_customer_number'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN" value="'sales_pdf/invoice/filename_export_pattern'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN" value="'sales_pdf/shipment/filename_export_pattern'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN" value="'sales_pdf/creditmemo/filename_export_pattern'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_INVOICE_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS" value="'sales_pdf/invoice/filename_export_pattern_for_multiple_documents'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_SHIPMENT_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS" value="'sales_pdf/shipment/filename_export_pattern_for_multiple_documents'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_CREDITMEMO_FILENAME_EXPORT_PATTERN_FOR_MULTIPLE_DOCUMENTS" value="'sales_pdf/creditmemo/filename_export_pattern_for_multiple_documents'"/>
+  <constant type="string" name="XML_PATH_SALES_PDF_FIREGENTO_PDF_PAGE_SIZE" value="'sales_pdf/firegento_pdf/page_size'"/>
+  <constant type="string" name="XML_PATH_COLOR_TEXT" value="'sales_pdf/firegento_pdf_colors/text'"/>
+  <constant type="string" name="XML_PATH_COLOR_LABELS" value="'sales_pdf/firegento_pdf_colors/labels'"/>
+  <constant type="string" name="XML_PATH_COLOR_TABLE_HEADER" value="'sales_pdf/firegento_pdf_colors/table_header'"/>
+  <constant type="string" name="XML_PATH_COLOR_FOOTER" value="'sales_pdf/firegento_pdf_colors/footer'"/>
+  <constant type="string" name="XML_PATH_REGULAR_FONT" value="'sales_pdf/firegento_pdf_fonts/regular_font'"/>
+  <constant type="string" name="XML_PATH_BOLD_FONT" value="'sales_pdf/firegento_pdf_fonts/bold_font'"/>
+  <constant type="string" name="XML_PATH_ITALIC_FONT" value="'sales_pdf/firegento_pdf_fonts/italic_font'"/>
+  <constant type="string" name="FONT_PATH_IN_MEDIA" value="'/firegento_pdf/fonts'"/>
+  <method name="putOrderId" start="68" end="103" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return the order id or false if order id should not be displayed on document."/>
       <param description="order to get id from" type="object" variable="$order">
@@ -33,11 +43,11 @@
       <return type="mixed"/>
     </docblock>
     <parameter name="order" byreference="false" type="object">
-      <type full="\\Mage_Sales_Model_Order" namespace="\" name="Mage_Sales_Model_Order"/>
+      <type full="Mage_Sales_Model_Order" namespace="" name="Mage_Sales_Model_Order"/>
     </parameter>
     <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
   </method>
-  <method name="isLogoFullWidth" start="102" end="109" abstract="false" final="false" static="false" visibility="public">
+  <method name="isLogoFullWidth" start="112" end="120" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Whether the logo should be shown in full width."/>
       <param description="store to get information from" type="mixed" variable="$store"/>
@@ -47,7 +57,7 @@
     </docblock>
     <parameter name="store" byreference="false" type="{unknown}"/>
   </method>
-  <method name="showCustomerNumber" start="119" end="139" abstract="false" final="false" static="false" visibility="public">
+  <method name="showCustomerNumber" start="130" end="151" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Whether the customer number should be shown."/>
       <param description="the mode of this document like invoice, shipment or creditmemo" type="string" variable="$mode"/>
@@ -57,9 +67,40 @@
       </return>
     </docblock>
     <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
-    <parameter name="store" byreference="false" type="{unknown}"/>
+    <parameter name="store" byreference="false" type="{unknown}" default="NULL"/>
+    <inline>
+      <comment value="backwards compatibility" line="150"/>
+    </inline>
   </method>
-  <method name="getScaledImageSize" start="150" end="172" abstract="false" final="false" static="false" visibility="public">
+  <method name="showCustomerVATNumber" start="161" end="182" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Whether the customer VAT number should be shown."/>
+      <param description="the mode of this document like invoice, shipment or creditmemo" type="string" variable="$mode"/>
+      <param description="store to get information from" type="mixed" variable="$store"/>
+      <return description="whether the customer number should be shown" type="object">
+        <type full="bool" namespace="" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
+    <parameter name="store" byreference="false" type="{unknown}" default="NULL"/>
+    <inline>
+      <comment value="backwards compatibility" line="181"/>
+    </inline>
+  </method>
+  <method name="getGuestorderCustomerNo" start="192" end="219" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get customer number for guest orders."/>
+      <param description="the mode of this document like invoice, shipment or creditmemo" type="string" variable="$mode"/>
+      <param description="store to get information from" type="mixed" variable="$store"/>
+      <return description="customer number for guest orders" type="string"/>
+    </docblock>
+    <parameter name="mode" byreference="false" type="string" default="'invoice'"/>
+    <parameter name="store" byreference="false" type="{unknown}" default="NULL"/>
+    <inline>
+      <comment value="backwards compatibility" line="218"/>
+    </inline>
+  </method>
+  <method name="getScaledImageSize" start="230" end="252" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return scaled image sizes based on an path to an image file."/>
       <param description="Url to image file." type="string" variable="$image"/>
@@ -70,13 +111,8 @@
     <parameter name="image" byreference="false" type="{unknown}"/>
     <parameter name="maxWidth" byreference="false" type="{unknown}"/>
     <parameter name="maxHeight" byreference="false" type="{unknown}"/>
-    <inline>
-      <comment value="Calculate max variance to match dimensions." line="155"/>
-      <comment value="Calculate scale factor to match dimensions." line="159"/>
-      <comment value="Calculate new dimensions." line="166"/>
-    </inline>
   </method>
-  <method name="getExportPattern" start="181" end="198" abstract="false" final="false" static="false" visibility="public">
+  <method name="getExportPattern" start="261" end="279" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Return export pattern config value"/>
       <param description="the type of this document like invoice, shipment or creditmemo" type="string" variable="$type"/>
@@ -84,7 +120,15 @@
     </docblock>
     <parameter name="type" byreference="false" type="{unknown}"/>
   </method>
-  <method name="getModelVars" start="207" end="244" abstract="false" final="false" static="false" visibility="public">
+  <method name="getExportPatternForMultipleDocuments" start="288" end="306" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Return export pattern for multiple documents config value"/>
+      <param description="the type of this document like invoice, shipment or creditmemo" type="string" variable="$type"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getModelVars" start="315" end="354" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Gets the variables which can be used as a placeholder in the filename."/>
       <param description="the model instance" type="object" variable="$model">
@@ -94,7 +138,7 @@
     </docblock>
     <parameter name="model" byreference="false" type="{unknown}"/>
   </method>
-  <method name="getExportFilename" start="254" end="270" abstract="false" final="false" static="false" visibility="public">
+  <method name="getExportFilename" start="364" end="387" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="The filename of the exported file."/>
       <param description="the type of this document like invoice, shipment or creditmemo" type="string" variable="$type"/>
@@ -106,10 +150,61 @@
     <parameter name="type" byreference="false" type="{unknown}"/>
     <parameter name="model" byreference="false" type="{unknown}"/>
   </method>
-  <method name="getFontPath" start="277" end="280" abstract="false" final="false" static="false" visibility="public">
+  <method name="getExportFilenameForMultipleDocuments" start="396" end="416" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="The filename of the exported file if multiple documents are printed at once."/>
+      <param description="the type of this document like invoice, shipment or creditmemo" type="string" variable="$type"/>
+      <return description="the filename of the exported file" type="string"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getFontPath" start="423" end="426" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Returns the path where the fonts reside."/>
       <return description="the path where the fonts reside" type="string"/>
+    </docblock>
+  </method>
+  <method name="getPageSizeConfigPath" start="428" end="431" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="getColor" start="439" end="442" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Get configured PDF color"/>
+      <param description="System config path" type="string" variable="$path"/>
+      <return type="object">
+        <type full="Zend_Pdf_Color_Html" namespace="" name="Zend_Pdf_Color_Html"/>
+      </return>
+    </docblock>
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getTextColor" start="448" end="451" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get text color"/>
+      <return type="object">
+        <type full="Zend_Pdf_Color_Html" namespace="" name="Zend_Pdf_Color_Html"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getHeaderColor" start="457" end="460" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get table header color"/>
+      <return type="object">
+        <type full="Zend_Pdf_Color_Html" namespace="" name="Zend_Pdf_Color_Html"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getFooterColor" start="466" end="469" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get footer color"/>
+      <return type="object">
+        <type full="Zend_Pdf_Color_Html" namespace="" name="Zend_Pdf_Color_Html"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="getLabelColor" start="475" end="478" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get label color"/>
+      <return type="object">
+        <type full="Zend_Pdf_Color_Html" namespace="" name="Zend_Pdf_Color_Html"/>
+      </return>
     </docblock>
   </method>
 </class>

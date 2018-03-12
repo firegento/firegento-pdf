@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Grouped" namespace="" name="FireGento_Pdf_Model_Items_Grouped" abstract="false" final="false" start="30" end="51">
-  <file path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Grouped.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Grouped.php" size="1770" time="2014-10-25T10:53:01+02:00" unixtime="1414227181" sha1="75e7f2d0b6e329e050d2685b32f3aa0764cd0d6f" relative="app/code/community/FireGento/Pdf/Model/Items/Grouped.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="FireGento_Pdf_Model_Items_Grouped" namespace="" name="FireGento_Pdf_Model_Items_Grouped" abstract="false" final="false" start="28" end="49">
+  <file path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items" file="Grouped.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/Items/Grouped.php" size="1625" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="d54dd005aea70544a72b85e7ae95b09ca3d06c51" relative="app/code/community/FireGento/Pdf/Model/Items/Grouped.php"/>
   <docblock>
     <description compact="Default item model rewrite."/>
     <category value="FireGento"/>
     <package value="FireGento_Pdf"/>
     <author value="FireGento Team &lt;team@firegento.com&gt;"/>
-    <copyright value="2013 FireGento Team (http://www.firegento.com)"/>
-    <license name="http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)"/>
   </docblock>
-  <extends full="Mage_Sales_Model_Order_Pdf_Items_Invoice_Grouped" namespace="" name="Mage_Sales_Model_Order_Pdf_Items_Invoice_Grouped"/>
-  <method name="draw" start="39" end="50" abstract="false" final="false" static="false" visibility="public">
+  <extends full="Mage_Sales_Model_Order_Pdf_Items_Invoice_Grouped" namespace="" name="Mage_Sales_Model_Order_Pdf_Items_Invoice_Grouped" unresolved="true"/>
+  <method name="draw" start="37" end="48" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Draw item line."/>
       <param description="position of the product" type="int" variable="$position"/>

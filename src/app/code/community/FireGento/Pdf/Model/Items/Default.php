@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 /**
  * Default item model rewrite.
@@ -26,10 +24,6 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items_Invoice_Default
 {
@@ -46,6 +40,7 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
         $item = $this->getItem();
         $pdf = $this->getPdf();
         $page = $this->getPage();
+        $helper = Mage::helper('firegento_pdf');
         $lines = array();
 
         $fontSize = 9;
@@ -79,13 +74,15 @@ class FireGento_Pdf_Model_Items_Default extends Mage_Sales_Model_Order_Pdf_Items
             foreach ($options as $option) {
                 $optionTxt = $option['label'] . ': ';
                 // append option value
-                if ($option['value']) {
+                if (isset($option['value'])) {
                     $optionTxt .= isset($option['print_value']) ? $option['print_value'] : strip_tags($option['value']);
                 }
+
                 $optionArray = $pdf->_prepareText($optionTxt, $page, $pdf->getFontRegular(), $fontSize, 215);
                 $lines[][] = array(
-                    'text' => $optionArray,
-                    'feed' => $pdf->margin['left'] + 135
+                    'text'  => $optionArray,
+                    'feed'  => $pdf->margin['left'] + 135,
+                    'color' => $helper->getLabelColor(),
                 );
             }
         }

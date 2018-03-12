@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 /**
  * Bundle item model rewrite.
@@ -26,10 +24,6 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf_Items_Invoice
 {
@@ -49,7 +43,6 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
         $fontSize = 9;
 
-        $this->_setFontRegular();
         $items = $this->getChilds($item);
 
         $_prevOptionId = '';
@@ -120,6 +113,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
             } else {
                 $name = $_item->getName();
             }
+
             $line[] = array(
                 'text'  => Mage::helper('core/string')->str_split($name, 35, true, true),
                 'feed'  => $pdf->margin['left'] + 130,
@@ -131,7 +125,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                 $columns = array();
                 // prepare qty
                 $columns['qty'] = array(
-                    'text'      => $item->getQty() * 1,
+                    'text'      => $_item->getQty() * 1,
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width' => 30
@@ -139,7 +133,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
                 // prepare price
                 $columns['price'] = array(
-                    'text'      => $order->formatPriceTxt($item->getPrice()),
+                    'text'      => $order->formatPriceTxt($_item->getPrice()),
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width'    => 60
@@ -147,7 +141,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
                 // prepare price_incl_tax
                 $columns['price_incl_tax'] = array(
-                    'text'      => $order->formatPriceTxt($item->getPriceInclTax()),
+                    'text'      => $order->formatPriceTxt($_item->getPriceInclTax()),
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width'    => 60
@@ -155,7 +149,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
                 // prepare tax
                 $columns['tax'] = array(
-                    'text'      => $order->formatPriceTxt($item->getTaxAmount() + $item->getHiddenTaxAmount()),
+                    'text'      => $order->formatPriceTxt($_item->getTaxAmount() + $_item->getHiddenTaxAmount()),
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width'    => 50
@@ -163,7 +157,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
                 // prepare tax_rate
                 $columns['tax_rate'] = array(
-                    'text'      => round($item->getOrderItem()->getTaxPercent(), 2) . '%',
+                    'text'      => round($_item->getOrderItem()->getTaxPercent(), 2) . '%',
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width'    => 50
@@ -171,7 +165,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
                 // prepare subtotal
                 $columns['subtotal'] = array(
-                    'text'      => $order->formatPriceTxt($item->getRowTotal()),
+                    'text'      => $order->formatPriceTxt($_item->getRowTotal()),
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width'    => 50
@@ -179,7 +173,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
                 // prepare subtotal_incl_tax
                 $columns['subtotal_incl_tax'] = array(
-                    'text'      => $order->formatPriceTxt($item->getRowTotalInclTax()),
+                    'text'      => $order->formatPriceTxt($_item->getRowTotalInclTax()),
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width'    => 70
@@ -217,7 +211,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
                         'feed' => 35
                     );
 
-                    if ($option['value']) {
+                    if (isset($option['value'])) {
                         $text = array();
                         $_printValue = isset($option['print_value'])
                             ? $option['print_value']

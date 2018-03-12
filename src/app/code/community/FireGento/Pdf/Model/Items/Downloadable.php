@@ -15,10 +15,9 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
-
 /**
  * Class FireGento_Pdf_Model_Items_Downloadable
  *
@@ -42,6 +41,7 @@ class FireGento_Pdf_Model_Items_Downloadable
         $item = $this->getItem();
         $pdf = $this->getPdf();
         $page = $this->getPage();
+        $helper = Mage::helper('firegento_pdf');
         $lines = array();
 
         $fontSize = 9;
@@ -77,15 +77,15 @@ class FireGento_Pdf_Model_Items_Downloadable
             foreach ($options as $option) {
                 $optionTxt = $option['label'] . ': ';
                 // append option value
-                if ($option['value']) {
-                    $optionTxt .= isset($option['print_value'])
-                        ? $option['print_value'] : strip_tags($option['value']);
+                if (isset($option['value'])) {
+                    $optionTxt .= isset($option['print_value'])? $option['print_value'] : strip_tags($option['value']);
                 }
-                $optionArray = $pdf->_prepareText($optionTxt, $page,
-                    $pdf->getFontRegular(), $fontSize, 215);
+
+                $optionArray = $pdf->_prepareText($optionTxt, $page, $pdf->getFontRegular(), $fontSize, 215);
                 $lines[][] = array(
-                    'text' => $optionArray,
-                    'feed' => $pdf->margin['left'] + 135
+                    'text'  => $optionArray,
+                    'feed'  => $pdf->margin['left'] + 135,
+                    'color' => $helper->getLabelColor(),
                 );
             }
         }
@@ -146,8 +146,7 @@ class FireGento_Pdf_Model_Items_Downloadable
 
         // prepare tax_rate
         $columns['tax_rate'] = array(
-            'text'      => round($item->getOrderItem()->getTaxPercent(), 2)
-                . '%',
+            'text'      => round($item->getOrderItem()->getTaxPercent(), 2) . '%',
             'align'     => 'right',
             'font_size' => $fontSize,
             '_width'    => 50
@@ -155,8 +154,7 @@ class FireGento_Pdf_Model_Items_Downloadable
 
         // prepare subtotal
         $columns['subtotal'] = array(
-            'text'      => $order->formatPriceTxt($item->getPrice()
-                * $item->getQty() * 1),
+            'text'      => $order->formatPriceTxt($item->getPrice() * $item->getQty() * 1),
             'align'     => 'right',
             'font_size' => $fontSize,
             '_width'    => 50
@@ -164,16 +162,14 @@ class FireGento_Pdf_Model_Items_Downloadable
 
         // prepare subtotal_incl_tax
         $columns['subtotal_incl_tax'] = array(
-            'text'      => $order->formatPriceTxt(($item->getPrice()
-                    * $item->getQty() * 1) + $item->getTaxAmount()),
+            'text'      => $order->formatPriceTxt(($item->getPrice() * $item->getQty() * 1) + $item->getTaxAmount()),
             'align'     => 'right',
             'font_size' => $fontSize,
             '_width'    => 70
         );
 
         // draw columns in specified order
-        $columnsOrder = explode(',',
-            Mage::getStoreConfig('sales_pdf/invoice/item_price_column_order'));
+        $columnsOrder = explode(',', Mage::getStoreConfig('sales_pdf/invoice/item_price_column_order'));
         // draw starting from right
         $columnsOrder = array_reverse($columnsOrder);
         $columnOffset = 0;
@@ -208,8 +204,7 @@ class FireGento_Pdf_Model_Items_Downloadable
             'height' => 15
         );
 
-        $page = $pdf->drawLineBlocks($page, array($lineBlock),
-            array('table_header' => true));
+        $page = $pdf->drawLineBlocks($page, array($lineBlock), array('table_header' => true));
         $this->setPage($page);
     }
 }

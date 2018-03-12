@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 /**
  * Default invoice rendering engine.
@@ -26,10 +24,6 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Engine_Abstract
 {
@@ -52,6 +46,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
      */
     public function getPdf($invoices = array())
     {
+        $currentStore = Mage::app()->getStore()->getCode();
         $this->_beforeGetPdf();
         $this->_initRenderer('invoice');
 
@@ -65,6 +60,7 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
                 Mage::app()->getLocale()->emulate($invoice->getStoreId());
                 Mage::app()->setCurrentStore($invoice->getStoreId());
             }
+
             $order = $invoice->getOrder();
             $this->setOrder($order);
 
@@ -104,7 +100,14 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
 
             // Add footer
             $this->_addFooter($page, $invoice->getStore());
+
+            if ($invoice->getStoreId()) {
+                Mage::app()->getLocale()->revert();
+            }
         }
+
+        // Revert back to the original current store
+        Mage::app()->setCurrentStore($currentStore);
 
         $this->_afterGetPdf();
 
@@ -114,14 +117,14 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
     /**
      * Insert Table Header for Items
      *
-     * @param  Zend_Pdf_Page &$page current page object of Zend_PDF
+     * @param  Zend_Pdf_Page $page current page object of Zend_PDF
      *
      * @return void
      */
-    protected function insertTableHeader(&$page)
+    protected function insertTableHeader($page)
     {
-        $page->setFillColor($this->colors['grey1']);
-        $page->setLineColor($this->colors['grey1']);
+        $page->setFillColor($this->colors['header']);
+        $page->setLineColor($this->colors['header']);
         $page->setLineWidth(1);
         $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'], $this->y - 15);
 
@@ -212,6 +215,10 @@ class FireGento_Pdf_Model_Engine_Invoice_Default extends FireGento_Pdf_Model_Eng
         );
         $this->_renderers['downloadable'] = array(
             'model'    => 'firegento_pdf/items_downloadable',
+            'renderer' => null
+        );
+        $this->_renderers['ugiftcert'] = array(
+            'model'    => 'firegento_pdf/items_unirgy_default',
             'renderer' => null
         );
     }

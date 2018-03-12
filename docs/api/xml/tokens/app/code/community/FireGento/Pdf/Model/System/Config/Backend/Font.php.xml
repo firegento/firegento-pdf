@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend" file="Font.php" realpath="/Users/fabian/Projects/firegento-pdf/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php" size="1407" time="2014-11-08T20:00:37+01:00" unixtime="1415473237" sha1="042cb7230ed23f8de23a4a5b960089393a8d173a" relative="app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend" file="Font.php" realpath="/var/www/magento193/.modman/firegento-pdf/src/app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php" size="1408" time="2018-03-12T19:59:19+00:00" unixtime="1520884759" sha1="f4470e232e7edeff7009acb0b055ebfdcedde687" relative="app/code/community/FireGento/Pdf/Model/System/Config/Backend/Font.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -53,7 +53,7 @@
     <token name="T_DOC_COMMENT"> * @author    FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
   <line no="18">
-    <token name="T_DOC_COMMENT"> * @copyright 2013 FireGento Team (http://www.firegento.com)</token>
+    <token name="T_DOC_COMMENT"> * @copyright 2014 FireGento Team (http://www.firegento.com)</token>
   </line>
   <line no="19">
     <token name="T_DOC_COMMENT"> * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)</token>
@@ -61,88 +61,87 @@
   <line no="20">
     <token name="T_DOC_COMMENT"> */</token>
   </line>
-  <line no="21"/>
-  <line no="22">
+  <line no="21">
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="23">
+  <line no="22">
     <token name="T_DOC_COMMENT"> * Class FireGento_Pdf_Model_System_Config_Backend_Font</token>
   </line>
-  <line no="24">
+  <line no="23">
     <token name="T_DOC_COMMENT"> *</token>
   </line>
-  <line no="25">
+  <line no="24">
     <token name="T_DOC_COMMENT"> * @category FireGento</token>
   </line>
-  <line no="26">
+  <line no="25">
     <token name="T_DOC_COMMENT"> * @package  FireGento_Pdf</token>
   </line>
-  <line no="27">
+  <line no="26">
     <token name="T_DOC_COMMENT"> * @author   FireGento Team &lt;team@firegento.com&gt;</token>
   </line>
-  <line no="28">
+  <line no="27">
     <token name="T_DOC_COMMENT"> */</token>
   </line>
-  <line no="29">
+  <line no="28">
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">FireGento_Pdf_Model_System_Config_Backend_Font</token>
   </line>
-  <line no="30">
+  <line no="29">
     <token name="T_WHITESPACE">    </token>
     <token name="T_EXTENDS">extends</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">Mage_Adminhtml_Model_System_Config_Backend_File</token>
   </line>
-  <line no="31">
+  <line no="30">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="32">
+  <line no="31">
     <token name="T_WHITESPACE">    </token>
-    <token name="T_PRIVATE">private</token>
+    <token name="T_PROTECTED">protected</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$_allowedExtensions</token>
   </line>
-  <line no="33">
+  <line no="32">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_EQUAL">=</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_ARRAY">array</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
   </line>
-  <line no="34">
+  <line no="33">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'otf'</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="35">
+  <line no="34">
     <token name="T_WHITESPACE">            </token>
     <token name="T_CONSTANT_ENCAPSED_STRING">'ttf'</token>
     <token name="T_PHPDOX_COMMA">,</token>
   </line>
-  <line no="36">
+  <line no="35">
     <token name="T_WHITESPACE">        </token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="37"/>
-  <line no="38">
+  <line no="36"/>
+  <line no="37">
     <token name="T_WHITESPACE">    </token>
     <token name="T_DOC_COMMENT">/**</token>
   </line>
-  <line no="39">
+  <line no="38">
     <token name="T_DOC_COMMENT">     * Returns the allowed font extensions.</token>
   </line>
-  <line no="40">
+  <line no="39">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="41">
+  <line no="40">
     <token name="T_DOC_COMMENT">     * @return array containing the allowed font extensions</token>
   </line>
-  <line no="42">
+  <line no="41">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="43">
+  <line no="42">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PROTECTED">protected</token>
     <token name="T_WHITESPACE"> </token>
@@ -152,11 +151,11 @@
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
   </line>
-  <line no="44">
+  <line no="43">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="45">
+  <line no="44">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -165,12 +164,12 @@
     <token name="T_STRING">_allowedExtensions</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="46">
+  <line no="45">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="47">
+  <line no="46">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="48"/>
+  <line no="47"/>
 </source>

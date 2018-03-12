@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 /**
  * FireGento Pdf observer.
@@ -26,10 +24,6 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Model_Observer
 {
@@ -42,11 +36,34 @@ class FireGento_Pdf_Model_Observer
      */
     public function addInvoiceNotes(Varien_Event_Observer $observer)
     {
-        $this->addInvoiceDateNotice($observer);
-        $this->addInvoiceMaturity($observer);
-        $this->addPaymentMethod($observer);
-        $this->addShippingMethod($observer);
-        $this->addInvoiceComments($observer);
+        $this->_addShippingCountryNotes($observer);
+        $this->_addInvoiceDateNotice($observer);
+        $this->_addInvoiceMaturity($observer);
+        $this->_addPaymentMethod($observer, 'invoice');
+        $this->_addShippingMethod($observer);
+        $this->_addInvoiceComments($observer);
+
+        return $this;
+    }
+
+    /**
+     * Add notes based on shipping country
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return $this
+     */
+    protected function _addShippingCountryNotes(Varien_Event_Observer $observer)
+    {
+        $order = $observer->getOrder();
+        $shippingCountryNotes = Mage::helper('firegento_pdf/invoice')->getShippingCountryNotes($order);
+
+        if (!empty($shippingCountryNotes)) {
+            $result  = $observer->getResult();
+            $notes   = $result->getNotes();
+            $notes = array_merge($notes, $shippingCountryNotes);
+            $result->setNotes($notes);
+        }
 
         return $this;
     }
@@ -58,7 +75,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return $this
      */
-    public function addInvoiceDateNotice(Varien_Event_Observer $observer)
+    protected function _addInvoiceDateNotice(Varien_Event_Observer $observer)
     {
         if (!Mage::getStoreConfigFlag('sales_pdf/invoice/show_date_notice')) {
             return $this;
@@ -78,7 +95,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    public function addInvoiceMaturity(Varien_Event_Observer $observer)
+    protected function _addInvoiceMaturity(Varien_Event_Observer $observer)
     {
         $result = $observer->getResult();
         $notes = $result->getNotes();
@@ -98,15 +115,15 @@ class FireGento_Pdf_Model_Observer
     }
 
     /**
-     * Add payment method to invoice notes.
+     * Add payment method to invoice / creditmemo notes.
      *
      * @param  Varien_Event_Observer $observer observer object
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    public function addPaymentMethod(Varien_Event_Observer $observer)
+    protected function _addPaymentMethod(Varien_Event_Observer $observer, $mode)
     {
-        if (Mage::getStoreConfig('sales_pdf/invoice/payment_method_position')
+        if (Mage::getStoreConfig('sales_pdf/' . $mode . '/payment_method_position')
             != FireGento_Pdf_Model_System_Config_Source_Payment::POSITION_NOTE
         ) {
             return $this;
@@ -128,7 +145,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    public function addShippingMethod(Varien_Event_Observer $observer)
+    protected function _addShippingMethod(Varien_Event_Observer $observer)
     {
         $invoice = $observer->getInvoice();
         $shipment = $observer->getShipment();
@@ -150,7 +167,6 @@ class FireGento_Pdf_Model_Observer
         return $this;
     }
 
-
     /**
      * Add the invoice comments
      *
@@ -158,7 +174,7 @@ class FireGento_Pdf_Model_Observer
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    public function addInvoiceComments(Varien_Event_Observer $observer)
+    protected function _addInvoiceComments(Varien_Event_Observer $observer)
     {
         if (!Mage::getStoreConfigFlag('sales_pdf/invoice/show_comments')) {
             return $this;
@@ -184,31 +200,154 @@ class FireGento_Pdf_Model_Observer
     }
 
     /**
-     * Adds a barcode representing the order number to the shipment if activated.
+     * Add notes to shipment document.
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addShipmentNotes(Varien_Event_Observer $observer)
+    {
+        $this->_addShippingMethod($observer);
+        $this->_addShipmentComments($observer);
+
+        return $this;
+    }
+
+    /**
+     * Add the shipment comments
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    protected function _addShipmentComments(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/show_comments')) {
+            return $this;
+        }
+
+        /** @var Mage_Sales_Model_Order_Shipment $shipment */
+        $shipment = $observer->getShipment();
+
+        /** @var Mage_Sales_Model_Resource_Order_Shipment_Comment_Collection $commentsCollection */
+        $commentsCollection = $shipment->getCommentsCollection();
+        $commentsCollection->addVisibleOnFrontFilter();
+
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+
+        foreach ($commentsCollection as $comment) {
+            /** @var $comment Mage_Sales_Model_Order_Shipment_Comment */
+            $notes[] = $comment->getComment();
+        }
+
+        $result->setNotes($notes);
+        return $this;
+    }
+
+    /**
+     * Add notes to credit memo document.
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addCreditmemoNotes(Varien_Event_Observer $observer)
+    {
+        $this->_addPaymentMethod($observer, 'creditmemo');
+        $this->_addCreditmemoComments($observer);
+
+        return $this;
+    }
+
+    /**
+     * Add the credit memo comments
+     *
+     * @param  Varien_Event_Observer $observer observer object
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    protected function _addCreditmemoComments(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/creditmemo/show_comments')) {
+            return $this;
+        }
+
+        /** @var Mage_Sales_Model_Order_Creditmemo $creditmemo */
+        $creditmemo = $observer->getCreditmemo();
+
+        /** @var Mage_Sales_Model_Resource_Order_Creditmemo_Comment_Collection $commentsCollection */
+        $commentsCollection = $creditmemo->getCommentsCollection();
+        $commentsCollection->addVisibleOnFrontFilter();
+
+        $result = $observer->getResult();
+        $notes = $result->getNotes();
+
+        foreach ($commentsCollection as $comment) {
+            /** @var $comment Mage_Sales_Model_Order_Creditmemo_Comment */
+            $notes[] = $comment->getComment();
+        }
+
+        $result->setNotes($notes);
+        return $this;
+    }
+
+    /**
+     * Adds a barcode representing the order number to the invoice if activated
+     *
+     * @param Varien_Event_Observer $observer observer which is passed by magento
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addInvoiceBarcode(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/invoice/order_id_as_barcode')) {
+            return $this;
+        }
+
+        return $this->_addBarcode($observer);
+    }
+
+    /**
+     * Adds a barcode representing the order number to the shipment if activated
+     *
+     * @param Varien_Event_Observer $observer observer which is passed by magento
+     *
+     * @return FireGento_Pdf_Model_Observer
+     */
+    public function addShipmentBarcode(Varien_Event_Observer $observer)
+    {
+        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/order_id_as_barcode')) {
+            return $this;
+        }
+
+        return $this->_addBarcode($observer);
+    }
+
+    /**
+     * Adds a barcode representing the order number to a PDF
      *
      * @param  Varien_Event_Observer $observer observer which is passed by magento
      *
      * @return FireGento_Pdf_Model_Observer
      */
-    public function addBarcode(Varien_Event_Observer $observer)
+    protected function _addBarcode(Varien_Event_Observer $observer)
     {
-        if (!Mage::getStoreConfigFlag('sales_pdf/shipment/order_id_as_barcode')) {
-            return $this;
-        }
         $page = $observer->getPage();
         $order = $observer->getOrder();
 
         $barcodeConfig = array(
             'drawText' => false,
             'orientation' => 90,
+            'barHeight' => 25,
             'text' => $order->getIncrementId()
         );
         $rendererConfig = array(
-            'verticalPosition' => 'middle',
-            'moduleSize' => 0.9
+            'verticalPosition' => 'top',
+            'moduleSize' => 1
         );
         // create dummy Zend_Pdf object, which just stores the current page, so that we can pass it in
-        // Zend_Barcode_Renderer_Pdf->setResource()
         $pdf = new Zend_Pdf();
         $pdf->pages[] = $page;
         /** @var $renderer Zend_Barcode_Renderer_Pdf */
@@ -216,6 +355,7 @@ class FireGento_Pdf_Model_Observer
         // calculate left offset so that barcode is printed on the right with a little margin
         $leftOffset = $page->getWidth() - $renderer->getBarcode()->getWidth(true) * $renderer->getModuleSize() - 10;
         $renderer->setLeftOffset($leftOffset);
+        $renderer->setTopOffset(50);
         $renderer->draw();
         return $this;
     }

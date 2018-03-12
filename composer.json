@@ -1,14 +1,16 @@
 {
-    "name": "firegento/pdf",
-    "license": ["GPL-3.0"],
-    "type": "magento-module",
-    "description": "FireGento Pdf overwrites standard PDF layouts for invoices and shipments.",
-    "homepage": "https://github.com/firegento/firegento-pdf",
-    "suggest": {
-        "magento-hackathon/localefallback": "Allows fallback for locales, especially german, swiss/austria",
-        "magento-hackathon/magento-composer-installer": "Magento composer installer (or a replacement) is needed to install this packages"
-    },
-    "require-dev": {
-        "ivanchepurnyi/ecomdev_phpunit": "dev-dev"
-    }
+  "name": "firegento/pdf",
+  "license": [
+    "GPL-3.0-only"
+  ],
+  "type": "magento-module",
+  "description": "FireGento Pdf overwrites standard PDF layouts for invoices and shipments.",
+  "homepage": "https://github.com/firegento/firegento-pdf",
+  "suggest": {
+    "magento-hackathon/localefallback": "Allows fallback for locales, especially german, swiss/austria",
+    "magento-hackathon/magento-composer-installer": "Magento composer installer (or a replacement) is needed to install this packages"
+  },
+  "require-dev": {
+    "ivanchepurnyi/ecomdev_phpunit": "dev-dev"
+  }
 }

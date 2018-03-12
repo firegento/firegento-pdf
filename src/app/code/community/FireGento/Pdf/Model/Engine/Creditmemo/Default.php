@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the FIREGENTO project.
+ * This file is part of a FireGento e.V. module.
  *
- * FireGento_Pdf is free software; you can redistribute it and/or
+ * This FireGento e.V. module is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
@@ -15,10 +15,8 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
+ * @copyright 2014 FireGento Team (http://www.firegento.com)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 /**
  * Creditmemo model rewrite.
@@ -26,10 +24,6 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2013 FireGento Team (http://www.firegento.com)
- * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
- * @version   $Id:$
- * @since     0.1.0
  */
 class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_Engine_Abstract
 {
@@ -52,6 +46,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
      */
     public function getPdf($creditmemos = array())
     {
+        $currentStore = Mage::app()->getStore()->getCode();
         $this->_beforeGetPdf();
         $this->_initRenderer('creditmemo');
 
@@ -65,6 +60,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 Mage::app()->getLocale()->emulate($creditmemo->getStoreId());
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
             }
+
             $order = $creditmemo->getOrder();
             $this->setOrder($order);
 
@@ -83,6 +79,7 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
                 if ($item->getOrderItem()->getParentItem()) {
                     continue;
                 }
+
                 /* Draw item */
                 $position++;
                 $this->_drawItem($item, $page, $order, $position);
@@ -100,13 +97,17 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
 
             // Add footer
             $this->_addFooter($page, $creditmemo->getStore());
+
+            if ($creditmemo->getStoreId()) {
+                Mage::app()->getLocale()->revert();
+            }
         }
+
+        // Revert back to the original current store
+        Mage::app()->setCurrentStore($currentStore);
 
         $this->_afterGetPdf();
 
-        if ($creditmemo->getStoreId()) {
-            Mage::app()->getLocale()->revert();
-        }
         return $pdf;
     }
 
@@ -119,8 +120,8 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
      */
     protected function _drawHeader(Zend_Pdf_Page $page)
     {
-        $page->setFillColor($this->colors['grey1']);
-        $page->setLineColor($this->colors['grey1']);
+        $page->setFillColor($this->colors['header']);
+        $page->setLineColor($this->colors['header']);
         $page->setLineWidth(1);
         $page->drawRectangle($this->margin['left'], $this->y, $this->margin['right'], $this->y - 15);
 
@@ -128,55 +129,62 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
         $font = $this->_setFontRegular($page, 9);
 
         $this->y -= 11;
+        $page->drawText(Mage::helper('firegento_pdf')->__('Pos'), $this->margin['left'] + 3, $this->y, $this->encoding);
         $page->drawText(
-            Mage::helper('firegento_pdf')->__('Pos'),
-            $this->margin['left'] + 3,
-            $this->y,
-            $this->encoding
+            Mage::helper('firegento_pdf')->__('No.'), $this->margin['left'] + 25, $this->y, $this->encoding
         );
         $page->drawText(
-            Mage::helper('firegento_pdf')->__('No.'),
-            $this->margin['left'] + 25,
-            $this->y,
-            $this->encoding
-        );
-        $page->drawText(
-            Mage::helper('firegento_pdf')->__('Description'),
-            $this->margin['left'] + 120,
-            $this->y,
-            $this->encoding
+            Mage::helper('firegento_pdf')->__('Description'), $this->margin['left'] + 130, $this->y, $this->encoding
         );
 
-        $singlePrice = Mage::helper('firegento_pdf')->__('Price (excl. tax)');
-        $page->drawText(
-            $singlePrice,
-            $this->margin['right'] - 153 - $this->widthForStringUsingFontSize($singlePrice, $font, 9),
-            $this->y,
-            $this->encoding
+        $columns = array();
+        $columns['price'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Price'),
+            '_width' => 60
         );
-
-        $page->drawText(
-            Mage::helper('firegento_pdf')->__('Qty'),
-            $this->margin['left'] + 360,
-            $this->y,
-            $this->encoding
+        $columns['price_incl_tax'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Price (incl. tax)'),
+            '_width' => 60
         );
-
-        $taxLabel = Mage::helper('firegento_pdf')->__('Tax');
-        $page->drawText(
-            $taxLabel,
-            $this->margin['right'] - 65 - $this->widthForStringUsingFontSize($taxLabel, $font, 9),
-            $this->y,
-            $this->encoding
+        $columns['qty'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Qty'),
+            '_width' => 40
         );
-
-        $totalLabel = Mage::helper('firegento_pdf')->__('Total');
-        $page->drawText(
-            $totalLabel,
-            $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),
-            $this->y,
-            $this->encoding
+        $columns['tax'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Tax'),
+            '_width' => 50
         );
+        $columns['tax_rate'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Tax rate'),
+            '_width' => 50
+        );
+        $columns['subtotal'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Total'),
+            '_width' => 50
+        );
+        $columns['subtotal_incl_tax'] = array(
+            'label'  => Mage::helper('firegento_pdf')->__('Total (incl. tax)'),
+            '_width' => 70
+        );
+        // draw price, tax, and subtotal in specified order
+        $columnsOrder = explode(',', Mage::getStoreConfig('sales_pdf/invoice/item_price_column_order'));
+        // draw starting from right
+        $columnsOrder = array_reverse($columnsOrder);
+        $columnOffset = 0;
+        foreach ($columnsOrder as $columnName) {
+            $columnName = trim($columnName);
+            if (array_key_exists($columnName, $columns)) {
+                $column = $columns[$columnName];
+                $labelWidth = $this->widthForStringUsingFontSize($column['label'], $font, 9);
+                $page->drawText(
+                    $column['label'],
+                    $this->margin['right'] - $columnOffset - $labelWidth,
+                    $this->y,
+                    $this->encoding
+                );
+                $columnOffset += $column['_width'];
+            }
+        }
     }
 
     /**
@@ -204,6 +212,10 @@ class FireGento_Pdf_Model_Engine_Creditmemo_Default extends FireGento_Pdf_Model_
         );
         $this->_renderers['downloadable'] = array(
             'model'    => 'firegento_pdf/items_downloadable',
+            'renderer' => null
+        );
+        $this->_renderers['ugiftcert'] = array(
+            'model'    => 'firegento_pdf/items_unirgy_default',
             'renderer' => null
         );
     }
