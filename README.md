@@ -6,7 +6,7 @@ FireGento PDF overwrites standard PDF layouts for invoices, shipments and credit
 
 Facts
 -----
-- version: 1.3.0
+- version: 1.4.0
 - extension key: FireGento_Pdf
 - [extension on GitHub](https://github.com/firegento/firegento-pdf)
 - [direct download link](https://github.com/firegento/firegento-pdf/archive/master.zip)
