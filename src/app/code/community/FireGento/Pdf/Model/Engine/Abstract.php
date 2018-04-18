@@ -685,7 +685,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
         }
 
         $transportObject = new Varien_Object();
-        $transportObject->setData(array('lines' => $this->headerLines));
+        $transportObject->setData(array('lines' => $this->_headerLines));
         Mage::dispatchEvent(
             'firegento_pdf_header_lines',
             array('headerLines' => $transportObject)
@@ -694,7 +694,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             'firegento_pdf_' . $this->getMode() . '_header_lines',
             array('headerLines' => $transportObject)
         );
-        $this->headerLines = $transportObject->getData('lines');
+        $this->_headerLines = $transportObject->getData('lines');
         $helper            = Mage::helper('firegento_pdf');
         foreach ($this->_headerLines as $line) {
             $font = $this->setFont($line, $page);
