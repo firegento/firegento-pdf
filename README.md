@@ -1,6 +1,6 @@
 FireGento PDF
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 =============
 [![Build Status](https://travis-ci.org/firegento/firegento-pdf.svg?branch=development)](https://travis-ci.org/firegento/firegento-pdf/)
@@ -73,6 +73,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://www.simonsprankel.com/"><img src="https://avatars1.githubusercontent.com/u/930199?v=4" width="100px;" alt=""/><br /><sub><b>Simon Sprankel</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=sprankhub" title="Code">💻</a></td>
     <td align="center"><a href="http://www.fabian-blechschmidt.de/"><img src="https://avatars1.githubusercontent.com/u/379680?v=4" width="100px;" alt=""/><br /><sub><b>Fabian Blechschmidt</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=Schrank" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/daim2k5"><img src="https://avatars3.githubusercontent.com/u/656150?v=4" width="100px;" alt=""/><br /><sub><b>Damian Luszczymak</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=daim2k5" title="Code">💻</a></td>
   </tr>
 </table>
 
