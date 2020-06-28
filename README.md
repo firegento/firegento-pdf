@@ -122,5 +122,5 @@ FireGento team and all other [contributors](https://github.com/firegento/firegen
 
 ## Copyright
 
-(c) 2013-2018 FireGento Team
+(c) 2013-2020 FireGento Team
 
