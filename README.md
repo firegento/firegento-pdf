@@ -1,6 +1,6 @@
 FireGento PDF
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 =============
 [![Build Status](https://travis-ci.org/firegento/firegento-pdf.svg?branch=development)](https://travis-ci.org/firegento/firegento-pdf/)
@@ -82,6 +82,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://www.aadmathijssen.nl/"><img src="https://avatars0.githubusercontent.com/u/3796971?v=4" width="100px;" alt=""/><br /><sub><b>Aad Mathijssen</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=aadmathijssen" title="Code">💻</a></td>
     <td align="center"><a href="http://vinaikopp.com/"><img src="https://avatars0.githubusercontent.com/u/72463?v=4" width="100px;" alt=""/><br /><sub><b>Vinai Kopp</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=Vinai" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.mage-profis.de/"><img src="https://avatars0.githubusercontent.com/u/710748?v=4" width="100px;" alt=""/><br /><sub><b>Mathis Klooß</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=mklooss" title="Code">💻</a></td>
   </tr>
 </table>
 
