@@ -1,6 +1,6 @@
 FireGento PDF
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 =============
 [![Build Status](https://travis-ci.org/firegento/firegento-pdf.svg?branch=development)](https://travis-ci.org/firegento/firegento-pdf/)
@@ -95,6 +95,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/infabo"><img src="https://avatars0.githubusercontent.com/u/3999104?v=4" width="100px;" alt=""/><br /><sub><b>Ingo Fabbri</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=infabo" title="Code">💻</a></td>
     <td align="center"><a href="https://www.gerhard-fobe.de/"><img src="https://avatars3.githubusercontent.com/u/1615283?v=4" width="100px;" alt=""/><br /><sub><b>Gerhard Fobe</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=gfobe" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/borriglione"><img src="https://avatars2.githubusercontent.com/u/465544?v=4" width="100px;" alt=""/><br /><sub><b>André Herrn</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=borriglione" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/TheJotob"><img src="https://avatars3.githubusercontent.com/u/2641450?v=4" width="100px;" alt=""/><br /><sub><b>Joachim Eckerlin</b></sub></a><br /><a href="https://github.com/firegento/firegento-pdf/commits?author=TheJotob" title="Code">💻</a></td>
   </tr>
 </table>
 
