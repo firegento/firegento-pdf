@@ -146,7 +146,7 @@ class FireGento_Pdf_Model_Items_Downloadable
 
         // prepare tax_rate
         $columns['tax_rate'] = array(
-            'text'      => round($item->getOrderItem()->getTaxPercent(), 2) . '%',
+            'text'      => round((float)$item->getOrderItem()->getTaxPercent(), 2) . '%',
             'align'     => 'right',
             'font_size' => $fontSize,
             '_width'    => 50

@@ -157,7 +157,7 @@ class FireGento_Pdf_Model_Items_Bundle extends Mage_Bundle_Model_Sales_Order_Pdf
 
                 // prepare tax_rate
                 $columns['tax_rate'] = array(
-                    'text'      => round($_item->getOrderItem()->getTaxPercent(), 2) . '%',
+                    'text'      => round((float)$_item->getOrderItem()->getTaxPercent(), 2) . '%',
                     'align'     => 'right',
                     'font_size' => $fontSize,
                     '_width'    => 50

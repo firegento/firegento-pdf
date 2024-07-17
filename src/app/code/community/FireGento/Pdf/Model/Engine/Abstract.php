@@ -911,7 +911,7 @@ abstract class FireGento_Pdf_Model_Engine_Abstract
             if (((float)$item['tax_amount'] > 0)
                 && ((float)$item['row_invoiced'] > 0)
             ) {
-                $_percent = round($item["tax_percent"], 0);
+                $_percent = round((float)$item["tax_percent"], 0);
             }
             if (!array_key_exists('tax_inc_subtotal', $item)
                 || $item['tax_inc_subtotal']
